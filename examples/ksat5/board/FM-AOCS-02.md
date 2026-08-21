@@ -1,13 +1,13 @@
 ---
 id: FM-AOCS-02
 title: 비행품(FM) 제작
-status: OPEN
+status: TAKEN
 parent: M2-AOCS
-owner: -
+owner: AOCS-MFG
 deliverable: -
 after: FM-AOCS-01
 track: AOCS
-started: -
+started: 2026-08-21 07:36:32
 finished: -
 ---
 

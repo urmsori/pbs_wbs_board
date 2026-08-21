@@ -1,14 +1,14 @@
 ---
 id: RISK-LINK
 title: EOD 링크마진 0dB 확보 설계 종결
-status: TAKEN
+status: DONE
 parent: INT2
 owner: COMM-DSN
-deliverable: -
+deliverable: examples/ksat5/deliverables/COMM/link-margin-fix.md,examples/ksat5/deliverables/COMM/antenna-design.md
 after: -
 track: COMM
 started: 2026-08-21 07:35:35
-finished: -
+finished: 2026-08-21 07:36:40
 ---
 
 (담당 역할: COMM-DSN)
@@ -22,3 +22,4 @@ AIT의 필요: EM 인수시험(rx-comm.md)에서 EOD 6.8V 조건 PA 출력을
 이득, EOD 전압에서의 PA 출력 유지 중 팀이 판단해 선택)을 확정하고
 재검증까지 마쳐 종결하라.
 산출물: examples/ksat5/deliverables/COMM/link-margin-fix.md
+검증: 방안A(피드망 위상 재최적화, 무게/전력 영향없음) 채택, EOD 마진 6.0dB(여유0)→7.5dB(여유1.5dB) 재계산 확인; 방사패턴 실측은 FM AIT로 이월
