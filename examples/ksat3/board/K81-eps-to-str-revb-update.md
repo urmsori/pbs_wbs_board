@@ -1,13 +1,13 @@
 ---
 id: K81
 title: eps-to-str.md를 EPS Rev.B 기준으로 갱신
-status: OPEN
+status: TAKEN
 parent: K40
-owner: -
+owner: sonnet-eps
 deliverable: -
 after: -
 track: EPS
-started: -
+started: 2026-08-21 02:20:35
 finished: -
 ---
 

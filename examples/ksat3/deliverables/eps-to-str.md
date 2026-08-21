@@ -1,6 +1,6 @@
 # EPS 전장 스택 — 질량·발열·외형·장착 인터페이스 (K51)
 
-입력: examples/ksat3/deliverables/sysreq.md, examples/ksat3/deliverables/eps-em.md
+입력: examples/ksat3/deliverables/sysreq.md, examples/ksat3/deliverables/eps-em.md(Rev.B)
 
 eps-em.md 초안(DET + 1S2P 18650 배터리, 평시 소비 4.3 W)의 하드웨어 구성을
 기준으로 트레이 설계에 필요한 값을 정리한다.
