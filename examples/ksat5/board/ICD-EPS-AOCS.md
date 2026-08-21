@@ -1,13 +1,13 @@
 ---
 id: ICD-EPS-AOCS
 title: AOCS 구동기 소비 전력 프로파일 요청
-status: OPEN
+status: TAKEN
 parent: EPS-03
-owner: -
+owner: AOCS-DSN
 deliverable: -
 after: -
 track: AOCS
-started: -
+started: 2026-08-21 07:05:08
 finished: -
 ---
 
