@@ -1,13 +1,13 @@
 ---
 id: K90
 title: FM 인도
-status: OPEN
+status: TAKEN
 parent: K00
-owner: -
+owner: claude
 deliverable: -
 after: K40
 track: SAT
-started: -
+started: 2026-08-21 02:26:04
 finished: -
 ---
 
