@@ -1,13 +1,13 @@
 ---
 id: 000
 title: PBS WBS Board 규칙 만들기
-status: TAKEN
+status: DONE
 parent: -
 owner: claude
 deliverable: RULES.md, VALIDATION.md
 after: -
 started: 2026-08-21 00:02
-finished: -
+finished: 2026-08-21 02:30:18
 ---
 
 Product: 에이전트와 사람이 Board로 Work를 주고받아 Product를 만들고, 산출물을

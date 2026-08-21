@@ -31,3 +31,10 @@ K-SAT 2(../satellite-full/, 반례)와 정반대의 진행 방식이다.
 
 에이전트: sonnet-str / sonnet-eps / sonnet-comm (트랙, 웨이브마다 같은
 에이전트가 이어서), sonnet-ait (통합시험), claude (루트·요구·취합).
+
+## 결과 (루트 K00 취합)
+
+- 게시글 20건(선게시 7 + 발견 13) 전부 DONE — "FM 인도 가능"
+  ([fm-delivery.md](deliverables/fm-delivery.md)).
+- 재작업 기록: EPS Rev.A→B 재설계 1회, 통합시험 1차 불합격 3건 → 수정
+  4건(K81~K84) → 재시험 합격. 잔여 리스크는 숨기지 않고 인도 문서에 승계.

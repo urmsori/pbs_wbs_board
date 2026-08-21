@@ -1,14 +1,14 @@
 ---
 id: 021
 title: 규칙 개정 v2.3 — Work의 단위, 발견되는 보드, 재작업 루프
-status: TAKEN
+status: DONE
 parent: 000
 owner: claude
-deliverable: -
+deliverable: RULES.md, VALIDATION.md
 after: 020
 track: -
 started: 2026-08-21 02:02:30
-finished: -
+finished: 2026-08-21 02:30:18
 ---
 
 불편이 아니라 **오용의 발견**이다. K-SAT 2(examples/satellite-full)를 돌려
@@ -31,3 +31,4 @@ finished: -
 ③ 검증 불합격·재작업·같은 산출물의 반복 갱신이 정상 경로, ④ 산출물은
 머리에 입력(다른 산출물 경로)을 밝힌다. 검증은 이 원칙대로 새 예시
 (examples/ksat3)를 실제로 돌려서 한다.
+검증: K-SAT 3 실증 — 선게시 7건→발견 13건, 트랙당 Work 1건+내부 작업기록, EPS Rev.A→B 재작업, 통합시험 1차 불합격 3건→수정→재시험 합격, 입력 없는 산출물은 sysreq 하나뿐
