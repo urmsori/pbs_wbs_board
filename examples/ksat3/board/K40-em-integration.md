@@ -1,13 +1,13 @@
 ---
 id: K40
 title: EM 통합시험
-status: OPEN
+status: TAKEN
 parent: K00
-owner: -
+owner: sonnet-ait
 deliverable: -
 after: K10,K20,K30
 track: SAT
-started: -
+started: 2026-08-21 02:14:41
 finished: -
 ---
 
