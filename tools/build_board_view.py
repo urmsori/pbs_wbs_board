@@ -271,7 +271,7 @@ def build_gantt(sel_posts, by_id, now, base_depth=0):
             pos[p["id"]] = (i, start, end)
         status = p["status"].upper()
         depth = max(depth_of(p, by_id) - base_depth, 0)
-        if start:
+        if start or p.get("_synth"):
             wait = ""
         elif is_ready(p, by_id):
             wait = ' <span class="ready">집기 가능</span>'
@@ -328,6 +328,50 @@ def build_gantt(sel_posts, by_id, now, base_depth=0):
     )
     body = f'<div class="g-body"><div class="g-labels">{"".join(labels)}</div><div class="g-area">{svg}</div></div>'
     return f'<div class="gantt">{axis}{body}</div>'
+
+
+def synthetic_rollup(key, group, now):
+    """그룹(트랙/사람)의 Work 전체를 한 줄 막대로 요약하는 합성 게시글."""
+    starts = [parse_dt(p["started"]) for p in group if parse_dt(p["started"])]
+    ends = [parse_dt(p["finished"]) for p in group if parse_dt(p["finished"])]
+    done = sum(1 for p in group if p["status"].upper() == "DONE")
+    all_done = done == len(group)
+    return {
+        "id": key, "title": f"{done}/{len(group)}건",
+        "status": "DONE" if all_done and group else ("TAKEN" if starts else "OPEN"),
+        "parent": "-", "owner": "-", "deliverable": "x", "after": "-",
+        "track": key, "body": "", "file": "", "_synth": True,
+        "started": min(starts).strftime("%Y-%m-%d %H:%M:%S") if starts else "-",
+        "finished": max(ends).strftime("%Y-%m-%d %H:%M:%S") if (all_done and ends) else "-",
+    }
+
+
+def build_lane_gantt(posts, by_id, now, keyname):
+    """레인 Gantt: 그룹(track 또는 owner) 롤업 막대 + 그룹별 상세(접힘)."""
+    groups = {}
+    for p in posts:
+        k = p.get(keyname, "-") or "-"
+        if k == "-":
+            k = "(미배정)" if keyname == "owner" else "(트랙 없음)"
+        groups.setdefault(k, []).append(p)
+
+    def group_start(kv):
+        starts = [parse_dt(p["started"]) for p in kv[1] if parse_dt(p["started"])]
+        return (min(starts) if starts else datetime.datetime.max, kv[0])
+
+    ordered = sorted(groups.items(), key=group_start)
+    rollups = [synthetic_rollup(k, g, now) for k, g in ordered]
+    out = [build_gantt(rollups, by_id, now)]
+    out.append('<p class="legend">레인 막대 = 그 그룹 Work 전체 구간. 아래에서 그룹을 펼치면 개별 Work가 보인다.</p>')
+    for k, g in ordered:
+        g_sorted = sorted(g, key=lambda p: (parse_dt(p["started"]) or datetime.datetime.max, p["id"]))
+        done = sum(1 for p in g_sorted if p["status"].upper() == "DONE")
+        out.append(
+            f'<details class="gsec"><summary>{track_badge({"track": k})}{esc(k)} '
+            f'<span class="prog">{done}/{len(g_sorted)}</span></summary>'
+            f'{build_gantt(g_sorted, by_id, now)}</details>'
+        )
+    return "".join(out)
 
 
 def build_gantt_section(posts, by_id, children, now, memo, roots):
@@ -561,7 +605,9 @@ def main():
 
     wbs = "".join(wbs_node(r, children, by_id, memo) for r in roots)
     pbs = "".join(pbs_node(r, children, by_id) for r in roots)
-    gantt = build_gantt_section(posts, by_id, children, now, memo, roots)
+    gantt_hier = build_gantt_section(posts, by_id, children, now, memo, roots)
+    gantt_track = build_lane_gantt(posts, by_id, now, "track")
+    gantt_owner = build_lane_gantt(posts, by_id, now, "owner")
     composition = product_composition(posts, large)
     timeline = timeline_section(posts, large)
     lvl = level_summary(posts, by_id)
@@ -616,6 +662,15 @@ def main():
   details.gsec {{ margin: .4rem 0; border: 1px solid #eee; border-radius: .4rem;
                   padding: .3rem .6rem; }}
   details.gsec > summary {{ cursor: pointer; }}
+  details.top {{ margin: 1.6rem 0 0; }}
+  details.top > summary {{ cursor: pointer; font-size: 1.15rem; font-weight: 700;
+                           border-bottom: 1px solid #ddd; padding-bottom: .3rem; }}
+  .gmode {{ margin: .4rem 0 .6rem; }}
+  .gmode button {{ font: inherit; font-size: .85rem; padding: .25rem .8rem;
+                   border: 1px solid #ccc; background: #f6f8fa; cursor: pointer; }}
+  .gmode button:first-child {{ border-radius: .4rem 0 0 .4rem; }}
+  .gmode button:last-child {{ border-radius: 0 .4rem .4rem 0; }}
+  .gmode button.on {{ background: #0b57d0; color: #fff; border-color: #0b57d0; }}
   .gantt {{ border: 1px solid #e5e5e5; border-radius: .5rem; padding: .6rem .8rem;
             margin: .4rem 0; }}
   .g-row {{ display: flex; align-items: center; gap: .6rem; margin: .3rem 0; }}
@@ -647,31 +702,55 @@ def main():
   {esc(state_line)}{ready_line}</p>
 {warn_html}
 
-<h2>레벨·트랙 요약 <span class="meta">(레벨이 깊을수록 가벼운 에이전트가 집는다 — 규칙 4절)</span></h2>
-{lvl}
-{trk}
-
-<h2>WBS — Work 분해 트리 <span class="meta">(부모의 n/m = 하위 DONE/전체)</span></h2>
-{wbs}
-
-<h2>Gantt — Work 시간표 (겹치는 막대 = 병렬, 화살표 = after 종속성)</h2>
-{gantt}
+<h2>Gantt — Work 시간표 <span class="meta">(겹치는 막대 = 병렬, 화살표 = after 종속성)</span></h2>
+<div class="gmode">
+  <button data-g="g-track" class="on">모듈별</button>
+  <button data-g="g-owner">사람별</button>
+  <button data-g="g-hier">계층</button>
+</div>
+<div id="g-track">{gantt_track}</div>
+<div id="g-owner" hidden>{gantt_owner}</div>
+<div id="g-hier" hidden>{gantt_hier}</div>
 <p class="legend">
   <span class="chip" style="background:#34a853"></span> DONE ·
   <span class="chip" style="background:#f9ab00"></span> TAKEN(진행 중, 현재 시각까지 표시) ·
   화살표는 같은 Gantt 안의 선행만 그린다(밖의 선행은 라벨의 "선행: "으로 표시).
   루트(취합) Work의 막대는 항상 가장 늦게 끝난다.</p>
 
-<h2>PBS — Product 구성 (산출물 중복 제거, 그 시점의 Product)</h2>
+<details class="top"><summary>레벨·트랙 요약 <span class="meta">(레벨이 깊을수록 가벼운 에이전트 — 규칙 4절)</span></summary>
+{lvl}
+{trk}
+</details>
+
+<details class="top"><summary>WBS — Work 분해 트리 <span class="meta">(부모의 n/m = 하위 DONE/전체)</span></summary>
+{wbs}
+</details>
+
+<details class="top"><summary>PBS — Product 구성 <span class="meta">(산출물 중복 제거, 그 시점의 Product)</span></summary>
 {composition}
 <p class="legend">같은 파일을 여러 Work가 갱신해도 한 번만 나타난다 —
 일부만 갱신한 Work는 이 목록을 바꾸지 않을 수 있다.</p>
+</details>
 
-<h2>PBS — 산출물 분해 트리 (구조로 취합)</h2>
+<details class="top"><summary>PBS — 산출물 분해 트리 (구조로 취합)</summary>
 {pbs}
+</details>
 
-<h2>산출물 시간 순 목록 (finished 순으로 취합)</h2>
+<details class="top"><summary>산출물 시간 순 목록 (finished 순으로 취합)</summary>
 {timeline}
+</details>
+
+<script>
+document.querySelectorAll('.gmode button').forEach(function (b) {{
+  b.addEventListener('click', function () {{
+    document.querySelectorAll('.gmode button').forEach(function (x) {{ x.classList.remove('on'); }});
+    b.classList.add('on');
+    ['g-track', 'g-owner', 'g-hier'].forEach(function (id) {{
+      document.getElementById(id).hidden = (id !== b.dataset.g);
+    }});
+  }});
+}});
+</script>
 
 <p class="meta">이 페이지는 <code>python3 tools/build_board_view.py
 {esc(os.path.relpath(BOARD, ROOT))}</code>가 보드의 게시글에서 생성한다.
