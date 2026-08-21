@@ -1,0 +1,17 @@
+---
+id: K00
+title: K-SAT 3 기술검증 큐브샛 개발
+status: TAKEN
+parent: -
+owner: claude
+deliverable: -
+after: -
+track: SAT
+started: 2026-08-21 02:04:00
+finished: -
+---
+
+Product: 수락시험을 마친 K-SAT 3 FM(2U 기술검증 큐브샛)과 검증 기록.
+규칙 v2.3의 검증 예시: 보드는 계획표가 아니라 필요의 기록이다 — 지금 확실한
+필요만 올리고, 나머지는 트랙들이 일하다 발견하는 대로 올라온다. 게시글은
+인수인계 경계에만 생기고, 내부 단계는 각 Work 본문의 작업 기록으로 남는다.

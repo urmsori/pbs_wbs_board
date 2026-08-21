@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PBS WBS Board — K-SAT 3 기술검증 큐브샛 개발</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 2rem auto; max-width: 62rem;
+         padding: 0 1rem; color: #1a1a1a; background: #fff; line-height: 1.6; }
+  h1 { font-size: 1.5rem; } h2 { font-size: 1.15rem; margin-top: 2rem;
+       border-bottom: 1px solid #ddd; padding-bottom: .3rem; }
+  h3 { font-size: .95rem; color: #555; }
+  ul { list-style: none; padding-left: 1.2rem; border-left: 1px solid #e5e5e5; }
+  li { margin: .35rem 0; }
+  .badge { display: inline-block; font-size: .7rem; font-weight: 700;
+            padding: .1rem .45rem; border-radius: .6rem; vertical-align: middle; }
+  .badge.open  { background: #fde8e8; color: #b42318; }
+  .badge.taken { background: #fef4e6; color: #b25e09; }
+  .badge.done  { background: #e6f4ea; color: #1e7e34; }
+  .tbadge { display: inline-block; font-size: .68rem; font-weight: 600;
+             padding: 0 .4rem; border-radius: .5rem; vertical-align: middle; }
+  .ready { display: inline-block; font-size: .68rem; font-weight: 700;
+            padding: 0 .4rem; border-radius: .5rem; background: #d3e3fd;
+            color: #0b57d0; vertical-align: middle; }
+  .prog { font-size: .72rem; color: #1e7e34; background: #eef7f0;
+           padding: 0 .35rem; border-radius: .5rem; }
+  .pid { color: #888; font-family: monospace; }
+  .meta { color: #888; font-size: .85rem; }
+  .pending { color: #aaa; }
+  .deliv { font-family: monospace; }
+  .summary { background: #f6f8fa; border: 1px solid #e5e5e5; border-radius: .5rem;
+              padding: .8rem 1rem; }
+  .warnbox { background: #fdecea; border: 1px solid #f5c6c0; border-radius: .5rem;
+              padding: .8rem 1rem; margin-top: 1rem; color: #8a1f11; }
+  .warnbox ul { border-left: none; margin: .3rem 0 0; }
+  a { color: #0b57d0; text-decoration: none; } a:hover { text-decoration: underline; }
+  table.lvl { border-collapse: collapse; font-size: .85rem; margin: .5rem 0; }
+  table.lvl th, table.lvl td { border: 1px solid #e5e5e5; padding: .2rem .6rem; text-align: right; }
+  table.lvl th { background: #f6f8fa; } table.lvl td:first-child { text-align: left; }
+  .bar { display: inline-block; width: 6rem; height: .55rem; background: #eee;
+          border-radius: .3rem; vertical-align: middle; overflow: hidden; }
+  .bar div { height: 100%; background: #34a853; }
+  details.wbs { margin: .15rem 0; }
+  details.wbs > summary { cursor: pointer; list-style-position: outside; }
+  .wbs-kids { margin-left: 1.1rem; padding-left: .5rem; border-left: 1px solid #e5e5e5; }
+  .wbs-leaf { margin: .15rem 0 .15rem 1.1rem; padding-left: .5rem; }
+  details.gsec { margin: .4rem 0; border: 1px solid #eee; border-radius: .4rem;
+                  padding: .3rem .6rem; }
+  details.gsec > summary { cursor: pointer; }
+  .gantt { border: 1px solid #e5e5e5; border-radius: .5rem; padding: .6rem .8rem;
+            margin: .4rem 0; }
+  .g-row { display: flex; align-items: center; gap: .6rem; margin: .3rem 0; }
+  .g-body { display: flex; gap: .6rem; align-items: flex-start; }
+  .g-labels { flex: 0 0 20rem; }
+  .g-label { flex: 0 0 20rem; height: 26px; line-height: 26px; font-size: .85rem;
+              overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .g-area { flex: 1; min-width: 0; }
+  .g-chart { width: 100%; display: block; background: #f8fafc; border-radius: .3rem; }
+  .g-strip { fill: #eef1f5; }
+  .g-bar.done  { fill: #34a853; }
+  .g-bar.taken { fill: #f9ab00; }
+  .g-bar.open  { fill: #d93025; }
+  .g-dep { fill: none; stroke: #5f6b7a; stroke-width: 1.3; opacity: .75; }
+  .g-dep-head { fill: #5f6b7a; opacity: .85; }
+  .g-axis .g-track { background: none; display: flex; justify-content: space-between;
+                      font-size: .75rem; color: #888; height: auto; flex: 1; }
+  .legend { font-size: .8rem; color: #666; margin-top: .4rem; }
+  .chip { display: inline-block; width: .8rem; height: .8rem; border-radius: .2rem;
+           vertical-align: -.1rem; }
+</style>
+</head>
+<body>
+<h1>PBS WBS Board <span class="meta">— K-SAT 3 기술검증 큐브샛 개발</span></h1>
+<p class="summary">게시글 7건 —
+  <span class="badge open">OPEN</span> 5 ·
+  <span class="badge taken">TAKEN</span> 1 ·
+  <span class="badge done">DONE</span> 1<br>
+  진행 중: OPEN 게시글을 집어 계속한다.<br>집기 가능 3건: K10, K20, K30</p>
+
+
+<h2>레벨·트랙 요약 <span class="meta">(레벨이 깊을수록 가벼운 에이전트가 집는다 — 규칙 4절)</span></h2>
+<table class="lvl"><tr><th>레벨</th><th>게시글</th><th>OPEN</th><th>TAKEN</th><th>DONE</th><th>진행률</th></tr><tr><td>L0</td><td>1</td><td>0</td><td>1</td><td>0</td><td><div class="bar"><div style="width:0%"></div></div> 0%</td></tr><tr><td>L1</td><td>6</td><td>5</td><td>0</td><td>1</td><td><div class="bar"><div style="width:16%"></div></div> 16%</td></tr></table>
+<table class="lvl"><tr><th>track</th><th>게시글</th><th>OPEN</th><th>TAKEN</th><th>DONE</th><th>진행률</th></tr><tr><td>COMM</td><td>1</td><td>1</td><td>0</td><td>0</td><td><div class="bar"><div style="width:0%"></div></div> 0%</td></tr><tr><td>EPS</td><td>1</td><td>1</td><td>0</td><td>0</td><td><div class="bar"><div style="width:0%"></div></div> 0%</td></tr><tr><td>SAT</td><td>3</td><td>2</td><td>1</td><td>0</td><td><div class="bar"><div style="width:0%"></div></div> 0%</td></tr><tr><td>STR</td><td>1</td><td>1</td><td>0</td><td>0</td><td><div class="bar"><div style="width:0%"></div></div> 0%</td></tr><tr><td>SYS</td><td>1</td><td>0</td><td>0</td><td>1</td><td><div class="bar"><div style="width:100%"></div></div> 100%</td></tr></table>
+
+<h2>WBS — Work 분해 트리 <span class="meta">(부모의 n/m = 하위 DONE/전체)</span></h2>
+<details class="wbs" open><summary><span class="badge taken">TAKEN</span> <span class="pid">K00</span> <span class="tbadge" style="background:#e8f0fe;color:#1a56c4">SAT</span> <a href="board/K00-ksat3.md">K-SAT 3 기술검증 큐브샛 개발</a> <span class="prog">1/7</span> <span class="meta">담당: claude</span></summary><div class="wbs-kids"><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">K01</span> <span class="tbadge" style="background:#fce8f3;color:#b4257a">SYS</span> <a href="board/K01-sysreq.md">시스템 요구사항 정의</a> <span class="meta">담당: claude</span></div><div class="wbs-leaf"><span class="badge open">OPEN</span> <span class="pid">K10</span> <span class="tbadge" style="background:#e6f4ea;color:#1e7e34">STR</span> <a href="board/K10-str-em.md">구조 EM 개발</a> <span class="ready">집기 가능</span> <span class="meta">선행: K01</span></div><div class="wbs-leaf"><span class="badge open">OPEN</span> <span class="pid">K20</span> <span class="tbadge" style="background:#fef3e0;color:#a05a00">EPS</span> <a href="board/K20-eps-em.md">전력 EM 개발</a> <span class="ready">집기 가능</span> <span class="meta">선행: K01</span></div><div class="wbs-leaf"><span class="badge open">OPEN</span> <span class="pid">K30</span> <span class="tbadge" style="background:#ede7f6;color:#5e35b1">COMM</span> <a href="board/K30-comm-em.md">통신 EM 개발</a> <span class="ready">집기 가능</span> <span class="meta">선행: K01</span></div><div class="wbs-leaf"><span class="badge open">OPEN</span> <span class="pid">K40</span> <span class="tbadge" style="background:#e8f0fe;color:#1a56c4">SAT</span> <a href="board/K40-em-integration.md">EM 통합시험</a> <span class="meta">선행: K10,K20,K30</span></div><div class="wbs-leaf"><span class="badge open">OPEN</span> <span class="pid">K90</span> <span class="tbadge" style="background:#e8f0fe;color:#1a56c4">SAT</span> <a href="board/K90-fm-delivery.md">FM 인도</a> <span class="meta">선행: K40</span></div></div></details>
+
+<h2>Gantt — Work 시간표 (겹치는 막대 = 병렬, 화살표 = after 종속성)</h2>
+<div class="gantt"><div class="g-row g-axis"><div class="g-label"></div><div class="g-track"><span>2026-08-21 02:04:00</span><span class="g-right">2026-08-21 02:04:27</span></div></div><div class="g-body"><div class="g-labels"><div class="g-label" style="padding-left:0.0rem"><span class="pid">K00</span> <span class="tbadge" style="background:#e8f0fe;color:#1a56c4">SAT</span> K-SAT 3 기술검증 큐브샛 개발</div><div class="g-label" style="padding-left:0.9rem"><span class="pid">K01</span> <span class="tbadge" style="background:#fce8f3;color:#b4257a">SYS</span> 시스템 요구사항 정의</div><div class="g-label" style="padding-left:0.9rem"><span class="pid">K10</span> <span class="tbadge" style="background:#e6f4ea;color:#1e7e34">STR</span> 구조 EM 개발 <span class="ready">집기 가능</span></div><div class="g-label" style="padding-left:0.9rem"><span class="pid">K20</span> <span class="tbadge" style="background:#fef3e0;color:#a05a00">EPS</span> 전력 EM 개발 <span class="ready">집기 가능</span></div><div class="g-label" style="padding-left:0.9rem"><span class="pid">K30</span> <span class="tbadge" style="background:#ede7f6;color:#5e35b1">COMM</span> 통신 EM 개발 <span class="ready">집기 가능</span></div><div class="g-label" style="padding-left:0.9rem"><span class="pid">K40</span> <span class="tbadge" style="background:#e8f0fe;color:#1a56c4">SAT</span> EM 통합시험 <span class="meta">— 대기(선행 미완)</span></div><div class="g-label" style="padding-left:0.9rem"><span class="pid">K90</span> <span class="tbadge" style="background:#e8f0fe;color:#1a56c4">SAT</span> FM 인도 <span class="meta">— 대기(선행 미완)</span></div></div><div class="g-area"><svg class="g-chart" viewBox="0 0 1000 182" preserveAspectRatio="none" style="height:182px"><rect class="g-strip" x="0" y="26" width="1000" height="26"/><rect class="g-strip" x="0" y="78" width="1000" height="26"/><rect class="g-strip" x="0" y="130" width="1000" height="26"/><rect class="g-bar taken" x="0.0" y="6" width="450.0" height="14" rx="2"><title>K00 K-SAT 3 기술검증 큐브샛 개발 — 2026-08-21 02:04:00 ~ 진행 중</title></rect><rect class="g-bar done" x="450.0" y="32" width="12.0" height="14" rx="2"><title>K01 시스템 요구사항 정의 — 2026-08-21 02:04:27 ~ 2026-08-21 02:04:27</title></rect></svg></div></div></div>
+<p class="legend">
+  <span class="chip" style="background:#34a853"></span> DONE ·
+  <span class="chip" style="background:#f9ab00"></span> TAKEN(진행 중, 현재 시각까지 표시) ·
+  화살표는 같은 Gantt 안의 선행만 그린다(밖의 선행은 라벨의 "선행: "으로 표시).
+  루트(취합) Work의 막대는 항상 가장 늦게 끝난다.</p>
+
+<h2>PBS — Product 구성 (산출물 중복 제거, 그 시점의 Product)</h2>
+<ul><li><a class="deliv" href="deliverables/sysreq.md">examples/ksat3/deliverables/sysreq.md</a> <span class="meta">← Work K01 · 마지막 갱신 2026-08-21 02:04:27</span></li></ul>
+<p class="legend">같은 파일을 여러 Work가 갱신해도 한 번만 나타난다 —
+일부만 갱신한 Work는 이 목록을 바꾸지 않을 수 있다.</p>
+
+<h2>PBS — 산출물 분해 트리 (구조로 취합)</h2>
+<details class="wbs" open><summary><span class="pid">K00</span> <span class="pending">(산출물 아직 없음)</span> <span class="meta">← K-SAT 3 기술검증 큐브샛 개발</span></summary><div class="wbs-kids"><div class="wbs-leaf"><span class="pid">K01</span> <a class="deliv" href="deliverables/sysreq.md">examples/ksat3/deliverables/sysreq.md</a> <span class="meta">← 시스템 요구사항 정의</span></div><div class="wbs-leaf"><span class="pid">K10</span> <span class="pending">(산출물 아직 없음)</span> <span class="meta">← 구조 EM 개발</span></div><div class="wbs-leaf"><span class="pid">K20</span> <span class="pending">(산출물 아직 없음)</span> <span class="meta">← 전력 EM 개발</span></div><div class="wbs-leaf"><span class="pid">K30</span> <span class="pending">(산출물 아직 없음)</span> <span class="meta">← 통신 EM 개발</span></div><div class="wbs-leaf"><span class="pid">K40</span> <span class="pending">(산출물 아직 없음)</span> <span class="meta">← EM 통합시험</span></div><div class="wbs-leaf"><span class="pid">K90</span> <span class="pending">(산출물 아직 없음)</span> <span class="meta">← FM 인도</span></div></div></details>
+
+<h2>산출물 시간 순 목록 (finished 순으로 취합)</h2>
+<ul><li><span class="pid">K01</span> <a class="deliv" href="deliverables/sysreq.md">examples/ksat3/deliverables/sysreq.md</a> <span class="meta">← 시스템 요구사항 정의 (2026-08-21 02:04:27)</span></li></ul>
+
+<p class="meta">이 페이지는 <code>python3 tools/build_board_view.py
+examples/ksat3/board</code>가 보드의 게시글에서 생성한다.
+규칙은 <a href="../../RULES.md">RULES.md</a> 참고.</p>
+</body>
+</html>
