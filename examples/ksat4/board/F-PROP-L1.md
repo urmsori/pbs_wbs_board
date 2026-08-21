@@ -1,13 +1,13 @@
 ---
 id: F-PROP-L1
 title: 추진 FM 취합·판정
-status: OPEN
+status: TAKEN
 parent: F-PHASE
-owner: -
+owner: PROP-LEAD-01
 deliverable: -
 after: F-PROP-T2
 track: PROP
-started: -
+started: 2026-08-21 04:20:15
 finished: -
 ---
 

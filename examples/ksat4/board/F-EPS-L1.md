@@ -1,13 +1,13 @@
 ---
 id: F-EPS-L1
 title: 전력 FM 취합·판정
-status: OPEN
+status: TAKEN
 parent: F-PHASE
-owner: -
+owner: EPS-LEAD-01
 deliverable: -
 after: F-EPS-T2
 track: EPS
-started: -
+started: 2026-08-21 04:20:22
 finished: -
 ---
 
