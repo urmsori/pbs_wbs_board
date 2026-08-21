@@ -1,13 +1,13 @@
 ---
 id: K84
 title: str-em.md 안테나 개구부 치수(90mm) vs str-to-comm.md(30mm) 모순 정정
-status: OPEN
+status: TAKEN
 parent: K40
-owner: -
+owner: sonnet-str
 deliverable: -
 after: -
 track: STR
-started: -
+started: 2026-08-21 02:21:07
 finished: -
 ---
 

@@ -1,14 +1,14 @@
 ---
 id: K81
 title: eps-to-str.md를 EPS Rev.B 기준으로 갱신
-status: TAKEN
+status: DONE
 parent: K40
 owner: sonnet-eps
-deliverable: -
+deliverable: examples/ksat3/deliverables/eps-to-str.md
 after: -
 track: EPS
 started: 2026-08-21 02:20:35
-finished: -
+finished: 2026-08-21 02:21:10
 ---
 
 K40 통합시험(불합격 항목 7) 결과: eps-em.md는 Rev.B(2S2P 4셀 + 버스트
@@ -33,3 +33,4 @@ str-em.md의 하단 EPS 트레이 "확정" 설계(볼트 패턴, 방열 접촉�
 
 산출물: examples/ksat3/deliverables/eps-to-str.md 갱신(입력:
 examples/ksat3/deliverables/eps-em.md Rev.B).
+검증: eps-em Rev.B 수치와 대조 확인

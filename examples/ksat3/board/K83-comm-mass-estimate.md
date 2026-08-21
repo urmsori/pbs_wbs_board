@@ -1,14 +1,14 @@
 ---
 id: K83
 title: comm-em.md에 질량 추산 추가
-status: TAKEN
+status: DONE
 parent: K40
 owner: sonnet-comm
-deliverable: -
+deliverable: examples/ksat3/deliverables/comm-em.md
 after: -
 track: COMM
 started: 2026-08-21 02:20:45
-finished: -
+finished: 2026-08-21 02:21:02
 ---
 
 K40 통합시험(불합격 항목 3) 결과: sysreq.md는 COMM 트랙에 질량 배분
@@ -23,3 +23,4 @@ PCB, PA, 안테나 전개 기구, RF 케이블 등). 이 때문에 시스템 전
 - sysreq 배분 0.5 kg 대비 여유/초과 여부를 명시.
 
 산출물: examples/ksat3/deliverables/comm-em.md 갱신(질량 절 추가).
+검증: 합계 305 g로 배분 0.5 kg 이내임을 확인
