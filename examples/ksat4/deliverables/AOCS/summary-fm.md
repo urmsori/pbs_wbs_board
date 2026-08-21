@@ -3,8 +3,8 @@
 입력: examples/ksat4/deliverables/AOCS/icd.md, examples/ksat4/deliverables/AOCS/dsn-a1-f.md, examples/ksat4/deliverables/AOCS/dsn-a2-f.md
 
 ## FM 단계 작업 결과
-- 처리 완료: 0건
-- 미해결: 15건
+- 처리 완료: 15건
+- 미해결: 0건
 
 ## 판정
-**FM 단계 미완료 — 15건 미해결**
+**FM 단계 완료 — EM 단계 진입 가능**
