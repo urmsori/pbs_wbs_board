@@ -1,14 +1,14 @@
 ---
 id: F-NCR-01
 title: TCS — dsn-*-f.md 질량·마진 수치 전무(EM 잔여 리스크 미해소)
-status: OPEN
+status: DONE
 parent: F-AIT-1
-owner: -
-deliverable: -
+owner: TCS-DSN-01
+deliverable: examples/ksat4/deliverables/TCS/dsn-a1-f.md, examples/ksat4/deliverables/TCS/dsn-a2-f.md, examples/ksat4/deliverables/TCS/summary-fm.md
 after: -
 track: TCS
-started: -
-finished: -
+started: 2026-08-21 04:28:25
+finished: 2026-08-21 04:28:25
 ---
 
 F-AIT-1에서 examples/ksat4/deliverables/TCS/dsn-a1-f.md,
@@ -34,3 +34,4 @@ PROP 4팀 질량 미기재")가 TCS에 대해서는 FM 설계갱신(F-TCS-D1, F-
   위 수치를 인용해 재작성한다.
 
 (담당 역할: TCS-LEAD-01 — owner에는 take 시 이 역할 이름을 쓴다)
+검증: 질량 합이 배분 이내·마진 수치 기재를 확인

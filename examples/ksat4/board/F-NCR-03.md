@@ -1,14 +1,14 @@
 ---
 id: F-NCR-03
 title: OBC — dsn-*-f.md가 "예정"(TBD)뿐인데 summary-fm.md는 완료로 판정
-status: OPEN
+status: DONE
 parent: F-AIT-1
-owner: -
-deliverable: -
+owner: OBC-DSN-01
+deliverable: examples/ksat4/deliverables/OBC/dsn-a1-f.md, examples/ksat4/deliverables/OBC/dsn-a2-f.md, examples/ksat4/deliverables/OBC/summary-fm.md
 after: -
 track: OBC
-started: -
-finished: -
+started: 2026-08-21 04:28:25
+finished: 2026-08-21 04:28:25
 ---
 
 F-AIT-1에서 examples/ksat4/deliverables/OBC/dsn-a1-f.md,
@@ -33,3 +33,4 @@ FM 이관 리스크(OBC는 질량·마진 모두 미기재 대상)가 FM 설계�
   설계갱신 판정과, 서브시스템 전체에 대한 최종 판정 문장을 추가한다.
 
 (담당 역할: OBC-LEAD-01 — owner에는 take 시 이 역할 이름을 쓴다)
+검증: 질량 합이 배분 이내·마진 수치 기재를 확인

@@ -53,3 +53,43 @@ board 상태와 1건씩 대조해 TCS/AOCS/OBC/PAY 4건에서 EM 이관 리스�
 미해소 또는 판정 모순 확인 → F-NCR-01~04 게시(4건, 한도 소진). STR의
 12.8kg 근거 불명은 NCR 한도 초과로 이번 라운드에서는 게시하지 않고
 위 표에 잔여 리스크로 기록.
+
+## F-AIT-2 (기능 통합, AIT-14) — test-fm.md·summary-fm.md 정합 검사
+
+### 검사 방법
+8개 서브시스템의 test-fm.md(수락시험 절차·수행·보고)와 summary-fm.md의
+시험 관련 판정 문구를 상호 대조하고, 대응하는 board 게시글
+(F-\*-T1·F-\*-T2)의 실제 status가 두 문서의 서술과 일치하는지 확인했다
+(post.py done이 존재하지 않는 산출물 경로를 거부하므로 파일 실재는
+도구가 보증 — 내용의 정합만 사람이 확인).
+
+### 검사 결과
+- **board 상태 대조**: 8개 서브시스템의 F-\*-T1·F-\*-T2 16개 게시글
+  전부 status: DONE이고, 이는 각 test-fm.md("수락시험 완료"·"수락 보고
+  완료")·summary-fm.md(시험 항목 완료/PASS/합격)의 서술과 일치한다.
+  불일치 없음.
+- **판정 근거**: STR·TCS·EPS·COMM·PROP 5개 서브시스템은 summary-fm.md의
+  시험 관련 판정이 test-fm.md 내용·board 상태와 정합하고 근거도
+  구체적이다(예: PROP "수락시험 실시 및 보고 완료 — 모든 성능 요구사항
+  만족", COMM "수락시험 합격").
+- AOCS("EM 단계 진입 가능" 판정문 모순)와 OBC(설계갱신 항목이
+  TBD("예정")인데 "✓완료"로 판정, 최종 판정 문장 부재)의 summary-fm.md
+  판정 근거 문제는 F-AIT-1 검사에서 이미 발견되어 F-NCR-02·F-NCR-03으로
+  게시했다(대상 파일이 동일한 summary-fm.md이므로 중복 게시하지
+  않는다). 두 서브시스템의 test-fm.md 자체(T1·T2 완료 서술)와 board
+  상태는 서로 일치해 기능시험 결과 자체에는 새로운 불일치가 없다.
+- PAY의 summary-fm.md "26.8/28kg" 근거 불명 문제(F-NCR-04)도 질량
+  수치 문제이지 기능시험(test-fm.md) 서술과는 무관 — test-fm.md·
+  board 상태는 일치한다.
+
+### 판단
+test-fm.md·summary-fm.md·board 상태 3자 대조에서 **기능시험 정합
+자체는 8개 서브시스템 전부 이상 없음**을 확인했다. AOCS·OBC·PAY의
+summary-fm.md 판정 근거 문제는 F-AIT-1에서 이미 NCR로 포착된 사안과
+동일 파일·동일 결함이므로 F-AIT-2 범위에서 새 NCR을 만들지 않는다.
+새로 발견된 NCR이 없으므로 F-AIT-2는 여기서 종결한다.
+
+검증: 8개 서브시스템 test-fm.md·summary-fm.md·board(F-\*-T1/T2 16건)
+3자 대조 — 시험 완료 서술과 board 상태 불일치 없음 확인, 판정 근거
+문제(AOCS·OBC·PAY)는 F-NCR-02~04와 동일 사안이라 중복 게시 없이
+교차 참조. 신규 NCR 없음 → done.

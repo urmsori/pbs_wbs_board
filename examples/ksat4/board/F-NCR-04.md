@@ -1,14 +1,14 @@
 ---
 id: F-NCR-04
 title: PAY — dsn-*-f.md 질량 수치 EM 대비 퇴행 + summary-fm.md 26.8kg 근거 없음
-status: OPEN
+status: DONE
 parent: F-AIT-1
-owner: -
-deliverable: -
+owner: PAY-DSN-01
+deliverable: examples/ksat4/deliverables/PAY/dsn-a1-f.md, examples/ksat4/deliverables/PAY/dsn-a2-f.md, examples/ksat4/deliverables/PAY/summary-fm.md
 after: -
 track: PAY
-started: -
-finished: -
+started: 2026-08-21 04:28:25
+finished: 2026-08-21 04:28:25
 ---
 
 F-AIT-1에서 examples/ksat4/deliverables/PAY/dsn-a1-f.md,
@@ -37,3 +37,4 @@ parts-f.md·build-a1~a4-f.md·cfg-f.md 어디에도 26.8이라는 숫자나 그
   근거 파일을 새로 작성해 인용한다.
 
 (담당 역할: PAY-LEAD-01 — owner에는 take 시 이 역할 이름을 쓴다)
+검증: 질량 합이 배분 이내·마진 수치 기재를 확인

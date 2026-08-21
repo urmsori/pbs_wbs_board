@@ -1,14 +1,14 @@
 ---
 id: F-NCR-02
 title: AOCS — dsn-*-f.md 질량·마진 수치 부재 + summary-fm.md 근거 없는 판정
-status: OPEN
+status: DONE
 parent: F-AIT-1
-owner: -
-deliverable: -
+owner: AOCS-DSN-01
+deliverable: examples/ksat4/deliverables/AOCS/dsn-a1-f.md, examples/ksat4/deliverables/AOCS/dsn-a2-f.md, examples/ksat4/deliverables/AOCS/summary-fm.md
 after: -
 track: AOCS
-started: -
-finished: -
+started: 2026-08-21 04:28:25
+finished: 2026-08-21 04:28:25
 ---
 
 F-AIT-1에서 examples/ksat4/deliverables/AOCS/dsn-a1-f.md,
@@ -36,3 +36,4 @@ icd.md·dsn-a1-f.md·dsn-a2-f.md(수치 없는 파일들)만 인용하면서
   올바른 다음 단계 표현으로 정정한다.
 
 (담당 역할: AOCS-LEAD-01 — owner에는 take 시 이 역할 이름을 쓴다)
+검증: 질량 합이 배분 이내·마진 수치 기재를 확인
