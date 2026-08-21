@@ -112,16 +112,27 @@ def track_badge(post):
     return f'<span class="tbadge" style="background:{bg};color:{fg}">{esc(t)}</span> '
 
 
-def wbs_node(post, children):
+def is_ready(post, by_id):
+    """집기 가능: OPEN이고 after의 게시글이 모두 DONE."""
+    if post["status"].upper() != "OPEN":
+        return False
+    return all(
+        by_id[a]["status"].upper() == "DONE" for a in after_ids(post) if a in by_id
+    )
+
+
+def wbs_node(post, children, by_id):
     status = post["status"].upper()
     badge = f'<span class="badge {status.lower()}">{esc(status)}</span>'
+    ready = ' <span class="ready">집기 가능</span>' if is_ready(post, by_id) else ""
     owner = f' <span class="meta">담당: {esc(post["owner"])}</span>' if post["owner"] != "-" else ""
     after = f' <span class="meta">선행: {esc(post["after"])}</span>' if post["after"] != "-" else ""
     line = (
         f'{badge} <span class="pid">{esc(post["id"])}</span> {track_badge(post)}'
-        f'<a href="{esc(os.path.relpath(BOARD / post["file"], OUT.parent))}">{esc(post["title"])}</a>{owner}{after}'
+        f'<a href="{esc(os.path.relpath(BOARD / post["file"], OUT.parent))}">{esc(post["title"])}</a>'
+        f'{ready}{owner}{after}'
     )
-    kids = "".join(wbs_node(c, children) for c in children.get(post["id"], []))
+    kids = "".join(wbs_node(c, children, by_id) for c in children.get(post["id"], []))
     return f"<li>{line}{f'<ul>{kids}</ul>' if kids else ''}</li>"
 
 
@@ -184,7 +195,12 @@ def build_gantt(posts, by_id, now):
             pos[p["id"]] = (i, start, end)
         status = p["status"].upper()
         depth = depth_of(p, by_id)
-        wait = "" if start else ' <span class="meta">— 대기</span>'
+        if start:
+            wait = ""
+        elif is_ready(p, by_id):
+            wait = ' <span class="ready">집기 가능</span>'
+        else:
+            wait = ' <span class="meta">— 대기(선행 미완)</span>'
         labels.append(
             f'<div class="g-label" style="padding-left:{depth * 0.9}rem">'
             f'<span class="pid">{esc(p["id"])}</span> {track_badge(p)}{esc(p["title"])}{wait}</div>'
@@ -321,7 +337,8 @@ def main():
         else ""
     )
 
-    wbs = "".join(wbs_node(r, children) for r in roots)
+    ready_ids = [p["id"] for p in posts if is_ready(p, by_id)]
+    wbs = "".join(wbs_node(r, children, by_id) for r in roots)
     pbs = "".join(pbs_node(r, children) for r in roots)
     gantt = build_gantt(posts, by_id, now)
     composition = product_composition(posts)
@@ -355,6 +372,9 @@ def main():
   .badge.done  {{ background: #e6f4ea; color: #1e7e34; }}
   .tbadge {{ display: inline-block; font-size: .68rem; font-weight: 600;
              padding: 0 .4rem; border-radius: .5rem; vertical-align: middle; }}
+  .ready {{ display: inline-block; font-size: .68rem; font-weight: 700;
+            padding: 0 .4rem; border-radius: .5rem; background: #d3e3fd;
+            color: #0b57d0; vertical-align: middle; }}
   .pid {{ color: #888; font-family: monospace; }}
   .meta {{ color: #888; font-size: .85rem; }}
   .pending {{ color: #aaa; }}
@@ -392,7 +412,7 @@ def main():
   <span class="badge open">OPEN</span> {counts.get("OPEN", 0)} ·
   <span class="badge taken">TAKEN</span> {counts.get("TAKEN", 0)} ·
   <span class="badge done">DONE</span> {counts.get("DONE", 0)}<br>
-  {esc(state_line)}</p>
+  {esc(state_line)}{("<br>집기 가능: " + esc(", ".join(ready_ids))) if ready_ids else ""}</p>
 {warn_html}
 
 <h2>WBS — Work 분해 트리</h2>
@@ -427,6 +447,8 @@ def main():
     OUT.write_text(page, encoding="utf-8")
     for w in warns:
         print(f"경고: {w}")
+    if ready_ids:
+        print(f"집기 가능: {', '.join(ready_ids)}")
     print(f"{os.path.relpath(OUT, ROOT)}: 게시글 {len(posts)}건 취합 완료 — {state_line}")
 
 
