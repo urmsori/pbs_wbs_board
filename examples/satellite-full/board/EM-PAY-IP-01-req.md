@@ -1,14 +1,15 @@
 ---
 id: EM-PAY-IP-01
 title: 영상처리보드 요구 할당
-status: OPEN
+status: DONE
 parent: EM-PAY-IP
-owner: -
-deliverable: -
+owner: haiku-pay
+deliverable: examples/satellite-full/deliverables/EM/PAY/ip-asm.md
 after: F002
 track: PAY
-started: -
-finished: -
+started: 2026-08-21 01:27:00
+finished: 2026-08-21 01:27:00
 ---
 
 EM/탑재체/영상처리보드의 잎 Work. 결과를 조립체 산출물 파일에 한 줄 덧붙인다. 산출물: examples/satellite-full/deliverables/EM/PAY/ip-asm.md
+검증: 요구 할당 성능 확인됨

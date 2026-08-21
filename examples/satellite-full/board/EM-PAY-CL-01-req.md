@@ -1,14 +1,15 @@
 ---
 id: EM-PAY-CL-01
 title: 교정장치 요구 할당
-status: OPEN
+status: DONE
 parent: EM-PAY-CL
-owner: -
-deliverable: -
+owner: haiku-pay
+deliverable: examples/satellite-full/deliverables/EM/PAY/cl-asm.md
 after: F002
 track: PAY
-started: -
-finished: -
+started: 2026-08-21 01:27:01
+finished: 2026-08-21 01:27:01
 ---
 
 EM/탑재체/교정장치의 잎 Work. 결과를 조립체 산출물 파일에 한 줄 덧붙인다. 산출물: examples/satellite-full/deliverables/EM/PAY/cl-asm.md
+검증: 요구 할당 성능 확인됨
