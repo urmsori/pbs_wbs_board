@@ -1,13 +1,13 @@
 ---
 id: K62
 title: 송신 버스트 전력 프로파일 정의
-status: OPEN
+status: TAKEN
 parent: K20
-owner: -
+owner: sonnet-comm
 deliverable: -
 after: -
 track: COMM
-started: -
+started: 2026-08-21 02:08:20
 finished: -
 ---
 

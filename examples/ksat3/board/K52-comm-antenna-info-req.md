@@ -1,13 +1,13 @@
 ---
 id: K52
 title: COMM 안테나 장착·전개공간·RF 커넥터 요구 요청
-status: OPEN
+status: TAKEN
 parent: K10
-owner: -
+owner: sonnet-comm
 deliverable: -
 after: -
 track: COMM
-started: -
+started: 2026-08-21 02:08:20
 finished: -
 ---
 

@@ -1,13 +1,13 @@
 ---
 id: K51
 title: EPS 전장 스택 질량·발열·외형 정보 요청
-status: OPEN
+status: TAKEN
 parent: K10
-owner: -
+owner: sonnet-eps
 deliverable: -
 after: -
 track: EPS
-started: -
+started: 2026-08-21 02:08:37
 finished: -
 ---
 

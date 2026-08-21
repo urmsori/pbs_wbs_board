@@ -1,13 +1,13 @@
 ---
 id: K71
 title: 송신 버스트(12W·10s) 시 버스 전압 유지 확인
-status: OPEN
+status: TAKEN
 parent: K30
-owner: -
+owner: sonnet-eps
 deliverable: -
 after: -
 track: EPS
-started: -
+started: 2026-08-21 02:08:37
 finished: -
 ---
 
