@@ -1,13 +1,13 @@
 ---
 id: COMM-FM-05
 title: FM 모듈 인도
-status: OPEN
+status: TAKEN
 parent: M2-COMM
-owner: -
+owner: COMM-LEAD
 deliverable: -
 after: COMM-FM-04
 track: COMM
-started: -
+started: 2026-08-21 07:41:21
 finished: -
 ---
 
