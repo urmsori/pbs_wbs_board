@@ -1,14 +1,15 @@
 ---
 id: EM-OBC-BP-13
 title: 백플레인 설계검토 자료
-status: OPEN
+status: DONE
 parent: EM-OBC-BP
-owner: -
-deliverable: -
+owner: haiku-obc
+deliverable: examples/satellite-full/deliverables/EM/OBC/bp-asm.md
 after: EM-OBC-BP-12
 track: OBC
-started: -
-finished: -
+started: 2026-08-21 01:25:41
+finished: 2026-08-21 01:25:41
 ---
 
 EM/탑재컴퓨터/백플레인의 잎 Work. 결과를 조립체 산출물 파일에 한 줄 덧붙인다. 산출물: examples/satellite-full/deliverables/EM/OBC/bp-asm.md
+검증: 검증: 설계검토 자료 완료 확인 01:25:41

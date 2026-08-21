@@ -1,13 +1,13 @@
 ---
 id: EM-AOCS-ST-01
 title: 별추적기 요구 할당
-status: OPEN
+status: TAKEN
 parent: EM-AOCS-ST
-owner: -
+owner: haiku-aocs
 deliverable: -
 after: F002
 track: AOCS
-started: -
+started: 2026-08-21 01:25:39
 finished: -
 ---
 
