@@ -68,6 +68,10 @@ def done(path, deliverable, verify=None):
         sys.exit(f"거부: {p.name}의 status가 TAKEN이 아니다({field(t, 'status')}).")
     if not deliverable or deliverable == "-":
         sys.exit("거부: 산출물 경로가 없다 — 산출물 없는 Work는 없다(규칙 4절).")
+    root = pathlib.Path(__file__).resolve().parent.parent
+    for d in [x.strip() for x in deliverable.split(",") if x.strip()]:
+        if not (root / d).exists():
+            sys.exit(f"거부: 산출물 파일이 없다 — {d} (규칙 4절 v2.6: 없는 파일로 DONE 금지).")
     t = set_field(t, "status", "DONE")
     t = set_field(t, "deliverable", deliverable)
     t = set_field(t, "finished", now())

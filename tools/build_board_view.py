@@ -517,6 +517,10 @@ def aggregation_warnings(posts, by_id, roots, children):
     for p in posts:
         if p["status"].upper() == "DONE" and not deliverables(p):
             warns.append(f'{p["id"]}가 산출물 경로 없이 DONE이다 — 산출물 없는 Work는 없다(규칙 4절).')
+        elif p["status"].upper() == "DONE":
+            for d in deliverables(p):
+                if not (ROOT / d).exists():
+                    warns.append(f'{p["id"]}의 산출물 파일이 디스크에 없다: {d} (v2.6).')
         s, f = parse_dt(p["started"]), parse_dt(p["finished"])
         if s and f and s > f:
             warns.append(f'{p["id"]}의 started({p["started"]})가 finished({p["finished"]})보다 늦다 — 시각 오기입.')

@@ -4,7 +4,7 @@ title: 구조 A3 설계
 status: DONE
 parent: E-STR-L1
 owner: STR-DSN-03
-deliverable: examples/ksat4/deliverables/STR/dsn-aD3.md
+deliverable: examples/ksat4/deliverables/STR/dsn-a3-e.md
 after: E-SE-ICD-STR
 track: STR
 started: 2026-08-21 03:57:02
@@ -15,3 +15,4 @@ finished: 2026-08-21 04:00:35
 산출물: examples/ksat4/deliverables/STR/dsn-a3-e.md
 (담당 역할: STR-DSN-03 — owner에는 take 시 이 역할 이름을 쓴다)
 검증: 테스트
+정정(E-NCR-01): deliverable 경로를 'examples/ksat4/deliverables/STR/dsn-aD3.…'에서 정본 경로로 교정.
