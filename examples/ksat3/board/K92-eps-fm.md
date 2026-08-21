@@ -1,13 +1,13 @@
 ---
 id: K92
 title: EPS FM — 부품 확정·총질량 보고·버스트 하드웨어 검증
-status: OPEN
+status: TAKEN
 parent: K90
-owner: -
+owner: sonnet-eps
 deliverable: -
 after: K40
 track: EPS
-started: -
+started: 2026-08-21 02:27:00
 finished: -
 ---
 

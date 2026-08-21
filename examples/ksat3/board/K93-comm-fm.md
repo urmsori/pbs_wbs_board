@@ -1,13 +1,13 @@
 ---
 id: K93
 title: COMM FM — 안테나 상세치수·질량 실측
-status: OPEN
+status: TAKEN
 parent: K90
-owner: -
+owner: sonnet-comm
 deliverable: -
 after: K40
 track: COMM
-started: -
+started: 2026-08-21 02:26:43
 finished: -
 ---
 
