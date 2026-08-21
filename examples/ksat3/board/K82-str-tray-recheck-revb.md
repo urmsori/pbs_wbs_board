@@ -1,14 +1,14 @@
 ---
 id: K82
 title: str-em.md 하단 EPS 트레이 설계를 eps-to-str.md Rev.B 갱신 반영해 재검증
-status: OPEN
+status: DONE
 parent: K40
-owner: -
-deliverable: -
+owner: sonnet-str
+deliverable: examples/ksat3/deliverables/str-em.md
 after: K81
 track: STR
-started: -
-finished: -
+started: 2026-08-21 02:21:41
+finished: 2026-08-21 02:22:17
 ---
 
 K81에서 eps-to-str.md가 EPS Rev.B(스택 0.35 kg, 4셀 2S2P, 버스트 국소
@@ -27,3 +27,4 @@ K81에서 eps-to-str.md가 EPS Rev.B(스택 0.35 kg, 4셀 2S2P, 버스트 국소
 산출물: examples/ksat3/deliverables/str-em.md 갱신(필요 시
 examples/ksat3/deliverables/str-to-eps.md도). 입력:
 examples/ksat3/deliverables/eps-to-str.md(K81 갱신본).
+검증: Rev.B 수치로 재검증

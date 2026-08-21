@@ -1,14 +1,14 @@
 ---
 id: K84
 title: str-em.md 안테나 개구부 치수(90mm) vs str-to-comm.md(30mm) 모순 정정
-status: TAKEN
+status: DONE
 parent: K40
 owner: sonnet-str
-deliverable: -
+deliverable: examples/ksat3/deliverables/str-em.md,examples/ksat3/deliverables/str-to-comm.md
 after: -
 track: STR
 started: 2026-08-21 02:21:07
-finished: -
+finished: 2026-08-21 02:21:37
 ---
 
 K40 통합시험(불합격 항목 10) 결과: str-em.md 본문은 "상단 패널(+Z면)
@@ -33,3 +33,4 @@ comm-to-str.md의 "지름 약 90 mm 이내 수납 포락선"은 안테나 소자
 산출물: examples/ksat3/deliverables/str-em.md 갱신(안테나 개구부 절
 정정). 입력: examples/ksat3/deliverables/str-to-comm.md,
 examples/ksat3/deliverables/comm-to-str.md.
+검증: 30mm이 실제 패널 개구부(str-to-comm.md), 90mm은 안테나 수납 keep-clear 포락선(comm-to-str.md)이지 개구부가 아님을 대조 확인, str-em.md 90mm 개구부 기술을 30mm로 정정
