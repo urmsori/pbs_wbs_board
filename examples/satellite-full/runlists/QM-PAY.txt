@@ -1,0 +1,96 @@
+QM-PAY-CM-01	examples/satellite-full/board/QM-PAY-CM-01-upd.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	설계 갱신
+QM-PAY-CM-02	examples/satellite-full/board/QM-PAY-CM-02-buy.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	인증부품 구매
+QM-PAY-CM-03	examples/satellite-full/board/QM-PAY-CM-03-recv.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	입고 검사
+QM-PAY-CM-04	examples/satellite-full/board/QM-PAY-CM-04-fab.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	제작
+QM-PAY-CM-05	examples/satellite-full/board/QM-PAY-CM-05-asm.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	조립
+QM-PAY-CM-06	examples/satellite-full/board/QM-PAY-CM-06-wkm.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	워크맨십 검사
+QM-PAY-CM-07	examples/satellite-full/board/QM-PAY-CM-07-vib.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	진동시험
+QM-PAY-CM-08	examples/satellite-full/board/QM-PAY-CM-08-shk.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	충격시험
+QM-PAY-CM-09	examples/satellite-full/board/QM-PAY-CM-09-tvac.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	열진공시험
+QM-PAY-CM-10	examples/satellite-full/board/QM-PAY-CM-10-emc.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	EMC 시험
+QM-PAY-CM-11	examples/satellite-full/board/QM-PAY-CM-11-burn.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	수명·번인시험
+QM-PAY-CM-12	examples/satellite-full/board/QM-PAY-CM-12-ncr.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	비적합 처리
+QM-PAY-CM-13	examples/satellite-full/board/QM-PAY-CM-13-data.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	시험데이터 분석
+QM-PAY-CM-14	examples/satellite-full/board/QM-PAY-CM-14-cdr.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	인증검토 자료
+QM-PAY-CM-15	examples/satellite-full/board/QM-PAY-CM-15-cfg.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	형상문서 갱신
+QM-PAY-CM-16	examples/satellite-full/board/QM-PAY-CM-16-qrep.md	examples/satellite-full/deliverables/QM/PAY/cm-asm.md	인증보고
+QM-PAY-DT-01	examples/satellite-full/board/QM-PAY-DT-01-upd.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	설계 갱신
+QM-PAY-DT-02	examples/satellite-full/board/QM-PAY-DT-02-buy.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	인증부품 구매
+QM-PAY-DT-03	examples/satellite-full/board/QM-PAY-DT-03-recv.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	입고 검사
+QM-PAY-DT-04	examples/satellite-full/board/QM-PAY-DT-04-fab.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	제작
+QM-PAY-DT-05	examples/satellite-full/board/QM-PAY-DT-05-asm.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	조립
+QM-PAY-DT-06	examples/satellite-full/board/QM-PAY-DT-06-wkm.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	워크맨십 검사
+QM-PAY-DT-07	examples/satellite-full/board/QM-PAY-DT-07-vib.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	진동시험
+QM-PAY-DT-08	examples/satellite-full/board/QM-PAY-DT-08-shk.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	충격시험
+QM-PAY-DT-09	examples/satellite-full/board/QM-PAY-DT-09-tvac.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	열진공시험
+QM-PAY-DT-10	examples/satellite-full/board/QM-PAY-DT-10-emc.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	EMC 시험
+QM-PAY-DT-11	examples/satellite-full/board/QM-PAY-DT-11-burn.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	수명·번인시험
+QM-PAY-DT-12	examples/satellite-full/board/QM-PAY-DT-12-ncr.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	비적합 처리
+QM-PAY-DT-13	examples/satellite-full/board/QM-PAY-DT-13-data.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	시험데이터 분석
+QM-PAY-DT-14	examples/satellite-full/board/QM-PAY-DT-14-cdr.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	인증검토 자료
+QM-PAY-DT-15	examples/satellite-full/board/QM-PAY-DT-15-cfg.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	형상문서 갱신
+QM-PAY-DT-16	examples/satellite-full/board/QM-PAY-DT-16-qrep.md	examples/satellite-full/deliverables/QM/PAY/dt-asm.md	인증보고
+QM-PAY-IP-01	examples/satellite-full/board/QM-PAY-IP-01-upd.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	설계 갱신
+QM-PAY-IP-02	examples/satellite-full/board/QM-PAY-IP-02-buy.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	인증부품 구매
+QM-PAY-IP-03	examples/satellite-full/board/QM-PAY-IP-03-recv.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	입고 검사
+QM-PAY-IP-04	examples/satellite-full/board/QM-PAY-IP-04-fab.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	제작
+QM-PAY-IP-05	examples/satellite-full/board/QM-PAY-IP-05-asm.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	조립
+QM-PAY-IP-06	examples/satellite-full/board/QM-PAY-IP-06-wkm.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	워크맨십 검사
+QM-PAY-IP-07	examples/satellite-full/board/QM-PAY-IP-07-vib.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	진동시험
+QM-PAY-IP-08	examples/satellite-full/board/QM-PAY-IP-08-shk.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	충격시험
+QM-PAY-IP-09	examples/satellite-full/board/QM-PAY-IP-09-tvac.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	열진공시험
+QM-PAY-IP-10	examples/satellite-full/board/QM-PAY-IP-10-emc.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	EMC 시험
+QM-PAY-IP-11	examples/satellite-full/board/QM-PAY-IP-11-burn.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	수명·번인시험
+QM-PAY-IP-12	examples/satellite-full/board/QM-PAY-IP-12-ncr.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	비적합 처리
+QM-PAY-IP-13	examples/satellite-full/board/QM-PAY-IP-13-data.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	시험데이터 분석
+QM-PAY-IP-14	examples/satellite-full/board/QM-PAY-IP-14-cdr.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	인증검토 자료
+QM-PAY-IP-15	examples/satellite-full/board/QM-PAY-IP-15-cfg.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	형상문서 갱신
+QM-PAY-IP-16	examples/satellite-full/board/QM-PAY-IP-16-qrep.md	examples/satellite-full/deliverables/QM/PAY/ip-asm.md	인증보고
+QM-PAY-CL-01	examples/satellite-full/board/QM-PAY-CL-01-upd.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	설계 갱신
+QM-PAY-CL-02	examples/satellite-full/board/QM-PAY-CL-02-buy.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	인증부품 구매
+QM-PAY-CL-03	examples/satellite-full/board/QM-PAY-CL-03-recv.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	입고 검사
+QM-PAY-CL-04	examples/satellite-full/board/QM-PAY-CL-04-fab.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	제작
+QM-PAY-CL-05	examples/satellite-full/board/QM-PAY-CL-05-asm.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	조립
+QM-PAY-CL-06	examples/satellite-full/board/QM-PAY-CL-06-wkm.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	워크맨십 검사
+QM-PAY-CL-07	examples/satellite-full/board/QM-PAY-CL-07-vib.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	진동시험
+QM-PAY-CL-08	examples/satellite-full/board/QM-PAY-CL-08-shk.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	충격시험
+QM-PAY-CL-09	examples/satellite-full/board/QM-PAY-CL-09-tvac.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	열진공시험
+QM-PAY-CL-10	examples/satellite-full/board/QM-PAY-CL-10-emc.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	EMC 시험
+QM-PAY-CL-11	examples/satellite-full/board/QM-PAY-CL-11-burn.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	수명·번인시험
+QM-PAY-CL-12	examples/satellite-full/board/QM-PAY-CL-12-ncr.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	비적합 처리
+QM-PAY-CL-13	examples/satellite-full/board/QM-PAY-CL-13-data.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	시험데이터 분석
+QM-PAY-CL-14	examples/satellite-full/board/QM-PAY-CL-14-cdr.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	인증검토 자료
+QM-PAY-CL-15	examples/satellite-full/board/QM-PAY-CL-15-cfg.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	형상문서 갱신
+QM-PAY-CL-16	examples/satellite-full/board/QM-PAY-CL-16-qrep.md	examples/satellite-full/deliverables/QM/PAY/cl-asm.md	인증보고
+QM-PAY-DC-01	examples/satellite-full/board/QM-PAY-DC-01-upd.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	설계 갱신
+QM-PAY-DC-02	examples/satellite-full/board/QM-PAY-DC-02-buy.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	인증부품 구매
+QM-PAY-DC-03	examples/satellite-full/board/QM-PAY-DC-03-recv.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	입고 검사
+QM-PAY-DC-04	examples/satellite-full/board/QM-PAY-DC-04-fab.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	제작
+QM-PAY-DC-05	examples/satellite-full/board/QM-PAY-DC-05-asm.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	조립
+QM-PAY-DC-06	examples/satellite-full/board/QM-PAY-DC-06-wkm.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	워크맨십 검사
+QM-PAY-DC-07	examples/satellite-full/board/QM-PAY-DC-07-vib.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	진동시험
+QM-PAY-DC-08	examples/satellite-full/board/QM-PAY-DC-08-shk.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	충격시험
+QM-PAY-DC-09	examples/satellite-full/board/QM-PAY-DC-09-tvac.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	열진공시험
+QM-PAY-DC-10	examples/satellite-full/board/QM-PAY-DC-10-emc.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	EMC 시험
+QM-PAY-DC-11	examples/satellite-full/board/QM-PAY-DC-11-burn.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	수명·번인시험
+QM-PAY-DC-12	examples/satellite-full/board/QM-PAY-DC-12-ncr.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	비적합 처리
+QM-PAY-DC-13	examples/satellite-full/board/QM-PAY-DC-13-data.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	시험데이터 분석
+QM-PAY-DC-14	examples/satellite-full/board/QM-PAY-DC-14-cdr.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	인증검토 자료
+QM-PAY-DC-15	examples/satellite-full/board/QM-PAY-DC-15-cfg.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	형상문서 갱신
+QM-PAY-DC-16	examples/satellite-full/board/QM-PAY-DC-16-qrep.md	examples/satellite-full/deliverables/QM/PAY/dc-asm.md	인증보고
+QM-PAY-FC-01	examples/satellite-full/board/QM-PAY-FC-01-upd.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	설계 갱신
+QM-PAY-FC-02	examples/satellite-full/board/QM-PAY-FC-02-buy.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	인증부품 구매
+QM-PAY-FC-03	examples/satellite-full/board/QM-PAY-FC-03-recv.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	입고 검사
+QM-PAY-FC-04	examples/satellite-full/board/QM-PAY-FC-04-fab.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	제작
+QM-PAY-FC-05	examples/satellite-full/board/QM-PAY-FC-05-asm.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	조립
+QM-PAY-FC-06	examples/satellite-full/board/QM-PAY-FC-06-wkm.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	워크맨십 검사
+QM-PAY-FC-07	examples/satellite-full/board/QM-PAY-FC-07-vib.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	진동시험
+QM-PAY-FC-08	examples/satellite-full/board/QM-PAY-FC-08-shk.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	충격시험
+QM-PAY-FC-09	examples/satellite-full/board/QM-PAY-FC-09-tvac.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	열진공시험
+QM-PAY-FC-10	examples/satellite-full/board/QM-PAY-FC-10-emc.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	EMC 시험
+QM-PAY-FC-11	examples/satellite-full/board/QM-PAY-FC-11-burn.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	수명·번인시험
+QM-PAY-FC-12	examples/satellite-full/board/QM-PAY-FC-12-ncr.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	비적합 처리
+QM-PAY-FC-13	examples/satellite-full/board/QM-PAY-FC-13-data.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	시험데이터 분석
+QM-PAY-FC-14	examples/satellite-full/board/QM-PAY-FC-14-cdr.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	인증검토 자료
+QM-PAY-FC-15	examples/satellite-full/board/QM-PAY-FC-15-cfg.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	형상문서 갱신
+QM-PAY-FC-16	examples/satellite-full/board/QM-PAY-FC-16-qrep.md	examples/satellite-full/deliverables/QM/PAY/fc-asm.md	인증보고

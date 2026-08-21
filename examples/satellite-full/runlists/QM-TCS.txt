@@ -1,0 +1,96 @@
+QM-TCS-HT-01	examples/satellite-full/board/QM-TCS-HT-01-upd.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	설계 갱신
+QM-TCS-HT-02	examples/satellite-full/board/QM-TCS-HT-02-buy.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	인증부품 구매
+QM-TCS-HT-03	examples/satellite-full/board/QM-TCS-HT-03-recv.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	입고 검사
+QM-TCS-HT-04	examples/satellite-full/board/QM-TCS-HT-04-fab.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	제작
+QM-TCS-HT-05	examples/satellite-full/board/QM-TCS-HT-05-asm.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	조립
+QM-TCS-HT-06	examples/satellite-full/board/QM-TCS-HT-06-wkm.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	워크맨십 검사
+QM-TCS-HT-07	examples/satellite-full/board/QM-TCS-HT-07-vib.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	진동시험
+QM-TCS-HT-08	examples/satellite-full/board/QM-TCS-HT-08-shk.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	충격시험
+QM-TCS-HT-09	examples/satellite-full/board/QM-TCS-HT-09-tvac.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	열진공시험
+QM-TCS-HT-10	examples/satellite-full/board/QM-TCS-HT-10-emc.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	EMC 시험
+QM-TCS-HT-11	examples/satellite-full/board/QM-TCS-HT-11-burn.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	수명·번인시험
+QM-TCS-HT-12	examples/satellite-full/board/QM-TCS-HT-12-ncr.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	비적합 처리
+QM-TCS-HT-13	examples/satellite-full/board/QM-TCS-HT-13-data.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	시험데이터 분석
+QM-TCS-HT-14	examples/satellite-full/board/QM-TCS-HT-14-cdr.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	인증검토 자료
+QM-TCS-HT-15	examples/satellite-full/board/QM-TCS-HT-15-cfg.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	형상문서 갱신
+QM-TCS-HT-16	examples/satellite-full/board/QM-TCS-HT-16-qrep.md	examples/satellite-full/deliverables/QM/TCS/ht-asm.md	인증보고
+QM-TCS-ML-01	examples/satellite-full/board/QM-TCS-ML-01-upd.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	설계 갱신
+QM-TCS-ML-02	examples/satellite-full/board/QM-TCS-ML-02-buy.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	인증부품 구매
+QM-TCS-ML-03	examples/satellite-full/board/QM-TCS-ML-03-recv.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	입고 검사
+QM-TCS-ML-04	examples/satellite-full/board/QM-TCS-ML-04-fab.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	제작
+QM-TCS-ML-05	examples/satellite-full/board/QM-TCS-ML-05-asm.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	조립
+QM-TCS-ML-06	examples/satellite-full/board/QM-TCS-ML-06-wkm.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	워크맨십 검사
+QM-TCS-ML-07	examples/satellite-full/board/QM-TCS-ML-07-vib.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	진동시험
+QM-TCS-ML-08	examples/satellite-full/board/QM-TCS-ML-08-shk.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	충격시험
+QM-TCS-ML-09	examples/satellite-full/board/QM-TCS-ML-09-tvac.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	열진공시험
+QM-TCS-ML-10	examples/satellite-full/board/QM-TCS-ML-10-emc.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	EMC 시험
+QM-TCS-ML-11	examples/satellite-full/board/QM-TCS-ML-11-burn.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	수명·번인시험
+QM-TCS-ML-12	examples/satellite-full/board/QM-TCS-ML-12-ncr.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	비적합 처리
+QM-TCS-ML-13	examples/satellite-full/board/QM-TCS-ML-13-data.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	시험데이터 분석
+QM-TCS-ML-14	examples/satellite-full/board/QM-TCS-ML-14-cdr.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	인증검토 자료
+QM-TCS-ML-15	examples/satellite-full/board/QM-TCS-ML-15-cfg.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	형상문서 갱신
+QM-TCS-ML-16	examples/satellite-full/board/QM-TCS-ML-16-qrep.md	examples/satellite-full/deliverables/QM/TCS/ml-asm.md	인증보고
+QM-TCS-RD-01	examples/satellite-full/board/QM-TCS-RD-01-upd.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	설계 갱신
+QM-TCS-RD-02	examples/satellite-full/board/QM-TCS-RD-02-buy.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	인증부품 구매
+QM-TCS-RD-03	examples/satellite-full/board/QM-TCS-RD-03-recv.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	입고 검사
+QM-TCS-RD-04	examples/satellite-full/board/QM-TCS-RD-04-fab.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	제작
+QM-TCS-RD-05	examples/satellite-full/board/QM-TCS-RD-05-asm.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	조립
+QM-TCS-RD-06	examples/satellite-full/board/QM-TCS-RD-06-wkm.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	워크맨십 검사
+QM-TCS-RD-07	examples/satellite-full/board/QM-TCS-RD-07-vib.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	진동시험
+QM-TCS-RD-08	examples/satellite-full/board/QM-TCS-RD-08-shk.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	충격시험
+QM-TCS-RD-09	examples/satellite-full/board/QM-TCS-RD-09-tvac.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	열진공시험
+QM-TCS-RD-10	examples/satellite-full/board/QM-TCS-RD-10-emc.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	EMC 시험
+QM-TCS-RD-11	examples/satellite-full/board/QM-TCS-RD-11-burn.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	수명·번인시험
+QM-TCS-RD-12	examples/satellite-full/board/QM-TCS-RD-12-ncr.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	비적합 처리
+QM-TCS-RD-13	examples/satellite-full/board/QM-TCS-RD-13-data.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	시험데이터 분석
+QM-TCS-RD-14	examples/satellite-full/board/QM-TCS-RD-14-cdr.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	인증검토 자료
+QM-TCS-RD-15	examples/satellite-full/board/QM-TCS-RD-15-cfg.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	형상문서 갱신
+QM-TCS-RD-16	examples/satellite-full/board/QM-TCS-RD-16-qrep.md	examples/satellite-full/deliverables/QM/TCS/rd-asm.md	인증보고
+QM-TCS-TS-01	examples/satellite-full/board/QM-TCS-TS-01-upd.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	설계 갱신
+QM-TCS-TS-02	examples/satellite-full/board/QM-TCS-TS-02-buy.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	인증부품 구매
+QM-TCS-TS-03	examples/satellite-full/board/QM-TCS-TS-03-recv.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	입고 검사
+QM-TCS-TS-04	examples/satellite-full/board/QM-TCS-TS-04-fab.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	제작
+QM-TCS-TS-05	examples/satellite-full/board/QM-TCS-TS-05-asm.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	조립
+QM-TCS-TS-06	examples/satellite-full/board/QM-TCS-TS-06-wkm.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	워크맨십 검사
+QM-TCS-TS-07	examples/satellite-full/board/QM-TCS-TS-07-vib.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	진동시험
+QM-TCS-TS-08	examples/satellite-full/board/QM-TCS-TS-08-shk.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	충격시험
+QM-TCS-TS-09	examples/satellite-full/board/QM-TCS-TS-09-tvac.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	열진공시험
+QM-TCS-TS-10	examples/satellite-full/board/QM-TCS-TS-10-emc.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	EMC 시험
+QM-TCS-TS-11	examples/satellite-full/board/QM-TCS-TS-11-burn.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	수명·번인시험
+QM-TCS-TS-12	examples/satellite-full/board/QM-TCS-TS-12-ncr.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	비적합 처리
+QM-TCS-TS-13	examples/satellite-full/board/QM-TCS-TS-13-data.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	시험데이터 분석
+QM-TCS-TS-14	examples/satellite-full/board/QM-TCS-TS-14-cdr.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	인증검토 자료
+QM-TCS-TS-15	examples/satellite-full/board/QM-TCS-TS-15-cfg.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	형상문서 갱신
+QM-TCS-TS-16	examples/satellite-full/board/QM-TCS-TS-16-qrep.md	examples/satellite-full/deliverables/QM/TCS/ts-asm.md	인증보고
+QM-TCS-HP-01	examples/satellite-full/board/QM-TCS-HP-01-upd.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	설계 갱신
+QM-TCS-HP-02	examples/satellite-full/board/QM-TCS-HP-02-buy.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	인증부품 구매
+QM-TCS-HP-03	examples/satellite-full/board/QM-TCS-HP-03-recv.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	입고 검사
+QM-TCS-HP-04	examples/satellite-full/board/QM-TCS-HP-04-fab.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	제작
+QM-TCS-HP-05	examples/satellite-full/board/QM-TCS-HP-05-asm.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	조립
+QM-TCS-HP-06	examples/satellite-full/board/QM-TCS-HP-06-wkm.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	워크맨십 검사
+QM-TCS-HP-07	examples/satellite-full/board/QM-TCS-HP-07-vib.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	진동시험
+QM-TCS-HP-08	examples/satellite-full/board/QM-TCS-HP-08-shk.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	충격시험
+QM-TCS-HP-09	examples/satellite-full/board/QM-TCS-HP-09-tvac.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	열진공시험
+QM-TCS-HP-10	examples/satellite-full/board/QM-TCS-HP-10-emc.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	EMC 시험
+QM-TCS-HP-11	examples/satellite-full/board/QM-TCS-HP-11-burn.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	수명·번인시험
+QM-TCS-HP-12	examples/satellite-full/board/QM-TCS-HP-12-ncr.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	비적합 처리
+QM-TCS-HP-13	examples/satellite-full/board/QM-TCS-HP-13-data.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	시험데이터 분석
+QM-TCS-HP-14	examples/satellite-full/board/QM-TCS-HP-14-cdr.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	인증검토 자료
+QM-TCS-HP-15	examples/satellite-full/board/QM-TCS-HP-15-cfg.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	형상문서 갱신
+QM-TCS-HP-16	examples/satellite-full/board/QM-TCS-HP-16-qrep.md	examples/satellite-full/deliverables/QM/TCS/hp-asm.md	인증보고
+QM-TCS-TC-01	examples/satellite-full/board/QM-TCS-TC-01-upd.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	설계 갱신
+QM-TCS-TC-02	examples/satellite-full/board/QM-TCS-TC-02-buy.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	인증부품 구매
+QM-TCS-TC-03	examples/satellite-full/board/QM-TCS-TC-03-recv.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	입고 검사
+QM-TCS-TC-04	examples/satellite-full/board/QM-TCS-TC-04-fab.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	제작
+QM-TCS-TC-05	examples/satellite-full/board/QM-TCS-TC-05-asm.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	조립
+QM-TCS-TC-06	examples/satellite-full/board/QM-TCS-TC-06-wkm.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	워크맨십 검사
+QM-TCS-TC-07	examples/satellite-full/board/QM-TCS-TC-07-vib.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	진동시험
+QM-TCS-TC-08	examples/satellite-full/board/QM-TCS-TC-08-shk.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	충격시험
+QM-TCS-TC-09	examples/satellite-full/board/QM-TCS-TC-09-tvac.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	열진공시험
+QM-TCS-TC-10	examples/satellite-full/board/QM-TCS-TC-10-emc.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	EMC 시험
+QM-TCS-TC-11	examples/satellite-full/board/QM-TCS-TC-11-burn.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	수명·번인시험
+QM-TCS-TC-12	examples/satellite-full/board/QM-TCS-TC-12-ncr.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	비적합 처리
+QM-TCS-TC-13	examples/satellite-full/board/QM-TCS-TC-13-data.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	시험데이터 분석
+QM-TCS-TC-14	examples/satellite-full/board/QM-TCS-TC-14-cdr.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	인증검토 자료
+QM-TCS-TC-15	examples/satellite-full/board/QM-TCS-TC-15-cfg.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	형상문서 갱신
+QM-TCS-TC-16	examples/satellite-full/board/QM-TCS-TC-16-qrep.md	examples/satellite-full/deliverables/QM/TCS/tc-asm.md	인증보고

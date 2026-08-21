@@ -1,0 +1,72 @@
+FM-EPS-SA-01	examples/satellite-full/board/FM-EPS-SA-01-buy.md	examples/satellite-full/deliverables/FM/EPS/sa-asm.md	비행부품 구매
+FM-EPS-SA-02	examples/satellite-full/board/FM-EPS-SA-02-recv.md	examples/satellite-full/deliverables/FM/EPS/sa-asm.md	입고 검사
+FM-EPS-SA-03	examples/satellite-full/board/FM-EPS-SA-03-fab.md	examples/satellite-full/deliverables/FM/EPS/sa-asm.md	제작
+FM-EPS-SA-04	examples/satellite-full/board/FM-EPS-SA-04-asm.md	examples/satellite-full/deliverables/FM/EPS/sa-asm.md	조립
+FM-EPS-SA-05	examples/satellite-full/board/FM-EPS-SA-05-insp.md	examples/satellite-full/deliverables/FM/EPS/sa-asm.md	정밀 검사
+FM-EPS-SA-06	examples/satellite-full/board/FM-EPS-SA-06-avib.md	examples/satellite-full/deliverables/FM/EPS/sa-asm.md	수락 진동시험
+FM-EPS-SA-07	examples/satellite-full/board/FM-EPS-SA-07-atvac.md	examples/satellite-full/deliverables/FM/EPS/sa-asm.md	수락 열진공시험
+FM-EPS-SA-08	examples/satellite-full/board/FM-EPS-SA-08-fperf.md	examples/satellite-full/deliverables/FM/EPS/sa-asm.md	최종 성능시험
+FM-EPS-SA-09	examples/satellite-full/board/FM-EPS-SA-09-bake.md	examples/satellite-full/deliverables/FM/EPS/sa-asm.md	세척·베이크아웃
+FM-EPS-SA-10	examples/satellite-full/board/FM-EPS-SA-10-mass.md	examples/satellite-full/deliverables/FM/EPS/sa-asm.md	질량특성 측정
+FM-EPS-SA-11	examples/satellite-full/board/FM-EPS-SA-11-dpak.md	examples/satellite-full/deliverables/FM/EPS/sa-asm.md	인도문서 작성
+FM-EPS-SA-12	examples/satellite-full/board/FM-EPS-SA-12-arev.md	examples/satellite-full/deliverables/FM/EPS/sa-asm.md	수락검토
+FM-EPS-BT-01	examples/satellite-full/board/FM-EPS-BT-01-buy.md	examples/satellite-full/deliverables/FM/EPS/bt-asm.md	비행부품 구매
+FM-EPS-BT-02	examples/satellite-full/board/FM-EPS-BT-02-recv.md	examples/satellite-full/deliverables/FM/EPS/bt-asm.md	입고 검사
+FM-EPS-BT-03	examples/satellite-full/board/FM-EPS-BT-03-fab.md	examples/satellite-full/deliverables/FM/EPS/bt-asm.md	제작
+FM-EPS-BT-04	examples/satellite-full/board/FM-EPS-BT-04-asm.md	examples/satellite-full/deliverables/FM/EPS/bt-asm.md	조립
+FM-EPS-BT-05	examples/satellite-full/board/FM-EPS-BT-05-insp.md	examples/satellite-full/deliverables/FM/EPS/bt-asm.md	정밀 검사
+FM-EPS-BT-06	examples/satellite-full/board/FM-EPS-BT-06-avib.md	examples/satellite-full/deliverables/FM/EPS/bt-asm.md	수락 진동시험
+FM-EPS-BT-07	examples/satellite-full/board/FM-EPS-BT-07-atvac.md	examples/satellite-full/deliverables/FM/EPS/bt-asm.md	수락 열진공시험
+FM-EPS-BT-08	examples/satellite-full/board/FM-EPS-BT-08-fperf.md	examples/satellite-full/deliverables/FM/EPS/bt-asm.md	최종 성능시험
+FM-EPS-BT-09	examples/satellite-full/board/FM-EPS-BT-09-bake.md	examples/satellite-full/deliverables/FM/EPS/bt-asm.md	세척·베이크아웃
+FM-EPS-BT-10	examples/satellite-full/board/FM-EPS-BT-10-mass.md	examples/satellite-full/deliverables/FM/EPS/bt-asm.md	질량특성 측정
+FM-EPS-BT-11	examples/satellite-full/board/FM-EPS-BT-11-dpak.md	examples/satellite-full/deliverables/FM/EPS/bt-asm.md	인도문서 작성
+FM-EPS-BT-12	examples/satellite-full/board/FM-EPS-BT-12-arev.md	examples/satellite-full/deliverables/FM/EPS/bt-asm.md	수락검토
+FM-EPS-PC-01	examples/satellite-full/board/FM-EPS-PC-01-buy.md	examples/satellite-full/deliverables/FM/EPS/pc-asm.md	비행부품 구매
+FM-EPS-PC-02	examples/satellite-full/board/FM-EPS-PC-02-recv.md	examples/satellite-full/deliverables/FM/EPS/pc-asm.md	입고 검사
+FM-EPS-PC-03	examples/satellite-full/board/FM-EPS-PC-03-fab.md	examples/satellite-full/deliverables/FM/EPS/pc-asm.md	제작
+FM-EPS-PC-04	examples/satellite-full/board/FM-EPS-PC-04-asm.md	examples/satellite-full/deliverables/FM/EPS/pc-asm.md	조립
+FM-EPS-PC-05	examples/satellite-full/board/FM-EPS-PC-05-insp.md	examples/satellite-full/deliverables/FM/EPS/pc-asm.md	정밀 검사
+FM-EPS-PC-06	examples/satellite-full/board/FM-EPS-PC-06-avib.md	examples/satellite-full/deliverables/FM/EPS/pc-asm.md	수락 진동시험
+FM-EPS-PC-07	examples/satellite-full/board/FM-EPS-PC-07-atvac.md	examples/satellite-full/deliverables/FM/EPS/pc-asm.md	수락 열진공시험
+FM-EPS-PC-08	examples/satellite-full/board/FM-EPS-PC-08-fperf.md	examples/satellite-full/deliverables/FM/EPS/pc-asm.md	최종 성능시험
+FM-EPS-PC-09	examples/satellite-full/board/FM-EPS-PC-09-bake.md	examples/satellite-full/deliverables/FM/EPS/pc-asm.md	세척·베이크아웃
+FM-EPS-PC-10	examples/satellite-full/board/FM-EPS-PC-10-mass.md	examples/satellite-full/deliverables/FM/EPS/pc-asm.md	질량특성 측정
+FM-EPS-PC-11	examples/satellite-full/board/FM-EPS-PC-11-dpak.md	examples/satellite-full/deliverables/FM/EPS/pc-asm.md	인도문서 작성
+FM-EPS-PC-12	examples/satellite-full/board/FM-EPS-PC-12-arev.md	examples/satellite-full/deliverables/FM/EPS/pc-asm.md	수락검토
+FM-EPS-PD-01	examples/satellite-full/board/FM-EPS-PD-01-buy.md	examples/satellite-full/deliverables/FM/EPS/pd-asm.md	비행부품 구매
+FM-EPS-PD-02	examples/satellite-full/board/FM-EPS-PD-02-recv.md	examples/satellite-full/deliverables/FM/EPS/pd-asm.md	입고 검사
+FM-EPS-PD-03	examples/satellite-full/board/FM-EPS-PD-03-fab.md	examples/satellite-full/deliverables/FM/EPS/pd-asm.md	제작
+FM-EPS-PD-04	examples/satellite-full/board/FM-EPS-PD-04-asm.md	examples/satellite-full/deliverables/FM/EPS/pd-asm.md	조립
+FM-EPS-PD-05	examples/satellite-full/board/FM-EPS-PD-05-insp.md	examples/satellite-full/deliverables/FM/EPS/pd-asm.md	정밀 검사
+FM-EPS-PD-06	examples/satellite-full/board/FM-EPS-PD-06-avib.md	examples/satellite-full/deliverables/FM/EPS/pd-asm.md	수락 진동시험
+FM-EPS-PD-07	examples/satellite-full/board/FM-EPS-PD-07-atvac.md	examples/satellite-full/deliverables/FM/EPS/pd-asm.md	수락 열진공시험
+FM-EPS-PD-08	examples/satellite-full/board/FM-EPS-PD-08-fperf.md	examples/satellite-full/deliverables/FM/EPS/pd-asm.md	최종 성능시험
+FM-EPS-PD-09	examples/satellite-full/board/FM-EPS-PD-09-bake.md	examples/satellite-full/deliverables/FM/EPS/pd-asm.md	세척·베이크아웃
+FM-EPS-PD-10	examples/satellite-full/board/FM-EPS-PD-10-mass.md	examples/satellite-full/deliverables/FM/EPS/pd-asm.md	질량특성 측정
+FM-EPS-PD-11	examples/satellite-full/board/FM-EPS-PD-11-dpak.md	examples/satellite-full/deliverables/FM/EPS/pd-asm.md	인도문서 작성
+FM-EPS-PD-12	examples/satellite-full/board/FM-EPS-PD-12-arev.md	examples/satellite-full/deliverables/FM/EPS/pd-asm.md	수락검토
+FM-EPS-PB-01	examples/satellite-full/board/FM-EPS-PB-01-buy.md	examples/satellite-full/deliverables/FM/EPS/pb-asm.md	비행부품 구매
+FM-EPS-PB-02	examples/satellite-full/board/FM-EPS-PB-02-recv.md	examples/satellite-full/deliverables/FM/EPS/pb-asm.md	입고 검사
+FM-EPS-PB-03	examples/satellite-full/board/FM-EPS-PB-03-fab.md	examples/satellite-full/deliverables/FM/EPS/pb-asm.md	제작
+FM-EPS-PB-04	examples/satellite-full/board/FM-EPS-PB-04-asm.md	examples/satellite-full/deliverables/FM/EPS/pb-asm.md	조립
+FM-EPS-PB-05	examples/satellite-full/board/FM-EPS-PB-05-insp.md	examples/satellite-full/deliverables/FM/EPS/pb-asm.md	정밀 검사
+FM-EPS-PB-06	examples/satellite-full/board/FM-EPS-PB-06-avib.md	examples/satellite-full/deliverables/FM/EPS/pb-asm.md	수락 진동시험
+FM-EPS-PB-07	examples/satellite-full/board/FM-EPS-PB-07-atvac.md	examples/satellite-full/deliverables/FM/EPS/pb-asm.md	수락 열진공시험
+FM-EPS-PB-08	examples/satellite-full/board/FM-EPS-PB-08-fperf.md	examples/satellite-full/deliverables/FM/EPS/pb-asm.md	최종 성능시험
+FM-EPS-PB-09	examples/satellite-full/board/FM-EPS-PB-09-bake.md	examples/satellite-full/deliverables/FM/EPS/pb-asm.md	세척·베이크아웃
+FM-EPS-PB-10	examples/satellite-full/board/FM-EPS-PB-10-mass.md	examples/satellite-full/deliverables/FM/EPS/pb-asm.md	질량특성 측정
+FM-EPS-PB-11	examples/satellite-full/board/FM-EPS-PB-11-dpak.md	examples/satellite-full/deliverables/FM/EPS/pb-asm.md	인도문서 작성
+FM-EPS-PB-12	examples/satellite-full/board/FM-EPS-PB-12-arev.md	examples/satellite-full/deliverables/FM/EPS/pb-asm.md	수락검토
+FM-EPS-HN-01	examples/satellite-full/board/FM-EPS-HN-01-buy.md	examples/satellite-full/deliverables/FM/EPS/hn-asm.md	비행부품 구매
+FM-EPS-HN-02	examples/satellite-full/board/FM-EPS-HN-02-recv.md	examples/satellite-full/deliverables/FM/EPS/hn-asm.md	입고 검사
+FM-EPS-HN-03	examples/satellite-full/board/FM-EPS-HN-03-fab.md	examples/satellite-full/deliverables/FM/EPS/hn-asm.md	제작
+FM-EPS-HN-04	examples/satellite-full/board/FM-EPS-HN-04-asm.md	examples/satellite-full/deliverables/FM/EPS/hn-asm.md	조립
+FM-EPS-HN-05	examples/satellite-full/board/FM-EPS-HN-05-insp.md	examples/satellite-full/deliverables/FM/EPS/hn-asm.md	정밀 검사
+FM-EPS-HN-06	examples/satellite-full/board/FM-EPS-HN-06-avib.md	examples/satellite-full/deliverables/FM/EPS/hn-asm.md	수락 진동시험
+FM-EPS-HN-07	examples/satellite-full/board/FM-EPS-HN-07-atvac.md	examples/satellite-full/deliverables/FM/EPS/hn-asm.md	수락 열진공시험
+FM-EPS-HN-08	examples/satellite-full/board/FM-EPS-HN-08-fperf.md	examples/satellite-full/deliverables/FM/EPS/hn-asm.md	최종 성능시험
+FM-EPS-HN-09	examples/satellite-full/board/FM-EPS-HN-09-bake.md	examples/satellite-full/deliverables/FM/EPS/hn-asm.md	세척·베이크아웃
+FM-EPS-HN-10	examples/satellite-full/board/FM-EPS-HN-10-mass.md	examples/satellite-full/deliverables/FM/EPS/hn-asm.md	질량특성 측정
+FM-EPS-HN-11	examples/satellite-full/board/FM-EPS-HN-11-dpak.md	examples/satellite-full/deliverables/FM/EPS/hn-asm.md	인도문서 작성
+FM-EPS-HN-12	examples/satellite-full/board/FM-EPS-HN-12-arev.md	examples/satellite-full/deliverables/FM/EPS/hn-asm.md	수락검토

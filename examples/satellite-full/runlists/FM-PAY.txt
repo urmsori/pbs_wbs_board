@@ -1,0 +1,72 @@
+FM-PAY-CM-01	examples/satellite-full/board/FM-PAY-CM-01-buy.md	examples/satellite-full/deliverables/FM/PAY/cm-asm.md	비행부품 구매
+FM-PAY-CM-02	examples/satellite-full/board/FM-PAY-CM-02-recv.md	examples/satellite-full/deliverables/FM/PAY/cm-asm.md	입고 검사
+FM-PAY-CM-03	examples/satellite-full/board/FM-PAY-CM-03-fab.md	examples/satellite-full/deliverables/FM/PAY/cm-asm.md	제작
+FM-PAY-CM-04	examples/satellite-full/board/FM-PAY-CM-04-asm.md	examples/satellite-full/deliverables/FM/PAY/cm-asm.md	조립
+FM-PAY-CM-05	examples/satellite-full/board/FM-PAY-CM-05-insp.md	examples/satellite-full/deliverables/FM/PAY/cm-asm.md	정밀 검사
+FM-PAY-CM-06	examples/satellite-full/board/FM-PAY-CM-06-avib.md	examples/satellite-full/deliverables/FM/PAY/cm-asm.md	수락 진동시험
+FM-PAY-CM-07	examples/satellite-full/board/FM-PAY-CM-07-atvac.md	examples/satellite-full/deliverables/FM/PAY/cm-asm.md	수락 열진공시험
+FM-PAY-CM-08	examples/satellite-full/board/FM-PAY-CM-08-fperf.md	examples/satellite-full/deliverables/FM/PAY/cm-asm.md	최종 성능시험
+FM-PAY-CM-09	examples/satellite-full/board/FM-PAY-CM-09-bake.md	examples/satellite-full/deliverables/FM/PAY/cm-asm.md	세척·베이크아웃
+FM-PAY-CM-10	examples/satellite-full/board/FM-PAY-CM-10-mass.md	examples/satellite-full/deliverables/FM/PAY/cm-asm.md	질량특성 측정
+FM-PAY-CM-11	examples/satellite-full/board/FM-PAY-CM-11-dpak.md	examples/satellite-full/deliverables/FM/PAY/cm-asm.md	인도문서 작성
+FM-PAY-CM-12	examples/satellite-full/board/FM-PAY-CM-12-arev.md	examples/satellite-full/deliverables/FM/PAY/cm-asm.md	수락검토
+FM-PAY-DT-01	examples/satellite-full/board/FM-PAY-DT-01-buy.md	examples/satellite-full/deliverables/FM/PAY/dt-asm.md	비행부품 구매
+FM-PAY-DT-02	examples/satellite-full/board/FM-PAY-DT-02-recv.md	examples/satellite-full/deliverables/FM/PAY/dt-asm.md	입고 검사
+FM-PAY-DT-03	examples/satellite-full/board/FM-PAY-DT-03-fab.md	examples/satellite-full/deliverables/FM/PAY/dt-asm.md	제작
+FM-PAY-DT-04	examples/satellite-full/board/FM-PAY-DT-04-asm.md	examples/satellite-full/deliverables/FM/PAY/dt-asm.md	조립
+FM-PAY-DT-05	examples/satellite-full/board/FM-PAY-DT-05-insp.md	examples/satellite-full/deliverables/FM/PAY/dt-asm.md	정밀 검사
+FM-PAY-DT-06	examples/satellite-full/board/FM-PAY-DT-06-avib.md	examples/satellite-full/deliverables/FM/PAY/dt-asm.md	수락 진동시험
+FM-PAY-DT-07	examples/satellite-full/board/FM-PAY-DT-07-atvac.md	examples/satellite-full/deliverables/FM/PAY/dt-asm.md	수락 열진공시험
+FM-PAY-DT-08	examples/satellite-full/board/FM-PAY-DT-08-fperf.md	examples/satellite-full/deliverables/FM/PAY/dt-asm.md	최종 성능시험
+FM-PAY-DT-09	examples/satellite-full/board/FM-PAY-DT-09-bake.md	examples/satellite-full/deliverables/FM/PAY/dt-asm.md	세척·베이크아웃
+FM-PAY-DT-10	examples/satellite-full/board/FM-PAY-DT-10-mass.md	examples/satellite-full/deliverables/FM/PAY/dt-asm.md	질량특성 측정
+FM-PAY-DT-11	examples/satellite-full/board/FM-PAY-DT-11-dpak.md	examples/satellite-full/deliverables/FM/PAY/dt-asm.md	인도문서 작성
+FM-PAY-DT-12	examples/satellite-full/board/FM-PAY-DT-12-arev.md	examples/satellite-full/deliverables/FM/PAY/dt-asm.md	수락검토
+FM-PAY-IP-01	examples/satellite-full/board/FM-PAY-IP-01-buy.md	examples/satellite-full/deliverables/FM/PAY/ip-asm.md	비행부품 구매
+FM-PAY-IP-02	examples/satellite-full/board/FM-PAY-IP-02-recv.md	examples/satellite-full/deliverables/FM/PAY/ip-asm.md	입고 검사
+FM-PAY-IP-03	examples/satellite-full/board/FM-PAY-IP-03-fab.md	examples/satellite-full/deliverables/FM/PAY/ip-asm.md	제작
+FM-PAY-IP-04	examples/satellite-full/board/FM-PAY-IP-04-asm.md	examples/satellite-full/deliverables/FM/PAY/ip-asm.md	조립
+FM-PAY-IP-05	examples/satellite-full/board/FM-PAY-IP-05-insp.md	examples/satellite-full/deliverables/FM/PAY/ip-asm.md	정밀 검사
+FM-PAY-IP-06	examples/satellite-full/board/FM-PAY-IP-06-avib.md	examples/satellite-full/deliverables/FM/PAY/ip-asm.md	수락 진동시험
+FM-PAY-IP-07	examples/satellite-full/board/FM-PAY-IP-07-atvac.md	examples/satellite-full/deliverables/FM/PAY/ip-asm.md	수락 열진공시험
+FM-PAY-IP-08	examples/satellite-full/board/FM-PAY-IP-08-fperf.md	examples/satellite-full/deliverables/FM/PAY/ip-asm.md	최종 성능시험
+FM-PAY-IP-09	examples/satellite-full/board/FM-PAY-IP-09-bake.md	examples/satellite-full/deliverables/FM/PAY/ip-asm.md	세척·베이크아웃
+FM-PAY-IP-10	examples/satellite-full/board/FM-PAY-IP-10-mass.md	examples/satellite-full/deliverables/FM/PAY/ip-asm.md	질량특성 측정
+FM-PAY-IP-11	examples/satellite-full/board/FM-PAY-IP-11-dpak.md	examples/satellite-full/deliverables/FM/PAY/ip-asm.md	인도문서 작성
+FM-PAY-IP-12	examples/satellite-full/board/FM-PAY-IP-12-arev.md	examples/satellite-full/deliverables/FM/PAY/ip-asm.md	수락검토
+FM-PAY-CL-01	examples/satellite-full/board/FM-PAY-CL-01-buy.md	examples/satellite-full/deliverables/FM/PAY/cl-asm.md	비행부품 구매
+FM-PAY-CL-02	examples/satellite-full/board/FM-PAY-CL-02-recv.md	examples/satellite-full/deliverables/FM/PAY/cl-asm.md	입고 검사
+FM-PAY-CL-03	examples/satellite-full/board/FM-PAY-CL-03-fab.md	examples/satellite-full/deliverables/FM/PAY/cl-asm.md	제작
+FM-PAY-CL-04	examples/satellite-full/board/FM-PAY-CL-04-asm.md	examples/satellite-full/deliverables/FM/PAY/cl-asm.md	조립
+FM-PAY-CL-05	examples/satellite-full/board/FM-PAY-CL-05-insp.md	examples/satellite-full/deliverables/FM/PAY/cl-asm.md	정밀 검사
+FM-PAY-CL-06	examples/satellite-full/board/FM-PAY-CL-06-avib.md	examples/satellite-full/deliverables/FM/PAY/cl-asm.md	수락 진동시험
+FM-PAY-CL-07	examples/satellite-full/board/FM-PAY-CL-07-atvac.md	examples/satellite-full/deliverables/FM/PAY/cl-asm.md	수락 열진공시험
+FM-PAY-CL-08	examples/satellite-full/board/FM-PAY-CL-08-fperf.md	examples/satellite-full/deliverables/FM/PAY/cl-asm.md	최종 성능시험
+FM-PAY-CL-09	examples/satellite-full/board/FM-PAY-CL-09-bake.md	examples/satellite-full/deliverables/FM/PAY/cl-asm.md	세척·베이크아웃
+FM-PAY-CL-10	examples/satellite-full/board/FM-PAY-CL-10-mass.md	examples/satellite-full/deliverables/FM/PAY/cl-asm.md	질량특성 측정
+FM-PAY-CL-11	examples/satellite-full/board/FM-PAY-CL-11-dpak.md	examples/satellite-full/deliverables/FM/PAY/cl-asm.md	인도문서 작성
+FM-PAY-CL-12	examples/satellite-full/board/FM-PAY-CL-12-arev.md	examples/satellite-full/deliverables/FM/PAY/cl-asm.md	수락검토
+FM-PAY-DC-01	examples/satellite-full/board/FM-PAY-DC-01-buy.md	examples/satellite-full/deliverables/FM/PAY/dc-asm.md	비행부품 구매
+FM-PAY-DC-02	examples/satellite-full/board/FM-PAY-DC-02-recv.md	examples/satellite-full/deliverables/FM/PAY/dc-asm.md	입고 검사
+FM-PAY-DC-03	examples/satellite-full/board/FM-PAY-DC-03-fab.md	examples/satellite-full/deliverables/FM/PAY/dc-asm.md	제작
+FM-PAY-DC-04	examples/satellite-full/board/FM-PAY-DC-04-asm.md	examples/satellite-full/deliverables/FM/PAY/dc-asm.md	조립
+FM-PAY-DC-05	examples/satellite-full/board/FM-PAY-DC-05-insp.md	examples/satellite-full/deliverables/FM/PAY/dc-asm.md	정밀 검사
+FM-PAY-DC-06	examples/satellite-full/board/FM-PAY-DC-06-avib.md	examples/satellite-full/deliverables/FM/PAY/dc-asm.md	수락 진동시험
+FM-PAY-DC-07	examples/satellite-full/board/FM-PAY-DC-07-atvac.md	examples/satellite-full/deliverables/FM/PAY/dc-asm.md	수락 열진공시험
+FM-PAY-DC-08	examples/satellite-full/board/FM-PAY-DC-08-fperf.md	examples/satellite-full/deliverables/FM/PAY/dc-asm.md	최종 성능시험
+FM-PAY-DC-09	examples/satellite-full/board/FM-PAY-DC-09-bake.md	examples/satellite-full/deliverables/FM/PAY/dc-asm.md	세척·베이크아웃
+FM-PAY-DC-10	examples/satellite-full/board/FM-PAY-DC-10-mass.md	examples/satellite-full/deliverables/FM/PAY/dc-asm.md	질량특성 측정
+FM-PAY-DC-11	examples/satellite-full/board/FM-PAY-DC-11-dpak.md	examples/satellite-full/deliverables/FM/PAY/dc-asm.md	인도문서 작성
+FM-PAY-DC-12	examples/satellite-full/board/FM-PAY-DC-12-arev.md	examples/satellite-full/deliverables/FM/PAY/dc-asm.md	수락검토
+FM-PAY-FC-01	examples/satellite-full/board/FM-PAY-FC-01-buy.md	examples/satellite-full/deliverables/FM/PAY/fc-asm.md	비행부품 구매
+FM-PAY-FC-02	examples/satellite-full/board/FM-PAY-FC-02-recv.md	examples/satellite-full/deliverables/FM/PAY/fc-asm.md	입고 검사
+FM-PAY-FC-03	examples/satellite-full/board/FM-PAY-FC-03-fab.md	examples/satellite-full/deliverables/FM/PAY/fc-asm.md	제작
+FM-PAY-FC-04	examples/satellite-full/board/FM-PAY-FC-04-asm.md	examples/satellite-full/deliverables/FM/PAY/fc-asm.md	조립
+FM-PAY-FC-05	examples/satellite-full/board/FM-PAY-FC-05-insp.md	examples/satellite-full/deliverables/FM/PAY/fc-asm.md	정밀 검사
+FM-PAY-FC-06	examples/satellite-full/board/FM-PAY-FC-06-avib.md	examples/satellite-full/deliverables/FM/PAY/fc-asm.md	수락 진동시험
+FM-PAY-FC-07	examples/satellite-full/board/FM-PAY-FC-07-atvac.md	examples/satellite-full/deliverables/FM/PAY/fc-asm.md	수락 열진공시험
+FM-PAY-FC-08	examples/satellite-full/board/FM-PAY-FC-08-fperf.md	examples/satellite-full/deliverables/FM/PAY/fc-asm.md	최종 성능시험
+FM-PAY-FC-09	examples/satellite-full/board/FM-PAY-FC-09-bake.md	examples/satellite-full/deliverables/FM/PAY/fc-asm.md	세척·베이크아웃
+FM-PAY-FC-10	examples/satellite-full/board/FM-PAY-FC-10-mass.md	examples/satellite-full/deliverables/FM/PAY/fc-asm.md	질량특성 측정
+FM-PAY-FC-11	examples/satellite-full/board/FM-PAY-FC-11-dpak.md	examples/satellite-full/deliverables/FM/PAY/fc-asm.md	인도문서 작성
+FM-PAY-FC-12	examples/satellite-full/board/FM-PAY-FC-12-arev.md	examples/satellite-full/deliverables/FM/PAY/fc-asm.md	수락검토

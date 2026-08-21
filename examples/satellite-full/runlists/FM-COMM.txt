@@ -1,0 +1,72 @@
+FM-COMM-TR-01	examples/satellite-full/board/FM-COMM-TR-01-buy.md	examples/satellite-full/deliverables/FM/COMM/tr-asm.md	비행부품 구매
+FM-COMM-TR-02	examples/satellite-full/board/FM-COMM-TR-02-recv.md	examples/satellite-full/deliverables/FM/COMM/tr-asm.md	입고 검사
+FM-COMM-TR-03	examples/satellite-full/board/FM-COMM-TR-03-fab.md	examples/satellite-full/deliverables/FM/COMM/tr-asm.md	제작
+FM-COMM-TR-04	examples/satellite-full/board/FM-COMM-TR-04-asm.md	examples/satellite-full/deliverables/FM/COMM/tr-asm.md	조립
+FM-COMM-TR-05	examples/satellite-full/board/FM-COMM-TR-05-insp.md	examples/satellite-full/deliverables/FM/COMM/tr-asm.md	정밀 검사
+FM-COMM-TR-06	examples/satellite-full/board/FM-COMM-TR-06-avib.md	examples/satellite-full/deliverables/FM/COMM/tr-asm.md	수락 진동시험
+FM-COMM-TR-07	examples/satellite-full/board/FM-COMM-TR-07-atvac.md	examples/satellite-full/deliverables/FM/COMM/tr-asm.md	수락 열진공시험
+FM-COMM-TR-08	examples/satellite-full/board/FM-COMM-TR-08-fperf.md	examples/satellite-full/deliverables/FM/COMM/tr-asm.md	최종 성능시험
+FM-COMM-TR-09	examples/satellite-full/board/FM-COMM-TR-09-bake.md	examples/satellite-full/deliverables/FM/COMM/tr-asm.md	세척·베이크아웃
+FM-COMM-TR-10	examples/satellite-full/board/FM-COMM-TR-10-mass.md	examples/satellite-full/deliverables/FM/COMM/tr-asm.md	질량특성 측정
+FM-COMM-TR-11	examples/satellite-full/board/FM-COMM-TR-11-dpak.md	examples/satellite-full/deliverables/FM/COMM/tr-asm.md	인도문서 작성
+FM-COMM-TR-12	examples/satellite-full/board/FM-COMM-TR-12-arev.md	examples/satellite-full/deliverables/FM/COMM/tr-asm.md	수락검토
+FM-COMM-AN-01	examples/satellite-full/board/FM-COMM-AN-01-buy.md	examples/satellite-full/deliverables/FM/COMM/an-asm.md	비행부품 구매
+FM-COMM-AN-02	examples/satellite-full/board/FM-COMM-AN-02-recv.md	examples/satellite-full/deliverables/FM/COMM/an-asm.md	입고 검사
+FM-COMM-AN-03	examples/satellite-full/board/FM-COMM-AN-03-fab.md	examples/satellite-full/deliverables/FM/COMM/an-asm.md	제작
+FM-COMM-AN-04	examples/satellite-full/board/FM-COMM-AN-04-asm.md	examples/satellite-full/deliverables/FM/COMM/an-asm.md	조립
+FM-COMM-AN-05	examples/satellite-full/board/FM-COMM-AN-05-insp.md	examples/satellite-full/deliverables/FM/COMM/an-asm.md	정밀 검사
+FM-COMM-AN-06	examples/satellite-full/board/FM-COMM-AN-06-avib.md	examples/satellite-full/deliverables/FM/COMM/an-asm.md	수락 진동시험
+FM-COMM-AN-07	examples/satellite-full/board/FM-COMM-AN-07-atvac.md	examples/satellite-full/deliverables/FM/COMM/an-asm.md	수락 열진공시험
+FM-COMM-AN-08	examples/satellite-full/board/FM-COMM-AN-08-fperf.md	examples/satellite-full/deliverables/FM/COMM/an-asm.md	최종 성능시험
+FM-COMM-AN-09	examples/satellite-full/board/FM-COMM-AN-09-bake.md	examples/satellite-full/deliverables/FM/COMM/an-asm.md	세척·베이크아웃
+FM-COMM-AN-10	examples/satellite-full/board/FM-COMM-AN-10-mass.md	examples/satellite-full/deliverables/FM/COMM/an-asm.md	질량특성 측정
+FM-COMM-AN-11	examples/satellite-full/board/FM-COMM-AN-11-dpak.md	examples/satellite-full/deliverables/FM/COMM/an-asm.md	인도문서 작성
+FM-COMM-AN-12	examples/satellite-full/board/FM-COMM-AN-12-arev.md	examples/satellite-full/deliverables/FM/COMM/an-asm.md	수락검토
+FM-COMM-DP-01	examples/satellite-full/board/FM-COMM-DP-01-buy.md	examples/satellite-full/deliverables/FM/COMM/dp-asm.md	비행부품 구매
+FM-COMM-DP-02	examples/satellite-full/board/FM-COMM-DP-02-recv.md	examples/satellite-full/deliverables/FM/COMM/dp-asm.md	입고 검사
+FM-COMM-DP-03	examples/satellite-full/board/FM-COMM-DP-03-fab.md	examples/satellite-full/deliverables/FM/COMM/dp-asm.md	제작
+FM-COMM-DP-04	examples/satellite-full/board/FM-COMM-DP-04-asm.md	examples/satellite-full/deliverables/FM/COMM/dp-asm.md	조립
+FM-COMM-DP-05	examples/satellite-full/board/FM-COMM-DP-05-insp.md	examples/satellite-full/deliverables/FM/COMM/dp-asm.md	정밀 검사
+FM-COMM-DP-06	examples/satellite-full/board/FM-COMM-DP-06-avib.md	examples/satellite-full/deliverables/FM/COMM/dp-asm.md	수락 진동시험
+FM-COMM-DP-07	examples/satellite-full/board/FM-COMM-DP-07-atvac.md	examples/satellite-full/deliverables/FM/COMM/dp-asm.md	수락 열진공시험
+FM-COMM-DP-08	examples/satellite-full/board/FM-COMM-DP-08-fperf.md	examples/satellite-full/deliverables/FM/COMM/dp-asm.md	최종 성능시험
+FM-COMM-DP-09	examples/satellite-full/board/FM-COMM-DP-09-bake.md	examples/satellite-full/deliverables/FM/COMM/dp-asm.md	세척·베이크아웃
+FM-COMM-DP-10	examples/satellite-full/board/FM-COMM-DP-10-mass.md	examples/satellite-full/deliverables/FM/COMM/dp-asm.md	질량특성 측정
+FM-COMM-DP-11	examples/satellite-full/board/FM-COMM-DP-11-dpak.md	examples/satellite-full/deliverables/FM/COMM/dp-asm.md	인도문서 작성
+FM-COMM-DP-12	examples/satellite-full/board/FM-COMM-DP-12-arev.md	examples/satellite-full/deliverables/FM/COMM/dp-asm.md	수락검토
+FM-COMM-RF-01	examples/satellite-full/board/FM-COMM-RF-01-buy.md	examples/satellite-full/deliverables/FM/COMM/rf-asm.md	비행부품 구매
+FM-COMM-RF-02	examples/satellite-full/board/FM-COMM-RF-02-recv.md	examples/satellite-full/deliverables/FM/COMM/rf-asm.md	입고 검사
+FM-COMM-RF-03	examples/satellite-full/board/FM-COMM-RF-03-fab.md	examples/satellite-full/deliverables/FM/COMM/rf-asm.md	제작
+FM-COMM-RF-04	examples/satellite-full/board/FM-COMM-RF-04-asm.md	examples/satellite-full/deliverables/FM/COMM/rf-asm.md	조립
+FM-COMM-RF-05	examples/satellite-full/board/FM-COMM-RF-05-insp.md	examples/satellite-full/deliverables/FM/COMM/rf-asm.md	정밀 검사
+FM-COMM-RF-06	examples/satellite-full/board/FM-COMM-RF-06-avib.md	examples/satellite-full/deliverables/FM/COMM/rf-asm.md	수락 진동시험
+FM-COMM-RF-07	examples/satellite-full/board/FM-COMM-RF-07-atvac.md	examples/satellite-full/deliverables/FM/COMM/rf-asm.md	수락 열진공시험
+FM-COMM-RF-08	examples/satellite-full/board/FM-COMM-RF-08-fperf.md	examples/satellite-full/deliverables/FM/COMM/rf-asm.md	최종 성능시험
+FM-COMM-RF-09	examples/satellite-full/board/FM-COMM-RF-09-bake.md	examples/satellite-full/deliverables/FM/COMM/rf-asm.md	세척·베이크아웃
+FM-COMM-RF-10	examples/satellite-full/board/FM-COMM-RF-10-mass.md	examples/satellite-full/deliverables/FM/COMM/rf-asm.md	질량특성 측정
+FM-COMM-RF-11	examples/satellite-full/board/FM-COMM-RF-11-dpak.md	examples/satellite-full/deliverables/FM/COMM/rf-asm.md	인도문서 작성
+FM-COMM-RF-12	examples/satellite-full/board/FM-COMM-RF-12-arev.md	examples/satellite-full/deliverables/FM/COMM/rf-asm.md	수락검토
+FM-COMM-TX-01	examples/satellite-full/board/FM-COMM-TX-01-buy.md	examples/satellite-full/deliverables/FM/COMM/tx-asm.md	비행부품 구매
+FM-COMM-TX-02	examples/satellite-full/board/FM-COMM-TX-02-recv.md	examples/satellite-full/deliverables/FM/COMM/tx-asm.md	입고 검사
+FM-COMM-TX-03	examples/satellite-full/board/FM-COMM-TX-03-fab.md	examples/satellite-full/deliverables/FM/COMM/tx-asm.md	제작
+FM-COMM-TX-04	examples/satellite-full/board/FM-COMM-TX-04-asm.md	examples/satellite-full/deliverables/FM/COMM/tx-asm.md	조립
+FM-COMM-TX-05	examples/satellite-full/board/FM-COMM-TX-05-insp.md	examples/satellite-full/deliverables/FM/COMM/tx-asm.md	정밀 검사
+FM-COMM-TX-06	examples/satellite-full/board/FM-COMM-TX-06-avib.md	examples/satellite-full/deliverables/FM/COMM/tx-asm.md	수락 진동시험
+FM-COMM-TX-07	examples/satellite-full/board/FM-COMM-TX-07-atvac.md	examples/satellite-full/deliverables/FM/COMM/tx-asm.md	수락 열진공시험
+FM-COMM-TX-08	examples/satellite-full/board/FM-COMM-TX-08-fperf.md	examples/satellite-full/deliverables/FM/COMM/tx-asm.md	최종 성능시험
+FM-COMM-TX-09	examples/satellite-full/board/FM-COMM-TX-09-bake.md	examples/satellite-full/deliverables/FM/COMM/tx-asm.md	세척·베이크아웃
+FM-COMM-TX-10	examples/satellite-full/board/FM-COMM-TX-10-mass.md	examples/satellite-full/deliverables/FM/COMM/tx-asm.md	질량특성 측정
+FM-COMM-TX-11	examples/satellite-full/board/FM-COMM-TX-11-dpak.md	examples/satellite-full/deliverables/FM/COMM/tx-asm.md	인도문서 작성
+FM-COMM-TX-12	examples/satellite-full/board/FM-COMM-TX-12-arev.md	examples/satellite-full/deliverables/FM/COMM/tx-asm.md	수락검토
+FM-COMM-LG-01	examples/satellite-full/board/FM-COMM-LG-01-buy.md	examples/satellite-full/deliverables/FM/COMM/lg-asm.md	비행부품 구매
+FM-COMM-LG-02	examples/satellite-full/board/FM-COMM-LG-02-recv.md	examples/satellite-full/deliverables/FM/COMM/lg-asm.md	입고 검사
+FM-COMM-LG-03	examples/satellite-full/board/FM-COMM-LG-03-fab.md	examples/satellite-full/deliverables/FM/COMM/lg-asm.md	제작
+FM-COMM-LG-04	examples/satellite-full/board/FM-COMM-LG-04-asm.md	examples/satellite-full/deliverables/FM/COMM/lg-asm.md	조립
+FM-COMM-LG-05	examples/satellite-full/board/FM-COMM-LG-05-insp.md	examples/satellite-full/deliverables/FM/COMM/lg-asm.md	정밀 검사
+FM-COMM-LG-06	examples/satellite-full/board/FM-COMM-LG-06-avib.md	examples/satellite-full/deliverables/FM/COMM/lg-asm.md	수락 진동시험
+FM-COMM-LG-07	examples/satellite-full/board/FM-COMM-LG-07-atvac.md	examples/satellite-full/deliverables/FM/COMM/lg-asm.md	수락 열진공시험
+FM-COMM-LG-08	examples/satellite-full/board/FM-COMM-LG-08-fperf.md	examples/satellite-full/deliverables/FM/COMM/lg-asm.md	최종 성능시험
+FM-COMM-LG-09	examples/satellite-full/board/FM-COMM-LG-09-bake.md	examples/satellite-full/deliverables/FM/COMM/lg-asm.md	세척·베이크아웃
+FM-COMM-LG-10	examples/satellite-full/board/FM-COMM-LG-10-mass.md	examples/satellite-full/deliverables/FM/COMM/lg-asm.md	질량특성 측정
+FM-COMM-LG-11	examples/satellite-full/board/FM-COMM-LG-11-dpak.md	examples/satellite-full/deliverables/FM/COMM/lg-asm.md	인도문서 작성
+FM-COMM-LG-12	examples/satellite-full/board/FM-COMM-LG-12-arev.md	examples/satellite-full/deliverables/FM/COMM/lg-asm.md	수락검토

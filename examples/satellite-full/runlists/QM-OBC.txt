@@ -1,0 +1,96 @@
+QM-OBC-PR-01	examples/satellite-full/board/QM-OBC-PR-01-upd.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	설계 갱신
+QM-OBC-PR-02	examples/satellite-full/board/QM-OBC-PR-02-buy.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	인증부품 구매
+QM-OBC-PR-03	examples/satellite-full/board/QM-OBC-PR-03-recv.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	입고 검사
+QM-OBC-PR-04	examples/satellite-full/board/QM-OBC-PR-04-fab.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	제작
+QM-OBC-PR-05	examples/satellite-full/board/QM-OBC-PR-05-asm.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	조립
+QM-OBC-PR-06	examples/satellite-full/board/QM-OBC-PR-06-wkm.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	워크맨십 검사
+QM-OBC-PR-07	examples/satellite-full/board/QM-OBC-PR-07-vib.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	진동시험
+QM-OBC-PR-08	examples/satellite-full/board/QM-OBC-PR-08-shk.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	충격시험
+QM-OBC-PR-09	examples/satellite-full/board/QM-OBC-PR-09-tvac.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	열진공시험
+QM-OBC-PR-10	examples/satellite-full/board/QM-OBC-PR-10-emc.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	EMC 시험
+QM-OBC-PR-11	examples/satellite-full/board/QM-OBC-PR-11-burn.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	수명·번인시험
+QM-OBC-PR-12	examples/satellite-full/board/QM-OBC-PR-12-ncr.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	비적합 처리
+QM-OBC-PR-13	examples/satellite-full/board/QM-OBC-PR-13-data.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	시험데이터 분석
+QM-OBC-PR-14	examples/satellite-full/board/QM-OBC-PR-14-cdr.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	인증검토 자료
+QM-OBC-PR-15	examples/satellite-full/board/QM-OBC-PR-15-cfg.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	형상문서 갱신
+QM-OBC-PR-16	examples/satellite-full/board/QM-OBC-PR-16-qrep.md	examples/satellite-full/deliverables/QM/OBC/pr-asm.md	인증보고
+QM-OBC-MM-01	examples/satellite-full/board/QM-OBC-MM-01-upd.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	설계 갱신
+QM-OBC-MM-02	examples/satellite-full/board/QM-OBC-MM-02-buy.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	인증부품 구매
+QM-OBC-MM-03	examples/satellite-full/board/QM-OBC-MM-03-recv.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	입고 검사
+QM-OBC-MM-04	examples/satellite-full/board/QM-OBC-MM-04-fab.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	제작
+QM-OBC-MM-05	examples/satellite-full/board/QM-OBC-MM-05-asm.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	조립
+QM-OBC-MM-06	examples/satellite-full/board/QM-OBC-MM-06-wkm.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	워크맨십 검사
+QM-OBC-MM-07	examples/satellite-full/board/QM-OBC-MM-07-vib.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	진동시험
+QM-OBC-MM-08	examples/satellite-full/board/QM-OBC-MM-08-shk.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	충격시험
+QM-OBC-MM-09	examples/satellite-full/board/QM-OBC-MM-09-tvac.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	열진공시험
+QM-OBC-MM-10	examples/satellite-full/board/QM-OBC-MM-10-emc.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	EMC 시험
+QM-OBC-MM-11	examples/satellite-full/board/QM-OBC-MM-11-burn.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	수명·번인시험
+QM-OBC-MM-12	examples/satellite-full/board/QM-OBC-MM-12-ncr.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	비적합 처리
+QM-OBC-MM-13	examples/satellite-full/board/QM-OBC-MM-13-data.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	시험데이터 분석
+QM-OBC-MM-14	examples/satellite-full/board/QM-OBC-MM-14-cdr.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	인증검토 자료
+QM-OBC-MM-15	examples/satellite-full/board/QM-OBC-MM-15-cfg.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	형상문서 갱신
+QM-OBC-MM-16	examples/satellite-full/board/QM-OBC-MM-16-qrep.md	examples/satellite-full/deliverables/QM/OBC/mm-asm.md	인증보고
+QM-OBC-IO-01	examples/satellite-full/board/QM-OBC-IO-01-upd.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	설계 갱신
+QM-OBC-IO-02	examples/satellite-full/board/QM-OBC-IO-02-buy.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	인증부품 구매
+QM-OBC-IO-03	examples/satellite-full/board/QM-OBC-IO-03-recv.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	입고 검사
+QM-OBC-IO-04	examples/satellite-full/board/QM-OBC-IO-04-fab.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	제작
+QM-OBC-IO-05	examples/satellite-full/board/QM-OBC-IO-05-asm.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	조립
+QM-OBC-IO-06	examples/satellite-full/board/QM-OBC-IO-06-wkm.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	워크맨십 검사
+QM-OBC-IO-07	examples/satellite-full/board/QM-OBC-IO-07-vib.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	진동시험
+QM-OBC-IO-08	examples/satellite-full/board/QM-OBC-IO-08-shk.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	충격시험
+QM-OBC-IO-09	examples/satellite-full/board/QM-OBC-IO-09-tvac.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	열진공시험
+QM-OBC-IO-10	examples/satellite-full/board/QM-OBC-IO-10-emc.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	EMC 시험
+QM-OBC-IO-11	examples/satellite-full/board/QM-OBC-IO-11-burn.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	수명·번인시험
+QM-OBC-IO-12	examples/satellite-full/board/QM-OBC-IO-12-ncr.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	비적합 처리
+QM-OBC-IO-13	examples/satellite-full/board/QM-OBC-IO-13-data.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	시험데이터 분석
+QM-OBC-IO-14	examples/satellite-full/board/QM-OBC-IO-14-cdr.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	인증검토 자료
+QM-OBC-IO-15	examples/satellite-full/board/QM-OBC-IO-15-cfg.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	형상문서 갱신
+QM-OBC-IO-16	examples/satellite-full/board/QM-OBC-IO-16-qrep.md	examples/satellite-full/deliverables/QM/OBC/io-asm.md	인증보고
+QM-OBC-WD-01	examples/satellite-full/board/QM-OBC-WD-01-upd.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	설계 갱신
+QM-OBC-WD-02	examples/satellite-full/board/QM-OBC-WD-02-buy.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	인증부품 구매
+QM-OBC-WD-03	examples/satellite-full/board/QM-OBC-WD-03-recv.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	입고 검사
+QM-OBC-WD-04	examples/satellite-full/board/QM-OBC-WD-04-fab.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	제작
+QM-OBC-WD-05	examples/satellite-full/board/QM-OBC-WD-05-asm.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	조립
+QM-OBC-WD-06	examples/satellite-full/board/QM-OBC-WD-06-wkm.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	워크맨십 검사
+QM-OBC-WD-07	examples/satellite-full/board/QM-OBC-WD-07-vib.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	진동시험
+QM-OBC-WD-08	examples/satellite-full/board/QM-OBC-WD-08-shk.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	충격시험
+QM-OBC-WD-09	examples/satellite-full/board/QM-OBC-WD-09-tvac.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	열진공시험
+QM-OBC-WD-10	examples/satellite-full/board/QM-OBC-WD-10-emc.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	EMC 시험
+QM-OBC-WD-11	examples/satellite-full/board/QM-OBC-WD-11-burn.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	수명·번인시험
+QM-OBC-WD-12	examples/satellite-full/board/QM-OBC-WD-12-ncr.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	비적합 처리
+QM-OBC-WD-13	examples/satellite-full/board/QM-OBC-WD-13-data.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	시험데이터 분석
+QM-OBC-WD-14	examples/satellite-full/board/QM-OBC-WD-14-cdr.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	인증검토 자료
+QM-OBC-WD-15	examples/satellite-full/board/QM-OBC-WD-15-cfg.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	형상문서 갱신
+QM-OBC-WD-16	examples/satellite-full/board/QM-OBC-WD-16-qrep.md	examples/satellite-full/deliverables/QM/OBC/wd-asm.md	인증보고
+QM-OBC-SW-01	examples/satellite-full/board/QM-OBC-SW-01-upd.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	설계 갱신
+QM-OBC-SW-02	examples/satellite-full/board/QM-OBC-SW-02-buy.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	인증부품 구매
+QM-OBC-SW-03	examples/satellite-full/board/QM-OBC-SW-03-recv.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	입고 검사
+QM-OBC-SW-04	examples/satellite-full/board/QM-OBC-SW-04-fab.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	제작
+QM-OBC-SW-05	examples/satellite-full/board/QM-OBC-SW-05-asm.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	조립
+QM-OBC-SW-06	examples/satellite-full/board/QM-OBC-SW-06-wkm.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	워크맨십 검사
+QM-OBC-SW-07	examples/satellite-full/board/QM-OBC-SW-07-vib.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	진동시험
+QM-OBC-SW-08	examples/satellite-full/board/QM-OBC-SW-08-shk.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	충격시험
+QM-OBC-SW-09	examples/satellite-full/board/QM-OBC-SW-09-tvac.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	열진공시험
+QM-OBC-SW-10	examples/satellite-full/board/QM-OBC-SW-10-emc.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	EMC 시험
+QM-OBC-SW-11	examples/satellite-full/board/QM-OBC-SW-11-burn.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	수명·번인시험
+QM-OBC-SW-12	examples/satellite-full/board/QM-OBC-SW-12-ncr.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	비적합 처리
+QM-OBC-SW-13	examples/satellite-full/board/QM-OBC-SW-13-data.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	시험데이터 분석
+QM-OBC-SW-14	examples/satellite-full/board/QM-OBC-SW-14-cdr.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	인증검토 자료
+QM-OBC-SW-15	examples/satellite-full/board/QM-OBC-SW-15-cfg.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	형상문서 갱신
+QM-OBC-SW-16	examples/satellite-full/board/QM-OBC-SW-16-qrep.md	examples/satellite-full/deliverables/QM/OBC/sw-asm.md	인증보고
+QM-OBC-BP-01	examples/satellite-full/board/QM-OBC-BP-01-upd.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	설계 갱신
+QM-OBC-BP-02	examples/satellite-full/board/QM-OBC-BP-02-buy.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	인증부품 구매
+QM-OBC-BP-03	examples/satellite-full/board/QM-OBC-BP-03-recv.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	입고 검사
+QM-OBC-BP-04	examples/satellite-full/board/QM-OBC-BP-04-fab.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	제작
+QM-OBC-BP-05	examples/satellite-full/board/QM-OBC-BP-05-asm.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	조립
+QM-OBC-BP-06	examples/satellite-full/board/QM-OBC-BP-06-wkm.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	워크맨십 검사
+QM-OBC-BP-07	examples/satellite-full/board/QM-OBC-BP-07-vib.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	진동시험
+QM-OBC-BP-08	examples/satellite-full/board/QM-OBC-BP-08-shk.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	충격시험
+QM-OBC-BP-09	examples/satellite-full/board/QM-OBC-BP-09-tvac.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	열진공시험
+QM-OBC-BP-10	examples/satellite-full/board/QM-OBC-BP-10-emc.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	EMC 시험
+QM-OBC-BP-11	examples/satellite-full/board/QM-OBC-BP-11-burn.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	수명·번인시험
+QM-OBC-BP-12	examples/satellite-full/board/QM-OBC-BP-12-ncr.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	비적합 처리
+QM-OBC-BP-13	examples/satellite-full/board/QM-OBC-BP-13-data.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	시험데이터 분석
+QM-OBC-BP-14	examples/satellite-full/board/QM-OBC-BP-14-cdr.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	인증검토 자료
+QM-OBC-BP-15	examples/satellite-full/board/QM-OBC-BP-15-cfg.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	형상문서 갱신
+QM-OBC-BP-16	examples/satellite-full/board/QM-OBC-BP-16-qrep.md	examples/satellite-full/deliverables/QM/OBC/bp-asm.md	인증보고

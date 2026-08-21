@@ -1,0 +1,72 @@
+FM-AOCS-ST-01	examples/satellite-full/board/FM-AOCS-ST-01-buy.md	examples/satellite-full/deliverables/FM/AOCS/st-asm.md	비행부품 구매
+FM-AOCS-ST-02	examples/satellite-full/board/FM-AOCS-ST-02-recv.md	examples/satellite-full/deliverables/FM/AOCS/st-asm.md	입고 검사
+FM-AOCS-ST-03	examples/satellite-full/board/FM-AOCS-ST-03-fab.md	examples/satellite-full/deliverables/FM/AOCS/st-asm.md	제작
+FM-AOCS-ST-04	examples/satellite-full/board/FM-AOCS-ST-04-asm.md	examples/satellite-full/deliverables/FM/AOCS/st-asm.md	조립
+FM-AOCS-ST-05	examples/satellite-full/board/FM-AOCS-ST-05-insp.md	examples/satellite-full/deliverables/FM/AOCS/st-asm.md	정밀 검사
+FM-AOCS-ST-06	examples/satellite-full/board/FM-AOCS-ST-06-avib.md	examples/satellite-full/deliverables/FM/AOCS/st-asm.md	수락 진동시험
+FM-AOCS-ST-07	examples/satellite-full/board/FM-AOCS-ST-07-atvac.md	examples/satellite-full/deliverables/FM/AOCS/st-asm.md	수락 열진공시험
+FM-AOCS-ST-08	examples/satellite-full/board/FM-AOCS-ST-08-fperf.md	examples/satellite-full/deliverables/FM/AOCS/st-asm.md	최종 성능시험
+FM-AOCS-ST-09	examples/satellite-full/board/FM-AOCS-ST-09-bake.md	examples/satellite-full/deliverables/FM/AOCS/st-asm.md	세척·베이크아웃
+FM-AOCS-ST-10	examples/satellite-full/board/FM-AOCS-ST-10-mass.md	examples/satellite-full/deliverables/FM/AOCS/st-asm.md	질량특성 측정
+FM-AOCS-ST-11	examples/satellite-full/board/FM-AOCS-ST-11-dpak.md	examples/satellite-full/deliverables/FM/AOCS/st-asm.md	인도문서 작성
+FM-AOCS-ST-12	examples/satellite-full/board/FM-AOCS-ST-12-arev.md	examples/satellite-full/deliverables/FM/AOCS/st-asm.md	수락검토
+FM-AOCS-GY-01	examples/satellite-full/board/FM-AOCS-GY-01-buy.md	examples/satellite-full/deliverables/FM/AOCS/gy-asm.md	비행부품 구매
+FM-AOCS-GY-02	examples/satellite-full/board/FM-AOCS-GY-02-recv.md	examples/satellite-full/deliverables/FM/AOCS/gy-asm.md	입고 검사
+FM-AOCS-GY-03	examples/satellite-full/board/FM-AOCS-GY-03-fab.md	examples/satellite-full/deliverables/FM/AOCS/gy-asm.md	제작
+FM-AOCS-GY-04	examples/satellite-full/board/FM-AOCS-GY-04-asm.md	examples/satellite-full/deliverables/FM/AOCS/gy-asm.md	조립
+FM-AOCS-GY-05	examples/satellite-full/board/FM-AOCS-GY-05-insp.md	examples/satellite-full/deliverables/FM/AOCS/gy-asm.md	정밀 검사
+FM-AOCS-GY-06	examples/satellite-full/board/FM-AOCS-GY-06-avib.md	examples/satellite-full/deliverables/FM/AOCS/gy-asm.md	수락 진동시험
+FM-AOCS-GY-07	examples/satellite-full/board/FM-AOCS-GY-07-atvac.md	examples/satellite-full/deliverables/FM/AOCS/gy-asm.md	수락 열진공시험
+FM-AOCS-GY-08	examples/satellite-full/board/FM-AOCS-GY-08-fperf.md	examples/satellite-full/deliverables/FM/AOCS/gy-asm.md	최종 성능시험
+FM-AOCS-GY-09	examples/satellite-full/board/FM-AOCS-GY-09-bake.md	examples/satellite-full/deliverables/FM/AOCS/gy-asm.md	세척·베이크아웃
+FM-AOCS-GY-10	examples/satellite-full/board/FM-AOCS-GY-10-mass.md	examples/satellite-full/deliverables/FM/AOCS/gy-asm.md	질량특성 측정
+FM-AOCS-GY-11	examples/satellite-full/board/FM-AOCS-GY-11-dpak.md	examples/satellite-full/deliverables/FM/AOCS/gy-asm.md	인도문서 작성
+FM-AOCS-GY-12	examples/satellite-full/board/FM-AOCS-GY-12-arev.md	examples/satellite-full/deliverables/FM/AOCS/gy-asm.md	수락검토
+FM-AOCS-RW-01	examples/satellite-full/board/FM-AOCS-RW-01-buy.md	examples/satellite-full/deliverables/FM/AOCS/rw-asm.md	비행부품 구매
+FM-AOCS-RW-02	examples/satellite-full/board/FM-AOCS-RW-02-recv.md	examples/satellite-full/deliverables/FM/AOCS/rw-asm.md	입고 검사
+FM-AOCS-RW-03	examples/satellite-full/board/FM-AOCS-RW-03-fab.md	examples/satellite-full/deliverables/FM/AOCS/rw-asm.md	제작
+FM-AOCS-RW-04	examples/satellite-full/board/FM-AOCS-RW-04-asm.md	examples/satellite-full/deliverables/FM/AOCS/rw-asm.md	조립
+FM-AOCS-RW-05	examples/satellite-full/board/FM-AOCS-RW-05-insp.md	examples/satellite-full/deliverables/FM/AOCS/rw-asm.md	정밀 검사
+FM-AOCS-RW-06	examples/satellite-full/board/FM-AOCS-RW-06-avib.md	examples/satellite-full/deliverables/FM/AOCS/rw-asm.md	수락 진동시험
+FM-AOCS-RW-07	examples/satellite-full/board/FM-AOCS-RW-07-atvac.md	examples/satellite-full/deliverables/FM/AOCS/rw-asm.md	수락 열진공시험
+FM-AOCS-RW-08	examples/satellite-full/board/FM-AOCS-RW-08-fperf.md	examples/satellite-full/deliverables/FM/AOCS/rw-asm.md	최종 성능시험
+FM-AOCS-RW-09	examples/satellite-full/board/FM-AOCS-RW-09-bake.md	examples/satellite-full/deliverables/FM/AOCS/rw-asm.md	세척·베이크아웃
+FM-AOCS-RW-10	examples/satellite-full/board/FM-AOCS-RW-10-mass.md	examples/satellite-full/deliverables/FM/AOCS/rw-asm.md	질량특성 측정
+FM-AOCS-RW-11	examples/satellite-full/board/FM-AOCS-RW-11-dpak.md	examples/satellite-full/deliverables/FM/AOCS/rw-asm.md	인도문서 작성
+FM-AOCS-RW-12	examples/satellite-full/board/FM-AOCS-RW-12-arev.md	examples/satellite-full/deliverables/FM/AOCS/rw-asm.md	수락검토
+FM-AOCS-MT-01	examples/satellite-full/board/FM-AOCS-MT-01-buy.md	examples/satellite-full/deliverables/FM/AOCS/mt-asm.md	비행부품 구매
+FM-AOCS-MT-02	examples/satellite-full/board/FM-AOCS-MT-02-recv.md	examples/satellite-full/deliverables/FM/AOCS/mt-asm.md	입고 검사
+FM-AOCS-MT-03	examples/satellite-full/board/FM-AOCS-MT-03-fab.md	examples/satellite-full/deliverables/FM/AOCS/mt-asm.md	제작
+FM-AOCS-MT-04	examples/satellite-full/board/FM-AOCS-MT-04-asm.md	examples/satellite-full/deliverables/FM/AOCS/mt-asm.md	조립
+FM-AOCS-MT-05	examples/satellite-full/board/FM-AOCS-MT-05-insp.md	examples/satellite-full/deliverables/FM/AOCS/mt-asm.md	정밀 검사
+FM-AOCS-MT-06	examples/satellite-full/board/FM-AOCS-MT-06-avib.md	examples/satellite-full/deliverables/FM/AOCS/mt-asm.md	수락 진동시험
+FM-AOCS-MT-07	examples/satellite-full/board/FM-AOCS-MT-07-atvac.md	examples/satellite-full/deliverables/FM/AOCS/mt-asm.md	수락 열진공시험
+FM-AOCS-MT-08	examples/satellite-full/board/FM-AOCS-MT-08-fperf.md	examples/satellite-full/deliverables/FM/AOCS/mt-asm.md	최종 성능시험
+FM-AOCS-MT-09	examples/satellite-full/board/FM-AOCS-MT-09-bake.md	examples/satellite-full/deliverables/FM/AOCS/mt-asm.md	세척·베이크아웃
+FM-AOCS-MT-10	examples/satellite-full/board/FM-AOCS-MT-10-mass.md	examples/satellite-full/deliverables/FM/AOCS/mt-asm.md	질량특성 측정
+FM-AOCS-MT-11	examples/satellite-full/board/FM-AOCS-MT-11-dpak.md	examples/satellite-full/deliverables/FM/AOCS/mt-asm.md	인도문서 작성
+FM-AOCS-MT-12	examples/satellite-full/board/FM-AOCS-MT-12-arev.md	examples/satellite-full/deliverables/FM/AOCS/mt-asm.md	수락검토
+FM-AOCS-SS-01	examples/satellite-full/board/FM-AOCS-SS-01-buy.md	examples/satellite-full/deliverables/FM/AOCS/ss-asm.md	비행부품 구매
+FM-AOCS-SS-02	examples/satellite-full/board/FM-AOCS-SS-02-recv.md	examples/satellite-full/deliverables/FM/AOCS/ss-asm.md	입고 검사
+FM-AOCS-SS-03	examples/satellite-full/board/FM-AOCS-SS-03-fab.md	examples/satellite-full/deliverables/FM/AOCS/ss-asm.md	제작
+FM-AOCS-SS-04	examples/satellite-full/board/FM-AOCS-SS-04-asm.md	examples/satellite-full/deliverables/FM/AOCS/ss-asm.md	조립
+FM-AOCS-SS-05	examples/satellite-full/board/FM-AOCS-SS-05-insp.md	examples/satellite-full/deliverables/FM/AOCS/ss-asm.md	정밀 검사
+FM-AOCS-SS-06	examples/satellite-full/board/FM-AOCS-SS-06-avib.md	examples/satellite-full/deliverables/FM/AOCS/ss-asm.md	수락 진동시험
+FM-AOCS-SS-07	examples/satellite-full/board/FM-AOCS-SS-07-atvac.md	examples/satellite-full/deliverables/FM/AOCS/ss-asm.md	수락 열진공시험
+FM-AOCS-SS-08	examples/satellite-full/board/FM-AOCS-SS-08-fperf.md	examples/satellite-full/deliverables/FM/AOCS/ss-asm.md	최종 성능시험
+FM-AOCS-SS-09	examples/satellite-full/board/FM-AOCS-SS-09-bake.md	examples/satellite-full/deliverables/FM/AOCS/ss-asm.md	세척·베이크아웃
+FM-AOCS-SS-10	examples/satellite-full/board/FM-AOCS-SS-10-mass.md	examples/satellite-full/deliverables/FM/AOCS/ss-asm.md	질량특성 측정
+FM-AOCS-SS-11	examples/satellite-full/board/FM-AOCS-SS-11-dpak.md	examples/satellite-full/deliverables/FM/AOCS/ss-asm.md	인도문서 작성
+FM-AOCS-SS-12	examples/satellite-full/board/FM-AOCS-SS-12-arev.md	examples/satellite-full/deliverables/FM/AOCS/ss-asm.md	수락검토
+FM-AOCS-CB-01	examples/satellite-full/board/FM-AOCS-CB-01-buy.md	examples/satellite-full/deliverables/FM/AOCS/cb-asm.md	비행부품 구매
+FM-AOCS-CB-02	examples/satellite-full/board/FM-AOCS-CB-02-recv.md	examples/satellite-full/deliverables/FM/AOCS/cb-asm.md	입고 검사
+FM-AOCS-CB-03	examples/satellite-full/board/FM-AOCS-CB-03-fab.md	examples/satellite-full/deliverables/FM/AOCS/cb-asm.md	제작
+FM-AOCS-CB-04	examples/satellite-full/board/FM-AOCS-CB-04-asm.md	examples/satellite-full/deliverables/FM/AOCS/cb-asm.md	조립
+FM-AOCS-CB-05	examples/satellite-full/board/FM-AOCS-CB-05-insp.md	examples/satellite-full/deliverables/FM/AOCS/cb-asm.md	정밀 검사
+FM-AOCS-CB-06	examples/satellite-full/board/FM-AOCS-CB-06-avib.md	examples/satellite-full/deliverables/FM/AOCS/cb-asm.md	수락 진동시험
+FM-AOCS-CB-07	examples/satellite-full/board/FM-AOCS-CB-07-atvac.md	examples/satellite-full/deliverables/FM/AOCS/cb-asm.md	수락 열진공시험
+FM-AOCS-CB-08	examples/satellite-full/board/FM-AOCS-CB-08-fperf.md	examples/satellite-full/deliverables/FM/AOCS/cb-asm.md	최종 성능시험
+FM-AOCS-CB-09	examples/satellite-full/board/FM-AOCS-CB-09-bake.md	examples/satellite-full/deliverables/FM/AOCS/cb-asm.md	세척·베이크아웃
+FM-AOCS-CB-10	examples/satellite-full/board/FM-AOCS-CB-10-mass.md	examples/satellite-full/deliverables/FM/AOCS/cb-asm.md	질량특성 측정
+FM-AOCS-CB-11	examples/satellite-full/board/FM-AOCS-CB-11-dpak.md	examples/satellite-full/deliverables/FM/AOCS/cb-asm.md	인도문서 작성
+FM-AOCS-CB-12	examples/satellite-full/board/FM-AOCS-CB-12-arev.md	examples/satellite-full/deliverables/FM/AOCS/cb-asm.md	수락검토

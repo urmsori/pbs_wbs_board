@@ -1,0 +1,72 @@
+FM-TCS-HT-01	examples/satellite-full/board/FM-TCS-HT-01-buy.md	examples/satellite-full/deliverables/FM/TCS/ht-asm.md	비행부품 구매
+FM-TCS-HT-02	examples/satellite-full/board/FM-TCS-HT-02-recv.md	examples/satellite-full/deliverables/FM/TCS/ht-asm.md	입고 검사
+FM-TCS-HT-03	examples/satellite-full/board/FM-TCS-HT-03-fab.md	examples/satellite-full/deliverables/FM/TCS/ht-asm.md	제작
+FM-TCS-HT-04	examples/satellite-full/board/FM-TCS-HT-04-asm.md	examples/satellite-full/deliverables/FM/TCS/ht-asm.md	조립
+FM-TCS-HT-05	examples/satellite-full/board/FM-TCS-HT-05-insp.md	examples/satellite-full/deliverables/FM/TCS/ht-asm.md	정밀 검사
+FM-TCS-HT-06	examples/satellite-full/board/FM-TCS-HT-06-avib.md	examples/satellite-full/deliverables/FM/TCS/ht-asm.md	수락 진동시험
+FM-TCS-HT-07	examples/satellite-full/board/FM-TCS-HT-07-atvac.md	examples/satellite-full/deliverables/FM/TCS/ht-asm.md	수락 열진공시험
+FM-TCS-HT-08	examples/satellite-full/board/FM-TCS-HT-08-fperf.md	examples/satellite-full/deliverables/FM/TCS/ht-asm.md	최종 성능시험
+FM-TCS-HT-09	examples/satellite-full/board/FM-TCS-HT-09-bake.md	examples/satellite-full/deliverables/FM/TCS/ht-asm.md	세척·베이크아웃
+FM-TCS-HT-10	examples/satellite-full/board/FM-TCS-HT-10-mass.md	examples/satellite-full/deliverables/FM/TCS/ht-asm.md	질량특성 측정
+FM-TCS-HT-11	examples/satellite-full/board/FM-TCS-HT-11-dpak.md	examples/satellite-full/deliverables/FM/TCS/ht-asm.md	인도문서 작성
+FM-TCS-HT-12	examples/satellite-full/board/FM-TCS-HT-12-arev.md	examples/satellite-full/deliverables/FM/TCS/ht-asm.md	수락검토
+FM-TCS-ML-01	examples/satellite-full/board/FM-TCS-ML-01-buy.md	examples/satellite-full/deliverables/FM/TCS/ml-asm.md	비행부품 구매
+FM-TCS-ML-02	examples/satellite-full/board/FM-TCS-ML-02-recv.md	examples/satellite-full/deliverables/FM/TCS/ml-asm.md	입고 검사
+FM-TCS-ML-03	examples/satellite-full/board/FM-TCS-ML-03-fab.md	examples/satellite-full/deliverables/FM/TCS/ml-asm.md	제작
+FM-TCS-ML-04	examples/satellite-full/board/FM-TCS-ML-04-asm.md	examples/satellite-full/deliverables/FM/TCS/ml-asm.md	조립
+FM-TCS-ML-05	examples/satellite-full/board/FM-TCS-ML-05-insp.md	examples/satellite-full/deliverables/FM/TCS/ml-asm.md	정밀 검사
+FM-TCS-ML-06	examples/satellite-full/board/FM-TCS-ML-06-avib.md	examples/satellite-full/deliverables/FM/TCS/ml-asm.md	수락 진동시험
+FM-TCS-ML-07	examples/satellite-full/board/FM-TCS-ML-07-atvac.md	examples/satellite-full/deliverables/FM/TCS/ml-asm.md	수락 열진공시험
+FM-TCS-ML-08	examples/satellite-full/board/FM-TCS-ML-08-fperf.md	examples/satellite-full/deliverables/FM/TCS/ml-asm.md	최종 성능시험
+FM-TCS-ML-09	examples/satellite-full/board/FM-TCS-ML-09-bake.md	examples/satellite-full/deliverables/FM/TCS/ml-asm.md	세척·베이크아웃
+FM-TCS-ML-10	examples/satellite-full/board/FM-TCS-ML-10-mass.md	examples/satellite-full/deliverables/FM/TCS/ml-asm.md	질량특성 측정
+FM-TCS-ML-11	examples/satellite-full/board/FM-TCS-ML-11-dpak.md	examples/satellite-full/deliverables/FM/TCS/ml-asm.md	인도문서 작성
+FM-TCS-ML-12	examples/satellite-full/board/FM-TCS-ML-12-arev.md	examples/satellite-full/deliverables/FM/TCS/ml-asm.md	수락검토
+FM-TCS-RD-01	examples/satellite-full/board/FM-TCS-RD-01-buy.md	examples/satellite-full/deliverables/FM/TCS/rd-asm.md	비행부품 구매
+FM-TCS-RD-02	examples/satellite-full/board/FM-TCS-RD-02-recv.md	examples/satellite-full/deliverables/FM/TCS/rd-asm.md	입고 검사
+FM-TCS-RD-03	examples/satellite-full/board/FM-TCS-RD-03-fab.md	examples/satellite-full/deliverables/FM/TCS/rd-asm.md	제작
+FM-TCS-RD-04	examples/satellite-full/board/FM-TCS-RD-04-asm.md	examples/satellite-full/deliverables/FM/TCS/rd-asm.md	조립
+FM-TCS-RD-05	examples/satellite-full/board/FM-TCS-RD-05-insp.md	examples/satellite-full/deliverables/FM/TCS/rd-asm.md	정밀 검사
+FM-TCS-RD-06	examples/satellite-full/board/FM-TCS-RD-06-avib.md	examples/satellite-full/deliverables/FM/TCS/rd-asm.md	수락 진동시험
+FM-TCS-RD-07	examples/satellite-full/board/FM-TCS-RD-07-atvac.md	examples/satellite-full/deliverables/FM/TCS/rd-asm.md	수락 열진공시험
+FM-TCS-RD-08	examples/satellite-full/board/FM-TCS-RD-08-fperf.md	examples/satellite-full/deliverables/FM/TCS/rd-asm.md	최종 성능시험
+FM-TCS-RD-09	examples/satellite-full/board/FM-TCS-RD-09-bake.md	examples/satellite-full/deliverables/FM/TCS/rd-asm.md	세척·베이크아웃
+FM-TCS-RD-10	examples/satellite-full/board/FM-TCS-RD-10-mass.md	examples/satellite-full/deliverables/FM/TCS/rd-asm.md	질량특성 측정
+FM-TCS-RD-11	examples/satellite-full/board/FM-TCS-RD-11-dpak.md	examples/satellite-full/deliverables/FM/TCS/rd-asm.md	인도문서 작성
+FM-TCS-RD-12	examples/satellite-full/board/FM-TCS-RD-12-arev.md	examples/satellite-full/deliverables/FM/TCS/rd-asm.md	수락검토
+FM-TCS-TS-01	examples/satellite-full/board/FM-TCS-TS-01-buy.md	examples/satellite-full/deliverables/FM/TCS/ts-asm.md	비행부품 구매
+FM-TCS-TS-02	examples/satellite-full/board/FM-TCS-TS-02-recv.md	examples/satellite-full/deliverables/FM/TCS/ts-asm.md	입고 검사
+FM-TCS-TS-03	examples/satellite-full/board/FM-TCS-TS-03-fab.md	examples/satellite-full/deliverables/FM/TCS/ts-asm.md	제작
+FM-TCS-TS-04	examples/satellite-full/board/FM-TCS-TS-04-asm.md	examples/satellite-full/deliverables/FM/TCS/ts-asm.md	조립
+FM-TCS-TS-05	examples/satellite-full/board/FM-TCS-TS-05-insp.md	examples/satellite-full/deliverables/FM/TCS/ts-asm.md	정밀 검사
+FM-TCS-TS-06	examples/satellite-full/board/FM-TCS-TS-06-avib.md	examples/satellite-full/deliverables/FM/TCS/ts-asm.md	수락 진동시험
+FM-TCS-TS-07	examples/satellite-full/board/FM-TCS-TS-07-atvac.md	examples/satellite-full/deliverables/FM/TCS/ts-asm.md	수락 열진공시험
+FM-TCS-TS-08	examples/satellite-full/board/FM-TCS-TS-08-fperf.md	examples/satellite-full/deliverables/FM/TCS/ts-asm.md	최종 성능시험
+FM-TCS-TS-09	examples/satellite-full/board/FM-TCS-TS-09-bake.md	examples/satellite-full/deliverables/FM/TCS/ts-asm.md	세척·베이크아웃
+FM-TCS-TS-10	examples/satellite-full/board/FM-TCS-TS-10-mass.md	examples/satellite-full/deliverables/FM/TCS/ts-asm.md	질량특성 측정
+FM-TCS-TS-11	examples/satellite-full/board/FM-TCS-TS-11-dpak.md	examples/satellite-full/deliverables/FM/TCS/ts-asm.md	인도문서 작성
+FM-TCS-TS-12	examples/satellite-full/board/FM-TCS-TS-12-arev.md	examples/satellite-full/deliverables/FM/TCS/ts-asm.md	수락검토
+FM-TCS-HP-01	examples/satellite-full/board/FM-TCS-HP-01-buy.md	examples/satellite-full/deliverables/FM/TCS/hp-asm.md	비행부품 구매
+FM-TCS-HP-02	examples/satellite-full/board/FM-TCS-HP-02-recv.md	examples/satellite-full/deliverables/FM/TCS/hp-asm.md	입고 검사
+FM-TCS-HP-03	examples/satellite-full/board/FM-TCS-HP-03-fab.md	examples/satellite-full/deliverables/FM/TCS/hp-asm.md	제작
+FM-TCS-HP-04	examples/satellite-full/board/FM-TCS-HP-04-asm.md	examples/satellite-full/deliverables/FM/TCS/hp-asm.md	조립
+FM-TCS-HP-05	examples/satellite-full/board/FM-TCS-HP-05-insp.md	examples/satellite-full/deliverables/FM/TCS/hp-asm.md	정밀 검사
+FM-TCS-HP-06	examples/satellite-full/board/FM-TCS-HP-06-avib.md	examples/satellite-full/deliverables/FM/TCS/hp-asm.md	수락 진동시험
+FM-TCS-HP-07	examples/satellite-full/board/FM-TCS-HP-07-atvac.md	examples/satellite-full/deliverables/FM/TCS/hp-asm.md	수락 열진공시험
+FM-TCS-HP-08	examples/satellite-full/board/FM-TCS-HP-08-fperf.md	examples/satellite-full/deliverables/FM/TCS/hp-asm.md	최종 성능시험
+FM-TCS-HP-09	examples/satellite-full/board/FM-TCS-HP-09-bake.md	examples/satellite-full/deliverables/FM/TCS/hp-asm.md	세척·베이크아웃
+FM-TCS-HP-10	examples/satellite-full/board/FM-TCS-HP-10-mass.md	examples/satellite-full/deliverables/FM/TCS/hp-asm.md	질량특성 측정
+FM-TCS-HP-11	examples/satellite-full/board/FM-TCS-HP-11-dpak.md	examples/satellite-full/deliverables/FM/TCS/hp-asm.md	인도문서 작성
+FM-TCS-HP-12	examples/satellite-full/board/FM-TCS-HP-12-arev.md	examples/satellite-full/deliverables/FM/TCS/hp-asm.md	수락검토
+FM-TCS-TC-01	examples/satellite-full/board/FM-TCS-TC-01-buy.md	examples/satellite-full/deliverables/FM/TCS/tc-asm.md	비행부품 구매
+FM-TCS-TC-02	examples/satellite-full/board/FM-TCS-TC-02-recv.md	examples/satellite-full/deliverables/FM/TCS/tc-asm.md	입고 검사
+FM-TCS-TC-03	examples/satellite-full/board/FM-TCS-TC-03-fab.md	examples/satellite-full/deliverables/FM/TCS/tc-asm.md	제작
+FM-TCS-TC-04	examples/satellite-full/board/FM-TCS-TC-04-asm.md	examples/satellite-full/deliverables/FM/TCS/tc-asm.md	조립
+FM-TCS-TC-05	examples/satellite-full/board/FM-TCS-TC-05-insp.md	examples/satellite-full/deliverables/FM/TCS/tc-asm.md	정밀 검사
+FM-TCS-TC-06	examples/satellite-full/board/FM-TCS-TC-06-avib.md	examples/satellite-full/deliverables/FM/TCS/tc-asm.md	수락 진동시험
+FM-TCS-TC-07	examples/satellite-full/board/FM-TCS-TC-07-atvac.md	examples/satellite-full/deliverables/FM/TCS/tc-asm.md	수락 열진공시험
+FM-TCS-TC-08	examples/satellite-full/board/FM-TCS-TC-08-fperf.md	examples/satellite-full/deliverables/FM/TCS/tc-asm.md	최종 성능시험
+FM-TCS-TC-09	examples/satellite-full/board/FM-TCS-TC-09-bake.md	examples/satellite-full/deliverables/FM/TCS/tc-asm.md	세척·베이크아웃
+FM-TCS-TC-10	examples/satellite-full/board/FM-TCS-TC-10-mass.md	examples/satellite-full/deliverables/FM/TCS/tc-asm.md	질량특성 측정
+FM-TCS-TC-11	examples/satellite-full/board/FM-TCS-TC-11-dpak.md	examples/satellite-full/deliverables/FM/TCS/tc-asm.md	인도문서 작성
+FM-TCS-TC-12	examples/satellite-full/board/FM-TCS-TC-12-arev.md	examples/satellite-full/deliverables/FM/TCS/tc-asm.md	수락검토

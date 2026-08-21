@@ -1,0 +1,96 @@
+QM-PROP-TH-01	examples/satellite-full/board/QM-PROP-TH-01-upd.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	설계 갱신
+QM-PROP-TH-02	examples/satellite-full/board/QM-PROP-TH-02-buy.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	인증부품 구매
+QM-PROP-TH-03	examples/satellite-full/board/QM-PROP-TH-03-recv.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	입고 검사
+QM-PROP-TH-04	examples/satellite-full/board/QM-PROP-TH-04-fab.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	제작
+QM-PROP-TH-05	examples/satellite-full/board/QM-PROP-TH-05-asm.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	조립
+QM-PROP-TH-06	examples/satellite-full/board/QM-PROP-TH-06-wkm.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	워크맨십 검사
+QM-PROP-TH-07	examples/satellite-full/board/QM-PROP-TH-07-vib.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	진동시험
+QM-PROP-TH-08	examples/satellite-full/board/QM-PROP-TH-08-shk.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	충격시험
+QM-PROP-TH-09	examples/satellite-full/board/QM-PROP-TH-09-tvac.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	열진공시험
+QM-PROP-TH-10	examples/satellite-full/board/QM-PROP-TH-10-emc.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	EMC 시험
+QM-PROP-TH-11	examples/satellite-full/board/QM-PROP-TH-11-burn.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	수명·번인시험
+QM-PROP-TH-12	examples/satellite-full/board/QM-PROP-TH-12-ncr.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	비적합 처리
+QM-PROP-TH-13	examples/satellite-full/board/QM-PROP-TH-13-data.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	시험데이터 분석
+QM-PROP-TH-14	examples/satellite-full/board/QM-PROP-TH-14-cdr.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	인증검토 자료
+QM-PROP-TH-15	examples/satellite-full/board/QM-PROP-TH-15-cfg.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	형상문서 갱신
+QM-PROP-TH-16	examples/satellite-full/board/QM-PROP-TH-16-qrep.md	examples/satellite-full/deliverables/QM/PROP/th-asm.md	인증보고
+QM-PROP-TK-01	examples/satellite-full/board/QM-PROP-TK-01-upd.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	설계 갱신
+QM-PROP-TK-02	examples/satellite-full/board/QM-PROP-TK-02-buy.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	인증부품 구매
+QM-PROP-TK-03	examples/satellite-full/board/QM-PROP-TK-03-recv.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	입고 검사
+QM-PROP-TK-04	examples/satellite-full/board/QM-PROP-TK-04-fab.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	제작
+QM-PROP-TK-05	examples/satellite-full/board/QM-PROP-TK-05-asm.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	조립
+QM-PROP-TK-06	examples/satellite-full/board/QM-PROP-TK-06-wkm.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	워크맨십 검사
+QM-PROP-TK-07	examples/satellite-full/board/QM-PROP-TK-07-vib.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	진동시험
+QM-PROP-TK-08	examples/satellite-full/board/QM-PROP-TK-08-shk.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	충격시험
+QM-PROP-TK-09	examples/satellite-full/board/QM-PROP-TK-09-tvac.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	열진공시험
+QM-PROP-TK-10	examples/satellite-full/board/QM-PROP-TK-10-emc.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	EMC 시험
+QM-PROP-TK-11	examples/satellite-full/board/QM-PROP-TK-11-burn.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	수명·번인시험
+QM-PROP-TK-12	examples/satellite-full/board/QM-PROP-TK-12-ncr.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	비적합 처리
+QM-PROP-TK-13	examples/satellite-full/board/QM-PROP-TK-13-data.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	시험데이터 분석
+QM-PROP-TK-14	examples/satellite-full/board/QM-PROP-TK-14-cdr.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	인증검토 자료
+QM-PROP-TK-15	examples/satellite-full/board/QM-PROP-TK-15-cfg.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	형상문서 갱신
+QM-PROP-TK-16	examples/satellite-full/board/QM-PROP-TK-16-qrep.md	examples/satellite-full/deliverables/QM/PROP/tk-asm.md	인증보고
+QM-PROP-PL-01	examples/satellite-full/board/QM-PROP-PL-01-upd.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	설계 갱신
+QM-PROP-PL-02	examples/satellite-full/board/QM-PROP-PL-02-buy.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	인증부품 구매
+QM-PROP-PL-03	examples/satellite-full/board/QM-PROP-PL-03-recv.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	입고 검사
+QM-PROP-PL-04	examples/satellite-full/board/QM-PROP-PL-04-fab.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	제작
+QM-PROP-PL-05	examples/satellite-full/board/QM-PROP-PL-05-asm.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	조립
+QM-PROP-PL-06	examples/satellite-full/board/QM-PROP-PL-06-wkm.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	워크맨십 검사
+QM-PROP-PL-07	examples/satellite-full/board/QM-PROP-PL-07-vib.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	진동시험
+QM-PROP-PL-08	examples/satellite-full/board/QM-PROP-PL-08-shk.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	충격시험
+QM-PROP-PL-09	examples/satellite-full/board/QM-PROP-PL-09-tvac.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	열진공시험
+QM-PROP-PL-10	examples/satellite-full/board/QM-PROP-PL-10-emc.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	EMC 시험
+QM-PROP-PL-11	examples/satellite-full/board/QM-PROP-PL-11-burn.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	수명·번인시험
+QM-PROP-PL-12	examples/satellite-full/board/QM-PROP-PL-12-ncr.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	비적합 처리
+QM-PROP-PL-13	examples/satellite-full/board/QM-PROP-PL-13-data.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	시험데이터 분석
+QM-PROP-PL-14	examples/satellite-full/board/QM-PROP-PL-14-cdr.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	인증검토 자료
+QM-PROP-PL-15	examples/satellite-full/board/QM-PROP-PL-15-cfg.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	형상문서 갱신
+QM-PROP-PL-16	examples/satellite-full/board/QM-PROP-PL-16-qrep.md	examples/satellite-full/deliverables/QM/PROP/pl-asm.md	인증보고
+QM-PROP-VV-01	examples/satellite-full/board/QM-PROP-VV-01-upd.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	설계 갱신
+QM-PROP-VV-02	examples/satellite-full/board/QM-PROP-VV-02-buy.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	인증부품 구매
+QM-PROP-VV-03	examples/satellite-full/board/QM-PROP-VV-03-recv.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	입고 검사
+QM-PROP-VV-04	examples/satellite-full/board/QM-PROP-VV-04-fab.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	제작
+QM-PROP-VV-05	examples/satellite-full/board/QM-PROP-VV-05-asm.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	조립
+QM-PROP-VV-06	examples/satellite-full/board/QM-PROP-VV-06-wkm.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	워크맨십 검사
+QM-PROP-VV-07	examples/satellite-full/board/QM-PROP-VV-07-vib.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	진동시험
+QM-PROP-VV-08	examples/satellite-full/board/QM-PROP-VV-08-shk.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	충격시험
+QM-PROP-VV-09	examples/satellite-full/board/QM-PROP-VV-09-tvac.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	열진공시험
+QM-PROP-VV-10	examples/satellite-full/board/QM-PROP-VV-10-emc.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	EMC 시험
+QM-PROP-VV-11	examples/satellite-full/board/QM-PROP-VV-11-burn.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	수명·번인시험
+QM-PROP-VV-12	examples/satellite-full/board/QM-PROP-VV-12-ncr.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	비적합 처리
+QM-PROP-VV-13	examples/satellite-full/board/QM-PROP-VV-13-data.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	시험데이터 분석
+QM-PROP-VV-14	examples/satellite-full/board/QM-PROP-VV-14-cdr.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	인증검토 자료
+QM-PROP-VV-15	examples/satellite-full/board/QM-PROP-VV-15-cfg.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	형상문서 갱신
+QM-PROP-VV-16	examples/satellite-full/board/QM-PROP-VV-16-qrep.md	examples/satellite-full/deliverables/QM/PROP/vv-asm.md	인증보고
+QM-PROP-PS-01	examples/satellite-full/board/QM-PROP-PS-01-upd.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	설계 갱신
+QM-PROP-PS-02	examples/satellite-full/board/QM-PROP-PS-02-buy.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	인증부품 구매
+QM-PROP-PS-03	examples/satellite-full/board/QM-PROP-PS-03-recv.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	입고 검사
+QM-PROP-PS-04	examples/satellite-full/board/QM-PROP-PS-04-fab.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	제작
+QM-PROP-PS-05	examples/satellite-full/board/QM-PROP-PS-05-asm.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	조립
+QM-PROP-PS-06	examples/satellite-full/board/QM-PROP-PS-06-wkm.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	워크맨십 검사
+QM-PROP-PS-07	examples/satellite-full/board/QM-PROP-PS-07-vib.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	진동시험
+QM-PROP-PS-08	examples/satellite-full/board/QM-PROP-PS-08-shk.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	충격시험
+QM-PROP-PS-09	examples/satellite-full/board/QM-PROP-PS-09-tvac.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	열진공시험
+QM-PROP-PS-10	examples/satellite-full/board/QM-PROP-PS-10-emc.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	EMC 시험
+QM-PROP-PS-11	examples/satellite-full/board/QM-PROP-PS-11-burn.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	수명·번인시험
+QM-PROP-PS-12	examples/satellite-full/board/QM-PROP-PS-12-ncr.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	비적합 처리
+QM-PROP-PS-13	examples/satellite-full/board/QM-PROP-PS-13-data.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	시험데이터 분석
+QM-PROP-PS-14	examples/satellite-full/board/QM-PROP-PS-14-cdr.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	인증검토 자료
+QM-PROP-PS-15	examples/satellite-full/board/QM-PROP-PS-15-cfg.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	형상문서 갱신
+QM-PROP-PS-16	examples/satellite-full/board/QM-PROP-PS-16-qrep.md	examples/satellite-full/deliverables/QM/PROP/ps-asm.md	인증보고
+QM-PROP-FV-01	examples/satellite-full/board/QM-PROP-FV-01-upd.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	설계 갱신
+QM-PROP-FV-02	examples/satellite-full/board/QM-PROP-FV-02-buy.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	인증부품 구매
+QM-PROP-FV-03	examples/satellite-full/board/QM-PROP-FV-03-recv.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	입고 검사
+QM-PROP-FV-04	examples/satellite-full/board/QM-PROP-FV-04-fab.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	제작
+QM-PROP-FV-05	examples/satellite-full/board/QM-PROP-FV-05-asm.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	조립
+QM-PROP-FV-06	examples/satellite-full/board/QM-PROP-FV-06-wkm.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	워크맨십 검사
+QM-PROP-FV-07	examples/satellite-full/board/QM-PROP-FV-07-vib.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	진동시험
+QM-PROP-FV-08	examples/satellite-full/board/QM-PROP-FV-08-shk.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	충격시험
+QM-PROP-FV-09	examples/satellite-full/board/QM-PROP-FV-09-tvac.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	열진공시험
+QM-PROP-FV-10	examples/satellite-full/board/QM-PROP-FV-10-emc.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	EMC 시험
+QM-PROP-FV-11	examples/satellite-full/board/QM-PROP-FV-11-burn.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	수명·번인시험
+QM-PROP-FV-12	examples/satellite-full/board/QM-PROP-FV-12-ncr.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	비적합 처리
+QM-PROP-FV-13	examples/satellite-full/board/QM-PROP-FV-13-data.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	시험데이터 분석
+QM-PROP-FV-14	examples/satellite-full/board/QM-PROP-FV-14-cdr.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	인증검토 자료
+QM-PROP-FV-15	examples/satellite-full/board/QM-PROP-FV-15-cfg.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	형상문서 갱신
+QM-PROP-FV-16	examples/satellite-full/board/QM-PROP-FV-16-qrep.md	examples/satellite-full/deliverables/QM/PROP/fv-asm.md	인증보고

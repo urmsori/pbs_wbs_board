@@ -1,0 +1,72 @@
+FM-PROP-TH-01	examples/satellite-full/board/FM-PROP-TH-01-buy.md	examples/satellite-full/deliverables/FM/PROP/th-asm.md	비행부품 구매
+FM-PROP-TH-02	examples/satellite-full/board/FM-PROP-TH-02-recv.md	examples/satellite-full/deliverables/FM/PROP/th-asm.md	입고 검사
+FM-PROP-TH-03	examples/satellite-full/board/FM-PROP-TH-03-fab.md	examples/satellite-full/deliverables/FM/PROP/th-asm.md	제작
+FM-PROP-TH-04	examples/satellite-full/board/FM-PROP-TH-04-asm.md	examples/satellite-full/deliverables/FM/PROP/th-asm.md	조립
+FM-PROP-TH-05	examples/satellite-full/board/FM-PROP-TH-05-insp.md	examples/satellite-full/deliverables/FM/PROP/th-asm.md	정밀 검사
+FM-PROP-TH-06	examples/satellite-full/board/FM-PROP-TH-06-avib.md	examples/satellite-full/deliverables/FM/PROP/th-asm.md	수락 진동시험
+FM-PROP-TH-07	examples/satellite-full/board/FM-PROP-TH-07-atvac.md	examples/satellite-full/deliverables/FM/PROP/th-asm.md	수락 열진공시험
+FM-PROP-TH-08	examples/satellite-full/board/FM-PROP-TH-08-fperf.md	examples/satellite-full/deliverables/FM/PROP/th-asm.md	최종 성능시험
+FM-PROP-TH-09	examples/satellite-full/board/FM-PROP-TH-09-bake.md	examples/satellite-full/deliverables/FM/PROP/th-asm.md	세척·베이크아웃
+FM-PROP-TH-10	examples/satellite-full/board/FM-PROP-TH-10-mass.md	examples/satellite-full/deliverables/FM/PROP/th-asm.md	질량특성 측정
+FM-PROP-TH-11	examples/satellite-full/board/FM-PROP-TH-11-dpak.md	examples/satellite-full/deliverables/FM/PROP/th-asm.md	인도문서 작성
+FM-PROP-TH-12	examples/satellite-full/board/FM-PROP-TH-12-arev.md	examples/satellite-full/deliverables/FM/PROP/th-asm.md	수락검토
+FM-PROP-TK-01	examples/satellite-full/board/FM-PROP-TK-01-buy.md	examples/satellite-full/deliverables/FM/PROP/tk-asm.md	비행부품 구매
+FM-PROP-TK-02	examples/satellite-full/board/FM-PROP-TK-02-recv.md	examples/satellite-full/deliverables/FM/PROP/tk-asm.md	입고 검사
+FM-PROP-TK-03	examples/satellite-full/board/FM-PROP-TK-03-fab.md	examples/satellite-full/deliverables/FM/PROP/tk-asm.md	제작
+FM-PROP-TK-04	examples/satellite-full/board/FM-PROP-TK-04-asm.md	examples/satellite-full/deliverables/FM/PROP/tk-asm.md	조립
+FM-PROP-TK-05	examples/satellite-full/board/FM-PROP-TK-05-insp.md	examples/satellite-full/deliverables/FM/PROP/tk-asm.md	정밀 검사
+FM-PROP-TK-06	examples/satellite-full/board/FM-PROP-TK-06-avib.md	examples/satellite-full/deliverables/FM/PROP/tk-asm.md	수락 진동시험
+FM-PROP-TK-07	examples/satellite-full/board/FM-PROP-TK-07-atvac.md	examples/satellite-full/deliverables/FM/PROP/tk-asm.md	수락 열진공시험
+FM-PROP-TK-08	examples/satellite-full/board/FM-PROP-TK-08-fperf.md	examples/satellite-full/deliverables/FM/PROP/tk-asm.md	최종 성능시험
+FM-PROP-TK-09	examples/satellite-full/board/FM-PROP-TK-09-bake.md	examples/satellite-full/deliverables/FM/PROP/tk-asm.md	세척·베이크아웃
+FM-PROP-TK-10	examples/satellite-full/board/FM-PROP-TK-10-mass.md	examples/satellite-full/deliverables/FM/PROP/tk-asm.md	질량특성 측정
+FM-PROP-TK-11	examples/satellite-full/board/FM-PROP-TK-11-dpak.md	examples/satellite-full/deliverables/FM/PROP/tk-asm.md	인도문서 작성
+FM-PROP-TK-12	examples/satellite-full/board/FM-PROP-TK-12-arev.md	examples/satellite-full/deliverables/FM/PROP/tk-asm.md	수락검토
+FM-PROP-PL-01	examples/satellite-full/board/FM-PROP-PL-01-buy.md	examples/satellite-full/deliverables/FM/PROP/pl-asm.md	비행부품 구매
+FM-PROP-PL-02	examples/satellite-full/board/FM-PROP-PL-02-recv.md	examples/satellite-full/deliverables/FM/PROP/pl-asm.md	입고 검사
+FM-PROP-PL-03	examples/satellite-full/board/FM-PROP-PL-03-fab.md	examples/satellite-full/deliverables/FM/PROP/pl-asm.md	제작
+FM-PROP-PL-04	examples/satellite-full/board/FM-PROP-PL-04-asm.md	examples/satellite-full/deliverables/FM/PROP/pl-asm.md	조립
+FM-PROP-PL-05	examples/satellite-full/board/FM-PROP-PL-05-insp.md	examples/satellite-full/deliverables/FM/PROP/pl-asm.md	정밀 검사
+FM-PROP-PL-06	examples/satellite-full/board/FM-PROP-PL-06-avib.md	examples/satellite-full/deliverables/FM/PROP/pl-asm.md	수락 진동시험
+FM-PROP-PL-07	examples/satellite-full/board/FM-PROP-PL-07-atvac.md	examples/satellite-full/deliverables/FM/PROP/pl-asm.md	수락 열진공시험
+FM-PROP-PL-08	examples/satellite-full/board/FM-PROP-PL-08-fperf.md	examples/satellite-full/deliverables/FM/PROP/pl-asm.md	최종 성능시험
+FM-PROP-PL-09	examples/satellite-full/board/FM-PROP-PL-09-bake.md	examples/satellite-full/deliverables/FM/PROP/pl-asm.md	세척·베이크아웃
+FM-PROP-PL-10	examples/satellite-full/board/FM-PROP-PL-10-mass.md	examples/satellite-full/deliverables/FM/PROP/pl-asm.md	질량특성 측정
+FM-PROP-PL-11	examples/satellite-full/board/FM-PROP-PL-11-dpak.md	examples/satellite-full/deliverables/FM/PROP/pl-asm.md	인도문서 작성
+FM-PROP-PL-12	examples/satellite-full/board/FM-PROP-PL-12-arev.md	examples/satellite-full/deliverables/FM/PROP/pl-asm.md	수락검토
+FM-PROP-VV-01	examples/satellite-full/board/FM-PROP-VV-01-buy.md	examples/satellite-full/deliverables/FM/PROP/vv-asm.md	비행부품 구매
+FM-PROP-VV-02	examples/satellite-full/board/FM-PROP-VV-02-recv.md	examples/satellite-full/deliverables/FM/PROP/vv-asm.md	입고 검사
+FM-PROP-VV-03	examples/satellite-full/board/FM-PROP-VV-03-fab.md	examples/satellite-full/deliverables/FM/PROP/vv-asm.md	제작
+FM-PROP-VV-04	examples/satellite-full/board/FM-PROP-VV-04-asm.md	examples/satellite-full/deliverables/FM/PROP/vv-asm.md	조립
+FM-PROP-VV-05	examples/satellite-full/board/FM-PROP-VV-05-insp.md	examples/satellite-full/deliverables/FM/PROP/vv-asm.md	정밀 검사
+FM-PROP-VV-06	examples/satellite-full/board/FM-PROP-VV-06-avib.md	examples/satellite-full/deliverables/FM/PROP/vv-asm.md	수락 진동시험
+FM-PROP-VV-07	examples/satellite-full/board/FM-PROP-VV-07-atvac.md	examples/satellite-full/deliverables/FM/PROP/vv-asm.md	수락 열진공시험
+FM-PROP-VV-08	examples/satellite-full/board/FM-PROP-VV-08-fperf.md	examples/satellite-full/deliverables/FM/PROP/vv-asm.md	최종 성능시험
+FM-PROP-VV-09	examples/satellite-full/board/FM-PROP-VV-09-bake.md	examples/satellite-full/deliverables/FM/PROP/vv-asm.md	세척·베이크아웃
+FM-PROP-VV-10	examples/satellite-full/board/FM-PROP-VV-10-mass.md	examples/satellite-full/deliverables/FM/PROP/vv-asm.md	질량특성 측정
+FM-PROP-VV-11	examples/satellite-full/board/FM-PROP-VV-11-dpak.md	examples/satellite-full/deliverables/FM/PROP/vv-asm.md	인도문서 작성
+FM-PROP-VV-12	examples/satellite-full/board/FM-PROP-VV-12-arev.md	examples/satellite-full/deliverables/FM/PROP/vv-asm.md	수락검토
+FM-PROP-PS-01	examples/satellite-full/board/FM-PROP-PS-01-buy.md	examples/satellite-full/deliverables/FM/PROP/ps-asm.md	비행부품 구매
+FM-PROP-PS-02	examples/satellite-full/board/FM-PROP-PS-02-recv.md	examples/satellite-full/deliverables/FM/PROP/ps-asm.md	입고 검사
+FM-PROP-PS-03	examples/satellite-full/board/FM-PROP-PS-03-fab.md	examples/satellite-full/deliverables/FM/PROP/ps-asm.md	제작
+FM-PROP-PS-04	examples/satellite-full/board/FM-PROP-PS-04-asm.md	examples/satellite-full/deliverables/FM/PROP/ps-asm.md	조립
+FM-PROP-PS-05	examples/satellite-full/board/FM-PROP-PS-05-insp.md	examples/satellite-full/deliverables/FM/PROP/ps-asm.md	정밀 검사
+FM-PROP-PS-06	examples/satellite-full/board/FM-PROP-PS-06-avib.md	examples/satellite-full/deliverables/FM/PROP/ps-asm.md	수락 진동시험
+FM-PROP-PS-07	examples/satellite-full/board/FM-PROP-PS-07-atvac.md	examples/satellite-full/deliverables/FM/PROP/ps-asm.md	수락 열진공시험
+FM-PROP-PS-08	examples/satellite-full/board/FM-PROP-PS-08-fperf.md	examples/satellite-full/deliverables/FM/PROP/ps-asm.md	최종 성능시험
+FM-PROP-PS-09	examples/satellite-full/board/FM-PROP-PS-09-bake.md	examples/satellite-full/deliverables/FM/PROP/ps-asm.md	세척·베이크아웃
+FM-PROP-PS-10	examples/satellite-full/board/FM-PROP-PS-10-mass.md	examples/satellite-full/deliverables/FM/PROP/ps-asm.md	질량특성 측정
+FM-PROP-PS-11	examples/satellite-full/board/FM-PROP-PS-11-dpak.md	examples/satellite-full/deliverables/FM/PROP/ps-asm.md	인도문서 작성
+FM-PROP-PS-12	examples/satellite-full/board/FM-PROP-PS-12-arev.md	examples/satellite-full/deliverables/FM/PROP/ps-asm.md	수락검토
+FM-PROP-FV-01	examples/satellite-full/board/FM-PROP-FV-01-buy.md	examples/satellite-full/deliverables/FM/PROP/fv-asm.md	비행부품 구매
+FM-PROP-FV-02	examples/satellite-full/board/FM-PROP-FV-02-recv.md	examples/satellite-full/deliverables/FM/PROP/fv-asm.md	입고 검사
+FM-PROP-FV-03	examples/satellite-full/board/FM-PROP-FV-03-fab.md	examples/satellite-full/deliverables/FM/PROP/fv-asm.md	제작
+FM-PROP-FV-04	examples/satellite-full/board/FM-PROP-FV-04-asm.md	examples/satellite-full/deliverables/FM/PROP/fv-asm.md	조립
+FM-PROP-FV-05	examples/satellite-full/board/FM-PROP-FV-05-insp.md	examples/satellite-full/deliverables/FM/PROP/fv-asm.md	정밀 검사
+FM-PROP-FV-06	examples/satellite-full/board/FM-PROP-FV-06-avib.md	examples/satellite-full/deliverables/FM/PROP/fv-asm.md	수락 진동시험
+FM-PROP-FV-07	examples/satellite-full/board/FM-PROP-FV-07-atvac.md	examples/satellite-full/deliverables/FM/PROP/fv-asm.md	수락 열진공시험
+FM-PROP-FV-08	examples/satellite-full/board/FM-PROP-FV-08-fperf.md	examples/satellite-full/deliverables/FM/PROP/fv-asm.md	최종 성능시험
+FM-PROP-FV-09	examples/satellite-full/board/FM-PROP-FV-09-bake.md	examples/satellite-full/deliverables/FM/PROP/fv-asm.md	세척·베이크아웃
+FM-PROP-FV-10	examples/satellite-full/board/FM-PROP-FV-10-mass.md	examples/satellite-full/deliverables/FM/PROP/fv-asm.md	질량특성 측정
+FM-PROP-FV-11	examples/satellite-full/board/FM-PROP-FV-11-dpak.md	examples/satellite-full/deliverables/FM/PROP/fv-asm.md	인도문서 작성
+FM-PROP-FV-12	examples/satellite-full/board/FM-PROP-FV-12-arev.md	examples/satellite-full/deliverables/FM/PROP/fv-asm.md	수락검토

@@ -1,0 +1,96 @@
+QM-STR-MF-01	examples/satellite-full/board/QM-STR-MF-01-upd.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	설계 갱신
+QM-STR-MF-02	examples/satellite-full/board/QM-STR-MF-02-buy.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	인증부품 구매
+QM-STR-MF-03	examples/satellite-full/board/QM-STR-MF-03-recv.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	입고 검사
+QM-STR-MF-04	examples/satellite-full/board/QM-STR-MF-04-fab.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	제작
+QM-STR-MF-05	examples/satellite-full/board/QM-STR-MF-05-asm.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	조립
+QM-STR-MF-06	examples/satellite-full/board/QM-STR-MF-06-wkm.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	워크맨십 검사
+QM-STR-MF-07	examples/satellite-full/board/QM-STR-MF-07-vib.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	진동시험
+QM-STR-MF-08	examples/satellite-full/board/QM-STR-MF-08-shk.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	충격시험
+QM-STR-MF-09	examples/satellite-full/board/QM-STR-MF-09-tvac.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	열진공시험
+QM-STR-MF-10	examples/satellite-full/board/QM-STR-MF-10-emc.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	EMC 시험
+QM-STR-MF-11	examples/satellite-full/board/QM-STR-MF-11-burn.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	수명·번인시험
+QM-STR-MF-12	examples/satellite-full/board/QM-STR-MF-12-ncr.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	비적합 처리
+QM-STR-MF-13	examples/satellite-full/board/QM-STR-MF-13-data.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	시험데이터 분석
+QM-STR-MF-14	examples/satellite-full/board/QM-STR-MF-14-cdr.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	인증검토 자료
+QM-STR-MF-15	examples/satellite-full/board/QM-STR-MF-15-cfg.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	형상문서 갱신
+QM-STR-MF-16	examples/satellite-full/board/QM-STR-MF-16-qrep.md	examples/satellite-full/deliverables/QM/STR/mf-asm.md	인증보고
+QM-STR-PN-01	examples/satellite-full/board/QM-STR-PN-01-upd.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	설계 갱신
+QM-STR-PN-02	examples/satellite-full/board/QM-STR-PN-02-buy.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	인증부품 구매
+QM-STR-PN-03	examples/satellite-full/board/QM-STR-PN-03-recv.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	입고 검사
+QM-STR-PN-04	examples/satellite-full/board/QM-STR-PN-04-fab.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	제작
+QM-STR-PN-05	examples/satellite-full/board/QM-STR-PN-05-asm.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	조립
+QM-STR-PN-06	examples/satellite-full/board/QM-STR-PN-06-wkm.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	워크맨십 검사
+QM-STR-PN-07	examples/satellite-full/board/QM-STR-PN-07-vib.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	진동시험
+QM-STR-PN-08	examples/satellite-full/board/QM-STR-PN-08-shk.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	충격시험
+QM-STR-PN-09	examples/satellite-full/board/QM-STR-PN-09-tvac.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	열진공시험
+QM-STR-PN-10	examples/satellite-full/board/QM-STR-PN-10-emc.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	EMC 시험
+QM-STR-PN-11	examples/satellite-full/board/QM-STR-PN-11-burn.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	수명·번인시험
+QM-STR-PN-12	examples/satellite-full/board/QM-STR-PN-12-ncr.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	비적합 처리
+QM-STR-PN-13	examples/satellite-full/board/QM-STR-PN-13-data.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	시험데이터 분석
+QM-STR-PN-14	examples/satellite-full/board/QM-STR-PN-14-cdr.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	인증검토 자료
+QM-STR-PN-15	examples/satellite-full/board/QM-STR-PN-15-cfg.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	형상문서 갱신
+QM-STR-PN-16	examples/satellite-full/board/QM-STR-PN-16-qrep.md	examples/satellite-full/deliverables/QM/STR/pn-asm.md	인증보고
+QM-STR-SEP-01	examples/satellite-full/board/QM-STR-SEP-01-upd.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	설계 갱신
+QM-STR-SEP-02	examples/satellite-full/board/QM-STR-SEP-02-buy.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	인증부품 구매
+QM-STR-SEP-03	examples/satellite-full/board/QM-STR-SEP-03-recv.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	입고 검사
+QM-STR-SEP-04	examples/satellite-full/board/QM-STR-SEP-04-fab.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	제작
+QM-STR-SEP-05	examples/satellite-full/board/QM-STR-SEP-05-asm.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	조립
+QM-STR-SEP-06	examples/satellite-full/board/QM-STR-SEP-06-wkm.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	워크맨십 검사
+QM-STR-SEP-07	examples/satellite-full/board/QM-STR-SEP-07-vib.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	진동시험
+QM-STR-SEP-08	examples/satellite-full/board/QM-STR-SEP-08-shk.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	충격시험
+QM-STR-SEP-09	examples/satellite-full/board/QM-STR-SEP-09-tvac.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	열진공시험
+QM-STR-SEP-10	examples/satellite-full/board/QM-STR-SEP-10-emc.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	EMC 시험
+QM-STR-SEP-11	examples/satellite-full/board/QM-STR-SEP-11-burn.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	수명·번인시험
+QM-STR-SEP-12	examples/satellite-full/board/QM-STR-SEP-12-ncr.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	비적합 처리
+QM-STR-SEP-13	examples/satellite-full/board/QM-STR-SEP-13-data.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	시험데이터 분석
+QM-STR-SEP-14	examples/satellite-full/board/QM-STR-SEP-14-cdr.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	인증검토 자료
+QM-STR-SEP-15	examples/satellite-full/board/QM-STR-SEP-15-cfg.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	형상문서 갱신
+QM-STR-SEP-16	examples/satellite-full/board/QM-STR-SEP-16-qrep.md	examples/satellite-full/deliverables/QM/STR/sep-asm.md	인증보고
+QM-STR-BR-01	examples/satellite-full/board/QM-STR-BR-01-upd.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	설계 갱신
+QM-STR-BR-02	examples/satellite-full/board/QM-STR-BR-02-buy.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	인증부품 구매
+QM-STR-BR-03	examples/satellite-full/board/QM-STR-BR-03-recv.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	입고 검사
+QM-STR-BR-04	examples/satellite-full/board/QM-STR-BR-04-fab.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	제작
+QM-STR-BR-05	examples/satellite-full/board/QM-STR-BR-05-asm.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	조립
+QM-STR-BR-06	examples/satellite-full/board/QM-STR-BR-06-wkm.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	워크맨십 검사
+QM-STR-BR-07	examples/satellite-full/board/QM-STR-BR-07-vib.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	진동시험
+QM-STR-BR-08	examples/satellite-full/board/QM-STR-BR-08-shk.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	충격시험
+QM-STR-BR-09	examples/satellite-full/board/QM-STR-BR-09-tvac.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	열진공시험
+QM-STR-BR-10	examples/satellite-full/board/QM-STR-BR-10-emc.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	EMC 시험
+QM-STR-BR-11	examples/satellite-full/board/QM-STR-BR-11-burn.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	수명·번인시험
+QM-STR-BR-12	examples/satellite-full/board/QM-STR-BR-12-ncr.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	비적합 처리
+QM-STR-BR-13	examples/satellite-full/board/QM-STR-BR-13-data.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	시험데이터 분석
+QM-STR-BR-14	examples/satellite-full/board/QM-STR-BR-14-cdr.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	인증검토 자료
+QM-STR-BR-15	examples/satellite-full/board/QM-STR-BR-15-cfg.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	형상문서 갱신
+QM-STR-BR-16	examples/satellite-full/board/QM-STR-BR-16-qrep.md	examples/satellite-full/deliverables/QM/STR/br-asm.md	인증보고
+QM-STR-HG-01	examples/satellite-full/board/QM-STR-HG-01-upd.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	설계 갱신
+QM-STR-HG-02	examples/satellite-full/board/QM-STR-HG-02-buy.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	인증부품 구매
+QM-STR-HG-03	examples/satellite-full/board/QM-STR-HG-03-recv.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	입고 검사
+QM-STR-HG-04	examples/satellite-full/board/QM-STR-HG-04-fab.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	제작
+QM-STR-HG-05	examples/satellite-full/board/QM-STR-HG-05-asm.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	조립
+QM-STR-HG-06	examples/satellite-full/board/QM-STR-HG-06-wkm.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	워크맨십 검사
+QM-STR-HG-07	examples/satellite-full/board/QM-STR-HG-07-vib.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	진동시험
+QM-STR-HG-08	examples/satellite-full/board/QM-STR-HG-08-shk.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	충격시험
+QM-STR-HG-09	examples/satellite-full/board/QM-STR-HG-09-tvac.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	열진공시험
+QM-STR-HG-10	examples/satellite-full/board/QM-STR-HG-10-emc.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	EMC 시험
+QM-STR-HG-11	examples/satellite-full/board/QM-STR-HG-11-burn.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	수명·번인시험
+QM-STR-HG-12	examples/satellite-full/board/QM-STR-HG-12-ncr.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	비적합 처리
+QM-STR-HG-13	examples/satellite-full/board/QM-STR-HG-13-data.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	시험데이터 분석
+QM-STR-HG-14	examples/satellite-full/board/QM-STR-HG-14-cdr.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	인증검토 자료
+QM-STR-HG-15	examples/satellite-full/board/QM-STR-HG-15-cfg.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	형상문서 갱신
+QM-STR-HG-16	examples/satellite-full/board/QM-STR-HG-16-qrep.md	examples/satellite-full/deliverables/QM/STR/hg-asm.md	인증보고
+QM-STR-MC-01	examples/satellite-full/board/QM-STR-MC-01-upd.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	설계 갱신
+QM-STR-MC-02	examples/satellite-full/board/QM-STR-MC-02-buy.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	인증부품 구매
+QM-STR-MC-03	examples/satellite-full/board/QM-STR-MC-03-recv.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	입고 검사
+QM-STR-MC-04	examples/satellite-full/board/QM-STR-MC-04-fab.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	제작
+QM-STR-MC-05	examples/satellite-full/board/QM-STR-MC-05-asm.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	조립
+QM-STR-MC-06	examples/satellite-full/board/QM-STR-MC-06-wkm.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	워크맨십 검사
+QM-STR-MC-07	examples/satellite-full/board/QM-STR-MC-07-vib.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	진동시험
+QM-STR-MC-08	examples/satellite-full/board/QM-STR-MC-08-shk.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	충격시험
+QM-STR-MC-09	examples/satellite-full/board/QM-STR-MC-09-tvac.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	열진공시험
+QM-STR-MC-10	examples/satellite-full/board/QM-STR-MC-10-emc.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	EMC 시험
+QM-STR-MC-11	examples/satellite-full/board/QM-STR-MC-11-burn.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	수명·번인시험
+QM-STR-MC-12	examples/satellite-full/board/QM-STR-MC-12-ncr.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	비적합 처리
+QM-STR-MC-13	examples/satellite-full/board/QM-STR-MC-13-data.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	시험데이터 분석
+QM-STR-MC-14	examples/satellite-full/board/QM-STR-MC-14-cdr.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	인증검토 자료
+QM-STR-MC-15	examples/satellite-full/board/QM-STR-MC-15-cfg.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	형상문서 갱신
+QM-STR-MC-16	examples/satellite-full/board/QM-STR-MC-16-qrep.md	examples/satellite-full/deliverables/QM/STR/mc-asm.md	인증보고

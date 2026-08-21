@@ -1,0 +1,96 @@
+QM-AOCS-ST-01	examples/satellite-full/board/QM-AOCS-ST-01-upd.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	설계 갱신
+QM-AOCS-ST-02	examples/satellite-full/board/QM-AOCS-ST-02-buy.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	인증부품 구매
+QM-AOCS-ST-03	examples/satellite-full/board/QM-AOCS-ST-03-recv.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	입고 검사
+QM-AOCS-ST-04	examples/satellite-full/board/QM-AOCS-ST-04-fab.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	제작
+QM-AOCS-ST-05	examples/satellite-full/board/QM-AOCS-ST-05-asm.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	조립
+QM-AOCS-ST-06	examples/satellite-full/board/QM-AOCS-ST-06-wkm.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	워크맨십 검사
+QM-AOCS-ST-07	examples/satellite-full/board/QM-AOCS-ST-07-vib.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	진동시험
+QM-AOCS-ST-08	examples/satellite-full/board/QM-AOCS-ST-08-shk.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	충격시험
+QM-AOCS-ST-09	examples/satellite-full/board/QM-AOCS-ST-09-tvac.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	열진공시험
+QM-AOCS-ST-10	examples/satellite-full/board/QM-AOCS-ST-10-emc.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	EMC 시험
+QM-AOCS-ST-11	examples/satellite-full/board/QM-AOCS-ST-11-burn.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	수명·번인시험
+QM-AOCS-ST-12	examples/satellite-full/board/QM-AOCS-ST-12-ncr.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	비적합 처리
+QM-AOCS-ST-13	examples/satellite-full/board/QM-AOCS-ST-13-data.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	시험데이터 분석
+QM-AOCS-ST-14	examples/satellite-full/board/QM-AOCS-ST-14-cdr.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	인증검토 자료
+QM-AOCS-ST-15	examples/satellite-full/board/QM-AOCS-ST-15-cfg.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	형상문서 갱신
+QM-AOCS-ST-16	examples/satellite-full/board/QM-AOCS-ST-16-qrep.md	examples/satellite-full/deliverables/QM/AOCS/st-asm.md	인증보고
+QM-AOCS-GY-01	examples/satellite-full/board/QM-AOCS-GY-01-upd.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	설계 갱신
+QM-AOCS-GY-02	examples/satellite-full/board/QM-AOCS-GY-02-buy.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	인증부품 구매
+QM-AOCS-GY-03	examples/satellite-full/board/QM-AOCS-GY-03-recv.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	입고 검사
+QM-AOCS-GY-04	examples/satellite-full/board/QM-AOCS-GY-04-fab.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	제작
+QM-AOCS-GY-05	examples/satellite-full/board/QM-AOCS-GY-05-asm.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	조립
+QM-AOCS-GY-06	examples/satellite-full/board/QM-AOCS-GY-06-wkm.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	워크맨십 검사
+QM-AOCS-GY-07	examples/satellite-full/board/QM-AOCS-GY-07-vib.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	진동시험
+QM-AOCS-GY-08	examples/satellite-full/board/QM-AOCS-GY-08-shk.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	충격시험
+QM-AOCS-GY-09	examples/satellite-full/board/QM-AOCS-GY-09-tvac.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	열진공시험
+QM-AOCS-GY-10	examples/satellite-full/board/QM-AOCS-GY-10-emc.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	EMC 시험
+QM-AOCS-GY-11	examples/satellite-full/board/QM-AOCS-GY-11-burn.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	수명·번인시험
+QM-AOCS-GY-12	examples/satellite-full/board/QM-AOCS-GY-12-ncr.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	비적합 처리
+QM-AOCS-GY-13	examples/satellite-full/board/QM-AOCS-GY-13-data.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	시험데이터 분석
+QM-AOCS-GY-14	examples/satellite-full/board/QM-AOCS-GY-14-cdr.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	인증검토 자료
+QM-AOCS-GY-15	examples/satellite-full/board/QM-AOCS-GY-15-cfg.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	형상문서 갱신
+QM-AOCS-GY-16	examples/satellite-full/board/QM-AOCS-GY-16-qrep.md	examples/satellite-full/deliverables/QM/AOCS/gy-asm.md	인증보고
+QM-AOCS-RW-01	examples/satellite-full/board/QM-AOCS-RW-01-upd.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	설계 갱신
+QM-AOCS-RW-02	examples/satellite-full/board/QM-AOCS-RW-02-buy.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	인증부품 구매
+QM-AOCS-RW-03	examples/satellite-full/board/QM-AOCS-RW-03-recv.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	입고 검사
+QM-AOCS-RW-04	examples/satellite-full/board/QM-AOCS-RW-04-fab.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	제작
+QM-AOCS-RW-05	examples/satellite-full/board/QM-AOCS-RW-05-asm.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	조립
+QM-AOCS-RW-06	examples/satellite-full/board/QM-AOCS-RW-06-wkm.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	워크맨십 검사
+QM-AOCS-RW-07	examples/satellite-full/board/QM-AOCS-RW-07-vib.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	진동시험
+QM-AOCS-RW-08	examples/satellite-full/board/QM-AOCS-RW-08-shk.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	충격시험
+QM-AOCS-RW-09	examples/satellite-full/board/QM-AOCS-RW-09-tvac.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	열진공시험
+QM-AOCS-RW-10	examples/satellite-full/board/QM-AOCS-RW-10-emc.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	EMC 시험
+QM-AOCS-RW-11	examples/satellite-full/board/QM-AOCS-RW-11-burn.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	수명·번인시험
+QM-AOCS-RW-12	examples/satellite-full/board/QM-AOCS-RW-12-ncr.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	비적합 처리
+QM-AOCS-RW-13	examples/satellite-full/board/QM-AOCS-RW-13-data.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	시험데이터 분석
+QM-AOCS-RW-14	examples/satellite-full/board/QM-AOCS-RW-14-cdr.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	인증검토 자료
+QM-AOCS-RW-15	examples/satellite-full/board/QM-AOCS-RW-15-cfg.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	형상문서 갱신
+QM-AOCS-RW-16	examples/satellite-full/board/QM-AOCS-RW-16-qrep.md	examples/satellite-full/deliverables/QM/AOCS/rw-asm.md	인증보고
+QM-AOCS-MT-01	examples/satellite-full/board/QM-AOCS-MT-01-upd.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	설계 갱신
+QM-AOCS-MT-02	examples/satellite-full/board/QM-AOCS-MT-02-buy.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	인증부품 구매
+QM-AOCS-MT-03	examples/satellite-full/board/QM-AOCS-MT-03-recv.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	입고 검사
+QM-AOCS-MT-04	examples/satellite-full/board/QM-AOCS-MT-04-fab.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	제작
+QM-AOCS-MT-05	examples/satellite-full/board/QM-AOCS-MT-05-asm.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	조립
+QM-AOCS-MT-06	examples/satellite-full/board/QM-AOCS-MT-06-wkm.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	워크맨십 검사
+QM-AOCS-MT-07	examples/satellite-full/board/QM-AOCS-MT-07-vib.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	진동시험
+QM-AOCS-MT-08	examples/satellite-full/board/QM-AOCS-MT-08-shk.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	충격시험
+QM-AOCS-MT-09	examples/satellite-full/board/QM-AOCS-MT-09-tvac.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	열진공시험
+QM-AOCS-MT-10	examples/satellite-full/board/QM-AOCS-MT-10-emc.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	EMC 시험
+QM-AOCS-MT-11	examples/satellite-full/board/QM-AOCS-MT-11-burn.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	수명·번인시험
+QM-AOCS-MT-12	examples/satellite-full/board/QM-AOCS-MT-12-ncr.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	비적합 처리
+QM-AOCS-MT-13	examples/satellite-full/board/QM-AOCS-MT-13-data.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	시험데이터 분석
+QM-AOCS-MT-14	examples/satellite-full/board/QM-AOCS-MT-14-cdr.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	인증검토 자료
+QM-AOCS-MT-15	examples/satellite-full/board/QM-AOCS-MT-15-cfg.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	형상문서 갱신
+QM-AOCS-MT-16	examples/satellite-full/board/QM-AOCS-MT-16-qrep.md	examples/satellite-full/deliverables/QM/AOCS/mt-asm.md	인증보고
+QM-AOCS-SS-01	examples/satellite-full/board/QM-AOCS-SS-01-upd.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	설계 갱신
+QM-AOCS-SS-02	examples/satellite-full/board/QM-AOCS-SS-02-buy.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	인증부품 구매
+QM-AOCS-SS-03	examples/satellite-full/board/QM-AOCS-SS-03-recv.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	입고 검사
+QM-AOCS-SS-04	examples/satellite-full/board/QM-AOCS-SS-04-fab.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	제작
+QM-AOCS-SS-05	examples/satellite-full/board/QM-AOCS-SS-05-asm.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	조립
+QM-AOCS-SS-06	examples/satellite-full/board/QM-AOCS-SS-06-wkm.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	워크맨십 검사
+QM-AOCS-SS-07	examples/satellite-full/board/QM-AOCS-SS-07-vib.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	진동시험
+QM-AOCS-SS-08	examples/satellite-full/board/QM-AOCS-SS-08-shk.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	충격시험
+QM-AOCS-SS-09	examples/satellite-full/board/QM-AOCS-SS-09-tvac.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	열진공시험
+QM-AOCS-SS-10	examples/satellite-full/board/QM-AOCS-SS-10-emc.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	EMC 시험
+QM-AOCS-SS-11	examples/satellite-full/board/QM-AOCS-SS-11-burn.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	수명·번인시험
+QM-AOCS-SS-12	examples/satellite-full/board/QM-AOCS-SS-12-ncr.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	비적합 처리
+QM-AOCS-SS-13	examples/satellite-full/board/QM-AOCS-SS-13-data.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	시험데이터 분석
+QM-AOCS-SS-14	examples/satellite-full/board/QM-AOCS-SS-14-cdr.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	인증검토 자료
+QM-AOCS-SS-15	examples/satellite-full/board/QM-AOCS-SS-15-cfg.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	형상문서 갱신
+QM-AOCS-SS-16	examples/satellite-full/board/QM-AOCS-SS-16-qrep.md	examples/satellite-full/deliverables/QM/AOCS/ss-asm.md	인증보고
+QM-AOCS-CB-01	examples/satellite-full/board/QM-AOCS-CB-01-upd.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	설계 갱신
+QM-AOCS-CB-02	examples/satellite-full/board/QM-AOCS-CB-02-buy.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	인증부품 구매
+QM-AOCS-CB-03	examples/satellite-full/board/QM-AOCS-CB-03-recv.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	입고 검사
+QM-AOCS-CB-04	examples/satellite-full/board/QM-AOCS-CB-04-fab.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	제작
+QM-AOCS-CB-05	examples/satellite-full/board/QM-AOCS-CB-05-asm.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	조립
+QM-AOCS-CB-06	examples/satellite-full/board/QM-AOCS-CB-06-wkm.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	워크맨십 검사
+QM-AOCS-CB-07	examples/satellite-full/board/QM-AOCS-CB-07-vib.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	진동시험
+QM-AOCS-CB-08	examples/satellite-full/board/QM-AOCS-CB-08-shk.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	충격시험
+QM-AOCS-CB-09	examples/satellite-full/board/QM-AOCS-CB-09-tvac.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	열진공시험
+QM-AOCS-CB-10	examples/satellite-full/board/QM-AOCS-CB-10-emc.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	EMC 시험
+QM-AOCS-CB-11	examples/satellite-full/board/QM-AOCS-CB-11-burn.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	수명·번인시험
+QM-AOCS-CB-12	examples/satellite-full/board/QM-AOCS-CB-12-ncr.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	비적합 처리
+QM-AOCS-CB-13	examples/satellite-full/board/QM-AOCS-CB-13-data.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	시험데이터 분석
+QM-AOCS-CB-14	examples/satellite-full/board/QM-AOCS-CB-14-cdr.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	인증검토 자료
+QM-AOCS-CB-15	examples/satellite-full/board/QM-AOCS-CB-15-cfg.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	형상문서 갱신
+QM-AOCS-CB-16	examples/satellite-full/board/QM-AOCS-CB-16-qrep.md	examples/satellite-full/deliverables/QM/AOCS/cb-asm.md	인증보고

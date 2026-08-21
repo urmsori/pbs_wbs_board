@@ -1,0 +1,96 @@
+QM-COMM-TR-01	examples/satellite-full/board/QM-COMM-TR-01-upd.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	설계 갱신
+QM-COMM-TR-02	examples/satellite-full/board/QM-COMM-TR-02-buy.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	인증부품 구매
+QM-COMM-TR-03	examples/satellite-full/board/QM-COMM-TR-03-recv.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	입고 검사
+QM-COMM-TR-04	examples/satellite-full/board/QM-COMM-TR-04-fab.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	제작
+QM-COMM-TR-05	examples/satellite-full/board/QM-COMM-TR-05-asm.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	조립
+QM-COMM-TR-06	examples/satellite-full/board/QM-COMM-TR-06-wkm.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	워크맨십 검사
+QM-COMM-TR-07	examples/satellite-full/board/QM-COMM-TR-07-vib.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	진동시험
+QM-COMM-TR-08	examples/satellite-full/board/QM-COMM-TR-08-shk.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	충격시험
+QM-COMM-TR-09	examples/satellite-full/board/QM-COMM-TR-09-tvac.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	열진공시험
+QM-COMM-TR-10	examples/satellite-full/board/QM-COMM-TR-10-emc.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	EMC 시험
+QM-COMM-TR-11	examples/satellite-full/board/QM-COMM-TR-11-burn.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	수명·번인시험
+QM-COMM-TR-12	examples/satellite-full/board/QM-COMM-TR-12-ncr.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	비적합 처리
+QM-COMM-TR-13	examples/satellite-full/board/QM-COMM-TR-13-data.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	시험데이터 분석
+QM-COMM-TR-14	examples/satellite-full/board/QM-COMM-TR-14-cdr.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	인증검토 자료
+QM-COMM-TR-15	examples/satellite-full/board/QM-COMM-TR-15-cfg.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	형상문서 갱신
+QM-COMM-TR-16	examples/satellite-full/board/QM-COMM-TR-16-qrep.md	examples/satellite-full/deliverables/QM/COMM/tr-asm.md	인증보고
+QM-COMM-AN-01	examples/satellite-full/board/QM-COMM-AN-01-upd.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	설계 갱신
+QM-COMM-AN-02	examples/satellite-full/board/QM-COMM-AN-02-buy.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	인증부품 구매
+QM-COMM-AN-03	examples/satellite-full/board/QM-COMM-AN-03-recv.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	입고 검사
+QM-COMM-AN-04	examples/satellite-full/board/QM-COMM-AN-04-fab.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	제작
+QM-COMM-AN-05	examples/satellite-full/board/QM-COMM-AN-05-asm.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	조립
+QM-COMM-AN-06	examples/satellite-full/board/QM-COMM-AN-06-wkm.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	워크맨십 검사
+QM-COMM-AN-07	examples/satellite-full/board/QM-COMM-AN-07-vib.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	진동시험
+QM-COMM-AN-08	examples/satellite-full/board/QM-COMM-AN-08-shk.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	충격시험
+QM-COMM-AN-09	examples/satellite-full/board/QM-COMM-AN-09-tvac.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	열진공시험
+QM-COMM-AN-10	examples/satellite-full/board/QM-COMM-AN-10-emc.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	EMC 시험
+QM-COMM-AN-11	examples/satellite-full/board/QM-COMM-AN-11-burn.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	수명·번인시험
+QM-COMM-AN-12	examples/satellite-full/board/QM-COMM-AN-12-ncr.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	비적합 처리
+QM-COMM-AN-13	examples/satellite-full/board/QM-COMM-AN-13-data.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	시험데이터 분석
+QM-COMM-AN-14	examples/satellite-full/board/QM-COMM-AN-14-cdr.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	인증검토 자료
+QM-COMM-AN-15	examples/satellite-full/board/QM-COMM-AN-15-cfg.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	형상문서 갱신
+QM-COMM-AN-16	examples/satellite-full/board/QM-COMM-AN-16-qrep.md	examples/satellite-full/deliverables/QM/COMM/an-asm.md	인증보고
+QM-COMM-DP-01	examples/satellite-full/board/QM-COMM-DP-01-upd.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	설계 갱신
+QM-COMM-DP-02	examples/satellite-full/board/QM-COMM-DP-02-buy.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	인증부품 구매
+QM-COMM-DP-03	examples/satellite-full/board/QM-COMM-DP-03-recv.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	입고 검사
+QM-COMM-DP-04	examples/satellite-full/board/QM-COMM-DP-04-fab.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	제작
+QM-COMM-DP-05	examples/satellite-full/board/QM-COMM-DP-05-asm.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	조립
+QM-COMM-DP-06	examples/satellite-full/board/QM-COMM-DP-06-wkm.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	워크맨십 검사
+QM-COMM-DP-07	examples/satellite-full/board/QM-COMM-DP-07-vib.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	진동시험
+QM-COMM-DP-08	examples/satellite-full/board/QM-COMM-DP-08-shk.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	충격시험
+QM-COMM-DP-09	examples/satellite-full/board/QM-COMM-DP-09-tvac.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	열진공시험
+QM-COMM-DP-10	examples/satellite-full/board/QM-COMM-DP-10-emc.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	EMC 시험
+QM-COMM-DP-11	examples/satellite-full/board/QM-COMM-DP-11-burn.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	수명·번인시험
+QM-COMM-DP-12	examples/satellite-full/board/QM-COMM-DP-12-ncr.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	비적합 처리
+QM-COMM-DP-13	examples/satellite-full/board/QM-COMM-DP-13-data.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	시험데이터 분석
+QM-COMM-DP-14	examples/satellite-full/board/QM-COMM-DP-14-cdr.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	인증검토 자료
+QM-COMM-DP-15	examples/satellite-full/board/QM-COMM-DP-15-cfg.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	형상문서 갱신
+QM-COMM-DP-16	examples/satellite-full/board/QM-COMM-DP-16-qrep.md	examples/satellite-full/deliverables/QM/COMM/dp-asm.md	인증보고
+QM-COMM-RF-01	examples/satellite-full/board/QM-COMM-RF-01-upd.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	설계 갱신
+QM-COMM-RF-02	examples/satellite-full/board/QM-COMM-RF-02-buy.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	인증부품 구매
+QM-COMM-RF-03	examples/satellite-full/board/QM-COMM-RF-03-recv.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	입고 검사
+QM-COMM-RF-04	examples/satellite-full/board/QM-COMM-RF-04-fab.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	제작
+QM-COMM-RF-05	examples/satellite-full/board/QM-COMM-RF-05-asm.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	조립
+QM-COMM-RF-06	examples/satellite-full/board/QM-COMM-RF-06-wkm.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	워크맨십 검사
+QM-COMM-RF-07	examples/satellite-full/board/QM-COMM-RF-07-vib.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	진동시험
+QM-COMM-RF-08	examples/satellite-full/board/QM-COMM-RF-08-shk.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	충격시험
+QM-COMM-RF-09	examples/satellite-full/board/QM-COMM-RF-09-tvac.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	열진공시험
+QM-COMM-RF-10	examples/satellite-full/board/QM-COMM-RF-10-emc.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	EMC 시험
+QM-COMM-RF-11	examples/satellite-full/board/QM-COMM-RF-11-burn.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	수명·번인시험
+QM-COMM-RF-12	examples/satellite-full/board/QM-COMM-RF-12-ncr.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	비적합 처리
+QM-COMM-RF-13	examples/satellite-full/board/QM-COMM-RF-13-data.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	시험데이터 분석
+QM-COMM-RF-14	examples/satellite-full/board/QM-COMM-RF-14-cdr.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	인증검토 자료
+QM-COMM-RF-15	examples/satellite-full/board/QM-COMM-RF-15-cfg.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	형상문서 갱신
+QM-COMM-RF-16	examples/satellite-full/board/QM-COMM-RF-16-qrep.md	examples/satellite-full/deliverables/QM/COMM/rf-asm.md	인증보고
+QM-COMM-TX-01	examples/satellite-full/board/QM-COMM-TX-01-upd.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	설계 갱신
+QM-COMM-TX-02	examples/satellite-full/board/QM-COMM-TX-02-buy.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	인증부품 구매
+QM-COMM-TX-03	examples/satellite-full/board/QM-COMM-TX-03-recv.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	입고 검사
+QM-COMM-TX-04	examples/satellite-full/board/QM-COMM-TX-04-fab.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	제작
+QM-COMM-TX-05	examples/satellite-full/board/QM-COMM-TX-05-asm.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	조립
+QM-COMM-TX-06	examples/satellite-full/board/QM-COMM-TX-06-wkm.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	워크맨십 검사
+QM-COMM-TX-07	examples/satellite-full/board/QM-COMM-TX-07-vib.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	진동시험
+QM-COMM-TX-08	examples/satellite-full/board/QM-COMM-TX-08-shk.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	충격시험
+QM-COMM-TX-09	examples/satellite-full/board/QM-COMM-TX-09-tvac.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	열진공시험
+QM-COMM-TX-10	examples/satellite-full/board/QM-COMM-TX-10-emc.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	EMC 시험
+QM-COMM-TX-11	examples/satellite-full/board/QM-COMM-TX-11-burn.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	수명·번인시험
+QM-COMM-TX-12	examples/satellite-full/board/QM-COMM-TX-12-ncr.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	비적합 처리
+QM-COMM-TX-13	examples/satellite-full/board/QM-COMM-TX-13-data.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	시험데이터 분석
+QM-COMM-TX-14	examples/satellite-full/board/QM-COMM-TX-14-cdr.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	인증검토 자료
+QM-COMM-TX-15	examples/satellite-full/board/QM-COMM-TX-15-cfg.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	형상문서 갱신
+QM-COMM-TX-16	examples/satellite-full/board/QM-COMM-TX-16-qrep.md	examples/satellite-full/deliverables/QM/COMM/tx-asm.md	인증보고
+QM-COMM-LG-01	examples/satellite-full/board/QM-COMM-LG-01-upd.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	설계 갱신
+QM-COMM-LG-02	examples/satellite-full/board/QM-COMM-LG-02-buy.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	인증부품 구매
+QM-COMM-LG-03	examples/satellite-full/board/QM-COMM-LG-03-recv.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	입고 검사
+QM-COMM-LG-04	examples/satellite-full/board/QM-COMM-LG-04-fab.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	제작
+QM-COMM-LG-05	examples/satellite-full/board/QM-COMM-LG-05-asm.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	조립
+QM-COMM-LG-06	examples/satellite-full/board/QM-COMM-LG-06-wkm.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	워크맨십 검사
+QM-COMM-LG-07	examples/satellite-full/board/QM-COMM-LG-07-vib.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	진동시험
+QM-COMM-LG-08	examples/satellite-full/board/QM-COMM-LG-08-shk.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	충격시험
+QM-COMM-LG-09	examples/satellite-full/board/QM-COMM-LG-09-tvac.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	열진공시험
+QM-COMM-LG-10	examples/satellite-full/board/QM-COMM-LG-10-emc.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	EMC 시험
+QM-COMM-LG-11	examples/satellite-full/board/QM-COMM-LG-11-burn.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	수명·번인시험
+QM-COMM-LG-12	examples/satellite-full/board/QM-COMM-LG-12-ncr.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	비적합 처리
+QM-COMM-LG-13	examples/satellite-full/board/QM-COMM-LG-13-data.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	시험데이터 분석
+QM-COMM-LG-14	examples/satellite-full/board/QM-COMM-LG-14-cdr.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	인증검토 자료
+QM-COMM-LG-15	examples/satellite-full/board/QM-COMM-LG-15-cfg.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	형상문서 갱신
+QM-COMM-LG-16	examples/satellite-full/board/QM-COMM-LG-16-qrep.md	examples/satellite-full/deliverables/QM/COMM/lg-asm.md	인증보고

@@ -1,0 +1,72 @@
+FM-STR-MF-01	examples/satellite-full/board/FM-STR-MF-01-buy.md	examples/satellite-full/deliverables/FM/STR/mf-asm.md	비행부품 구매
+FM-STR-MF-02	examples/satellite-full/board/FM-STR-MF-02-recv.md	examples/satellite-full/deliverables/FM/STR/mf-asm.md	입고 검사
+FM-STR-MF-03	examples/satellite-full/board/FM-STR-MF-03-fab.md	examples/satellite-full/deliverables/FM/STR/mf-asm.md	제작
+FM-STR-MF-04	examples/satellite-full/board/FM-STR-MF-04-asm.md	examples/satellite-full/deliverables/FM/STR/mf-asm.md	조립
+FM-STR-MF-05	examples/satellite-full/board/FM-STR-MF-05-insp.md	examples/satellite-full/deliverables/FM/STR/mf-asm.md	정밀 검사
+FM-STR-MF-06	examples/satellite-full/board/FM-STR-MF-06-avib.md	examples/satellite-full/deliverables/FM/STR/mf-asm.md	수락 진동시험
+FM-STR-MF-07	examples/satellite-full/board/FM-STR-MF-07-atvac.md	examples/satellite-full/deliverables/FM/STR/mf-asm.md	수락 열진공시험
+FM-STR-MF-08	examples/satellite-full/board/FM-STR-MF-08-fperf.md	examples/satellite-full/deliverables/FM/STR/mf-asm.md	최종 성능시험
+FM-STR-MF-09	examples/satellite-full/board/FM-STR-MF-09-bake.md	examples/satellite-full/deliverables/FM/STR/mf-asm.md	세척·베이크아웃
+FM-STR-MF-10	examples/satellite-full/board/FM-STR-MF-10-mass.md	examples/satellite-full/deliverables/FM/STR/mf-asm.md	질량특성 측정
+FM-STR-MF-11	examples/satellite-full/board/FM-STR-MF-11-dpak.md	examples/satellite-full/deliverables/FM/STR/mf-asm.md	인도문서 작성
+FM-STR-MF-12	examples/satellite-full/board/FM-STR-MF-12-arev.md	examples/satellite-full/deliverables/FM/STR/mf-asm.md	수락검토
+FM-STR-PN-01	examples/satellite-full/board/FM-STR-PN-01-buy.md	examples/satellite-full/deliverables/FM/STR/pn-asm.md	비행부품 구매
+FM-STR-PN-02	examples/satellite-full/board/FM-STR-PN-02-recv.md	examples/satellite-full/deliverables/FM/STR/pn-asm.md	입고 검사
+FM-STR-PN-03	examples/satellite-full/board/FM-STR-PN-03-fab.md	examples/satellite-full/deliverables/FM/STR/pn-asm.md	제작
+FM-STR-PN-04	examples/satellite-full/board/FM-STR-PN-04-asm.md	examples/satellite-full/deliverables/FM/STR/pn-asm.md	조립
+FM-STR-PN-05	examples/satellite-full/board/FM-STR-PN-05-insp.md	examples/satellite-full/deliverables/FM/STR/pn-asm.md	정밀 검사
+FM-STR-PN-06	examples/satellite-full/board/FM-STR-PN-06-avib.md	examples/satellite-full/deliverables/FM/STR/pn-asm.md	수락 진동시험
+FM-STR-PN-07	examples/satellite-full/board/FM-STR-PN-07-atvac.md	examples/satellite-full/deliverables/FM/STR/pn-asm.md	수락 열진공시험
+FM-STR-PN-08	examples/satellite-full/board/FM-STR-PN-08-fperf.md	examples/satellite-full/deliverables/FM/STR/pn-asm.md	최종 성능시험
+FM-STR-PN-09	examples/satellite-full/board/FM-STR-PN-09-bake.md	examples/satellite-full/deliverables/FM/STR/pn-asm.md	세척·베이크아웃
+FM-STR-PN-10	examples/satellite-full/board/FM-STR-PN-10-mass.md	examples/satellite-full/deliverables/FM/STR/pn-asm.md	질량특성 측정
+FM-STR-PN-11	examples/satellite-full/board/FM-STR-PN-11-dpak.md	examples/satellite-full/deliverables/FM/STR/pn-asm.md	인도문서 작성
+FM-STR-PN-12	examples/satellite-full/board/FM-STR-PN-12-arev.md	examples/satellite-full/deliverables/FM/STR/pn-asm.md	수락검토
+FM-STR-SEP-01	examples/satellite-full/board/FM-STR-SEP-01-buy.md	examples/satellite-full/deliverables/FM/STR/sep-asm.md	비행부품 구매
+FM-STR-SEP-02	examples/satellite-full/board/FM-STR-SEP-02-recv.md	examples/satellite-full/deliverables/FM/STR/sep-asm.md	입고 검사
+FM-STR-SEP-03	examples/satellite-full/board/FM-STR-SEP-03-fab.md	examples/satellite-full/deliverables/FM/STR/sep-asm.md	제작
+FM-STR-SEP-04	examples/satellite-full/board/FM-STR-SEP-04-asm.md	examples/satellite-full/deliverables/FM/STR/sep-asm.md	조립
+FM-STR-SEP-05	examples/satellite-full/board/FM-STR-SEP-05-insp.md	examples/satellite-full/deliverables/FM/STR/sep-asm.md	정밀 검사
+FM-STR-SEP-06	examples/satellite-full/board/FM-STR-SEP-06-avib.md	examples/satellite-full/deliverables/FM/STR/sep-asm.md	수락 진동시험
+FM-STR-SEP-07	examples/satellite-full/board/FM-STR-SEP-07-atvac.md	examples/satellite-full/deliverables/FM/STR/sep-asm.md	수락 열진공시험
+FM-STR-SEP-08	examples/satellite-full/board/FM-STR-SEP-08-fperf.md	examples/satellite-full/deliverables/FM/STR/sep-asm.md	최종 성능시험
+FM-STR-SEP-09	examples/satellite-full/board/FM-STR-SEP-09-bake.md	examples/satellite-full/deliverables/FM/STR/sep-asm.md	세척·베이크아웃
+FM-STR-SEP-10	examples/satellite-full/board/FM-STR-SEP-10-mass.md	examples/satellite-full/deliverables/FM/STR/sep-asm.md	질량특성 측정
+FM-STR-SEP-11	examples/satellite-full/board/FM-STR-SEP-11-dpak.md	examples/satellite-full/deliverables/FM/STR/sep-asm.md	인도문서 작성
+FM-STR-SEP-12	examples/satellite-full/board/FM-STR-SEP-12-arev.md	examples/satellite-full/deliverables/FM/STR/sep-asm.md	수락검토
+FM-STR-BR-01	examples/satellite-full/board/FM-STR-BR-01-buy.md	examples/satellite-full/deliverables/FM/STR/br-asm.md	비행부품 구매
+FM-STR-BR-02	examples/satellite-full/board/FM-STR-BR-02-recv.md	examples/satellite-full/deliverables/FM/STR/br-asm.md	입고 검사
+FM-STR-BR-03	examples/satellite-full/board/FM-STR-BR-03-fab.md	examples/satellite-full/deliverables/FM/STR/br-asm.md	제작
+FM-STR-BR-04	examples/satellite-full/board/FM-STR-BR-04-asm.md	examples/satellite-full/deliverables/FM/STR/br-asm.md	조립
+FM-STR-BR-05	examples/satellite-full/board/FM-STR-BR-05-insp.md	examples/satellite-full/deliverables/FM/STR/br-asm.md	정밀 검사
+FM-STR-BR-06	examples/satellite-full/board/FM-STR-BR-06-avib.md	examples/satellite-full/deliverables/FM/STR/br-asm.md	수락 진동시험
+FM-STR-BR-07	examples/satellite-full/board/FM-STR-BR-07-atvac.md	examples/satellite-full/deliverables/FM/STR/br-asm.md	수락 열진공시험
+FM-STR-BR-08	examples/satellite-full/board/FM-STR-BR-08-fperf.md	examples/satellite-full/deliverables/FM/STR/br-asm.md	최종 성능시험
+FM-STR-BR-09	examples/satellite-full/board/FM-STR-BR-09-bake.md	examples/satellite-full/deliverables/FM/STR/br-asm.md	세척·베이크아웃
+FM-STR-BR-10	examples/satellite-full/board/FM-STR-BR-10-mass.md	examples/satellite-full/deliverables/FM/STR/br-asm.md	질량특성 측정
+FM-STR-BR-11	examples/satellite-full/board/FM-STR-BR-11-dpak.md	examples/satellite-full/deliverables/FM/STR/br-asm.md	인도문서 작성
+FM-STR-BR-12	examples/satellite-full/board/FM-STR-BR-12-arev.md	examples/satellite-full/deliverables/FM/STR/br-asm.md	수락검토
+FM-STR-HG-01	examples/satellite-full/board/FM-STR-HG-01-buy.md	examples/satellite-full/deliverables/FM/STR/hg-asm.md	비행부품 구매
+FM-STR-HG-02	examples/satellite-full/board/FM-STR-HG-02-recv.md	examples/satellite-full/deliverables/FM/STR/hg-asm.md	입고 검사
+FM-STR-HG-03	examples/satellite-full/board/FM-STR-HG-03-fab.md	examples/satellite-full/deliverables/FM/STR/hg-asm.md	제작
+FM-STR-HG-04	examples/satellite-full/board/FM-STR-HG-04-asm.md	examples/satellite-full/deliverables/FM/STR/hg-asm.md	조립
+FM-STR-HG-05	examples/satellite-full/board/FM-STR-HG-05-insp.md	examples/satellite-full/deliverables/FM/STR/hg-asm.md	정밀 검사
+FM-STR-HG-06	examples/satellite-full/board/FM-STR-HG-06-avib.md	examples/satellite-full/deliverables/FM/STR/hg-asm.md	수락 진동시험
+FM-STR-HG-07	examples/satellite-full/board/FM-STR-HG-07-atvac.md	examples/satellite-full/deliverables/FM/STR/hg-asm.md	수락 열진공시험
+FM-STR-HG-08	examples/satellite-full/board/FM-STR-HG-08-fperf.md	examples/satellite-full/deliverables/FM/STR/hg-asm.md	최종 성능시험
+FM-STR-HG-09	examples/satellite-full/board/FM-STR-HG-09-bake.md	examples/satellite-full/deliverables/FM/STR/hg-asm.md	세척·베이크아웃
+FM-STR-HG-10	examples/satellite-full/board/FM-STR-HG-10-mass.md	examples/satellite-full/deliverables/FM/STR/hg-asm.md	질량특성 측정
+FM-STR-HG-11	examples/satellite-full/board/FM-STR-HG-11-dpak.md	examples/satellite-full/deliverables/FM/STR/hg-asm.md	인도문서 작성
+FM-STR-HG-12	examples/satellite-full/board/FM-STR-HG-12-arev.md	examples/satellite-full/deliverables/FM/STR/hg-asm.md	수락검토
+FM-STR-MC-01	examples/satellite-full/board/FM-STR-MC-01-buy.md	examples/satellite-full/deliverables/FM/STR/mc-asm.md	비행부품 구매
+FM-STR-MC-02	examples/satellite-full/board/FM-STR-MC-02-recv.md	examples/satellite-full/deliverables/FM/STR/mc-asm.md	입고 검사
+FM-STR-MC-03	examples/satellite-full/board/FM-STR-MC-03-fab.md	examples/satellite-full/deliverables/FM/STR/mc-asm.md	제작
+FM-STR-MC-04	examples/satellite-full/board/FM-STR-MC-04-asm.md	examples/satellite-full/deliverables/FM/STR/mc-asm.md	조립
+FM-STR-MC-05	examples/satellite-full/board/FM-STR-MC-05-insp.md	examples/satellite-full/deliverables/FM/STR/mc-asm.md	정밀 검사
+FM-STR-MC-06	examples/satellite-full/board/FM-STR-MC-06-avib.md	examples/satellite-full/deliverables/FM/STR/mc-asm.md	수락 진동시험
+FM-STR-MC-07	examples/satellite-full/board/FM-STR-MC-07-atvac.md	examples/satellite-full/deliverables/FM/STR/mc-asm.md	수락 열진공시험
+FM-STR-MC-08	examples/satellite-full/board/FM-STR-MC-08-fperf.md	examples/satellite-full/deliverables/FM/STR/mc-asm.md	최종 성능시험
+FM-STR-MC-09	examples/satellite-full/board/FM-STR-MC-09-bake.md	examples/satellite-full/deliverables/FM/STR/mc-asm.md	세척·베이크아웃
+FM-STR-MC-10	examples/satellite-full/board/FM-STR-MC-10-mass.md	examples/satellite-full/deliverables/FM/STR/mc-asm.md	질량특성 측정
+FM-STR-MC-11	examples/satellite-full/board/FM-STR-MC-11-dpak.md	examples/satellite-full/deliverables/FM/STR/mc-asm.md	인도문서 작성
+FM-STR-MC-12	examples/satellite-full/board/FM-STR-MC-12-arev.md	examples/satellite-full/deliverables/FM/STR/mc-asm.md	수락검토
