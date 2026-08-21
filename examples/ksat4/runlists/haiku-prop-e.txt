@@ -1,0 +1,23 @@
+E-PROP-D1	examples/ksat4/board/E-PROP-D1.md	examples/ksat4/deliverables/PROP/dsn-a1-e.md	A1 설계
+E-PROP-D2	examples/ksat4/board/E-PROP-D2.md	examples/ksat4/deliverables/PROP/dsn-a2-e.md	A2 설계
+E-PROP-D3	examples/ksat4/board/E-PROP-D3.md	examples/ksat4/deliverables/PROP/dsn-a3-e.md	A3 설계
+E-PROP-D4	examples/ksat4/board/E-PROP-D4.md	examples/ksat4/deliverables/PROP/dsn-a4-e.md	A4 설계
+E-PROP-N1	examples/ksat4/board/E-PROP-N1.md	examples/ksat4/deliverables/PROP/anl-em.md	구조 해석
+E-PROP-N2	examples/ksat4/board/E-PROP-N2.md	examples/ksat4/deliverables/PROP/anl-em.md	열 해석
+E-PROP-N3	examples/ksat4/board/E-PROP-N3.md	examples/ksat4/deliverables/PROP/anl-em.md	전력·EMC 해석
+E-PROP-P1	examples/ksat4/board/E-PROP-P1.md	examples/ksat4/deliverables/PROP/parts-e.md	부품 구매
+E-PROP-P2	examples/ksat4/board/E-PROP-P2.md	examples/ksat4/deliverables/PROP/parts-e.md	부품 구매
+E-PROP-M1	examples/ksat4/board/E-PROP-M1.md	examples/ksat4/deliverables/PROP/build-a1-e.md	조립체 A1 제작
+E-PROP-M2	examples/ksat4/board/E-PROP-M2.md	examples/ksat4/deliverables/PROP/build-a2-e.md	조립체 A2 제작
+E-PROP-M3	examples/ksat4/board/E-PROP-M3.md	examples/ksat4/deliverables/PROP/build-a3-e.md	조립체 A3 제작
+E-PROP-M4	examples/ksat4/board/E-PROP-M4.md	examples/ksat4/deliverables/PROP/build-a4-e.md	조립체 A4 제작
+E-PROP-M5	examples/ksat4/board/E-PROP-M5.md	examples/ksat4/deliverables/PROP/build-a4-e.md	치구 제작
+E-PROP-Q1	examples/ksat4/board/E-PROP-Q1.md	examples/ksat4/deliverables/PROP/build-a1-e.md	검사
+E-PROP-Q2	examples/ksat4/board/E-PROP-Q2.md	examples/ksat4/deliverables/PROP/build-a2-e.md	검사
+E-PROP-S1	examples/ksat4/board/E-PROP-S1.md	examples/ksat4/deliverables/PROP/build-a1-e.md	조립 1
+E-PROP-S2	examples/ksat4/board/E-PROP-S2.md	examples/ksat4/deliverables/PROP/build-a1-e.md	조립 2
+E-PROP-S3	examples/ksat4/board/E-PROP-S3.md	examples/ksat4/deliverables/PROP/build-a1-e.md	조립 3
+E-PROP-T1	examples/ksat4/board/E-PROP-T1.md	examples/ksat4/deliverables/PROP/test-em.md	시험 절차
+E-PROP-T2	examples/ksat4/board/E-PROP-T2.md	examples/ksat4/deliverables/PROP/test-em.md	시험 수행
+E-PROP-T3	examples/ksat4/board/E-PROP-T3.md	examples/ksat4/deliverables/PROP/test-em.md	시험 보고
+E-PROP-C1	examples/ksat4/board/E-PROP-C1.md	examples/ksat4/deliverables/PROP/cfg-e.md	형상문서

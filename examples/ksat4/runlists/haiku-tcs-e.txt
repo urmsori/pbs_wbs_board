@@ -1,0 +1,23 @@
+E-TCS-D1	examples/ksat4/board/E-TCS-D1.md	examples/ksat4/deliverables/TCS/dsn-a1-e.md	A1 설계
+E-TCS-D2	examples/ksat4/board/E-TCS-D2.md	examples/ksat4/deliverables/TCS/dsn-a2-e.md	A2 설계
+E-TCS-D3	examples/ksat4/board/E-TCS-D3.md	examples/ksat4/deliverables/TCS/dsn-a3-e.md	A3 설계
+E-TCS-D4	examples/ksat4/board/E-TCS-D4.md	examples/ksat4/deliverables/TCS/dsn-a4-e.md	A4 설계
+E-TCS-N1	examples/ksat4/board/E-TCS-N1.md	examples/ksat4/deliverables/TCS/anl-em.md	구조 해석
+E-TCS-N2	examples/ksat4/board/E-TCS-N2.md	examples/ksat4/deliverables/TCS/anl-em.md	열 해석
+E-TCS-N3	examples/ksat4/board/E-TCS-N3.md	examples/ksat4/deliverables/TCS/anl-em.md	전력·EMC 해석
+E-TCS-P1	examples/ksat4/board/E-TCS-P1.md	examples/ksat4/deliverables/TCS/parts-e.md	부품 구매
+E-TCS-P2	examples/ksat4/board/E-TCS-P2.md	examples/ksat4/deliverables/TCS/parts-e.md	부품 구매
+E-TCS-M1	examples/ksat4/board/E-TCS-M1.md	examples/ksat4/deliverables/TCS/build-a1-e.md	조립체 A1 제작
+E-TCS-M2	examples/ksat4/board/E-TCS-M2.md	examples/ksat4/deliverables/TCS/build-a2-e.md	조립체 A2 제작
+E-TCS-M3	examples/ksat4/board/E-TCS-M3.md	examples/ksat4/deliverables/TCS/build-a3-e.md	조립체 A3 제작
+E-TCS-M4	examples/ksat4/board/E-TCS-M4.md	examples/ksat4/deliverables/TCS/build-a4-e.md	조립체 A4 제작
+E-TCS-M5	examples/ksat4/board/E-TCS-M5.md	examples/ksat4/deliverables/TCS/build-a4-e.md	치구 제작
+E-TCS-Q1	examples/ksat4/board/E-TCS-Q1.md	examples/ksat4/deliverables/TCS/build-a1-e.md	검사
+E-TCS-Q2	examples/ksat4/board/E-TCS-Q2.md	examples/ksat4/deliverables/TCS/build-a2-e.md	검사
+E-TCS-S1	examples/ksat4/board/E-TCS-S1.md	examples/ksat4/deliverables/TCS/build-a1-e.md	조립 1
+E-TCS-S2	examples/ksat4/board/E-TCS-S2.md	examples/ksat4/deliverables/TCS/build-a1-e.md	조립 2
+E-TCS-S3	examples/ksat4/board/E-TCS-S3.md	examples/ksat4/deliverables/TCS/build-a1-e.md	조립 3
+E-TCS-T1	examples/ksat4/board/E-TCS-T1.md	examples/ksat4/deliverables/TCS/test-em.md	시험 절차
+E-TCS-T2	examples/ksat4/board/E-TCS-T2.md	examples/ksat4/deliverables/TCS/test-em.md	시험 수행
+E-TCS-T3	examples/ksat4/board/E-TCS-T3.md	examples/ksat4/deliverables/TCS/test-em.md	시험 보고
+E-TCS-C1	examples/ksat4/board/E-TCS-C1.md	examples/ksat4/deliverables/TCS/cfg-e.md	형상문서

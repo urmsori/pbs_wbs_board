@@ -1,0 +1,23 @@
+E-OBC-D1	examples/ksat4/board/E-OBC-D1.md	examples/ksat4/deliverables/OBC/dsn-a1-e.md	A1 설계
+E-OBC-D2	examples/ksat4/board/E-OBC-D2.md	examples/ksat4/deliverables/OBC/dsn-a2-e.md	A2 설계
+E-OBC-D3	examples/ksat4/board/E-OBC-D3.md	examples/ksat4/deliverables/OBC/dsn-a3-e.md	A3 설계
+E-OBC-D4	examples/ksat4/board/E-OBC-D4.md	examples/ksat4/deliverables/OBC/dsn-a4-e.md	A4 설계
+E-OBC-N1	examples/ksat4/board/E-OBC-N1.md	examples/ksat4/deliverables/OBC/anl-em.md	구조 해석
+E-OBC-N2	examples/ksat4/board/E-OBC-N2.md	examples/ksat4/deliverables/OBC/anl-em.md	열 해석
+E-OBC-N3	examples/ksat4/board/E-OBC-N3.md	examples/ksat4/deliverables/OBC/anl-em.md	전력·EMC 해석
+E-OBC-P1	examples/ksat4/board/E-OBC-P1.md	examples/ksat4/deliverables/OBC/parts-e.md	부품 구매
+E-OBC-P2	examples/ksat4/board/E-OBC-P2.md	examples/ksat4/deliverables/OBC/parts-e.md	부품 구매
+E-OBC-M1	examples/ksat4/board/E-OBC-M1.md	examples/ksat4/deliverables/OBC/build-a1-e.md	조립체 A1 제작
+E-OBC-M2	examples/ksat4/board/E-OBC-M2.md	examples/ksat4/deliverables/OBC/build-a2-e.md	조립체 A2 제작
+E-OBC-M3	examples/ksat4/board/E-OBC-M3.md	examples/ksat4/deliverables/OBC/build-a3-e.md	조립체 A3 제작
+E-OBC-M4	examples/ksat4/board/E-OBC-M4.md	examples/ksat4/deliverables/OBC/build-a4-e.md	조립체 A4 제작
+E-OBC-M5	examples/ksat4/board/E-OBC-M5.md	examples/ksat4/deliverables/OBC/build-a4-e.md	치구 제작
+E-OBC-Q1	examples/ksat4/board/E-OBC-Q1.md	examples/ksat4/deliverables/OBC/build-a1-e.md	검사
+E-OBC-Q2	examples/ksat4/board/E-OBC-Q2.md	examples/ksat4/deliverables/OBC/build-a2-e.md	검사
+E-OBC-S1	examples/ksat4/board/E-OBC-S1.md	examples/ksat4/deliverables/OBC/build-a1-e.md	조립 1
+E-OBC-S2	examples/ksat4/board/E-OBC-S2.md	examples/ksat4/deliverables/OBC/build-a1-e.md	조립 2
+E-OBC-S3	examples/ksat4/board/E-OBC-S3.md	examples/ksat4/deliverables/OBC/build-a1-e.md	조립 3
+E-OBC-T1	examples/ksat4/board/E-OBC-T1.md	examples/ksat4/deliverables/OBC/test-em.md	시험 절차
+E-OBC-T2	examples/ksat4/board/E-OBC-T2.md	examples/ksat4/deliverables/OBC/test-em.md	시험 수행
+E-OBC-T3	examples/ksat4/board/E-OBC-T3.md	examples/ksat4/deliverables/OBC/test-em.md	시험 보고
+E-OBC-C1	examples/ksat4/board/E-OBC-C1.md	examples/ksat4/deliverables/OBC/cfg-e.md	형상문서

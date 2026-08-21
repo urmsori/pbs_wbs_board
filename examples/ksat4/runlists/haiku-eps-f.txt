@@ -1,0 +1,15 @@
+F-EPS-D1	examples/ksat4/board/F-EPS-D1.md	examples/ksat4/deliverables/EPS/dsn-a1-f.md	A1 설계
+F-EPS-D2	examples/ksat4/board/F-EPS-D2.md	examples/ksat4/deliverables/EPS/dsn-a2-f.md	A2 설계
+F-EPS-P1	examples/ksat4/board/F-EPS-P1.md	examples/ksat4/deliverables/EPS/parts-f.md	부품 구매
+F-EPS-P2	examples/ksat4/board/F-EPS-P2.md	examples/ksat4/deliverables/EPS/parts-f.md	부품 구매
+F-EPS-M1	examples/ksat4/board/F-EPS-M1.md	examples/ksat4/deliverables/EPS/build-a1-f.md	조립체 A1 제작
+F-EPS-M2	examples/ksat4/board/F-EPS-M2.md	examples/ksat4/deliverables/EPS/build-a2-f.md	조립체 A2 제작
+F-EPS-M3	examples/ksat4/board/F-EPS-M3.md	examples/ksat4/deliverables/EPS/build-a3-f.md	조립체 A3 제작
+F-EPS-M4	examples/ksat4/board/F-EPS-M4.md	examples/ksat4/deliverables/EPS/build-a4-f.md	조립체 A4 제작
+F-EPS-Q1	examples/ksat4/board/F-EPS-Q1.md	examples/ksat4/deliverables/EPS/build-a1-f.md	검사
+F-EPS-Q2	examples/ksat4/board/F-EPS-Q2.md	examples/ksat4/deliverables/EPS/build-a2-f.md	검사
+F-EPS-S1	examples/ksat4/board/F-EPS-S1.md	examples/ksat4/deliverables/EPS/build-a1-f.md	조립 1
+F-EPS-S2	examples/ksat4/board/F-EPS-S2.md	examples/ksat4/deliverables/EPS/build-a1-f.md	조립 2
+F-EPS-T1	examples/ksat4/board/F-EPS-T1.md	examples/ksat4/deliverables/EPS/test-fm.md	수락시험
+F-EPS-T2	examples/ksat4/board/F-EPS-T2.md	examples/ksat4/deliverables/EPS/test-fm.md	수락 보고
+F-EPS-C1	examples/ksat4/board/F-EPS-C1.md	examples/ksat4/deliverables/EPS/cfg-f.md	형상문서

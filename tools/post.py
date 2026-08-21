@@ -33,7 +33,9 @@ def find_by_id(board, pid):
     """게시글 파일명은 <id>-제목.md 이므로 글롭으로 후보를 좁히되,
     계층 id(QM-STR-BR)가 잎 id(QM-STR-BR-01)의 접두어일 수 있으므로
     frontmatter의 id가 정확히 일치하는 파일만 채택한다(v2.2)."""
-    for hit in sorted(board.glob(f"{pid}-*.md")):
+    exact = board / f"{pid}.md"
+    candidates = ([exact] if exact.exists() else []) + sorted(board.glob(f"{pid}-*.md"))
+    for hit in candidates:
         if field(hit.read_text(encoding="utf-8"), "id") == pid:
             return hit
     return None

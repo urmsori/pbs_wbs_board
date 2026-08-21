@@ -1,0 +1,23 @@
+E-STR-D1	examples/ksat4/board/E-STR-D1.md	examples/ksat4/deliverables/STR/dsn-a1-e.md	A1 설계
+E-STR-D2	examples/ksat4/board/E-STR-D2.md	examples/ksat4/deliverables/STR/dsn-a2-e.md	A2 설계
+E-STR-D3	examples/ksat4/board/E-STR-D3.md	examples/ksat4/deliverables/STR/dsn-a3-e.md	A3 설계
+E-STR-D4	examples/ksat4/board/E-STR-D4.md	examples/ksat4/deliverables/STR/dsn-a4-e.md	A4 설계
+E-STR-N1	examples/ksat4/board/E-STR-N1.md	examples/ksat4/deliverables/STR/anl-em.md	구조 해석
+E-STR-N2	examples/ksat4/board/E-STR-N2.md	examples/ksat4/deliverables/STR/anl-em.md	열 해석
+E-STR-N3	examples/ksat4/board/E-STR-N3.md	examples/ksat4/deliverables/STR/anl-em.md	전력·EMC 해석
+E-STR-P1	examples/ksat4/board/E-STR-P1.md	examples/ksat4/deliverables/STR/parts-e.md	부품 구매
+E-STR-P2	examples/ksat4/board/E-STR-P2.md	examples/ksat4/deliverables/STR/parts-e.md	부품 구매
+E-STR-M1	examples/ksat4/board/E-STR-M1.md	examples/ksat4/deliverables/STR/build-a1-e.md	조립체 A1 제작
+E-STR-M2	examples/ksat4/board/E-STR-M2.md	examples/ksat4/deliverables/STR/build-a2-e.md	조립체 A2 제작
+E-STR-M3	examples/ksat4/board/E-STR-M3.md	examples/ksat4/deliverables/STR/build-a3-e.md	조립체 A3 제작
+E-STR-M4	examples/ksat4/board/E-STR-M4.md	examples/ksat4/deliverables/STR/build-a4-e.md	조립체 A4 제작
+E-STR-M5	examples/ksat4/board/E-STR-M5.md	examples/ksat4/deliverables/STR/build-a4-e.md	치구 제작
+E-STR-Q1	examples/ksat4/board/E-STR-Q1.md	examples/ksat4/deliverables/STR/build-a1-e.md	검사
+E-STR-Q2	examples/ksat4/board/E-STR-Q2.md	examples/ksat4/deliverables/STR/build-a2-e.md	검사
+E-STR-S1	examples/ksat4/board/E-STR-S1.md	examples/ksat4/deliverables/STR/build-a1-e.md	조립 1
+E-STR-S2	examples/ksat4/board/E-STR-S2.md	examples/ksat4/deliverables/STR/build-a1-e.md	조립 2
+E-STR-S3	examples/ksat4/board/E-STR-S3.md	examples/ksat4/deliverables/STR/build-a1-e.md	조립 3
+E-STR-T1	examples/ksat4/board/E-STR-T1.md	examples/ksat4/deliverables/STR/test-em.md	시험 절차
+E-STR-T2	examples/ksat4/board/E-STR-T2.md	examples/ksat4/deliverables/STR/test-em.md	시험 수행
+E-STR-T3	examples/ksat4/board/E-STR-T3.md	examples/ksat4/deliverables/STR/test-em.md	시험 보고
+E-STR-C1	examples/ksat4/board/E-STR-C1.md	examples/ksat4/deliverables/STR/cfg-e.md	형상문서

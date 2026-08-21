@@ -1,0 +1,16 @@
+---
+id: F-COMM-S1
+title: 통신 조립 1단계
+status: OPEN
+parent: F-COMM-L1
+owner: -
+deliverable: -
+after: F-COMM-Q1, F-COMM-Q2
+track: COMM
+started: -
+finished: -
+---
+
+조립 1단계 기록.
+산출물: examples/ksat4/deliverables/COMM/build-a1-f.md
+(담당 역할: COMM-ASM-01 — owner에는 take 시 이 역할 이름을 쓴다)

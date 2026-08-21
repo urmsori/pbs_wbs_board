@@ -1,0 +1,38 @@
+F-FAC-V1	examples/ksat4/board/F-FAC-V1.md	examples/ksat4/deliverables/support/fac-f.md	진동시험 슬롯
+F-FAC-T1	examples/ksat4/board/F-FAC-T1.md	examples/ksat4/deliverables/support/fac-f.md	열진공 슬롯
+F-FAC-V2	examples/ksat4/board/F-FAC-V2.md	examples/ksat4/deliverables/support/fac-f.md	진동시험 슬롯
+F-FAC-T2	examples/ksat4/board/F-FAC-T2.md	examples/ksat4/deliverables/support/fac-f.md	열진공 슬롯
+F-FAC-V3	examples/ksat4/board/F-FAC-V3.md	examples/ksat4/deliverables/support/fac-f.md	진동시험 슬롯
+F-FAC-T3	examples/ksat4/board/F-FAC-T3.md	examples/ksat4/deliverables/support/fac-f.md	열진공 슬롯
+F-FAC-V4	examples/ksat4/board/F-FAC-V4.md	examples/ksat4/deliverables/support/fac-f.md	진동시험 슬롯
+F-FAC-T4	examples/ksat4/board/F-FAC-T4.md	examples/ksat4/deliverables/support/fac-f.md	열진공 슬롯
+F-SW-01	examples/ksat4/board/F-SW-01.md	examples/ksat4/deliverables/support/sw-f.md	비행SW
+F-SW-02	examples/ksat4/board/F-SW-02.md	examples/ksat4/deliverables/support/sw-f.md	비행SW
+F-SW-03	examples/ksat4/board/F-SW-03.md	examples/ksat4/deliverables/support/sw-f.md	비행SW
+F-SW-04	examples/ksat4/board/F-SW-04.md	examples/ksat4/deliverables/support/sw-f.md	비행SW
+F-SW-05	examples/ksat4/board/F-SW-05.md	examples/ksat4/deliverables/support/sw-f.md	비행SW
+F-SW-06	examples/ksat4/board/F-SW-06.md	examples/ksat4/deliverables/support/sw-f.md	비행SW
+F-SW-07	examples/ksat4/board/F-SW-07.md	examples/ksat4/deliverables/support/sw-f.md	비행SW
+F-SW-08	examples/ksat4/board/F-SW-08.md	examples/ksat4/deliverables/support/sw-f.md	비행SW
+F-SW-09	examples/ksat4/board/F-SW-09.md	examples/ksat4/deliverables/support/sw-f.md	비행SW
+F-SW-10	examples/ksat4/board/F-SW-10.md	examples/ksat4/deliverables/support/sw-f.md	비행SW
+F-GS-01	examples/ksat4/board/F-GS-01.md	examples/ksat4/deliverables/support/gs-f.md	지상국
+F-GS-02	examples/ksat4/board/F-GS-02.md	examples/ksat4/deliverables/support/gs-f.md	지상국
+F-GS-03	examples/ksat4/board/F-GS-03.md	examples/ksat4/deliverables/support/gs-f.md	지상국
+F-GS-04	examples/ksat4/board/F-GS-04.md	examples/ksat4/deliverables/support/gs-f.md	지상국
+F-GS-05	examples/ksat4/board/F-GS-05.md	examples/ksat4/deliverables/support/gs-f.md	지상국
+F-GS-06	examples/ksat4/board/F-GS-06.md	examples/ksat4/deliverables/support/gs-f.md	지상국
+F-GS-07	examples/ksat4/board/F-GS-07.md	examples/ksat4/deliverables/support/gs-f.md	지상국
+F-HAR-01	examples/ksat4/board/F-HAR-01.md	examples/ksat4/deliverables/support/har-f.md	하니스
+F-HAR-02	examples/ksat4/board/F-HAR-02.md	examples/ksat4/deliverables/support/har-f.md	하니스
+F-HAR-03	examples/ksat4/board/F-HAR-03.md	examples/ksat4/deliverables/support/har-f.md	하니스
+F-HAR-04	examples/ksat4/board/F-HAR-04.md	examples/ksat4/deliverables/support/har-f.md	하니스
+F-HAR-05	examples/ksat4/board/F-HAR-05.md	examples/ksat4/deliverables/support/har-f.md	하니스
+F-HAR-06	examples/ksat4/board/F-HAR-06.md	examples/ksat4/deliverables/support/har-f.md	하니스
+F-LV-01	examples/ksat4/board/F-LV-01.md	examples/ksat4/deliverables/support/lv-f.md	발사체 연계
+F-LV-02	examples/ksat4/board/F-LV-02.md	examples/ksat4/deliverables/support/lv-f.md	발사체 연계
+F-LV-03	examples/ksat4/board/F-LV-03.md	examples/ksat4/deliverables/support/lv-f.md	발사체 연계
+F-LV-04	examples/ksat4/board/F-LV-04.md	examples/ksat4/deliverables/support/lv-f.md	발사체 연계
+F-PM-01	examples/ksat4/board/F-PM-01.md	examples/ksat4/deliverables/support/pm-f.md	리뷰
+F-PM-02	examples/ksat4/board/F-PM-02.md	examples/ksat4/deliverables/support/pm-f.md	리뷰
+F-PM-03	examples/ksat4/board/F-PM-03.md	examples/ksat4/deliverables/support/pm-f.md	리뷰
