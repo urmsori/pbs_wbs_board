@@ -1,13 +1,13 @@
 ---
 id: REQ-RAIL-COMM
 title: 송신 펄스 프로파일 재확인 (공유 레일 동시부하 검토용)
-status: OPEN
+status: TAKEN
 parent: RISK-RAIL
-owner: -
+owner: COMM-DSN
 deliverable: -
 after: -
 track: COMM
-started: -
+started: 2026-08-21 07:36:45
 finished: -
 ---
 

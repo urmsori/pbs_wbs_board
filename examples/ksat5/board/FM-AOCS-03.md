@@ -1,13 +1,13 @@
 ---
 id: FM-AOCS-03
 title: FM 센서·액추에이터 교정
-status: OPEN
+status: TAKEN
 parent: M2-AOCS
-owner: -
+owner: AOCS-CAL
 deliverable: -
 after: FM-AOCS-02
 track: AOCS
-started: -
+started: 2026-08-21 07:36:49
 finished: -
 ---
 
