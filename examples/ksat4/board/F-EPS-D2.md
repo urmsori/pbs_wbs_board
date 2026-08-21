@@ -1,13 +1,13 @@
 ---
 id: F-EPS-D2
 title: 전력 A2 FM 설계갱신
-status: OPEN
+status: TAKEN
 parent: F-EPS-L1
-owner: -
+owner: EPS-DSN-02
 deliverable: -
 after: E-PHASE, E-EPS-L1
 track: EPS
-started: -
+started: 2026-08-21 04:18:46
 finished: -
 ---
 
