@@ -1,13 +1,13 @@
 ---
 id: 007
 title: 규칙 개정 v1.2 — 취합 Work는 마지막에 끝난다, Gantt 종속성 화살표
-status: TAKEN
+status: DONE
 parent: 000
 owner: claude
-deliverable: -
+deliverable: RULES.md
 after: 006
 started: 2026-08-21 00:29
-finished: -
+finished: 2026-08-21 00:32
 ---
 
 불편 두 가지. (1) 개정 006이 00:20에 끝났는데 루트 게시글 000의 finished가

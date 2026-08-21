@@ -2,6 +2,7 @@
 """board/의 게시글을 취합해 WBS/Gantt/PBS 현황 페이지(board.html)를 만든다.
 
 PBS WBS Board 규칙 5절의 도구. 표준 라이브러리만 사용한다.
+Gantt는 after 종속성을 화살표로 그리고, 취합 순서 위반(4절)을 경고한다.
 사용법: python3 tools/build_board_view.py
 """
 import datetime
@@ -49,6 +50,12 @@ def parse_dt(value):
         return datetime.datetime.fromisoformat(value.replace(" ", "T"))
     except ValueError:
         return None
+
+
+def after_ids(post):
+    if post["after"] == "-":
+        return []
+    return [a.strip() for a in post["after"].split(",") if a.strip() and a.strip() != "-"]
 
 
 def load_posts():
@@ -108,8 +115,12 @@ def depth_of(post, by_id):
     return depth
 
 
+GANTT_W = 1000.0  # SVG 가로 가상 좌표(시간축). 화면 폭에 맞춰 늘어난다.
+ROW_H = 26        # 한 Work 행의 높이(px). 세로는 1:1이라 왜곡이 없다.
+
+
 def build_gantt(posts, by_id, now):
-    """각 게시글의 started~finished 구간을 막대로 그린다. 병렬 Work는 겹쳐 보인다."""
+    """started~finished 막대 + after 종속성 화살표. 병렬 Work는 겹쳐 보인다."""
     spans = []
     for p in posts:
         start = parse_dt(p["started"])
@@ -124,34 +135,92 @@ def build_gantt(posts, by_id, now):
     t_min, t_max = min(times), max(times)
     total = max((t_max - t_min).total_seconds(), 60)
 
-    rows = []
-    for p, start, end in spans:
+    def x(t):
+        return (t - t_min).total_seconds() / total * GANTT_W
+
+    labels, strips, bars, arrows = [], [], [], []
+    pos = {}  # id -> (행 번호, start, end)
+    for i, (p, start, end) in enumerate(spans):
+        if p["id"]:
+            pos[p["id"]] = (i, start, end)
         status = p["status"].upper()
         depth = depth_of(p, by_id)
-        indent = f'style="padding-left:{depth * 0.9}rem"'
-        after = f' <span class="meta">선행: {esc(p["after"])}</span>' if p["after"] != "-" else ""
-        label = (
-            f'<div class="g-label" {indent}><span class="pid">{esc(p["id"])}</span> '
-            f'{esc(p["title"])}{after}</div>'
+        wait = "" if start else ' <span class="meta">— 대기</span>'
+        labels.append(
+            f'<div class="g-label" style="padding-left:{depth * 0.9}rem">'
+            f'<span class="pid">{esc(p["id"])}</span> {esc(p["title"])}{wait}</div>'
         )
+        y = i * ROW_H
+        if i % 2 == 1:
+            strips.append(f'<rect class="g-strip" x="0" y="{y}" width="{GANTT_W:.0f}" height="{ROW_H}"/>')
         if start:
-            left = (start - t_min).total_seconds() / total * 100
-            width = max((end - start).total_seconds() / total * 100, 1.2)
-            tip = f'{p["started"]} ~ {p["finished"] if p["finished"] != "-" else "진행 중"}'
-            bar = (
-                f'<div class="g-track"><div class="g-bar {status.lower()}" '
-                f'style="left:{left:.2f}%;width:{width:.2f}%" title="{esc(tip)}"></div></div>'
+            x1 = x(start)
+            w = max(x(end) - x1, 12)
+            tip = f'{p["id"]} {p["title"]} — {p["started"]} ~ {p["finished"] if p["finished"] != "-" else "진행 중"}'
+            bars.append(
+                f'<rect class="g-bar {status.lower()}" x="{x1:.1f}" y="{y + 6}" '
+                f'width="{w:.1f}" height="{ROW_H - 12}" rx="2"><title>{esc(tip)}</title></rect>'
             )
-        else:
-            bar = '<div class="g-track"><span class="g-wait">대기 (아직 시작 안 함)</span></div>'
-        rows.append(f'<div class="g-row">{label}{bar}</div>')
 
+    # after 종속성: 선행 Work의 끝 → 후행 Work의 시작을 잇는 화살표
+    for i, (p, start, end) in enumerate(spans):
+        if not start:
+            continue
+        yy = i * ROW_H + ROW_H / 2
+        for dep in after_ids(p):
+            if dep not in pos:
+                continue
+            j, ds, de = pos[dep]
+            if not de:
+                continue
+            x1, y1 = x(de), j * ROW_H + ROW_H / 2
+            x2 = x(start)
+            midx = x1 + 6
+            if x2 >= x1 + 14:  # 정상: 선행이 끝난 뒤 시작 → 오른쪽으로 꺾어 들어간다
+                path = f"M {x1:.1f} {y1:.1f} H {midx:.1f} V {yy:.1f} H {x2 - 7:.1f}"
+                head = f"{x2:.1f},{yy:.1f} {x2 - 7:.1f},{yy - 3.5:.1f} {x2 - 7:.1f},{yy + 3.5:.1f}"
+            else:  # 겹침: 왼쪽에서 되돌아 들어간다
+                path = f"M {x1:.1f} {y1:.1f} H {midx:.1f} V {yy:.1f} H {x2 + 7:.1f}"
+                head = f"{x2:.1f},{yy:.1f} {x2 + 7:.1f},{yy - 3.5:.1f} {x2 + 7:.1f},{yy + 3.5:.1f}"
+            arrows.append(f'<path class="g-dep" d="{path}"/><polygon class="g-dep-head" points="{head}"/>')
+
+    height = len(spans) * ROW_H
+    svg = (
+        f'<svg class="g-chart" viewBox="0 0 {GANTT_W:.0f} {height}" '
+        f'preserveAspectRatio="none" style="height:{height}px">'
+        f'{"".join(strips)}{"".join(bars)}{"".join(arrows)}</svg>'
+    )
     axis = (
         f'<div class="g-row g-axis"><div class="g-label"></div>'
         f'<div class="g-track"><span>{esc(t_min.strftime("%Y-%m-%d %H:%M"))}</span>'
         f'<span class="g-right">{esc(t_max.strftime("%Y-%m-%d %H:%M"))}</span></div></div>'
     )
-    return f'<div class="gantt">{axis}{"".join(rows)}</div>'
+    body = f'<div class="g-body"><div class="g-labels">{"".join(labels)}</div><div class="g-area">{svg}</div></div>'
+    return f'<div class="gantt">{axis}{body}</div>'
+
+
+def aggregation_warnings(posts, by_id, roots, children):
+    """규칙 4절: 부모(취합)의 finished는 모든 자식보다 늦어야 하고, 루트는 전체의 마지막이다."""
+    warns = []
+    for pid, kids in children.items():
+        parent = by_id[pid]
+        p_done = parent["status"].upper() == "DONE"
+        pf = parse_dt(parent["finished"])
+        for c in kids:
+            cf = parse_dt(c["finished"])
+            if p_done and c["status"].upper() != "DONE":
+                warns.append(f'부모 {pid}가 DONE인데 자식 {c["id"]}가 아직 DONE이 아니다.')
+            elif p_done and pf and cf and pf < cf:
+                warns.append(
+                    f'부모 {pid}의 finished({parent["finished"]})가 자식 {c["id"]}'
+                    f'({c["finished"]})보다 이르다 — 재취합해 finished를 갱신해야 한다.'
+                )
+    all_finished = [parse_dt(p["finished"]) for p in posts if parse_dt(p["finished"])]
+    for r in roots:
+        rf = parse_dt(r["finished"])
+        if r["status"].upper() == "DONE" and rf and all_finished and rf < max(all_finished):
+            warns.append(f'루트 {r["id"]}의 finished가 전체 타임라인의 마지막이 아니다.')
+    return warns
 
 
 def main():
@@ -167,6 +236,14 @@ def main():
         "프로젝트 완료: OPEN 게시글이 없고 루트 게시글이 DONE이다."
         if finished
         else "진행 중: OPEN 게시글을 집어 계속한다."
+    )
+    warns = aggregation_warnings(posts, by_id, roots, children)
+    warn_html = (
+        '<div class="warnbox"><strong>취합 순서 경고 (규칙 4절)</strong><ul>'
+        + "".join(f"<li>{esc(w)}</li>" for w in warns)
+        + "</ul></div>"
+        if warns
+        else ""
     )
 
     wbs = "".join(wbs_node(r, children) for r in roots)
@@ -206,21 +283,26 @@ def main():
   .deliv {{ font-family: monospace; }}
   .summary {{ background: #f6f8fa; border: 1px solid #e5e5e5; border-radius: .5rem;
               padding: .8rem 1rem; }}
+  .warnbox {{ background: #fdecea; border: 1px solid #f5c6c0; border-radius: .5rem;
+              padding: .8rem 1rem; margin-top: 1rem; color: #8a1f11; }}
+  .warnbox ul {{ border-left: none; margin: .3rem 0 0; }}
   a {{ color: #0b57d0; text-decoration: none; }} a:hover {{ text-decoration: underline; }}
   .gantt {{ border: 1px solid #e5e5e5; border-radius: .5rem; padding: .6rem .8rem; }}
   .g-row {{ display: flex; align-items: center; gap: .6rem; margin: .3rem 0; }}
-  .g-label {{ flex: 0 0 20rem; font-size: .85rem; overflow: hidden;
-              text-overflow: ellipsis; white-space: nowrap; }}
-  .g-track {{ position: relative; flex: 1; height: 1.1rem; background: #f2f4f7;
-              border-radius: .3rem; }}
-  .g-bar {{ position: absolute; top: 0; height: 100%; border-radius: .3rem; }}
-  .g-bar.done  {{ background: #34a853; }}
-  .g-bar.taken {{ background: #f9ab00;
-    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.35) 0 4px, transparent 4px 8px); }}
-  .g-bar.open  {{ background: #d93025; }}
-  .g-wait {{ font-size: .75rem; color: #aaa; padding-left: .4rem; }}
+  .g-body {{ display: flex; gap: .6rem; align-items: flex-start; }}
+  .g-labels {{ flex: 0 0 20rem; }}
+  .g-label {{ flex: 0 0 20rem; height: {ROW_H}px; line-height: {ROW_H}px; font-size: .85rem;
+              overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
+  .g-area {{ flex: 1; min-width: 0; }}
+  .g-chart {{ width: 100%; display: block; background: #f8fafc; border-radius: .3rem; }}
+  .g-strip {{ fill: #eef1f5; }}
+  .g-bar.done  {{ fill: #34a853; }}
+  .g-bar.taken {{ fill: #f9ab00; }}
+  .g-bar.open  {{ fill: #d93025; }}
+  .g-dep {{ fill: none; stroke: #5f6b7a; stroke-width: 1.3; opacity: .75; }}
+  .g-dep-head {{ fill: #5f6b7a; opacity: .85; }}
   .g-axis .g-track {{ background: none; display: flex; justify-content: space-between;
-                      font-size: .75rem; color: #888; height: auto; }}
+                      font-size: .75rem; color: #888; height: auto; flex: 1; }}
   .legend {{ font-size: .8rem; color: #666; margin-top: .4rem; }}
   .chip {{ display: inline-block; width: .8rem; height: .8rem; border-radius: .2rem;
            vertical-align: -.1rem; }}
@@ -233,16 +315,19 @@ def main():
   <span class="badge taken">TAKEN</span> {counts.get("TAKEN", 0)} ·
   <span class="badge done">DONE</span> {counts.get("DONE", 0)}<br>
   {esc(state_line)}</p>
+{warn_html}
 
 <h2>WBS — Work 분해 트리</h2>
 <ul>{wbs}</ul>
 
-<h2>Gantt — Work 시간표 (겹치는 막대 = 병렬 진행)</h2>
+<h2>Gantt — Work 시간표 (겹치는 막대 = 병렬, 화살표 = after 종속성)</h2>
 {gantt}
 <p class="legend">
   <span class="chip" style="background:#34a853"></span> DONE ·
   <span class="chip" style="background:#f9ab00"></span> TAKEN(진행 중, 현재 시각까지 표시) ·
-  회색 트랙만 있으면 아직 시작 전. 순서 제약은 각 줄의 "선행"이 전부다.</p>
+  "대기"는 아직 시작 전. 화살표는 선행 Work의 끝에서 후행 Work의 시작으로 이어진다 —
+  순서 제약은 이 화살표(<code>after</code>)가 전부다. 루트(취합) Work의 막대는 항상
+  가장 늦게 끝난다.</p>
 
 <h2>PBS — 산출물 분해 트리 (구조로 취합)</h2>
 <ul>{pbs}</ul>
@@ -256,6 +341,8 @@ board/의 게시글에서 생성한다. 규칙은 <a href="RULES.md">RULES.md</a
 </html>
 """
     OUT.write_text(page, encoding="utf-8")
+    for w in warns:
+        print(f"경고: {w}")
     print(f"{OUT.name}: 게시글 {len(posts)}건 취합 완료 — {state_line}")
 
 
