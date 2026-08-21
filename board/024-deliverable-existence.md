@@ -7,7 +7,7 @@ owner: claude
 deliverable: tools/post.py, tools/build_board_view.py, RULES.md
 after: 023
 track: -
-started: 2026-08-21 04:26:00
+started: 2026-08-21 04:09:30
 finished: 2026-08-21 04:14:11
 ---
 
@@ -21,3 +21,4 @@ K-SAT 4 EM 통합시험(E-AIT-1)의 실발견: STR 게시글 14건이 **디스�
 검사(없으면 거부), tools/build_board_view.py — DONE 게시글의 산출물 파일이
 없으면 경고. RULES.md v2.6(4절 한 줄).
 검증: 없는 경로 done 거부·실존 경로 통과·뷰 경고를 시험으로 확인, K-SAT 4 보드 경고 0 확인
+정정: started가 미래 시각(04:26)으로 오기입되어 실제 착수 시각(04:09:30)으로 교정 — 뷰 경고(v1.7)가 잡아낸 취합자 오기입 3번째 사례.
