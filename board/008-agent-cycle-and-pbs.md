@@ -1,13 +1,13 @@
 ---
 id: 008
 title: 규칙 개정 v1.3 — 에이전트 사이클과 PBS 기록
-status: TAKEN
+status: DONE
 parent: 000
 owner: claude
-deliverable: -
+deliverable: RULES.md, VALIDATION.md
 after: 007
 started: 2026-08-21 00:36
-finished: -
+finished: 2026-08-21 00:45
 ---
 
 불편: 규칙 2절이 "쪼개거나 끝내기"라는 분해 관점만 담고 있어, 여러 에이전트가
@@ -20,6 +20,9 @@ finished: -
 기록 지원. 이 필요들이 모이면 개정 전체를 검증하고, 검증 중 새로 생기는
 필요는 다시 게시글로 올린다(새 사이클 4단계의 자기 적용).
 
-산출물: RULES.md v1.3과 갱신된 VALIDATION.md.
-검증: 이 개정 자체를 새 사이클(집기 → 필요 올리기 → 수행·검증 → 부족하면
-다시 올리기 → PBS 기록)대로 진행한 기록이 board/008~0NN에 남아야 한다.
+산출물: RULES.md v1.3과 갱신된 VALIDATION.md (산출물 2개 — 다중 산출물 사례).
+검증: 이 개정 자체를 새 사이클대로 진행했다 — 집기(008 TAKEN), 필요
+올리기(009·010), 모이면 수행·검증(009·010 DONE 후 VALIDATION 작성·스크린샷
+확인), 부족하면 다시 올리기(검증 중 상태 문구 불일치를 발견해 011 게시·해결),
+산출물 기록(이 게시글의 deliverable). 단계별 대응은 VALIDATION.md 1절의 표에
+있다.

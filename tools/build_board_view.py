@@ -58,6 +58,13 @@ def after_ids(post):
     return [a.strip() for a in post["after"].split(",") if a.strip() and a.strip() != "-"]
 
 
+def deliverables(post):
+    """deliverable 필드의 경로들. 여러 개면 쉼표로 구분된다(규칙 3절)."""
+    if post["deliverable"] == "-":
+        return []
+    return [d.strip() for d in post["deliverable"].split(",") if d.strip() and d.strip() != "-"]
+
+
 def load_posts():
     posts = [parse_post(p) for p in sorted(BOARD.glob("*.md"))]
     by_id = {p["id"]: p for p in posts if p["id"]}
@@ -90,10 +97,12 @@ def wbs_node(post, children):
 
 def pbs_node(post, children):
     status = post["status"].upper()
-    if status == "DONE" and post["deliverable"] != "-":
+    paths = deliverables(post)
+    if status == "DONE" and paths:
+        links = " · ".join(f'<a class="deliv" href="{esc(d)}">{esc(d)}</a>' for d in paths)
         item = (
             f'<span class="pid">{esc(post["id"])}</span> '
-            f'<a class="deliv" href="{esc(post["deliverable"])}">{esc(post["deliverable"])}</a> '
+            f'{links} '
             f'<span class="meta">← {esc(post["title"])}</span>'
         )
     else:
@@ -199,9 +208,37 @@ def build_gantt(posts, by_id, now):
     return f'<div class="gantt">{axis}{body}</div>'
 
 
+def product_composition(posts):
+    """PBS — Product 구성: DONE 산출물 경로를 중복 제거해 모은다.
+
+    같은 파일을 여러 Work가 갱신해도 한 번만 나타난다. 경로마다 그것을
+    만들거나 갱신한 Work들과 마지막 갱신 시각을 붙인다.
+    """
+    comp = {}  # path -> {"posts": [(finished, id)], }
+    for p in posts:
+        if p["status"].upper() != "DONE":
+            continue
+        for d in deliverables(p):
+            comp.setdefault(d, []).append((p["finished"], p["id"]))
+    items = []
+    for path, hits in sorted(comp.items(), key=lambda kv: (min(kv[1]), kv[0])):
+        hits.sort()
+        last_f, _ = hits[-1]
+        ids = ", ".join(i for _, i in hits)
+        items.append(
+            f'<li><a class="deliv" href="{esc(path)}">{esc(path)}</a> '
+            f'<span class="meta">← Work {esc(ids)} · 마지막 갱신 {esc(last_f)}</span></li>'
+        )
+    return "".join(items)
+
+
 def aggregation_warnings(posts, by_id, roots, children):
-    """규칙 4절: 부모(취합)의 finished는 모든 자식보다 늦어야 하고, 루트는 전체의 마지막이다."""
+    """규칙 4절: 부모(취합)의 finished는 모든 자식보다 늦어야 하고, 루트는 전체의 마지막이다.
+    DONE 게시글은 산출물 경로가 있어야 한다."""
     warns = []
+    for p in posts:
+        if p["status"].upper() == "DONE" and not deliverables(p):
+            warns.append(f'{p["id"]}가 산출물 경로 없이 DONE이다 — 산출물 없는 Work는 없다(규칙 4절).')
     for pid, kids in children.items():
         parent = by_id[pid]
         p_done = parent["status"].upper() == "DONE"
@@ -232,11 +269,12 @@ def main():
     finished = counts.get("OPEN", 0) == 0 and counts.get("TAKEN", 0) == 0 and roots and all(
         r["status"].upper() == "DONE" for r in roots
     )
-    state_line = (
-        "프로젝트 완료: OPEN 게시글이 없고 루트 게시글이 DONE이다."
-        if finished
-        else "진행 중: OPEN 게시글을 집어 계속한다."
-    )
+    if finished:
+        state_line = "프로젝트 완료: OPEN·TAKEN 게시글이 없고 루트 게시글이 DONE이다."
+    elif counts.get("OPEN", 0) > 0:
+        state_line = "진행 중: OPEN 게시글을 집어 계속한다."
+    else:
+        state_line = f'진행 중: TAKEN 게시글 {counts.get("TAKEN", 0)}건이 끝나기를 기다린다.'
     warns = aggregation_warnings(posts, by_id, roots, children)
     warn_html = (
         '<div class="warnbox"><strong>취합 순서 경고 (규칙 4절)</strong><ul>'
@@ -249,12 +287,13 @@ def main():
     wbs = "".join(wbs_node(r, children) for r in roots)
     pbs = "".join(pbs_node(r, children) for r in roots)
     gantt = build_gantt(posts, by_id, now)
+    composition = product_composition(posts)
     timeline = "".join(
         f'<li><span class="pid">{esc(p["id"])}</span> '
-        f'<a class="deliv" href="{esc(p["deliverable"])}">{esc(p["deliverable"])}</a> '
-        f'<span class="meta">← {esc(p["title"])} ({esc(p["finished"])})</span></li>'
+        + " · ".join(f'<a class="deliv" href="{esc(d)}">{esc(d)}</a>' for d in deliverables(p))
+        + f' <span class="meta">← {esc(p["title"])} ({esc(p["finished"])})</span></li>'
         for p in sorted(
-            (p for p in posts if p["status"].upper() == "DONE" and p["deliverable"] != "-"),
+            (p for p in posts if p["status"].upper() == "DONE" and deliverables(p)),
             key=lambda p: (p["finished"], p["id"]),
         )
     )
@@ -328,6 +367,11 @@ def main():
   "대기"는 아직 시작 전. 화살표는 선행 Work의 끝에서 후행 Work의 시작으로 이어진다 —
   순서 제약은 이 화살표(<code>after</code>)가 전부다. 루트(취합) Work의 막대는 항상
   가장 늦게 끝난다.</p>
+
+<h2>PBS — Product 구성 (산출물 중복 제거, 그 시점의 Product)</h2>
+<ul>{composition}</ul>
+<p class="legend">같은 파일을 여러 Work가 갱신해도 한 번만 나타난다 —
+일부만 갱신한 Work는 이 목록을 바꾸지 않을 수 있다.</p>
 
 <h2>PBS — 산출물 분해 트리 (구조로 취합)</h2>
 <ul>{pbs}</ul>

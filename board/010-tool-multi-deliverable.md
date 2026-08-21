@@ -1,13 +1,13 @@
 ---
 id: 010
 title: 도구의 다중 산출물·PBS 기록 지원
-status: OPEN
+status: DONE
 parent: 008
-owner: -
-deliverable: -
+owner: claude
+deliverable: tools/build_board_view.py
 after: -
-started: -
-finished: -
+started: 2026-08-21 00:39
+finished: 2026-08-21 00:41
 ---
 
 008의 필요. deliverable에 쉼표로 여러 경로를 적을 수 있게 하고, board.html에
@@ -16,3 +16,6 @@ finished: -
 같은 파일을 여러 Work가 갱신해도 PBS에는 한 번만 나타난다(일부 갱신은 PBS
 구조를 바꾸지 않는다). DONE인데 산출물 경로가 없는 게시글은 경고한다.
 산출물: 개정된 tools/build_board_view.py.
+검증: 도구 실행으로 board.html 생성 확인. "RULES.md, VALIDATION.md" 파싱이
+경로 2개를 돌려주는 것과, 산출물 없는 DONE 게시글이 경고로 잡히는 것을
+시뮬레이션으로 확인했다.

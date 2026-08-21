@@ -1,13 +1,13 @@
 ---
 id: 009
 title: 사이클 규칙 문안 — 2절을 에이전트 사이클로 다시 쓰기
-status: OPEN
+status: DONE
 parent: 008
-owner: -
-deliverable: -
+owner: claude
+deliverable: RULES.md
 after: -
-started: -
-finished: -
+started: 2026-08-21 00:37
+finished: 2026-08-21 00:39
 ---
 
 008의 필요. 규칙 2절을 "여러 명이 각자 반복해서 도는 6단계 사이클"(집기 →
@@ -15,3 +15,7 @@ finished: -
 반복)로 다시 쓰고, 1·4·5절의 산출물/PBS 정의를 "산출물은 Product의 일부이거나
 여러 개일 수 있다"로 고친다. 검증을 Work의 필수 단계로 명시한다.
 산출물: 개정된 RULES.md(v1.3 문안).
+검증: 개정문 전체를 다시 읽어 2절 6단계가 요구된 사이클(집기/필요 올리기/
+수행·검증/재요청/PBS 기록/반복)과 1:1로 대응하고, 1·3·4·5절의 산출물·PBS
+정의가 서로 모순되지 않음을 확인. "끝" 정의가 2절과 어긋나던 것을 발견해
+OPEN·TAKEN 기준으로 고쳤다.
