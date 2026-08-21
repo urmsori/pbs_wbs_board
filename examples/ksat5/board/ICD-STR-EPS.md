@@ -1,14 +1,14 @@
 ---
 id: ICD-STR-EPS
 title: EPS 모듈 질량·장착 발자국 확인 요청
-status: OPEN
+status: DONE
 parent: STR-02
-owner: -
-deliverable: -
+owner: EPS-DSN
+deliverable: examples/ksat5/deliverables/EPS/icd-str-eps.md
 after: -
 track: EPS
-started: -
-finished: -
+started: 2026-08-21 07:05:57
+finished: 2026-08-21 07:06:52
 ---
 
 STR-DSN의 필요: EPS 모듈(태양전지판 장착부·PCU·배터리 팩)의 실측/설계
@@ -18,3 +18,4 @@ STR-DSN의 필요: EPS 모듈(태양전지판 장착부·PCU·배터리 팩)의 
 중재만).
 산출물: EPS 팀이 남기는 질량·발자국 확인 문서 — 경로는 협상 결과에
 따라 EPS 팀이 정한다.
+검증: 태양전지판·PCU 발자국/질량은 EPS-01/02 확정치, 배터리는 EPS-03 대기 중 잠정치로 명시, 총질량 1.30kg(잠정) ≤ 배분 3.0kg 확인

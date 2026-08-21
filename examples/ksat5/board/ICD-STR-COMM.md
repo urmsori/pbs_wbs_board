@@ -1,14 +1,14 @@
 ---
 id: ICD-STR-COMM
 title: COMM 모듈 질량·장착 발자국 확인 요청
-status: OPEN
+status: DONE
 parent: STR-02
-owner: -
-deliverable: -
+owner: COMM-RF
+deliverable: examples/ksat5/deliverables/COMM/icd-str-comm-footprint.md,examples/ksat5/deliverables/COMM/transceiver-em.md
 after: -
 track: COMM
-started: -
-finished: -
+started: 2026-08-21 07:05:57
+finished: 2026-08-21 07:06:54
 ---
 
 STR-DSN의 필요: COMM 모듈(트랜시버 보드)의 실측/설계 질량, 외형 치수,
@@ -18,3 +18,4 @@ STR-DSN의 필요: COMM 모듈(트랜시버 보드)의 실측/설계 질량, 외
 다룬다.) COMM과 STR 당사자 간 협상으로 확정한다(SE는 중재만).
 산출물: COMM 팀이 남기는 질량·발자국 확인 문서 — 경로는 협상 결과에
 따라 COMM 팀이 정한다.
+검증: 질량·외형·홀패턴·커넥터 위치 회신, STR-02 착수 가능

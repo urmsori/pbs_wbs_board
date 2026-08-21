@@ -1,14 +1,14 @@
 ---
 id: STR-02
 title: 서브시스템 장착 인터페이스 설계
-status: OPEN
+status: DONE
 parent: M-STR
-owner: -
-deliverable: -
+owner: STR-DSN
+deliverable: examples/ksat5/deliverables/STR/mounting-interfaces.md
 after: STR-01, ICD-STR-EPS, ICD-STR-AOCS, ICD-STR-COMM
 track: STR
-started: -
-finished: -
+started: 2026-08-21 07:07:11
+finished: 2026-08-21 07:07:44
 ---
 
 STR-DSN의 필요: 1차 구조(STR-01) 위에 EPS·AOCS·COMM 각 모듈을 실제로
@@ -19,3 +19,4 @@ STR-DSN의 필요: 1차 구조(STR-01) 위에 EPS·AOCS·COMM 각 모듈을 실�
 이미 올린 ICD-AOCS-STR·ICD-COMM-STR은 정렬·강성/안테나 장착 위치에 대한
 별건 협상으로, 이 Work와 병행 진행된다.)
 산출물: examples/ksat5/deliverables/STR/mounting-interfaces.md
+검증: EPS/AOCS/COMM 발자국 반영, AOCS 정렬·강성 및 COMM 안테나 포락선 요구 충족, STR 구조질량 2.95kg<=3.00kg 확인

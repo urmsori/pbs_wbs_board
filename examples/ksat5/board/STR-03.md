@@ -1,13 +1,13 @@
 ---
 id: STR-03
 title: 구조 해석 (강도·진동)
-status: OPEN
+status: TAKEN
 parent: M-STR
-owner: -
+owner: STR-ANL
 deliverable: -
 after: STR-02
 track: STR
-started: -
+started: 2026-08-21 07:07:48
 finished: -
 ---
 
