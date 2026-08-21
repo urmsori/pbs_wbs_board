@@ -1,13 +1,13 @@
 ---
 id: E-STR-Q1
 title: 구조 공정 검사 1
-status: OPEN
+status: TAKEN
 parent: E-STR-L1
-owner: -
+owner: STR-QA-01
 deliverable: -
 after: E-STR-M1, E-STR-M2
 track: STR
-started: -
+started: 2026-08-21 04:01:49
 finished: -
 ---
 
