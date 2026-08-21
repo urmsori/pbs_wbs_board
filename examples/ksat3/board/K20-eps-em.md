@@ -1,16 +1,23 @@
 ---
 id: K20
 title: 전력 EM 개발
-status: OPEN
+status: TAKEN
 parent: K00
-owner: -
+owner: sonnet-eps
 deliverable: -
 after: K01
 track: EPS
-started: -
+started: 2026-08-21 02:05:54
 finished: -
 ---
 
 EPS(배터리·태양전지·배전)의 EM 개발 전체 — 내부 단계는 본문 작업 기록.
 외부 필요는 발견되는 대로 게시글로.
 산출물: examples/ksat3/deliverables/eps-em.md
+
+작업 기록:
+1. 배전 토폴로지 선정 — DET(직접에너지전달) + 비조절 배터리 버스(1S Li-ion, 배터리 전압 그대로 부하단 인가) 채택, 별도 PPT 회로 없이 EM 단순화.
+2. 태양전지 배치 1차 산정 — 2U 5면(±X ±Y +Z) 박막 태양전지, 궤도평균 발생 전력 6.3 W로 추정(요구 ≥6.0 W 충족, 여유 0.3 W).
+3. 배터리 셀 후보 선정 — 18650 Li-ion 1S2P 3400 mAh급 2셀, 공칭 3.7 V·1년 수명 사이클 여유 확인.
+4. 1차 전력 수지 산정 — 발생 6.3 W, 평시 소비 4.3 W(요구 ≤4.5 W 충족)로 배전 손실 0.3 W 반영해 초안 확정.
+5. 버스 전압 유지 설계는 STR 장착 인터페이스(K61)·COMM 송신 버스트 프로파일(K62) 없이는 확정 불가로 판단, 두 필요를 게시글로 올림.
