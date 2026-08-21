@@ -1,14 +1,15 @@
 ---
 id: FM-EPS-BT-10
 title: 배터리 질량특성 측정
-status: OPEN
+status: DONE
 parent: FM-EPS-BT
-owner: -
-deliverable: -
+owner: haiku-eps
+deliverable: examples/satellite-full/deliverables/FM/EPS/bt-asm.md
 after: FM-EPS-BT-09
 track: EPS
-started: -
-finished: -
+started: 2026-08-21 01:43:52
+finished: 2026-08-21 01:43:52
 ---
 
 FM/전력계/배터리의 잎 Work. 결과를 조립체 산출물 파일에 한 줄 덧붙인다. 산출물: examples/satellite-full/deliverables/FM/EPS/bt-asm.md
+검증: 질량특성 측정 결과 확인

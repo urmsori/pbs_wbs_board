@@ -1,14 +1,15 @@
 ---
 id: FM-STR-BR-11
 title: 브래킷류 인도문서 작성
-status: OPEN
+status: DONE
 parent: FM-STR-BR
-owner: -
-deliverable: -
+owner: haiku-str
+deliverable: examples/satellite-full/deliverables/FM/STR/br-asm.md
 after: FM-STR-BR-10
 track: STR
-started: -
-finished: -
+started: 2026-08-21 01:44:04
+finished: 2026-08-21 01:44:04
 ---
 
 FM/구조계/브래킷류의 잎 Work. 결과를 조립체 산출물 파일에 한 줄 덧붙인다. 산출물: examples/satellite-full/deliverables/FM/STR/br-asm.md
+검증: 인도문서 작성 결과 확인
