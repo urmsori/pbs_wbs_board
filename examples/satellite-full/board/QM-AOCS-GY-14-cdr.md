@@ -1,14 +1,15 @@
 ---
 id: QM-AOCS-GY-14
 title: 자이로 인증검토 자료
-status: OPEN
+status: DONE
 parent: QM-AOCS-GY
-owner: -
-deliverable: -
+owner: haiku-aocs
+deliverable: examples/satellite-full/deliverables/QM/AOCS/gy-asm.md
 after: QM-AOCS-GY-13
 track: AOCS
-started: -
-finished: -
+started: 2026-08-21 01:36:24
+finished: 2026-08-21 01:36:24
 ---
 
 QM/자세제어계/자이로의 잎 Work. 결과를 조립체 산출물 파일에 한 줄 덧붙인다. 산출물: examples/satellite-full/deliverables/QM/AOCS/gy-asm.md
+검증: 인증검토 자료 결과 확인
