@@ -1,14 +1,14 @@
 ---
 id: ICD-EPS-AOCS
 title: AOCS 구동기 소비 전력 프로파일 요청
-status: TAKEN
+status: DONE
 parent: EPS-03
 owner: AOCS-DSN
-deliverable: -
+deliverable: examples/ksat5/deliverables/AOCS/icd-eps-aocs-power-profile.md
 after: -
 track: AOCS
 started: 2026-08-21 07:05:08
-finished: -
+finished: 2026-08-21 07:05:39
 ---
 
 EPS-BAT의 필요: 배터리 용량(방전 심도, 첨두 부하)을 산정하려면 자세제어
@@ -19,3 +19,4 @@ EPS-BAT의 필요: 배터리 용량(방전 심도, 첨두 부하)을 산정하�
 sysreq의 지향 정확도 ≤0.5° 요구를 만족하는 구동기 구성 기준으로
 작성해 달라.
 산출물: AOCS 팀이 남기는 구동기 전력 프로파일 문서(경로는 AOCS 팀이 정함).
+검증: NOMINAL 3.2W/첨두 9.1W 산정치 정합, 6.8~8.4V 구간 동작 확인

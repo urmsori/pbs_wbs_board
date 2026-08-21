@@ -1,14 +1,14 @@
 ---
 id: ICD-STR-AOCS
 title: AOCS 모듈 질량·장착 발자국 확인 요청
-status: TAKEN
+status: DONE
 parent: STR-02
 owner: AOCS-DSN
-deliverable: -
+deliverable: examples/ksat5/deliverables/AOCS/icd-str-aocs-mass-footprint.md
 after: -
 track: AOCS
 started: 2026-08-21 07:05:08
-finished: -
+finished: 2026-08-21 07:05:39
 ---
 
 STR-DSN의 필요: AOCS 모듈(리액션휠·마그네토토커·스타트래커·자이로 등)의
@@ -19,3 +19,4 @@ STR-DSN의 필요: AOCS 모듈(리액션휠·마그네토토커·스타트래커
 간 협상으로 확정한다(SE는 중재만).
 산출물: AOCS 팀이 남기는 질량·발자국 확인 문서 — 경로는 협상 결과에
 따라 AOCS 팀이 정한다.
+검증: 구성품별 질량 합계 2.00kg = AOCS 배분 2.0kg 일치 확인
