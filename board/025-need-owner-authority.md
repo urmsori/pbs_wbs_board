@@ -1,14 +1,14 @@
 ---
 id: 025
 title: 규칙 개정 v2.7 — 발행 권한은 필요의 주인에게 (전지적 SE 금지)
-status: TAKEN
+status: DONE
 parent: 000
 owner: claude
-deliverable: -
+deliverable: RULES.md
 after: 024
 track: -
 started: 2026-08-21 06:57:00
-finished: -
+finished: 2026-08-21 07:20:23
 ---
 
 사용자 지적: K-SAT 4에서 SE가 모든 ICD를 발행하고 WP 생성기가 각 팀 내부
@@ -30,3 +30,4 @@ finished: -
    아니라 규칙이 기대하는 정상 경로다.
 검증: examples/ksat5를 이 방식으로 실제로 돌린다(시작 게시글은 SE의 결과
 요청뿐, 이후 전부 당사자 발행·도착 시 발견).
+검증: K-SAT 5 실증 — 시작 7건→최종 44건, SE 발행 ICD 0건(당사자 협상 8건), AIT가 모듈 도착 후에야 시험 장비 필요 7건 발견, 통합만이 잡는 교차 결함 1건 승계 기록

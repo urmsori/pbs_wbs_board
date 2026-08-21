@@ -1,17 +1,18 @@
 ---
 id: INT
 title: 위성 통합·시험
-status: TAKEN
+status: DONE
 parent: R00
 owner: AIT-LEAD
-deliverable: -
+deliverable: examples/ksat5/deliverables/AIT/integration-report.md
 after: M-STR, M-EPS, M-AOCS, M-COMM
 track: AIT
 started: 2026-08-21 07:17:25
-finished: -
+finished: 2026-08-21 07:19:18
 ---
 
 AIT의 필요: 인도된 모듈들을 합쳐 시험한다. **모듈이 어떻게 올지는 도착
 전까지 모른다** — 인수 시험 Work와 그때 발견되는 필요(시험용 SW, 시험
 하니스, 치구 등)는 이 Work를 집은 AIT가 그 시점에 발행한다.
 산출물: examples/ksat5/deliverables/AIT/integration-report.md
+검증: 질량합 7.44kg<=9.2kg배분, 전력수지 20.6W>=3.71W, ICD 8쌍 대조(7쌍 정합/1쌍 교차리스크 발견) 확인
