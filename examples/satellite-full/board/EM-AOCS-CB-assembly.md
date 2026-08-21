@@ -1,13 +1,13 @@
 ---
 id: EM-AOCS-CB
 title: 제어보드 취합·판정
-status: OPEN
+status: TAKEN
 parent: EM-AOCS
-owner: -
+owner: sonnet-agg-a
 deliverable: -
 after: EM-AOCS-CB-14
 track: AOCS
-started: -
+started: 2026-08-21 01:33:28
 finished: -
 ---
 

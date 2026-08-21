@@ -1,13 +1,13 @@
 ---
 id: EM-AOCS-MT
 title: 자기토커 취합·판정
-status: OPEN
+status: TAKEN
 parent: EM-AOCS
-owner: -
+owner: sonnet-agg-a
 deliverable: -
 after: EM-AOCS-MT-14
 track: AOCS
-started: -
+started: 2026-08-21 01:33:28
 finished: -
 ---
 
