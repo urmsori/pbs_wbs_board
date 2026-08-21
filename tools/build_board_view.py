@@ -1,17 +1,27 @@
 #!/usr/bin/env python3
-"""board/의 게시글을 취합해 WBS/Gantt/PBS 현황 페이지(board.html)를 만든다.
+"""보드의 게시글을 취합해 WBS/Gantt/PBS 현황 페이지를 만든다.
 
 PBS WBS Board 규칙 5절의 도구. 표준 라이브러리만 사용한다.
 Gantt는 after 종속성을 화살표로 그리고, 취합 순서 위반(4절)을 경고한다.
-사용법: python3 tools/build_board_view.py
+사용법: python3 tools/build_board_view.py [보드 디렉토리] [출력 html]
+  인자를 생략하면 board/와 board.html (규칙 프로젝트의 보드).
+  deliverable 경로는 저장소 루트 기준으로 적고, 링크는 출력 위치 기준으로
+  계산되므로 보드가 저장소 어디에 있어도 된다.
 """
 import datetime
 import html
+import os
 import pathlib
+import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-BOARD = ROOT / "board"
+BOARD = ROOT / "board"   # main()에서 인자로 대체될 수 있다
 OUT = ROOT / "board.html"
+
+
+def href(repo_rel_path):
+    """저장소 루트 기준 경로 → 출력 html 위치 기준 상대 링크."""
+    return os.path.relpath(ROOT / repo_rel_path, OUT.parent)
 
 
 def parse_post(path):
@@ -89,7 +99,7 @@ def wbs_node(post, children):
     after = f' <span class="meta">선행: {esc(post["after"])}</span>' if post["after"] != "-" else ""
     line = (
         f'{badge} <span class="pid">{esc(post["id"])}</span> '
-        f'<a href="board/{esc(post["file"])}">{esc(post["title"])}</a>{owner}{after}'
+        f'<a href="{esc(os.path.relpath(BOARD / post["file"], OUT.parent))}">{esc(post["title"])}</a>{owner}{after}'
     )
     kids = "".join(wbs_node(c, children) for c in children.get(post["id"], []))
     return f"<li>{line}{f'<ul>{kids}</ul>' if kids else ''}</li>"
@@ -99,7 +109,7 @@ def pbs_node(post, children):
     status = post["status"].upper()
     paths = deliverables(post)
     if status == "DONE" and paths:
-        links = " · ".join(f'<a class="deliv" href="{esc(d)}">{esc(d)}</a>' for d in paths)
+        links = " · ".join(f'<a class="deliv" href="{esc(href(d))}">{esc(d)}</a>' for d in paths)
         item = (
             f'<span class="pid">{esc(post["id"])}</span> '
             f'{links} '
@@ -226,7 +236,7 @@ def product_composition(posts):
         last_f, _ = hits[-1]
         ids = ", ".join(i for _, i in hits)
         items.append(
-            f'<li><a class="deliv" href="{esc(path)}">{esc(path)}</a> '
+            f'<li><a class="deliv" href="{esc(href(path))}">{esc(path)}</a> '
             f'<span class="meta">← Work {esc(ids)} · 마지막 갱신 {esc(last_f)}</span></li>'
         )
     return "".join(items)
@@ -261,6 +271,13 @@ def aggregation_warnings(posts, by_id, roots, children):
 
 
 def main():
+    global BOARD, OUT
+    if len(sys.argv) > 1:
+        BOARD = pathlib.Path(sys.argv[1]).resolve()
+    if len(sys.argv) > 2:
+        OUT = pathlib.Path(sys.argv[2]).resolve()
+    elif len(sys.argv) > 1:
+        OUT = BOARD.parent / "board.html"
     posts, by_id, roots, children = load_posts()
     now = datetime.datetime.now().replace(microsecond=0)
     counts = {"OPEN": 0, "TAKEN": 0, "DONE": 0}
@@ -290,7 +307,7 @@ def main():
     composition = product_composition(posts)
     timeline = "".join(
         f'<li><span class="pid">{esc(p["id"])}</span> '
-        + " · ".join(f'<a class="deliv" href="{esc(d)}">{esc(d)}</a>' for d in deliverables(p))
+        + " · ".join(f'<a class="deliv" href="{esc(href(d))}">{esc(d)}</a>' for d in deliverables(p))
         + f' <span class="meta">← {esc(p["title"])} ({esc(p["finished"])})</span></li>'
         for p in sorted(
             (p for p in posts if p["status"].upper() == "DONE" and deliverables(p)),
@@ -303,7 +320,7 @@ def main():
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PBS WBS Board</title>
+<title>PBS WBS Board — {esc(" · ".join(r["title"] for r in roots) or BOARD.name)}</title>
 <style>
   body {{ font-family: system-ui, sans-serif; margin: 2rem auto; max-width: 62rem;
          padding: 0 1rem; color: #1a1a1a; background: #fff; line-height: 1.6; }}
@@ -348,7 +365,7 @@ def main():
 </style>
 </head>
 <body>
-<h1>PBS WBS Board</h1>
+<h1>PBS WBS Board <span class="meta">— {esc(" · ".join(r["title"] for r in roots) or BOARD.name)}</span></h1>
 <p class="summary">게시글 {len(posts)}건 —
   <span class="badge open">OPEN</span> {counts.get("OPEN", 0)} ·
   <span class="badge taken">TAKEN</span> {counts.get("TAKEN", 0)} ·
@@ -379,15 +396,16 @@ def main():
 <h2>산출물 시간 순 목록 (finished 순으로 취합)</h2>
 <ul>{timeline}</ul>
 
-<p class="meta">이 페이지는 <code>python3 tools/build_board_view.py</code>가
-board/의 게시글에서 생성한다. 규칙은 <a href="RULES.md">RULES.md</a> 참고.</p>
+<p class="meta">이 페이지는 <code>python3 tools/build_board_view.py
+{esc(os.path.relpath(BOARD, ROOT))}</code>가 보드의 게시글에서 생성한다.
+규칙은 <a href="{esc(href("RULES.md"))}">RULES.md</a> 참고.</p>
 </body>
 </html>
 """
     OUT.write_text(page, encoding="utf-8")
     for w in warns:
         print(f"경고: {w}")
-    print(f"{OUT.name}: 게시글 {len(posts)}건 취합 완료 — {state_line}")
+    print(f"{os.path.relpath(OUT, ROOT)}: 게시글 {len(posts)}건 취합 완료 — {state_line}")
 
 
 if __name__ == "__main__":
