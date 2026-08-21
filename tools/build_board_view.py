@@ -3,8 +3,10 @@
 
 PBS WBS Board 규칙 5절의 도구. 표준 라이브러리만 사용한다.
 Gantt는 after 종속성을 화살표로 그리고, 취합 순서 위반(4절)을 경고한다.
-사용법: python3 tools/build_board_view.py [보드 디렉토리] [출력 html]
+사용법: python3 tools/build_board_view.py [보드 디렉토리] [출력 html] [--ready]
   인자를 생략하면 board/와 board.html (규칙 프로젝트의 보드).
+  --ready: 아무 파일도 쓰지 않고 "집기 가능"(OPEN이고 선행 모두 DONE) 게시글
+  목록만 출력한다 — 병렬 웨이브 중간에 에이전트가 쓰는 읽기 전용 조회.
   deliverable 경로는 저장소 루트 기준으로 적고, 링크는 출력 위치 기준으로
   계산되므로 보드가 저장소 어디에 있어도 된다.
 """
@@ -285,6 +287,9 @@ def aggregation_warnings(posts, by_id, roots, children):
     for p in posts:
         if p["status"].upper() == "DONE" and not deliverables(p):
             warns.append(f'{p["id"]}가 산출물 경로 없이 DONE이다 — 산출물 없는 Work는 없다(규칙 4절).')
+        s, f = parse_dt(p["started"]), parse_dt(p["finished"])
+        if s and f and s > f:
+            warns.append(f'{p["id"]}의 started({p["started"]})가 finished({p["finished"]})보다 늦다 — 시각 오기입.')
     for pid, kids in children.items():
         parent = by_id[pid]
         p_done = parent["status"].upper() == "DONE"
@@ -306,15 +311,36 @@ def aggregation_warnings(posts, by_id, roots, children):
     return warns
 
 
+def rules_version_warning():
+    """RULES.md 머리의 '버전:' 줄이 개정 이력의 마지막 항목과 다르면 경고."""
+    import re
+    try:
+        head = (ROOT / "RULES.md").read_text(encoding="utf-8").split("\n\n")[1]
+        ver = re.match(r"버전:\s*([\d.]+)", head)
+        hist = re.findall(r"v([\d.]+)\s*`", head)
+        if ver and hist and ver.group(1) != hist[-1]:
+            return [f"RULES.md 버전 줄({ver.group(1)})이 개정 이력의 마지막 항목(v{hist[-1]})과 다르다."]
+    except OSError:
+        pass
+    return []
+
+
 def main():
     global BOARD, OUT
-    if len(sys.argv) > 1:
-        BOARD = pathlib.Path(sys.argv[1]).resolve()
-    if len(sys.argv) > 2:
-        OUT = pathlib.Path(sys.argv[2]).resolve()
-    elif len(sys.argv) > 1:
+    args = [a for a in sys.argv[1:] if a != "--ready"]
+    ready_only = "--ready" in sys.argv[1:]
+    if len(args) > 0:
+        BOARD = pathlib.Path(args[0]).resolve()
+    if len(args) > 1:
+        OUT = pathlib.Path(args[1]).resolve()
+    elif len(args) > 0:
         OUT = BOARD.parent / "board.html"
     posts, by_id, roots, children = load_posts()
+    if ready_only:
+        for p in posts:
+            if is_ready(p, by_id):
+                print(f'{p["id"]}\t{p.get("track", "-")}\t{p["title"]}')
+        return
     now = datetime.datetime.now().replace(microsecond=0)
     counts = {"OPEN": 0, "TAKEN": 0, "DONE": 0}
     for p in posts:
@@ -328,7 +354,7 @@ def main():
         state_line = "진행 중: OPEN 게시글을 집어 계속한다."
     else:
         state_line = f'진행 중: TAKEN 게시글 {counts.get("TAKEN", 0)}건이 끝나기를 기다린다.'
-    warns = aggregation_warnings(posts, by_id, roots, children)
+    warns = aggregation_warnings(posts, by_id, roots, children) + rules_version_warning()
     warn_html = (
         '<div class="warnbox"><strong>취합 순서 경고 (규칙 4절)</strong><ul>'
         + "".join(f"<li>{esc(w)}</li>" for w in warns)
