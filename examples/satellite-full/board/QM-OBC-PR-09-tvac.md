@@ -1,14 +1,15 @@
 ---
 id: QM-OBC-PR-09
 title: 프로세서보드 열진공시험
-status: OPEN
+status: DONE
 parent: QM-OBC-PR
-owner: -
-deliverable: -
+owner: haiku-obc
+deliverable: examples/satellite-full/deliverables/QM/OBC/pr-asm.md
 after: QM-OBC-PR-08
 track: OBC
-started: -
-finished: -
+started: 2026-08-21 01:38:11
+finished: 2026-08-21 01:38:11
 ---
 
 QM/탑재컴퓨터/프로세서보드의 잎 Work. 결과를 조립체 산출물 파일에 한 줄 덧붙인다. 산출물: examples/satellite-full/deliverables/QM/OBC/pr-asm.md
+검증: 열진공시험 결과 확인
