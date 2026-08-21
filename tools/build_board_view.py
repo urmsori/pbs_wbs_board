@@ -33,6 +33,7 @@ def parse_post(path):
         "owner": "-",
         "deliverable": "-",
         "after": "-",
+        "track": "-",
         "started": "-",
         "finished": "-",
         "body": "",
@@ -92,13 +93,32 @@ def esc(s):
     return html.escape(s, quote=True)
 
 
+TRACK_COLORS = [
+    ("#e8f0fe", "#1a56c4"), ("#fce8f3", "#b4257a"), ("#e6f4ea", "#1e7e34"),
+    ("#fef3e0", "#a05a00"), ("#ede7f6", "#5e35b1"), ("#e0f2f1", "#00695c"),
+    ("#fdecea", "#b42318"), ("#f1f3f4", "#5f6368"),
+]
+_track_color = {}
+
+
+def track_badge(post):
+    """track 필드를 색 배지로. 같은 track = 같은 색 (등장 순서대로 배정)."""
+    t = post.get("track", "-")
+    if not t or t == "-":
+        return ""
+    if t not in _track_color:
+        _track_color[t] = TRACK_COLORS[len(_track_color) % len(TRACK_COLORS)]
+    bg, fg = _track_color[t]
+    return f'<span class="tbadge" style="background:{bg};color:{fg}">{esc(t)}</span> '
+
+
 def wbs_node(post, children):
     status = post["status"].upper()
     badge = f'<span class="badge {status.lower()}">{esc(status)}</span>'
     owner = f' <span class="meta">담당: {esc(post["owner"])}</span>' if post["owner"] != "-" else ""
     after = f' <span class="meta">선행: {esc(post["after"])}</span>' if post["after"] != "-" else ""
     line = (
-        f'{badge} <span class="pid">{esc(post["id"])}</span> '
+        f'{badge} <span class="pid">{esc(post["id"])}</span> {track_badge(post)}'
         f'<a href="{esc(os.path.relpath(BOARD / post["file"], OUT.parent))}">{esc(post["title"])}</a>{owner}{after}'
     )
     kids = "".join(wbs_node(c, children) for c in children.get(post["id"], []))
@@ -167,7 +187,7 @@ def build_gantt(posts, by_id, now):
         wait = "" if start else ' <span class="meta">— 대기</span>'
         labels.append(
             f'<div class="g-label" style="padding-left:{depth * 0.9}rem">'
-            f'<span class="pid">{esc(p["id"])}</span> {esc(p["title"])}{wait}</div>'
+            f'<span class="pid">{esc(p["id"])}</span> {track_badge(p)}{esc(p["title"])}{wait}</div>'
         )
         y = i * ROW_H
         if i % 2 == 1:
@@ -333,6 +353,8 @@ def main():
   .badge.open  {{ background: #fde8e8; color: #b42318; }}
   .badge.taken {{ background: #fef4e6; color: #b25e09; }}
   .badge.done  {{ background: #e6f4ea; color: #1e7e34; }}
+  .tbadge {{ display: inline-block; font-size: .68rem; font-weight: 600;
+             padding: 0 .4rem; border-radius: .5rem; vertical-align: middle; }}
   .pid {{ color: #888; font-family: monospace; }}
   .meta {{ color: #888; font-size: .85rem; }}
   .pending {{ color: #aaa; }}
