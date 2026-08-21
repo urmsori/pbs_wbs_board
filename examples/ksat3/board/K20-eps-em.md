@@ -1,14 +1,14 @@
 ---
 id: K20
 title: 전력 EM 개발
-status: TAKEN
+status: DONE
 parent: K00
 owner: sonnet-eps
-deliverable: -
+deliverable: examples/ksat3/deliverables/eps-em.md
 after: K01
 track: EPS
 started: 2026-08-21 02:05:54
-finished: -
+finished: 2026-08-21 02:13:08
 ---
 
 EPS(배터리·태양전지·배전)의 EM 개발 전체 — 내부 단계는 본문 작업 기록.
@@ -24,3 +24,4 @@ EPS(배터리·태양전지·배전)의 EM 개발 전체 — 내부 단계는 �
 6. (재작업) K61·K62 입력 도착 및 K71 자체 판정(1S DET 기준선으로는 버스 전압 요구 구조적 미달) 수용.
 7. (재작업) 토폴로지를 2S2P 배터리 + 버스트 전용 부스트(조절) 스테이지로 개정(Rev.B), K62의 부하 프로파일(12 W/10 s·궤도당 4회·돌입 3.5~5 A)을 설계 입력으로 반영.
 8. (재작업) 전력 수지·질량 재계산 완료(발생 6.3 W, 평시+버스트 궤도평균 약 4.4 W, 스택 질량 0.35 kg) — 남는 리스크(저온·저SOC 마진, 발열, K51 산출물 낡음)는 eps-em.md 미결 절에 정직하게 기록.
+검증: Rev.B 수지 재계산 — 버스트 조건 충족 여부와 남는 리스크를 명시
