@@ -1,14 +1,15 @@
 ---
 id: QM-STR-BR-11
 title: 브래킷류 수명·번인시험
-status: OPEN
+status: DONE
 parent: QM-STR-BR
-owner: -
-deliverable: -
+owner: haiku-str
+deliverable: examples/satellite-full/deliverables/QM/STR/br-asm.md
 after: QM-STR-BR-10
 track: STR
-started: -
-finished: -
+started: 2026-08-21 01:36:38
+finished: 2026-08-21 01:36:38
 ---
 
 QM/구조계/브래킷류의 잎 Work. 결과를 조립체 산출물 파일에 한 줄 덧붙인다. 산출물: examples/satellite-full/deliverables/QM/STR/br-asm.md
+검증: 수명·번인시험 결과 확인

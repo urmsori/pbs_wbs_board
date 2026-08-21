@@ -1,14 +1,15 @@
 ---
 id: QM-EPS-SA-10
 title: 태양전지판 EMC 시험
-status: OPEN
+status: DONE
 parent: QM-EPS-SA
-owner: -
-deliverable: -
+owner: haiku-eps
+deliverable: examples/satellite-full/deliverables/QM/EPS/sa-asm.md
 after: QM-EPS-SA-09
 track: EPS
-started: -
-finished: -
+started: 2026-08-21 01:37:30
+finished: 2026-08-21 01:37:31
 ---
 
 QM/전력계/태양전지판의 잎 Work. 결과를 조립체 산출물 파일에 한 줄 덧붙인다. 산출물: examples/satellite-full/deliverables/QM/EPS/sa-asm.md
+검증: EMC 시험 결과 확인
