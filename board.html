@@ -5,182 +5,732 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PBS WBS Board — PBS WBS Board 규칙 만들기</title>
 <style>
-  body { font-family: system-ui, sans-serif; margin: 2rem auto; max-width: 62rem;
-         padding: 0 1rem; color: #1a1a1a; background: #fff; line-height: 1.6; }
-  h1 { font-size: 1.5rem; } h2 { font-size: 1.15rem; margin-top: 2rem;
-       border-bottom: 1px solid #ddd; padding-bottom: .3rem; }
-  h3 { font-size: .95rem; color: #555; }
-  ul { list-style: none; padding-left: 1.2rem; border-left: 1px solid #e5e5e5; }
-  li { margin: .35rem 0; }
-  .badge { display: inline-block; font-size: .7rem; font-weight: 700;
-            padding: .1rem .45rem; border-radius: .6rem; vertical-align: middle; }
-  .badge.open  { background: #fde8e8; color: #b42318; }
-  .badge.taken { background: #fef4e6; color: #b25e09; }
-  .badge.done  { background: #e6f4ea; color: #1e7e34; }
-  .tbadge { display: inline-block; font-size: .68rem; font-weight: 600;
-             padding: 0 .4rem; border-radius: .5rem; vertical-align: middle; }
-  .ready { display: inline-block; font-size: .68rem; font-weight: 700;
-            padding: 0 .4rem; border-radius: .5rem; background: #d3e3fd;
-            color: #0b57d0; vertical-align: middle; }
-  .prog { font-size: .72rem; color: #1e7e34; background: #eef7f0;
-           padding: 0 .35rem; border-radius: .5rem; }
-  .pid { color: #888; font-family: monospace; }
-  .meta { color: #888; font-size: .85rem; }
-  .pending { color: #aaa; }
-  .deliv { font-family: monospace; }
-  .summary { background: #f6f8fa; border: 1px solid #e5e5e5; border-radius: .5rem;
-              padding: .8rem 1rem; }
-  .warnbox { background: #fdecea; border: 1px solid #f5c6c0; border-radius: .5rem;
-              padding: .8rem 1rem; margin-top: 1rem; color: #8a1f11; }
-  .warnbox ul { border-left: none; margin: .3rem 0 0; }
-  a { color: #0b57d0; text-decoration: none; } a:hover { text-decoration: underline; }
-  table.lvl { border-collapse: collapse; font-size: .85rem; margin: .5rem 0; }
-  table.lvl th, table.lvl td { border: 1px solid #e5e5e5; padding: .2rem .6rem; text-align: right; }
-  table.lvl th { background: #f6f8fa; } table.lvl td:first-child { text-align: left; }
-  .bar { display: inline-block; width: 6rem; height: .55rem; background: #eee;
-          border-radius: .3rem; vertical-align: middle; overflow: hidden; }
-  .bar div { height: 100%; background: #34a853; }
-  details.wbs { margin: .15rem 0; }
-  details.wbs > summary { cursor: pointer; list-style-position: outside; }
-  .wbs-kids { margin-left: 1.1rem; padding-left: .5rem; border-left: 1px solid #e5e5e5; }
-  .wbs-leaf { margin: .15rem 0 .15rem 1.1rem; padding-left: .5rem; }
-  details.gsec { margin: .4rem 0; border: 1px solid #eee; border-radius: .4rem;
-                  padding: .3rem .6rem; }
-  details.gsec > summary { cursor: pointer; }
-  details.top { margin: 1.6rem 0 0; }
-  details.top > summary { cursor: pointer; font-size: 1.15rem; font-weight: 700;
-                           border-bottom: 1px solid #ddd; padding-bottom: .3rem; }
-  .gmode { margin: .4rem 0 .6rem; display: flex; align-items: center; }
-  .gsep { width: .8rem; }
-  .gmode button { font: inherit; font-size: .85rem; padding: .25rem .8rem;
-                   border: 1px solid #ccc; background: #f6f8fa; cursor: pointer; }
-  .gmode button:first-child { border-radius: .4rem 0 0 .4rem; }
-  .gmode button:last-child { border-radius: 0 .4rem .4rem 0; }
-  .gmode button.on { background: #0b57d0; color: #fff; border-color: #0b57d0; }
-  .gantt { border: 1px solid #e5e5e5; border-radius: .5rem; padding: .6rem .8rem;
-            margin: .4rem 0; }
-  .g-row { display: flex; align-items: center; gap: .6rem; margin: .3rem 0; }
-  .g-body { display: flex; gap: .6rem; align-items: flex-start; }
-  .g-labels { flex: 0 0 15rem; min-width: 0; }
-  body.labels-off .g-labels { display: none; }
-  .g-label { height: 26px; line-height: 26px; font-size: .8rem;
-              overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .g-scroll { flex: 1; min-width: 0; overflow-x: auto; -webkit-overflow-scrolling: touch;
-               border-radius: .3rem; }
-  .g-inner { position: relative; width: 100%; min-width: 100%; background: #f8fafc; }
-  .g-rows { position: relative; }
-  .g-r { position: relative; height: 26px; }
-  .g-r:nth-child(even) { background: #eef1f5; }
-  .g-bar2 { position: absolute; top: 5px; height: 16px; border-radius: 3px;
-             min-width: 2px; }
-  .g-bar2.done  { background: #34a853; }
-  .g-bar2.taken { background: #f9ab00; }
-  .g-bar2.open  { background: #d93025; }
-  .g-bt { position: absolute; left: 3px; top: 50%; transform: translateY(-50%);
-           font-size: 10.5px; line-height: 1.35; color: #17301c;
-           background: rgba(255,255,255,.78); padding: 0 4px 1px; border-radius: 3px;
-           white-space: nowrap; pointer-events: none; }
-  .g-wait2 { font-size: 10.5px; color: #8a94a3; line-height: 26px; padding-left: 6px;
-              white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .g-ov { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-  .g-dep { fill: none; stroke: #5f6b7a; stroke-width: 1.3; opacity: .7; }
-  .g-dep-head { fill: #5f6b7a; opacity: .8; }
-  .g-axis .g-track { background: none; display: flex; justify-content: space-between;
-                      font-size: .75rem; color: #888; height: auto; flex: 1; }
-  @media (max-width: 700px) {
-    body { margin: .8rem auto; padding: 0 .5rem; }
-    .g-labels { display: none; }
-    body.labels-on .g-labels { display: block; flex-basis: 9rem; }
-    .gmode button { padding: .5rem .9rem; font-size: .95rem; }
-    details.top > summary { font-size: 1rem; }
-    table.lvl { font-size: .75rem; }
+:root {
+  color-scheme: light;
+  --plane:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e;
+  --muted:#898781; --grid:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,.10);
+  --done:#0ca30c; --done-bg:rgba(12,163,12,.16);
+  --taken:#c98500; --taken-bg:rgba(250,178,25,.28);
+  --wait:#898781;  --ready:#2a78d6; --ready-bg:rgba(42,120,214,.12);
+  --crit:#d03b3b;  --crit-bg:rgba(208,59,59,.10);
+  --sel:#2a78d6; --stripe:rgba(11,11,11,.027); --chip:rgba(252,252,251,.82);
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --plane:#0d0d0d; --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7;
+    --muted:#898781; --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10);
+    --done:#0ca30c; --done-bg:rgba(12,163,12,.24);
+    --taken:#fab219; --taken-bg:rgba(250,178,25,.26);
+    --wait:#898781; --ready:#3987e5; --ready-bg:rgba(57,135,229,.20);
+    --crit:#d03b3b; --crit-bg:rgba(208,59,59,.22);
+    --sel:#3987e5; --stripe:rgba(255,255,255,.03); --chip:rgba(26,26,25,.82);
   }
-  .legend { font-size: .8rem; color: #666; margin-top: .4rem; }
-  .chip { display: inline-block; width: .8rem; height: .8rem; border-radius: .2rem;
-           vertical-align: -.1rem; }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --plane:#0d0d0d; --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7;
+  --muted:#898781; --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10);
+  --done:#0ca30c; --done-bg:rgba(12,163,12,.24);
+  --taken:#fab219; --taken-bg:rgba(250,178,25,.26);
+  --wait:#898781; --ready:#3987e5; --ready-bg:rgba(57,135,229,.20);
+  --crit:#d03b3b; --crit-bg:rgba(208,59,59,.22);
+  --sel:#3987e5; --stripe:rgba(255,255,255,.03); --chip:rgba(26,26,25,.82);
+}
+* { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+       margin: 0; padding: 1.2rem 1rem 3rem; color: var(--ink);
+       background: var(--plane); line-height: 1.55; }
+.wrap { max-width: 74rem; margin: 0 auto; }
+h1 { font-size: 1.35rem; margin: .2rem 0 .6rem; }
+h1 .meta { font-weight: 400; }
+a { color: var(--ready); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: .85em; }
+.pid { color: var(--muted); font-family: ui-monospace, monospace; }
+.card { background: var(--surface); border: 1px solid var(--ring);
+        border-radius: .6rem; padding: .7rem .9rem; }
+#summary { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; align-items: baseline;
+           margin-bottom: .8rem; }
+#summary b { font-size: 1.05rem; }
+.stat { white-space: nowrap; }
+.stat .dot { font-weight: 700; }
+#warnbox { border-color: var(--crit); background: var(--crit-bg);
+           margin-bottom: .8rem; }
+#warnbox summary { cursor: pointer; font-weight: 700; color: var(--crit); }
+#warnbox ul { margin: .4rem 0 0; padding-left: 1.2rem; }
+
+/* ── 도구줄 ── */
+#toolbar { display: flex; flex-wrap: wrap; gap: .45rem; align-items: center;
+           margin: .6rem 0; }
+#toolbar .seg { display: inline-flex; }
+#toolbar button { font: inherit; font-size: .84rem; padding: .3rem .7rem;
+  border: 1px solid var(--axis); background: var(--surface); color: var(--ink);
+  cursor: pointer; border-radius: .45rem; }
+#toolbar .seg button { border-radius: 0; margin-left: -1px; }
+#toolbar .seg button:first-child { border-radius: .45rem 0 0 .45rem; margin-left: 0; }
+#toolbar .seg button:last-child { border-radius: 0 .45rem .45rem 0; }
+#toolbar button.on { background: var(--sel); border-color: var(--sel); color: #fff; }
+#q { font: inherit; font-size: .84rem; padding: .3rem .55rem; width: 13rem;
+     border: 1px solid var(--axis); border-radius: .45rem;
+     background: var(--surface); color: var(--ink); }
+
+/* ── Gantt ── */
+#gscroll { overflow: auto; max-height: 74vh; border: 1px solid var(--ring);
+           border-radius: .6rem; background: var(--surface);
+           overscroll-behavior-x: contain; touch-action: pan-x pan-y; }
+#gcanvas { position: relative; }
+#gaxis { position: sticky; top: 0; z-index: 30; height: 34px;
+         background: var(--surface); border-bottom: 1px solid var(--axis); }
+.tick { position: absolute; bottom: 4px; font-size: .68rem; color: var(--muted);
+        font-variant-numeric: tabular-nums; transform: translateX(-50%);
+        white-space: nowrap; }
+#gcorner { position: sticky; left: 0; z-index: 31; width: var(--labw); height: 100%;
+           background: var(--surface); border-right: 1px solid var(--grid);
+           font-size: .72rem; color: var(--muted); padding: 8px 8px 0;
+           white-space: nowrap; overflow: hidden; }
+.gline { position: absolute; top: 34px; bottom: 0; width: 0;
+         border-left: 1px solid var(--grid); }
+#gnow { position: absolute; top: 34px; bottom: 0; width: 0;
+        border-left: 2px dashed var(--taken); opacity: .85; }
+.row { position: absolute; left: 0; height: 30px; width: 100%; }
+.row.even { background: var(--stripe); }
+.row.dim .bar, .row.dim .bt, .row.dim .ghost { opacity: .25; }
+.row.dim .lab > * { opacity: .35; } /* 라벨 배경은 불투명하게 유지 — 뒤 막대 이름이 비치지 않게 */
+.row.selrow { background: var(--ready-bg); }
+.lab { position: sticky; left: 0; z-index: 20; display: inline-block;
+       width: var(--labw); height: 100%; background: var(--surface);
+       border-right: 1px solid var(--grid); font-size: .76rem; line-height: 30px;
+       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+       padding: 0 6px; cursor: pointer; vertical-align: top; }
+.row.even .lab { background: color-mix(in srgb, var(--ink) 3%, var(--surface)); }
+.row.selrow .lab { background: color-mix(in srgb, var(--sel) 12%, var(--surface)); }
+body.labels-off .lab, body.labels-off #gcorner { display: none; }
+.caret { display: inline-block; width: 1em; color: var(--muted); }
+.sic { font-weight: 700; }
+.sic.done { color: var(--done); } .sic.taken { color: var(--taken); }
+.sic.open { color: var(--wait); } .sic.ready { color: var(--ready); }
+.bar { position: absolute; top: 7px; height: 16px; border-radius: 4px;
+       cursor: pointer; min-width: 3px; }
+.bar.done  { background: var(--done-bg);  border: 1.5px solid var(--done); }
+.bar.taken { background: var(--taken-bg); border: 1.5px solid var(--taken); }
+.bar.group { top: 11px; height: 8px; border-radius: 4px; }
+.bar.rollup { cursor: pointer; }
+.ghost { position: absolute; top: 7px; height: 16px; border-radius: 8px;
+         border: 1.5px dashed var(--wait); color: var(--muted);
+         font-size: .68rem; line-height: 13px; padding: 0 8px; cursor: pointer;
+         white-space: nowrap; background: var(--surface); }
+.ghost.ready { border-color: var(--ready); color: var(--ready);
+               border-style: solid; background: var(--ready-bg); }
+.bt { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
+      font-size: .72rem; color: var(--ink); background: var(--chip);
+      padding: 0 4px; border-radius: 3px; white-space: nowrap;
+      pointer-events: none; }
+#garrows { position: absolute; left: 0; top: 0; z-index: 10; pointer-events: none; }
+#garrows path { fill: none; stroke: var(--ink2); stroke-width: 1.4; opacity: .8; }
+#garrows polygon { fill: var(--ink2); opacity: .9; }
+#legend { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin: .5rem 0 0;
+          font-size: .78rem; color: var(--ink2); }
+
+/* ── 상세 패널 ── */
+#panel { position: fixed; right: 1rem; bottom: 1rem; z-index: 50;
+         width: min(26rem, calc(100vw - 2rem)); max-height: 46vh; overflow: auto;
+         box-shadow: 0 8px 28px rgba(0,0,0,.25); font-size: .85rem; }
+#panel h3 { margin: 0 0 .3rem; font-size: .95rem; }
+#panel .x { float: right; cursor: pointer; border: 0; background: none;
+            font-size: 1rem; color: var(--muted); }
+#panel dl { margin: .3rem 0; display: grid; grid-template-columns: 4.4rem 1fr;
+            gap: .12rem .5rem; }
+#panel dt { color: var(--muted); } #panel dd { margin: 0; overflow-wrap: anywhere; }
+#panel .dep { display: inline-block; margin: 0 .3rem .2rem 0; padding: .05rem .45rem;
+              border: 1px solid var(--axis); border-radius: .9rem; cursor: pointer;
+              background: var(--surface); color: var(--ink); font: inherit; font-size: .78rem; }
+
+/* ── 아래 섹션 ── */
+details.top { margin: 1.3rem 0 0; }
+details.top > summary { cursor: pointer; font-size: 1.05rem; font-weight: 700;
+  border-bottom: 1px solid var(--axis); padding-bottom: .25rem; }
+details.sec { margin: .35rem 0; border: 1px solid var(--ring); border-radius: .45rem;
+              padding: .25rem .6rem; background: var(--surface); }
+details.sec > summary { cursor: pointer; }
+.tree { margin: .15rem 0 .15rem .2rem; }
+.tree .node { margin: .12rem 0; }
+.tree details { margin: .12rem 0; }
+.tree summary { cursor: pointer; }
+.tree .kids { margin-left: .95rem; padding-left: .55rem; border-left: 1px solid var(--grid); }
+table.lvl { border-collapse: collapse; font-size: .84rem; margin: .5rem 0; }
+table.lvl th, table.lvl td { border: 1px solid var(--grid); padding: .18rem .6rem;
+  text-align: right; font-variant-numeric: tabular-nums; }
+table.lvl th { background: var(--stripe); }
+table.lvl td:first-child { text-align: left; }
+.pbar { display: inline-block; width: 6rem; height: .5rem; background: var(--grid);
+        border-radius: .3rem; vertical-align: middle; overflow: hidden; }
+.pbar div { height: 100%; background: var(--done); }
+.tb { display: inline-block; font-size: .68rem; font-weight: 600; padding: 0 .4rem;
+      border-radius: .45rem; border-left: 3px solid var(--muted);
+      background: var(--stripe); vertical-align: middle; }
+ul.flat { list-style: none; padding-left: 1rem; border-left: 1px solid var(--grid); }
+ul.flat li { margin: .3rem 0; }
+.deliv { font-family: ui-monospace, monospace; font-size: .92em; }
+footer { margin-top: 2rem; color: var(--muted); font-size: .8rem; }
+@media (max-width: 700px) {
+  body { padding: .7rem .5rem 3rem; }
+  #q { width: 100%; }
+  #toolbar button { padding: .45rem .8rem; }
+  #gscroll { max-height: 66vh; }
+  #panel { left: .5rem; right: .5rem; bottom: .5rem; width: auto; max-height: 42vh; }
+  details.top > summary { font-size: .95rem; }
+}
 </style>
 </head>
 <body>
+<div class="wrap">
 <h1>PBS WBS Board <span class="meta">— PBS WBS Board 규칙 만들기</span></h1>
-<p class="summary">게시글 27건 —
-  <span class="badge open">OPEN</span> 0 ·
-  <span class="badge taken">TAKEN</span> 0 ·
-  <span class="badge done">DONE</span> 27<br>
-  프로젝트 완료: OPEN·TAKEN 게시글이 없고 루트 게시글이 DONE이다.</p>
+<div id="summary" class="card"></div>
+<details id="warnbox" class="card" hidden></details>
 
-
-<h2>Gantt — Work 시간표 <span class="meta">(겹치는 막대 = 병렬, 화살표 = after 종속성)</span></h2>
-<div class="gmode">
-  <button data-g="g-track" class="on">모듈별</button>
-  <button data-g="g-owner">사람별</button>
-  <button data-g="g-hier">계층</button>
-  <span class="gsep"></span>
-  <button id="zout" title="줌아웃">−</button>
-  <button id="zin" title="줌인">+</button>
-  <button id="ltog" title="라벨 열 표시/숨김">라벨</button>
+<div id="toolbar">
+  <div class="seg" id="modes">
+    <button data-m="track" class="on">모듈</button>
+    <button data-m="owner">사람</button>
+    <button data-m="hier">계층</button>
+  </div>
+  <input id="q" type="search" placeholder="검색: id · 제목 · 사람 · 트랙">
+  <div class="seg">
+    <button id="zo" title="줌아웃">−</button>
+    <button id="zf" title="전체가 화면에 들어오게">맞춤</button>
+    <button id="zi" title="줌인">+</button>
+  </div>
+  <button id="lt" title="라벨 열 표시/숨김">라벨</button>
+  <button id="ar" title="종속성 화살표 (선택 사슬/전체/끄기)">화살표: 선택</button>
+  <button id="xp" title="모든 그룹 펼치기/접기">펼침</button>
 </div>
-<div id="g-track"><div class="gantt"><div class="g-row g-axis"><div class="g-label"></div><div class="g-track"><span>2026-08-21 00:02:00</span><span class="g-right">2026-08-21 07:50:30</span></div></div><div class="g-body"><div class="g-labels"><div class="g-label" style="padding-left:0.0rem"><span class="pid">(트랙 없음)</span> <span class="tbadge" style="background:#e8f0fe;color:#1a56c4">(트랙 없음)</span> 27/27건</div></div><div class="g-scroll"><div class="g-inner" style="height:26px"><div class="g-rows"><div class="g-r"><div class="g-bar2 done" style="left:0.00%;width:100.00%" title="(트랙 없음) 27/27건 — 2026-08-21 00:02:00 ~ 2026-08-21 07:50:30"><span class="g-bt">(트랙 없음) 27/27건</span></div></div></div><svg class="g-ov" viewBox="0 0 1000 26" preserveAspectRatio="none"></svg></div></div></div></div><p class="legend">레인 막대 = 그 그룹 Work 전체 구간. 아래에서 그룹을 펼치면 개별 Work가 보인다.</p><details class="gsec"><summary><span class="tbadge" style="background:#e8f0fe;color:#1a56c4">(트랙 없음)</span> (트랙 없음) <span class="prog">27/27</span></summary><div class="gantt"><div class="g-row g-axis"><div class="g-label"></div><div class="g-track"><span>2026-08-21 00:02:00</span><span class="g-right">2026-08-21 07:50:30</span></div></div><div class="g-body"><div class="g-labels"><div class="g-label" style="padding-left:0.0rem"><span class="pid">000</span> PBS WBS Board 규칙 만들기</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">001</span> 용어와 절차 정의</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">002</span> 게시글 양식과 board 디렉토리 구성</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">003</span> HTML 뷰 생성 도구 만들기</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">004</span> 현재 Board의 HTML 뷰 산출</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">005</span> 규칙 자기 검증</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">006</span> 규칙 개정 v1.1 — Gantt 뷰와 병렬 진행</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">007</span> 규칙 개정 v1.2 — 취합 Work는 마지막에 끝난다, Gantt 종속성 화살표</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">008</span> 규칙 개정 v1.3 — 에이전트 사이클과 PBS 기록</div><div class="g-label" style="padding-left:1.4rem"><span class="pid">009</span> 사이클 규칙 문안 — 2절을 에이전트 사이클로 다시 쓰기</div><div class="g-label" style="padding-left:1.4rem"><span class="pid">010</span> 도구의 다중 산출물·PBS 기록 지원</div><div class="g-label" style="padding-left:1.4rem"><span class="pid">011</span> 도구 상태 문구를 새 &quot;끝&quot; 정의와 사이클에 맞추기</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">012</span> 규칙 개정 v1.4 — 프로젝트마다 보드 하나 (다중 보드)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">013</span> 규칙 개정 v1.5 — track 필드, 단계도 Work, 병렬 에이전트 운용</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">014</span> 규칙 개정 v1.6 — 웨이브 1 에이전트 불편 반영</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">015</span> 규칙 개정 v1.7 — 읽기 전용 집기 가능 조회와 시각 정합 검사</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">016</span> 규칙 개정 v1.8 — 취합 시 자식 산출물 간 모순 처리</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">017</span> 규칙 개정 v1.9 — 레벨과 에이전트 등급, 상태 전환 소도구</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">018</span> 규칙 개정 v2.0 — 대용량 보드 뷰 (2,000건 이상)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">019</span> 규칙 개정 v2.1 — 대규모 웨이브 운용에서 배운 것</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">020</span> 규칙 개정 v2.2 — id 접두어 충돌 정정 (post.py 정확 일치)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">021</span> 규칙 개정 v2.3 — Work의 단위, 발견되는 보드, 재작업 루프</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">022</span> 규칙 개정 v2.4 — Work의 단위는 사람(역할), 에이전트는 역할을 나눠 맡는다</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">023</span> 규칙 개정 v2.5 — Gantt 중심 뷰: 모듈별·사람별 레인</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">024</span> 규칙 개정 v2.6 — 산출물 파일 존재 검사 (없는 파일로 DONE 금지)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">025</span> 규칙 개정 v2.7 — 발행 권한은 필요의 주인에게 (전지적 SE 금지)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">026</span> 규칙 개정 v2.8 — Gantt 사용성: 줌·접기·모바일·막대 내 이름</div></div><div class="g-scroll"><div class="g-inner" style="height:702px"><div class="g-rows"><div class="g-r"><div class="g-bar2 done" style="left:0.00%;width:100.00%" title="000 PBS WBS Board 규칙 만들기 — 2026-08-21 00:02 ~ 2026-08-21 07:50:30"><span class="g-bt">000 PBS WBS Board 규칙 만들기</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.00%;width:0.21%" title="001 용어와 절차 정의 — 2026-08-21 00:02 ~ 2026-08-21 00:03"><span class="g-bt">001 용어와 절차 정의</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.21%;width:0.21%" title="002 게시글 양식과 board 디렉토리 구성 — 2026-08-21 00:03 ~ 2026-08-21 00:04"><span class="g-bt">002 게시글 양식과 board 디렉토리 구성</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.21%;width:0.21%" title="003 HTML 뷰 생성 도구 만들기 — 2026-08-21 00:03 ~ 2026-08-21 00:04"><span class="g-bt">003 HTML 뷰 생성 도구 만들기</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.43%;width:0.21%" title="004 현재 Board의 HTML 뷰 산출 — 2026-08-21 00:04 ~ 2026-08-21 00:05"><span class="g-bt">004 현재 Board의 HTML 뷰 산출</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.64%;width:0.21%" title="005 규칙 자기 검증 — 2026-08-21 00:05 ~ 2026-08-21 00:06"><span class="g-bt">005 규칙 자기 검증</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:2.13%;width:1.71%" title="006 규칙 개정 v1.1 — Gantt 뷰와 병렬 진행 — 2026-08-21 00:12 ~ 2026-08-21 00:20"><span class="g-bt">006 규칙 개정 v1.1 — Gantt 뷰와 병렬 진행</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:5.76%;width:0.64%" title="007 규칙 개정 v1.2 — 취합 Work는 마지막에 끝난다, Gantt 종속성 화살표 — 2026-08-21 00:29 ~ 2026-08-21 00:32"><span class="g-bt">007 규칙 개정 v1.2 — 취합 Work는 마지막에 끝난다, Gantt 종속성 화살표</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:7.26%;width:1.92%" title="008 규칙 개정 v1.3 — 에이전트 사이클과 PBS 기록 — 2026-08-21 00:36 ~ 2026-08-21 00:45"><span class="g-bt">008 규칙 개정 v1.3 — 에이전트 사이클과 PBS 기록</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:7.47%;width:0.43%" title="009 사이클 규칙 문안 — 2절을 에이전트 사이클로 다시 쓰기 — 2026-08-21 00:37 ~ 2026-08-21 00:39"><span class="g-bt">009 사이클 규칙 문안 — 2절을 에이전트 사이클로 다시 쓰기</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:7.90%;width:0.43%" title="010 도구의 다중 산출물·PBS 기록 지원 — 2026-08-21 00:39 ~ 2026-08-21 00:41"><span class="g-bt">010 도구의 다중 산출물·PBS 기록 지원</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:8.75%;width:0.21%" title="011 도구 상태 문구를 새 &quot;끝&quot; 정의와 사이클에 맞추기 — 2026-08-21 00:43 ~ 2026-08-21 00:44"><span class="g-bt">011 도구 상태 문구를 새 &quot;끝&quot; 정의와 사이클에 맞추기</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:10.25%;width:0.43%" title="012 규칙 개정 v1.4 — 프로젝트마다 보드 하나 (다중 보드) — 2026-08-21 00:50 ~ 2026-08-21 00:52"><span class="g-bt">012 규칙 개정 v1.4 — 프로젝트마다 보드 하나 (다중 보드)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:11.10%;width:0.43%" title="013 규칙 개정 v1.5 — track 필드, 단계도 Work, 병렬 에이전트 운용 — 2026-08-21 00:54 ~ 2026-08-21 00:56"><span class="g-bt">013 규칙 개정 v1.5 — track 필드, 단계도 Work, 병렬 에이전트 운용</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:11.74%;width:0.43%" title="014 규칙 개정 v1.6 — 웨이브 1 에이전트 불편 반영 — 2026-08-21 00:57 ~ 2026-08-21 00:59"><span class="g-bt">014 규칙 개정 v1.6 — 웨이브 1 에이전트 불편 반영</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:12.81%;width:0.43%" title="015 규칙 개정 v1.7 — 읽기 전용 집기 가능 조회와 시각 정합 검사 — 2026-08-21 01:02 ~ 2026-08-21 01:04"><span class="g-bt">015 규칙 개정 v1.7 — 읽기 전용 집기 가능 조회와 시각 정합 검사</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:13.16%;width:0.25%" title="016 규칙 개정 v1.8 — 취합 시 자식 산출물 간 모순 처리 — 2026-08-21 01:03:40 ~ 2026-08-21 01:04:50"><span class="g-bt">016 규칙 개정 v1.8 — 취합 시 자식 산출물 간 모순 처리</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:15.37%;width:0.43%" title="017 규칙 개정 v1.9 — 레벨과 에이전트 등급, 상태 전환 소도구 — 2026-08-21 01:14 ~ 2026-08-21 01:16"><span class="g-bt">017 규칙 개정 v1.9 — 레벨과 에이전트 등급, 상태 전환 소도구</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:16.01%;width:2.13%" title="018 규칙 개정 v2.0 — 대용량 보드 뷰 (2,000건 이상) — 2026-08-21 01:17 ~ 2026-08-21 01:27"><span class="g-bt">018 규칙 개정 v2.0 — 대용량 보드 뷰 (2,000건 이상)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:18.57%;width:0.44%" title="019 규칙 개정 v2.1 — 대규모 웨이브 운용에서 배운 것 — 2026-08-21 01:29:00 ~ 2026-08-21 01:31:04"><span class="g-bt">019 규칙 개정 v2.1 — 대규모 웨이브 운용에서 배운 것</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:21.02%;width:0.31%" title="020 규칙 개정 v2.2 — id 접두어 충돌 정정 (post.py 정확 일치) — 2026-08-21 01:40:30 ~ 2026-08-21 01:41:58"><span class="g-bt">020 규칙 개정 v2.2 — id 접두어 충돌 정정 (post.py 정확 일치)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:25.72%;width:5.93%" title="021 규칙 개정 v2.3 — Work의 단위, 발견되는 보드, 재작업 루프 — 2026-08-21 02:02:30 ~ 2026-08-21 02:30:18"><span class="g-bt">021 규칙 개정 v2.3 — Work의 단위, 발견되는 보드, 재작업 루프</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:48.13%;width:9.73%" title="022 규칙 개정 v2.4 — Work의 단위는 사람(역할), 에이전트는 역할을 나눠 맡는다 — 2026-08-21 03:47:30 ~ 2026-08-21 04:33:04"><span class="g-bt">022 규칙 개정 v2.4 — Work의 단위는 사람(역할), 에이전트는 역할을 나눠 맡는다</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:48.45%;width:9.41%" title="023 규칙 개정 v2.5 — Gantt 중심 뷰: 모듈별·사람별 레인 — 2026-08-21 03:49:00 ~ 2026-08-21 04:33:04"><span class="g-bt">023 규칙 개정 v2.5 — Gantt 중심 뷰: 모듈별·사람별 레인</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:52.83%;width:1.00%" title="024 규칙 개정 v2.6 — 산출물 파일 존재 검사 (없는 파일로 DONE 금지) — 2026-08-21 04:09:30 ~ 2026-08-21 04:14:11"><span class="g-bt">024 규칙 개정 v2.6 — 산출물 파일 존재 검사 (없는 파일로 DONE 금지)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:88.58%;width:4.99%" title="025 규칙 개정 v2.7 — 발행 권한은 필요의 주인에게 (전지적 SE 금지) — 2026-08-21 06:57:00 ~ 2026-08-21 07:20:23"><span class="g-bt">025 규칙 개정 v2.7 — 발행 권한은 필요의 주인에게 (전지적 SE 금지)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:95.27%;width:0.58%" title="026 규칙 개정 v2.8 — Gantt 사용성: 줌·접기·모바일·막대 내 이름 — 2026-08-21 07:28:20 ~ 2026-08-21 07:31:02"><span class="g-bt">026 규칙 개정 v2.8 — Gantt 사용성: 줌·접기·모바일·막대 내 이름</span></div></div></div><svg class="g-ov" viewBox="0 0 1000 702" preserveAspectRatio="none"><path class="g-dep" d="M 2.1 39.0 H 8.1 V 65.0 H 9.1"/><polygon class="g-dep-head" points="2.1,65.0 9.1,61.5 9.1,68.5"/><path class="g-dep" d="M 2.1 39.0 H 8.1 V 91.0 H 9.1"/><polygon class="g-dep-head" points="2.1,91.0 9.1,87.5 9.1,94.5"/><path class="g-dep" d="M 4.3 65.0 H 10.3 V 117.0 H 11.3"/><polygon class="g-dep-head" points="4.3,117.0 11.3,113.5 11.3,120.5"/><path class="g-dep" d="M 4.3 91.0 H 10.3 V 117.0 H 11.3"/><polygon class="g-dep-head" points="4.3,117.0 11.3,113.5 11.3,120.5"/><path class="g-dep" d="M 6.4 117.0 H 12.4 V 143.0 H 13.4"/><polygon class="g-dep-head" points="6.4,143.0 13.4,139.5 13.4,146.5"/><path class="g-dep" d="M 8.5 143.0 H 14.5 V 169.0 H 28.3"/><polygon class="g-dep-head" points="21.3,169.0 28.3,165.5 28.3,172.5"/><path class="g-dep" d="M 38.4 169.0 H 44.4 V 195.0 H 50.6"/><polygon class="g-dep-head" points="57.6,195.0 50.6,191.5 50.6,198.5"/><path class="g-dep" d="M 64.0 195.0 H 70.0 V 221.0 H 79.6"/><polygon class="g-dep-head" points="72.6,221.0 79.6,217.5 79.6,224.5"/><path class="g-dep" d="M 83.2 273.0 H 89.2 V 299.0 H 94.5"/><polygon class="g-dep-head" points="87.5,299.0 94.5,295.5 94.5,302.5"/><path class="g-dep" d="M 91.8 221.0 H 97.8 V 325.0 H 109.5"/><polygon class="g-dep-head" points="102.5,325.0 109.5,321.5 109.5,328.5"/><path class="g-dep" d="M 106.7 325.0 H 112.7 V 351.0 H 118.0"/><polygon class="g-dep-head" points="111.0,351.0 118.0,347.5 118.0,354.5"/><path class="g-dep" d="M 115.3 351.0 H 121.3 V 377.0 H 124.4"/><polygon class="g-dep-head" points="117.4,377.0 124.4,373.5 124.4,380.5"/><path class="g-dep" d="M 121.7 377.0 H 127.7 V 403.0 H 135.1"/><polygon class="g-dep-head" points="128.1,403.0 135.1,399.5 135.1,406.5"/><path class="g-dep" d="M 132.3 403.0 H 138.3 V 429.0 H 138.6"/><polygon class="g-dep-head" points="131.6,429.0 138.6,425.5 138.6,432.5"/><path class="g-dep" d="M 134.1 429.0 H 140.1 V 455.0 H 146.7"/><polygon class="g-dep-head" points="153.7,455.0 146.7,451.5 146.7,458.5"/><path class="g-dep" d="M 158.0 455.0 H 164.0 V 481.0 H 167.1"/><polygon class="g-dep-head" points="160.1,481.0 167.1,477.5 167.1,484.5"/><path class="g-dep" d="M 181.4 481.0 H 187.4 V 507.0 H 192.7"/><polygon class="g-dep-head" points="185.7,507.0 192.7,503.5 192.7,510.5"/><path class="g-dep" d="M 190.1 507.0 H 196.1 V 533.0 H 203.2"/><polygon class="g-dep-head" points="210.2,533.0 203.2,529.5 203.2,536.5"/><path class="g-dep" d="M 213.4 533.0 H 219.4 V 559.0 H 250.2"/><polygon class="g-dep-head" points="257.2,559.0 250.2,555.5 250.2,562.5"/><path class="g-dep" d="M 316.5 559.0 H 322.5 V 585.0 H 474.3"/><polygon class="g-dep-head" points="481.3,585.0 474.3,581.5 474.3,588.5"/><path class="g-dep" d="M 578.6 585.0 H 584.6 V 611.0 H 491.5"/><polygon class="g-dep-head" points="484.5,611.0 491.5,607.5 491.5,614.5"/><path class="g-dep" d="M 578.6 611.0 H 584.6 V 637.0 H 535.3"/><polygon class="g-dep-head" points="528.3,637.0 535.3,633.5 535.3,640.5"/><path class="g-dep" d="M 538.3 637.0 H 544.3 V 663.0 H 878.8"/><polygon class="g-dep-head" points="885.8,663.0 878.8,659.5 878.8,666.5"/><path class="g-dep" d="M 935.7 663.0 H 941.7 V 689.0 H 945.7"/><polygon class="g-dep-head" points="952.7,689.0 945.7,685.5 945.7,692.5"/></svg></div></div></div></div></details></div>
-<div id="g-owner" hidden><div class="gantt"><div class="g-row g-axis"><div class="g-label"></div><div class="g-track"><span>2026-08-21 00:02:00</span><span class="g-right">2026-08-21 07:50:30</span></div></div><div class="g-body"><div class="g-labels"><div class="g-label" style="padding-left:0.0rem"><span class="pid">claude</span> <span class="tbadge" style="background:#fce8f3;color:#b4257a">claude</span> 27/27건</div></div><div class="g-scroll"><div class="g-inner" style="height:26px"><div class="g-rows"><div class="g-r"><div class="g-bar2 done" style="left:0.00%;width:100.00%" title="claude 27/27건 — 2026-08-21 00:02:00 ~ 2026-08-21 07:50:30"><span class="g-bt">claude 27/27건</span></div></div></div><svg class="g-ov" viewBox="0 0 1000 26" preserveAspectRatio="none"></svg></div></div></div></div><p class="legend">레인 막대 = 그 그룹 Work 전체 구간. 아래에서 그룹을 펼치면 개별 Work가 보인다.</p><details class="gsec"><summary><span class="tbadge" style="background:#fce8f3;color:#b4257a">claude</span> claude <span class="prog">27/27</span></summary><div class="gantt"><div class="g-row g-axis"><div class="g-label"></div><div class="g-track"><span>2026-08-21 00:02:00</span><span class="g-right">2026-08-21 07:50:30</span></div></div><div class="g-body"><div class="g-labels"><div class="g-label" style="padding-left:0.0rem"><span class="pid">000</span> PBS WBS Board 규칙 만들기</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">001</span> 용어와 절차 정의</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">002</span> 게시글 양식과 board 디렉토리 구성</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">003</span> HTML 뷰 생성 도구 만들기</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">004</span> 현재 Board의 HTML 뷰 산출</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">005</span> 규칙 자기 검증</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">006</span> 규칙 개정 v1.1 — Gantt 뷰와 병렬 진행</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">007</span> 규칙 개정 v1.2 — 취합 Work는 마지막에 끝난다, Gantt 종속성 화살표</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">008</span> 규칙 개정 v1.3 — 에이전트 사이클과 PBS 기록</div><div class="g-label" style="padding-left:1.4rem"><span class="pid">009</span> 사이클 규칙 문안 — 2절을 에이전트 사이클로 다시 쓰기</div><div class="g-label" style="padding-left:1.4rem"><span class="pid">010</span> 도구의 다중 산출물·PBS 기록 지원</div><div class="g-label" style="padding-left:1.4rem"><span class="pid">011</span> 도구 상태 문구를 새 &quot;끝&quot; 정의와 사이클에 맞추기</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">012</span> 규칙 개정 v1.4 — 프로젝트마다 보드 하나 (다중 보드)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">013</span> 규칙 개정 v1.5 — track 필드, 단계도 Work, 병렬 에이전트 운용</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">014</span> 규칙 개정 v1.6 — 웨이브 1 에이전트 불편 반영</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">015</span> 규칙 개정 v1.7 — 읽기 전용 집기 가능 조회와 시각 정합 검사</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">016</span> 규칙 개정 v1.8 — 취합 시 자식 산출물 간 모순 처리</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">017</span> 규칙 개정 v1.9 — 레벨과 에이전트 등급, 상태 전환 소도구</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">018</span> 규칙 개정 v2.0 — 대용량 보드 뷰 (2,000건 이상)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">019</span> 규칙 개정 v2.1 — 대규모 웨이브 운용에서 배운 것</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">020</span> 규칙 개정 v2.2 — id 접두어 충돌 정정 (post.py 정확 일치)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">021</span> 규칙 개정 v2.3 — Work의 단위, 발견되는 보드, 재작업 루프</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">022</span> 규칙 개정 v2.4 — Work의 단위는 사람(역할), 에이전트는 역할을 나눠 맡는다</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">023</span> 규칙 개정 v2.5 — Gantt 중심 뷰: 모듈별·사람별 레인</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">024</span> 규칙 개정 v2.6 — 산출물 파일 존재 검사 (없는 파일로 DONE 금지)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">025</span> 규칙 개정 v2.7 — 발행 권한은 필요의 주인에게 (전지적 SE 금지)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">026</span> 규칙 개정 v2.8 — Gantt 사용성: 줌·접기·모바일·막대 내 이름</div></div><div class="g-scroll"><div class="g-inner" style="height:702px"><div class="g-rows"><div class="g-r"><div class="g-bar2 done" style="left:0.00%;width:100.00%" title="000 PBS WBS Board 규칙 만들기 — 2026-08-21 00:02 ~ 2026-08-21 07:50:30"><span class="g-bt">000 PBS WBS Board 규칙 만들기</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.00%;width:0.21%" title="001 용어와 절차 정의 — 2026-08-21 00:02 ~ 2026-08-21 00:03"><span class="g-bt">001 용어와 절차 정의</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.21%;width:0.21%" title="002 게시글 양식과 board 디렉토리 구성 — 2026-08-21 00:03 ~ 2026-08-21 00:04"><span class="g-bt">002 게시글 양식과 board 디렉토리 구성</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.21%;width:0.21%" title="003 HTML 뷰 생성 도구 만들기 — 2026-08-21 00:03 ~ 2026-08-21 00:04"><span class="g-bt">003 HTML 뷰 생성 도구 만들기</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.43%;width:0.21%" title="004 현재 Board의 HTML 뷰 산출 — 2026-08-21 00:04 ~ 2026-08-21 00:05"><span class="g-bt">004 현재 Board의 HTML 뷰 산출</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.64%;width:0.21%" title="005 규칙 자기 검증 — 2026-08-21 00:05 ~ 2026-08-21 00:06"><span class="g-bt">005 규칙 자기 검증</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:2.13%;width:1.71%" title="006 규칙 개정 v1.1 — Gantt 뷰와 병렬 진행 — 2026-08-21 00:12 ~ 2026-08-21 00:20"><span class="g-bt">006 규칙 개정 v1.1 — Gantt 뷰와 병렬 진행</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:5.76%;width:0.64%" title="007 규칙 개정 v1.2 — 취합 Work는 마지막에 끝난다, Gantt 종속성 화살표 — 2026-08-21 00:29 ~ 2026-08-21 00:32"><span class="g-bt">007 규칙 개정 v1.2 — 취합 Work는 마지막에 끝난다, Gantt 종속성 화살표</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:7.26%;width:1.92%" title="008 규칙 개정 v1.3 — 에이전트 사이클과 PBS 기록 — 2026-08-21 00:36 ~ 2026-08-21 00:45"><span class="g-bt">008 규칙 개정 v1.3 — 에이전트 사이클과 PBS 기록</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:7.47%;width:0.43%" title="009 사이클 규칙 문안 — 2절을 에이전트 사이클로 다시 쓰기 — 2026-08-21 00:37 ~ 2026-08-21 00:39"><span class="g-bt">009 사이클 규칙 문안 — 2절을 에이전트 사이클로 다시 쓰기</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:7.90%;width:0.43%" title="010 도구의 다중 산출물·PBS 기록 지원 — 2026-08-21 00:39 ~ 2026-08-21 00:41"><span class="g-bt">010 도구의 다중 산출물·PBS 기록 지원</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:8.75%;width:0.21%" title="011 도구 상태 문구를 새 &quot;끝&quot; 정의와 사이클에 맞추기 — 2026-08-21 00:43 ~ 2026-08-21 00:44"><span class="g-bt">011 도구 상태 문구를 새 &quot;끝&quot; 정의와 사이클에 맞추기</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:10.25%;width:0.43%" title="012 규칙 개정 v1.4 — 프로젝트마다 보드 하나 (다중 보드) — 2026-08-21 00:50 ~ 2026-08-21 00:52"><span class="g-bt">012 규칙 개정 v1.4 — 프로젝트마다 보드 하나 (다중 보드)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:11.10%;width:0.43%" title="013 규칙 개정 v1.5 — track 필드, 단계도 Work, 병렬 에이전트 운용 — 2026-08-21 00:54 ~ 2026-08-21 00:56"><span class="g-bt">013 규칙 개정 v1.5 — track 필드, 단계도 Work, 병렬 에이전트 운용</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:11.74%;width:0.43%" title="014 규칙 개정 v1.6 — 웨이브 1 에이전트 불편 반영 — 2026-08-21 00:57 ~ 2026-08-21 00:59"><span class="g-bt">014 규칙 개정 v1.6 — 웨이브 1 에이전트 불편 반영</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:12.81%;width:0.43%" title="015 규칙 개정 v1.7 — 읽기 전용 집기 가능 조회와 시각 정합 검사 — 2026-08-21 01:02 ~ 2026-08-21 01:04"><span class="g-bt">015 규칙 개정 v1.7 — 읽기 전용 집기 가능 조회와 시각 정합 검사</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:13.16%;width:0.25%" title="016 규칙 개정 v1.8 — 취합 시 자식 산출물 간 모순 처리 — 2026-08-21 01:03:40 ~ 2026-08-21 01:04:50"><span class="g-bt">016 규칙 개정 v1.8 — 취합 시 자식 산출물 간 모순 처리</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:15.37%;width:0.43%" title="017 규칙 개정 v1.9 — 레벨과 에이전트 등급, 상태 전환 소도구 — 2026-08-21 01:14 ~ 2026-08-21 01:16"><span class="g-bt">017 규칙 개정 v1.9 — 레벨과 에이전트 등급, 상태 전환 소도구</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:16.01%;width:2.13%" title="018 규칙 개정 v2.0 — 대용량 보드 뷰 (2,000건 이상) — 2026-08-21 01:17 ~ 2026-08-21 01:27"><span class="g-bt">018 규칙 개정 v2.0 — 대용량 보드 뷰 (2,000건 이상)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:18.57%;width:0.44%" title="019 규칙 개정 v2.1 — 대규모 웨이브 운용에서 배운 것 — 2026-08-21 01:29:00 ~ 2026-08-21 01:31:04"><span class="g-bt">019 규칙 개정 v2.1 — 대규모 웨이브 운용에서 배운 것</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:21.02%;width:0.31%" title="020 규칙 개정 v2.2 — id 접두어 충돌 정정 (post.py 정확 일치) — 2026-08-21 01:40:30 ~ 2026-08-21 01:41:58"><span class="g-bt">020 규칙 개정 v2.2 — id 접두어 충돌 정정 (post.py 정확 일치)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:25.72%;width:5.93%" title="021 규칙 개정 v2.3 — Work의 단위, 발견되는 보드, 재작업 루프 — 2026-08-21 02:02:30 ~ 2026-08-21 02:30:18"><span class="g-bt">021 규칙 개정 v2.3 — Work의 단위, 발견되는 보드, 재작업 루프</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:48.13%;width:9.73%" title="022 규칙 개정 v2.4 — Work의 단위는 사람(역할), 에이전트는 역할을 나눠 맡는다 — 2026-08-21 03:47:30 ~ 2026-08-21 04:33:04"><span class="g-bt">022 규칙 개정 v2.4 — Work의 단위는 사람(역할), 에이전트는 역할을 나눠 맡는다</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:48.45%;width:9.41%" title="023 규칙 개정 v2.5 — Gantt 중심 뷰: 모듈별·사람별 레인 — 2026-08-21 03:49:00 ~ 2026-08-21 04:33:04"><span class="g-bt">023 규칙 개정 v2.5 — Gantt 중심 뷰: 모듈별·사람별 레인</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:52.83%;width:1.00%" title="024 규칙 개정 v2.6 — 산출물 파일 존재 검사 (없는 파일로 DONE 금지) — 2026-08-21 04:09:30 ~ 2026-08-21 04:14:11"><span class="g-bt">024 규칙 개정 v2.6 — 산출물 파일 존재 검사 (없는 파일로 DONE 금지)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:88.58%;width:4.99%" title="025 규칙 개정 v2.7 — 발행 권한은 필요의 주인에게 (전지적 SE 금지) — 2026-08-21 06:57:00 ~ 2026-08-21 07:20:23"><span class="g-bt">025 규칙 개정 v2.7 — 발행 권한은 필요의 주인에게 (전지적 SE 금지)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:95.27%;width:0.58%" title="026 규칙 개정 v2.8 — Gantt 사용성: 줌·접기·모바일·막대 내 이름 — 2026-08-21 07:28:20 ~ 2026-08-21 07:31:02"><span class="g-bt">026 규칙 개정 v2.8 — Gantt 사용성: 줌·접기·모바일·막대 내 이름</span></div></div></div><svg class="g-ov" viewBox="0 0 1000 702" preserveAspectRatio="none"><path class="g-dep" d="M 2.1 39.0 H 8.1 V 65.0 H 9.1"/><polygon class="g-dep-head" points="2.1,65.0 9.1,61.5 9.1,68.5"/><path class="g-dep" d="M 2.1 39.0 H 8.1 V 91.0 H 9.1"/><polygon class="g-dep-head" points="2.1,91.0 9.1,87.5 9.1,94.5"/><path class="g-dep" d="M 4.3 65.0 H 10.3 V 117.0 H 11.3"/><polygon class="g-dep-head" points="4.3,117.0 11.3,113.5 11.3,120.5"/><path class="g-dep" d="M 4.3 91.0 H 10.3 V 117.0 H 11.3"/><polygon class="g-dep-head" points="4.3,117.0 11.3,113.5 11.3,120.5"/><path class="g-dep" d="M 6.4 117.0 H 12.4 V 143.0 H 13.4"/><polygon class="g-dep-head" points="6.4,143.0 13.4,139.5 13.4,146.5"/><path class="g-dep" d="M 8.5 143.0 H 14.5 V 169.0 H 28.3"/><polygon class="g-dep-head" points="21.3,169.0 28.3,165.5 28.3,172.5"/><path class="g-dep" d="M 38.4 169.0 H 44.4 V 195.0 H 50.6"/><polygon class="g-dep-head" points="57.6,195.0 50.6,191.5 50.6,198.5"/><path class="g-dep" d="M 64.0 195.0 H 70.0 V 221.0 H 79.6"/><polygon class="g-dep-head" points="72.6,221.0 79.6,217.5 79.6,224.5"/><path class="g-dep" d="M 83.2 273.0 H 89.2 V 299.0 H 94.5"/><polygon class="g-dep-head" points="87.5,299.0 94.5,295.5 94.5,302.5"/><path class="g-dep" d="M 91.8 221.0 H 97.8 V 325.0 H 109.5"/><polygon class="g-dep-head" points="102.5,325.0 109.5,321.5 109.5,328.5"/><path class="g-dep" d="M 106.7 325.0 H 112.7 V 351.0 H 118.0"/><polygon class="g-dep-head" points="111.0,351.0 118.0,347.5 118.0,354.5"/><path class="g-dep" d="M 115.3 351.0 H 121.3 V 377.0 H 124.4"/><polygon class="g-dep-head" points="117.4,377.0 124.4,373.5 124.4,380.5"/><path class="g-dep" d="M 121.7 377.0 H 127.7 V 403.0 H 135.1"/><polygon class="g-dep-head" points="128.1,403.0 135.1,399.5 135.1,406.5"/><path class="g-dep" d="M 132.3 403.0 H 138.3 V 429.0 H 138.6"/><polygon class="g-dep-head" points="131.6,429.0 138.6,425.5 138.6,432.5"/><path class="g-dep" d="M 134.1 429.0 H 140.1 V 455.0 H 146.7"/><polygon class="g-dep-head" points="153.7,455.0 146.7,451.5 146.7,458.5"/><path class="g-dep" d="M 158.0 455.0 H 164.0 V 481.0 H 167.1"/><polygon class="g-dep-head" points="160.1,481.0 167.1,477.5 167.1,484.5"/><path class="g-dep" d="M 181.4 481.0 H 187.4 V 507.0 H 192.7"/><polygon class="g-dep-head" points="185.7,507.0 192.7,503.5 192.7,510.5"/><path class="g-dep" d="M 190.1 507.0 H 196.1 V 533.0 H 203.2"/><polygon class="g-dep-head" points="210.2,533.0 203.2,529.5 203.2,536.5"/><path class="g-dep" d="M 213.4 533.0 H 219.4 V 559.0 H 250.2"/><polygon class="g-dep-head" points="257.2,559.0 250.2,555.5 250.2,562.5"/><path class="g-dep" d="M 316.5 559.0 H 322.5 V 585.0 H 474.3"/><polygon class="g-dep-head" points="481.3,585.0 474.3,581.5 474.3,588.5"/><path class="g-dep" d="M 578.6 585.0 H 584.6 V 611.0 H 491.5"/><polygon class="g-dep-head" points="484.5,611.0 491.5,607.5 491.5,614.5"/><path class="g-dep" d="M 578.6 611.0 H 584.6 V 637.0 H 535.3"/><polygon class="g-dep-head" points="528.3,637.0 535.3,633.5 535.3,640.5"/><path class="g-dep" d="M 538.3 637.0 H 544.3 V 663.0 H 878.8"/><polygon class="g-dep-head" points="885.8,663.0 878.8,659.5 878.8,666.5"/><path class="g-dep" d="M 935.7 663.0 H 941.7 V 689.0 H 945.7"/><polygon class="g-dep-head" points="952.7,689.0 945.7,685.5 945.7,692.5"/></svg></div></div></div></div></details></div>
-<div id="g-hier" hidden><div class="gantt"><div class="g-row g-axis"><div class="g-label"></div><div class="g-track"><span>2026-08-21 00:02:00</span><span class="g-right">2026-08-21 07:50:30</span></div></div><div class="g-body"><div class="g-labels"><div class="g-label" style="padding-left:0.0rem"><span class="pid">000</span> PBS WBS Board 규칙 만들기</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">001</span> 용어와 절차 정의</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">002</span> 게시글 양식과 board 디렉토리 구성</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">003</span> HTML 뷰 생성 도구 만들기</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">004</span> 현재 Board의 HTML 뷰 산출</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">005</span> 규칙 자기 검증</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">006</span> 규칙 개정 v1.1 — Gantt 뷰와 병렬 진행</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">007</span> 규칙 개정 v1.2 — 취합 Work는 마지막에 끝난다, Gantt 종속성 화살표</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">008</span> 규칙 개정 v1.3 — 에이전트 사이클과 PBS 기록</div><div class="g-label" style="padding-left:1.4rem"><span class="pid">009</span> 사이클 규칙 문안 — 2절을 에이전트 사이클로 다시 쓰기</div><div class="g-label" style="padding-left:1.4rem"><span class="pid">010</span> 도구의 다중 산출물·PBS 기록 지원</div><div class="g-label" style="padding-left:1.4rem"><span class="pid">011</span> 도구 상태 문구를 새 &quot;끝&quot; 정의와 사이클에 맞추기</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">012</span> 규칙 개정 v1.4 — 프로젝트마다 보드 하나 (다중 보드)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">013</span> 규칙 개정 v1.5 — track 필드, 단계도 Work, 병렬 에이전트 운용</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">014</span> 규칙 개정 v1.6 — 웨이브 1 에이전트 불편 반영</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">015</span> 규칙 개정 v1.7 — 읽기 전용 집기 가능 조회와 시각 정합 검사</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">016</span> 규칙 개정 v1.8 — 취합 시 자식 산출물 간 모순 처리</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">017</span> 규칙 개정 v1.9 — 레벨과 에이전트 등급, 상태 전환 소도구</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">018</span> 규칙 개정 v2.0 — 대용량 보드 뷰 (2,000건 이상)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">019</span> 규칙 개정 v2.1 — 대규모 웨이브 운용에서 배운 것</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">020</span> 규칙 개정 v2.2 — id 접두어 충돌 정정 (post.py 정확 일치)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">021</span> 규칙 개정 v2.3 — Work의 단위, 발견되는 보드, 재작업 루프</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">022</span> 규칙 개정 v2.4 — Work의 단위는 사람(역할), 에이전트는 역할을 나눠 맡는다</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">023</span> 규칙 개정 v2.5 — Gantt 중심 뷰: 모듈별·사람별 레인</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">024</span> 규칙 개정 v2.6 — 산출물 파일 존재 검사 (없는 파일로 DONE 금지)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">025</span> 규칙 개정 v2.7 — 발행 권한은 필요의 주인에게 (전지적 SE 금지)</div><div class="g-label" style="padding-left:0.7rem"><span class="pid">026</span> 규칙 개정 v2.8 — Gantt 사용성: 줌·접기·모바일·막대 내 이름</div></div><div class="g-scroll"><div class="g-inner" style="height:702px"><div class="g-rows"><div class="g-r"><div class="g-bar2 done" style="left:0.00%;width:100.00%" title="000 PBS WBS Board 규칙 만들기 — 2026-08-21 00:02 ~ 2026-08-21 07:50:30"><span class="g-bt">000 PBS WBS Board 규칙 만들기</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.00%;width:0.21%" title="001 용어와 절차 정의 — 2026-08-21 00:02 ~ 2026-08-21 00:03"><span class="g-bt">001 용어와 절차 정의</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.21%;width:0.21%" title="002 게시글 양식과 board 디렉토리 구성 — 2026-08-21 00:03 ~ 2026-08-21 00:04"><span class="g-bt">002 게시글 양식과 board 디렉토리 구성</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.21%;width:0.21%" title="003 HTML 뷰 생성 도구 만들기 — 2026-08-21 00:03 ~ 2026-08-21 00:04"><span class="g-bt">003 HTML 뷰 생성 도구 만들기</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.43%;width:0.21%" title="004 현재 Board의 HTML 뷰 산출 — 2026-08-21 00:04 ~ 2026-08-21 00:05"><span class="g-bt">004 현재 Board의 HTML 뷰 산출</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:0.64%;width:0.21%" title="005 규칙 자기 검증 — 2026-08-21 00:05 ~ 2026-08-21 00:06"><span class="g-bt">005 규칙 자기 검증</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:2.13%;width:1.71%" title="006 규칙 개정 v1.1 — Gantt 뷰와 병렬 진행 — 2026-08-21 00:12 ~ 2026-08-21 00:20"><span class="g-bt">006 규칙 개정 v1.1 — Gantt 뷰와 병렬 진행</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:5.76%;width:0.64%" title="007 규칙 개정 v1.2 — 취합 Work는 마지막에 끝난다, Gantt 종속성 화살표 — 2026-08-21 00:29 ~ 2026-08-21 00:32"><span class="g-bt">007 규칙 개정 v1.2 — 취합 Work는 마지막에 끝난다, Gantt 종속성 화살표</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:7.26%;width:1.92%" title="008 규칙 개정 v1.3 — 에이전트 사이클과 PBS 기록 — 2026-08-21 00:36 ~ 2026-08-21 00:45"><span class="g-bt">008 규칙 개정 v1.3 — 에이전트 사이클과 PBS 기록</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:7.47%;width:0.43%" title="009 사이클 규칙 문안 — 2절을 에이전트 사이클로 다시 쓰기 — 2026-08-21 00:37 ~ 2026-08-21 00:39"><span class="g-bt">009 사이클 규칙 문안 — 2절을 에이전트 사이클로 다시 쓰기</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:7.90%;width:0.43%" title="010 도구의 다중 산출물·PBS 기록 지원 — 2026-08-21 00:39 ~ 2026-08-21 00:41"><span class="g-bt">010 도구의 다중 산출물·PBS 기록 지원</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:8.75%;width:0.21%" title="011 도구 상태 문구를 새 &quot;끝&quot; 정의와 사이클에 맞추기 — 2026-08-21 00:43 ~ 2026-08-21 00:44"><span class="g-bt">011 도구 상태 문구를 새 &quot;끝&quot; 정의와 사이클에 맞추기</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:10.25%;width:0.43%" title="012 규칙 개정 v1.4 — 프로젝트마다 보드 하나 (다중 보드) — 2026-08-21 00:50 ~ 2026-08-21 00:52"><span class="g-bt">012 규칙 개정 v1.4 — 프로젝트마다 보드 하나 (다중 보드)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:11.10%;width:0.43%" title="013 규칙 개정 v1.5 — track 필드, 단계도 Work, 병렬 에이전트 운용 — 2026-08-21 00:54 ~ 2026-08-21 00:56"><span class="g-bt">013 규칙 개정 v1.5 — track 필드, 단계도 Work, 병렬 에이전트 운용</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:11.74%;width:0.43%" title="014 규칙 개정 v1.6 — 웨이브 1 에이전트 불편 반영 — 2026-08-21 00:57 ~ 2026-08-21 00:59"><span class="g-bt">014 규칙 개정 v1.6 — 웨이브 1 에이전트 불편 반영</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:12.81%;width:0.43%" title="015 규칙 개정 v1.7 — 읽기 전용 집기 가능 조회와 시각 정합 검사 — 2026-08-21 01:02 ~ 2026-08-21 01:04"><span class="g-bt">015 규칙 개정 v1.7 — 읽기 전용 집기 가능 조회와 시각 정합 검사</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:13.16%;width:0.25%" title="016 규칙 개정 v1.8 — 취합 시 자식 산출물 간 모순 처리 — 2026-08-21 01:03:40 ~ 2026-08-21 01:04:50"><span class="g-bt">016 규칙 개정 v1.8 — 취합 시 자식 산출물 간 모순 처리</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:15.37%;width:0.43%" title="017 규칙 개정 v1.9 — 레벨과 에이전트 등급, 상태 전환 소도구 — 2026-08-21 01:14 ~ 2026-08-21 01:16"><span class="g-bt">017 규칙 개정 v1.9 — 레벨과 에이전트 등급, 상태 전환 소도구</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:16.01%;width:2.13%" title="018 규칙 개정 v2.0 — 대용량 보드 뷰 (2,000건 이상) — 2026-08-21 01:17 ~ 2026-08-21 01:27"><span class="g-bt">018 규칙 개정 v2.0 — 대용량 보드 뷰 (2,000건 이상)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:18.57%;width:0.44%" title="019 규칙 개정 v2.1 — 대규모 웨이브 운용에서 배운 것 — 2026-08-21 01:29:00 ~ 2026-08-21 01:31:04"><span class="g-bt">019 규칙 개정 v2.1 — 대규모 웨이브 운용에서 배운 것</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:21.02%;width:0.31%" title="020 규칙 개정 v2.2 — id 접두어 충돌 정정 (post.py 정확 일치) — 2026-08-21 01:40:30 ~ 2026-08-21 01:41:58"><span class="g-bt">020 규칙 개정 v2.2 — id 접두어 충돌 정정 (post.py 정확 일치)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:25.72%;width:5.93%" title="021 규칙 개정 v2.3 — Work의 단위, 발견되는 보드, 재작업 루프 — 2026-08-21 02:02:30 ~ 2026-08-21 02:30:18"><span class="g-bt">021 규칙 개정 v2.3 — Work의 단위, 발견되는 보드, 재작업 루프</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:48.13%;width:9.73%" title="022 규칙 개정 v2.4 — Work의 단위는 사람(역할), 에이전트는 역할을 나눠 맡는다 — 2026-08-21 03:47:30 ~ 2026-08-21 04:33:04"><span class="g-bt">022 규칙 개정 v2.4 — Work의 단위는 사람(역할), 에이전트는 역할을 나눠 맡는다</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:48.45%;width:9.41%" title="023 규칙 개정 v2.5 — Gantt 중심 뷰: 모듈별·사람별 레인 — 2026-08-21 03:49:00 ~ 2026-08-21 04:33:04"><span class="g-bt">023 규칙 개정 v2.5 — Gantt 중심 뷰: 모듈별·사람별 레인</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:52.83%;width:1.00%" title="024 규칙 개정 v2.6 — 산출물 파일 존재 검사 (없는 파일로 DONE 금지) — 2026-08-21 04:09:30 ~ 2026-08-21 04:14:11"><span class="g-bt">024 규칙 개정 v2.6 — 산출물 파일 존재 검사 (없는 파일로 DONE 금지)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:88.58%;width:4.99%" title="025 규칙 개정 v2.7 — 발행 권한은 필요의 주인에게 (전지적 SE 금지) — 2026-08-21 06:57:00 ~ 2026-08-21 07:20:23"><span class="g-bt">025 규칙 개정 v2.7 — 발행 권한은 필요의 주인에게 (전지적 SE 금지)</span></div></div><div class="g-r"><div class="g-bar2 done" style="left:95.27%;width:0.58%" title="026 규칙 개정 v2.8 — Gantt 사용성: 줌·접기·모바일·막대 내 이름 — 2026-08-21 07:28:20 ~ 2026-08-21 07:31:02"><span class="g-bt">026 규칙 개정 v2.8 — Gantt 사용성: 줌·접기·모바일·막대 내 이름</span></div></div></div><svg class="g-ov" viewBox="0 0 1000 702" preserveAspectRatio="none"><path class="g-dep" d="M 2.1 39.0 H 8.1 V 65.0 H 9.1"/><polygon class="g-dep-head" points="2.1,65.0 9.1,61.5 9.1,68.5"/><path class="g-dep" d="M 2.1 39.0 H 8.1 V 91.0 H 9.1"/><polygon class="g-dep-head" points="2.1,91.0 9.1,87.5 9.1,94.5"/><path class="g-dep" d="M 4.3 65.0 H 10.3 V 117.0 H 11.3"/><polygon class="g-dep-head" points="4.3,117.0 11.3,113.5 11.3,120.5"/><path class="g-dep" d="M 4.3 91.0 H 10.3 V 117.0 H 11.3"/><polygon class="g-dep-head" points="4.3,117.0 11.3,113.5 11.3,120.5"/><path class="g-dep" d="M 6.4 117.0 H 12.4 V 143.0 H 13.4"/><polygon class="g-dep-head" points="6.4,143.0 13.4,139.5 13.4,146.5"/><path class="g-dep" d="M 8.5 143.0 H 14.5 V 169.0 H 28.3"/><polygon class="g-dep-head" points="21.3,169.0 28.3,165.5 28.3,172.5"/><path class="g-dep" d="M 38.4 169.0 H 44.4 V 195.0 H 50.6"/><polygon class="g-dep-head" points="57.6,195.0 50.6,191.5 50.6,198.5"/><path class="g-dep" d="M 64.0 195.0 H 70.0 V 221.0 H 79.6"/><polygon class="g-dep-head" points="72.6,221.0 79.6,217.5 79.6,224.5"/><path class="g-dep" d="M 83.2 273.0 H 89.2 V 299.0 H 94.5"/><polygon class="g-dep-head" points="87.5,299.0 94.5,295.5 94.5,302.5"/><path class="g-dep" d="M 91.8 221.0 H 97.8 V 325.0 H 109.5"/><polygon class="g-dep-head" points="102.5,325.0 109.5,321.5 109.5,328.5"/><path class="g-dep" d="M 106.7 325.0 H 112.7 V 351.0 H 118.0"/><polygon class="g-dep-head" points="111.0,351.0 118.0,347.5 118.0,354.5"/><path class="g-dep" d="M 115.3 351.0 H 121.3 V 377.0 H 124.4"/><polygon class="g-dep-head" points="117.4,377.0 124.4,373.5 124.4,380.5"/><path class="g-dep" d="M 121.7 377.0 H 127.7 V 403.0 H 135.1"/><polygon class="g-dep-head" points="128.1,403.0 135.1,399.5 135.1,406.5"/><path class="g-dep" d="M 132.3 403.0 H 138.3 V 429.0 H 138.6"/><polygon class="g-dep-head" points="131.6,429.0 138.6,425.5 138.6,432.5"/><path class="g-dep" d="M 134.1 429.0 H 140.1 V 455.0 H 146.7"/><polygon class="g-dep-head" points="153.7,455.0 146.7,451.5 146.7,458.5"/><path class="g-dep" d="M 158.0 455.0 H 164.0 V 481.0 H 167.1"/><polygon class="g-dep-head" points="160.1,481.0 167.1,477.5 167.1,484.5"/><path class="g-dep" d="M 181.4 481.0 H 187.4 V 507.0 H 192.7"/><polygon class="g-dep-head" points="185.7,507.0 192.7,503.5 192.7,510.5"/><path class="g-dep" d="M 190.1 507.0 H 196.1 V 533.0 H 203.2"/><polygon class="g-dep-head" points="210.2,533.0 203.2,529.5 203.2,536.5"/><path class="g-dep" d="M 213.4 533.0 H 219.4 V 559.0 H 250.2"/><polygon class="g-dep-head" points="257.2,559.0 250.2,555.5 250.2,562.5"/><path class="g-dep" d="M 316.5 559.0 H 322.5 V 585.0 H 474.3"/><polygon class="g-dep-head" points="481.3,585.0 474.3,581.5 474.3,588.5"/><path class="g-dep" d="M 578.6 585.0 H 584.6 V 611.0 H 491.5"/><polygon class="g-dep-head" points="484.5,611.0 491.5,607.5 491.5,614.5"/><path class="g-dep" d="M 578.6 611.0 H 584.6 V 637.0 H 535.3"/><polygon class="g-dep-head" points="528.3,637.0 535.3,633.5 535.3,640.5"/><path class="g-dep" d="M 538.3 637.0 H 544.3 V 663.0 H 878.8"/><polygon class="g-dep-head" points="885.8,663.0 878.8,659.5 878.8,666.5"/><path class="g-dep" d="M 935.7 663.0 H 941.7 V 689.0 H 945.7"/><polygon class="g-dep-head" points="952.7,689.0 945.7,685.5 945.7,692.5"/></svg></div></div></div></div></div>
-<p class="legend">
-  <span class="chip" style="background:#34a853"></span> DONE ·
-  <span class="chip" style="background:#f9ab00"></span> TAKEN(진행 중, 현재 시각까지 표시) ·
-  화살표는 같은 Gantt 안의 선행만 그린다(밖의 선행은 라벨의 "선행: "으로 표시).
-  루트(취합) Work의 막대는 항상 가장 늦게 끝난다.</p>
 
-<details class="top"><summary>레벨·트랙 요약 <span class="meta">(레벨이 깊을수록 가벼운 에이전트 — 규칙 4절)</span></summary>
-<table class="lvl"><tr><th>레벨</th><th>게시글</th><th>OPEN</th><th>TAKEN</th><th>DONE</th><th>진행률</th></tr><tr><td>L0</td><td>1</td><td>0</td><td>0</td><td>1</td><td><div class="bar"><div style="width:100%"></div></div> 100%</td></tr><tr><td>L1</td><td>23</td><td>0</td><td>0</td><td>23</td><td><div class="bar"><div style="width:100%"></div></div> 100%</td></tr><tr><td>L2</td><td>3</td><td>0</td><td>0</td><td>3</td><td><div class="bar"><div style="width:100%"></div></div> 100%</td></tr></table>
-<table class="lvl"><tr><th>track</th><th>게시글</th><th>OPEN</th><th>TAKEN</th><th>DONE</th><th>진행률</th></tr><tr><td>-</td><td>27</td><td>0</td><td>0</td><td>27</td><td><div class="bar"><div style="width:100%"></div></div> 100%</td></tr></table>
-</details>
+<div id="gscroll"><div id="gcanvas">
+  <div id="gaxis"><div id="gticks"></div><div id="gcorner"></div></div>
+  <div id="ggrid"></div>
+  <div id="gnow" hidden></div>
+  <div id="grows"></div>
+  <svg id="garrows"></svg>
+</div></div>
+<div id="legend">
+  <span><span class="sic open">○</span> OPEN(대기)</span>
+  <span><span class="sic ready">◍</span> 집기 가능</span>
+  <span><span class="sic taken">◐</span> TAKEN(진행 — 현재 시각까지 표시)</span>
+  <span><span class="sic done">●</span> DONE(완료)</span>
+  <span>막대 클릭 = 선행·후행 사슬 강조 · 그룹/부모 라벨 클릭 = 접기</span>
+  <span>루트(취합) Work는 항상 가장 늦게 끝난다(규칙 4절)</span>
+</div>
+<div id="panel" class="card" hidden></div>
 
-<details class="top"><summary>WBS — Work 분해 트리 <span class="meta">(부모의 n/m = 하위 DONE/전체)</span></summary>
-<details class="wbs" open><summary><span class="badge done">DONE</span> <span class="pid">000</span> <a href="board/000-pbs-wbs-board-rule.md">PBS WBS Board 규칙 만들기</a> <span class="prog">27/27</span> <span class="meta">담당: claude</span></summary><div class="wbs-kids"><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">001</span> <a href="board/001-terms-and-process.md">용어와 절차 정의</a> <span class="meta">담당: claude</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">002</span> <a href="board/002-post-format.md">게시글 양식과 board 디렉토리 구성</a> <span class="meta">담당: claude</span> <span class="meta">선행: 001</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">003</span> <a href="board/003-html-view-tool.md">HTML 뷰 생성 도구 만들기</a> <span class="meta">담당: claude</span> <span class="meta">선행: 001</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">004</span> <a href="board/004-html-view-output.md">현재 Board의 HTML 뷰 산출</a> <span class="meta">담당: claude</span> <span class="meta">선행: 002,003</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">005</span> <a href="board/005-self-validation.md">규칙 자기 검증</a> <span class="meta">담당: claude</span> <span class="meta">선행: 004</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">006</span> <a href="board/006-gantt-and-parallel.md">규칙 개정 v1.1 — Gantt 뷰와 병렬 진행</a> <span class="meta">담당: claude</span> <span class="meta">선행: 005</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">007</span> <a href="board/007-aggregate-last-and-gantt-deps.md">규칙 개정 v1.2 — 취합 Work는 마지막에 끝난다, Gantt 종속성 화살표</a> <span class="meta">담당: claude</span> <span class="meta">선행: 006</span></div><details class="wbs" open><summary><span class="badge done">DONE</span> <span class="pid">008</span> <a href="board/008-agent-cycle-and-pbs.md">규칙 개정 v1.3 — 에이전트 사이클과 PBS 기록</a> <span class="prog">4/4</span> <span class="meta">담당: claude</span> <span class="meta">선행: 007</span></summary><div class="wbs-kids"><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">009</span> <a href="board/009-cycle-rule-text.md">사이클 규칙 문안 — 2절을 에이전트 사이클로 다시 쓰기</a> <span class="meta">담당: claude</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">010</span> <a href="board/010-tool-multi-deliverable.md">도구의 다중 산출물·PBS 기록 지원</a> <span class="meta">담당: claude</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">011</span> <a href="board/011-tool-state-wording.md">도구 상태 문구를 새 &quot;끝&quot; 정의와 사이클에 맞추기</a> <span class="meta">담당: claude</span> <span class="meta">선행: 010</span></div></div></details><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">012</span> <a href="board/012-multi-board.md">규칙 개정 v1.4 — 프로젝트마다 보드 하나 (다중 보드)</a> <span class="meta">담당: claude</span> <span class="meta">선행: 008</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">013</span> <a href="board/013-track-and-parallel-agents.md">규칙 개정 v1.5 — track 필드, 단계도 Work, 병렬 에이전트 운용</a> <span class="meta">담당: claude</span> <span class="meta">선행: 012</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">014</span> <a href="board/014-agent-feedback.md">규칙 개정 v1.6 — 웨이브 1 에이전트 불편 반영</a> <span class="meta">담당: claude</span> <span class="meta">선행: 013</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">015</span> <a href="board/015-ready-query.md">규칙 개정 v1.7 — 읽기 전용 집기 가능 조회와 시각 정합 검사</a> <span class="meta">담당: claude</span> <span class="meta">선행: 014</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">016</span> <a href="board/016-aggregation-conflict.md">규칙 개정 v1.8 — 취합 시 자식 산출물 간 모순 처리</a> <span class="meta">담당: claude</span> <span class="meta">선행: 015</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">017</span> <a href="board/017-level-tier-tool.md">규칙 개정 v1.9 — 레벨과 에이전트 등급, 상태 전환 소도구</a> <span class="meta">담당: claude</span> <span class="meta">선행: 016</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">018</span> <a href="board/018-large-board-viewer.md">규칙 개정 v2.0 — 대용량 보드 뷰 (2,000건 이상)</a> <span class="meta">담당: claude</span> <span class="meta">선행: 017</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">019</span> <a href="board/019-mass-wave-lessons.md">규칙 개정 v2.1 — 대규모 웨이브 운용에서 배운 것</a> <span class="meta">담당: claude</span> <span class="meta">선행: 018</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">020</span> <a href="board/020-id-prefix-collision.md">규칙 개정 v2.2 — id 접두어 충돌 정정 (post.py 정확 일치)</a> <span class="meta">담당: claude</span> <span class="meta">선행: 019</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">021</span> <a href="board/021-work-unit-and-discovery.md">규칙 개정 v2.3 — Work의 단위, 발견되는 보드, 재작업 루프</a> <span class="meta">담당: claude</span> <span class="meta">선행: 020</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">022</span> <a href="board/022-person-role-unit.md">규칙 개정 v2.4 — Work의 단위는 사람(역할), 에이전트는 역할을 나눠 맡는다</a> <span class="meta">담당: claude</span> <span class="meta">선행: 021</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">023</span> <a href="board/023-gantt-first-view.md">규칙 개정 v2.5 — Gantt 중심 뷰: 모듈별·사람별 레인</a> <span class="meta">담당: claude</span> <span class="meta">선행: 022</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">024</span> <a href="board/024-deliverable-existence.md">규칙 개정 v2.6 — 산출물 파일 존재 검사 (없는 파일로 DONE 금지)</a> <span class="meta">담당: claude</span> <span class="meta">선행: 023</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">025</span> <a href="board/025-need-owner-authority.md">규칙 개정 v2.7 — 발행 권한은 필요의 주인에게 (전지적 SE 금지)</a> <span class="meta">담당: claude</span> <span class="meta">선행: 024</span></div><div class="wbs-leaf"><span class="badge done">DONE</span> <span class="pid">026</span> <a href="board/026-gantt-usability.md">규칙 개정 v2.8 — Gantt 사용성: 줌·접기·모바일·막대 내 이름</a> <span class="meta">담당: claude</span> <span class="meta">선행: 025</span></div></div></details>
-</details>
+<details class="top" data-sec="lvl"><summary>레벨·트랙 요약 <span class="meta">(레벨이 깊을수록 가벼운 에이전트 — 규칙 4절)</span></summary><div></div></details>
+<details class="top" data-sec="wbs"><summary>WBS — Work 분해 트리 <span class="meta">(부모의 n/m = 하위 DONE/전체)</span></summary><div></div></details>
+<details class="top" data-sec="comp"><summary>PBS — Product 구성 <span class="meta">(산출물 중복 제거, 그 시점의 Product)</span></summary><div></div></details>
+<details class="top" data-sec="pbs"><summary>PBS — 산출물 분해 트리 (구조로 취합)</summary><div></div></details>
+<details class="top" data-sec="tl"><summary>산출물 시간 순 목록 (finished 순으로 취합)</summary><div></div></details>
 
-<details class="top"><summary>PBS — Product 구성 <span class="meta">(산출물 중복 제거, 그 시점의 Product)</span></summary>
-<ul><li><a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← Work 001, 006, 007, 009, 008, 012, 013, 014 외 13건 · 마지막 갱신 2026-08-21 07:50:30</span></li><li><a class="deliv" href="board.html">board.html</a> <span class="meta">← Work 004 · 마지막 갱신 2026-08-21 00:05</span></li><li><a class="deliv" href="VALIDATION.md">VALIDATION.md</a> <span class="meta">← Work 005, 008, 021, 000 · 마지막 갱신 2026-08-21 07:50:30</span></li><li><a class="deliv" href="board">board/</a> <span class="meta">← Work 002 · 마지막 갱신 2026-08-21 00:04</span></li><li><a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← Work 003, 010, 011, 012, 013, 014, 015, 018 외 3건 · 마지막 갱신 2026-08-21 07:31:02</span></li><li><a class="deliv" href="tools/post.py">tools/post.py</a> <span class="meta">← Work 017, 019, 020, 024 · 마지막 갱신 2026-08-21 04:14:11</span></li></ul>
-<p class="legend">같은 파일을 여러 Work가 갱신해도 한 번만 나타난다 —
-일부만 갱신한 Work는 이 목록을 바꾸지 않을 수 있다.</p>
-</details>
-
-<details class="top"><summary>PBS — 산출물 분해 트리 (구조로 취합)</summary>
-<details class="wbs" open><summary><span class="pid">000</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="VALIDATION.md">VALIDATION.md</a> <span class="meta">← PBS WBS Board 규칙 만들기</span></summary><div class="wbs-kids"><div class="wbs-leaf"><span class="pid">001</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 용어와 절차 정의</span></div><div class="wbs-leaf"><span class="pid">002</span> <a class="deliv" href="board">board/</a> <span class="meta">← 게시글 양식과 board 디렉토리 구성</span></div><div class="wbs-leaf"><span class="pid">003</span> <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← HTML 뷰 생성 도구 만들기</span></div><div class="wbs-leaf"><span class="pid">004</span> <a class="deliv" href="board.html">board.html</a> <span class="meta">← 현재 Board의 HTML 뷰 산출</span></div><div class="wbs-leaf"><span class="pid">005</span> <a class="deliv" href="VALIDATION.md">VALIDATION.md</a> <span class="meta">← 규칙 자기 검증</span></div><div class="wbs-leaf"><span class="pid">006</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 규칙 개정 v1.1 — Gantt 뷰와 병렬 진행</span></div><div class="wbs-leaf"><span class="pid">007</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 규칙 개정 v1.2 — 취합 Work는 마지막에 끝난다, Gantt 종속성 화살표</span></div><details class="wbs" open><summary><span class="pid">008</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="VALIDATION.md">VALIDATION.md</a> <span class="meta">← 규칙 개정 v1.3 — 에이전트 사이클과 PBS 기록</span></summary><div class="wbs-kids"><div class="wbs-leaf"><span class="pid">009</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 사이클 규칙 문안 — 2절을 에이전트 사이클로 다시 쓰기</span></div><div class="wbs-leaf"><span class="pid">010</span> <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 도구의 다중 산출물·PBS 기록 지원</span></div><div class="wbs-leaf"><span class="pid">011</span> <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 도구 상태 문구를 새 &quot;끝&quot; 정의와 사이클에 맞추기</span></div></div></details><div class="wbs-leaf"><span class="pid">012</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 규칙 개정 v1.4 — 프로젝트마다 보드 하나 (다중 보드)</span></div><div class="wbs-leaf"><span class="pid">013</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 규칙 개정 v1.5 — track 필드, 단계도 Work, 병렬 에이전트 운용</span></div><div class="wbs-leaf"><span class="pid">014</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 규칙 개정 v1.6 — 웨이브 1 에이전트 불편 반영</span></div><div class="wbs-leaf"><span class="pid">015</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 규칙 개정 v1.7 — 읽기 전용 집기 가능 조회와 시각 정합 검사</span></div><div class="wbs-leaf"><span class="pid">016</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 규칙 개정 v1.8 — 취합 시 자식 산출물 간 모순 처리</span></div><div class="wbs-leaf"><span class="pid">017</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/post.py">tools/post.py</a> <span class="meta">← 규칙 개정 v1.9 — 레벨과 에이전트 등급, 상태 전환 소도구</span></div><div class="wbs-leaf"><span class="pid">018</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 규칙 개정 v2.0 — 대용량 보드 뷰 (2,000건 이상)</span></div><div class="wbs-leaf"><span class="pid">019</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/post.py">tools/post.py</a> <span class="meta">← 규칙 개정 v2.1 — 대규모 웨이브 운용에서 배운 것</span></div><div class="wbs-leaf"><span class="pid">020</span> <a class="deliv" href="tools/post.py">tools/post.py</a> · <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 규칙 개정 v2.2 — id 접두어 충돌 정정 (post.py 정확 일치)</span></div><div class="wbs-leaf"><span class="pid">021</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="VALIDATION.md">VALIDATION.md</a> <span class="meta">← 규칙 개정 v2.3 — Work의 단위, 발견되는 보드, 재작업 루프</span></div><div class="wbs-leaf"><span class="pid">022</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 규칙 개정 v2.4 — Work의 단위는 사람(역할), 에이전트는 역할을 나눠 맡는다</span></div><div class="wbs-leaf"><span class="pid">023</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 규칙 개정 v2.5 — Gantt 중심 뷰: 모듈별·사람별 레인</span></div><div class="wbs-leaf"><span class="pid">024</span> <a class="deliv" href="tools/post.py">tools/post.py</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> · <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 규칙 개정 v2.6 — 산출물 파일 존재 검사 (없는 파일로 DONE 금지)</span></div><div class="wbs-leaf"><span class="pid">025</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 규칙 개정 v2.7 — 발행 권한은 필요의 주인에게 (전지적 SE 금지)</span></div><div class="wbs-leaf"><span class="pid">026</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 규칙 개정 v2.8 — Gantt 사용성: 줌·접기·모바일·막대 내 이름</span></div></div></details>
-</details>
-
-<details class="top"><summary>산출물 시간 순 목록 (finished 순으로 취합)</summary>
-<ul><li><span class="pid">001</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 용어와 절차 정의 (2026-08-21 00:03)</span></li><li><span class="pid">002</span> <a class="deliv" href="board">board/</a> <span class="meta">← 게시글 양식과 board 디렉토리 구성 (2026-08-21 00:04)</span></li><li><span class="pid">003</span> <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← HTML 뷰 생성 도구 만들기 (2026-08-21 00:04)</span></li><li><span class="pid">004</span> <a class="deliv" href="board.html">board.html</a> <span class="meta">← 현재 Board의 HTML 뷰 산출 (2026-08-21 00:05)</span></li><li><span class="pid">005</span> <a class="deliv" href="VALIDATION.md">VALIDATION.md</a> <span class="meta">← 규칙 자기 검증 (2026-08-21 00:06)</span></li><li><span class="pid">006</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 규칙 개정 v1.1 — Gantt 뷰와 병렬 진행 (2026-08-21 00:20)</span></li><li><span class="pid">007</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 규칙 개정 v1.2 — 취합 Work는 마지막에 끝난다, Gantt 종속성 화살표 (2026-08-21 00:32)</span></li><li><span class="pid">009</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 사이클 규칙 문안 — 2절을 에이전트 사이클로 다시 쓰기 (2026-08-21 00:39)</span></li><li><span class="pid">010</span> <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 도구의 다중 산출물·PBS 기록 지원 (2026-08-21 00:41)</span></li><li><span class="pid">011</span> <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 도구 상태 문구를 새 &quot;끝&quot; 정의와 사이클에 맞추기 (2026-08-21 00:44)</span></li><li><span class="pid">008</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="VALIDATION.md">VALIDATION.md</a> <span class="meta">← 규칙 개정 v1.3 — 에이전트 사이클과 PBS 기록 (2026-08-21 00:45)</span></li><li><span class="pid">012</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 규칙 개정 v1.4 — 프로젝트마다 보드 하나 (다중 보드) (2026-08-21 00:52)</span></li><li><span class="pid">013</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 규칙 개정 v1.5 — track 필드, 단계도 Work, 병렬 에이전트 운용 (2026-08-21 00:56)</span></li><li><span class="pid">014</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 규칙 개정 v1.6 — 웨이브 1 에이전트 불편 반영 (2026-08-21 00:59)</span></li><li><span class="pid">015</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 규칙 개정 v1.7 — 읽기 전용 집기 가능 조회와 시각 정합 검사 (2026-08-21 01:04)</span></li><li><span class="pid">016</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 규칙 개정 v1.8 — 취합 시 자식 산출물 간 모순 처리 (2026-08-21 01:04:50)</span></li><li><span class="pid">017</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/post.py">tools/post.py</a> <span class="meta">← 규칙 개정 v1.9 — 레벨과 에이전트 등급, 상태 전환 소도구 (2026-08-21 01:16)</span></li><li><span class="pid">018</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 규칙 개정 v2.0 — 대용량 보드 뷰 (2,000건 이상) (2026-08-21 01:27)</span></li><li><span class="pid">019</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/post.py">tools/post.py</a> <span class="meta">← 규칙 개정 v2.1 — 대규모 웨이브 운용에서 배운 것 (2026-08-21 01:31:04)</span></li><li><span class="pid">020</span> <a class="deliv" href="tools/post.py">tools/post.py</a> · <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 규칙 개정 v2.2 — id 접두어 충돌 정정 (post.py 정확 일치) (2026-08-21 01:41:58)</span></li><li><span class="pid">021</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="VALIDATION.md">VALIDATION.md</a> <span class="meta">← 규칙 개정 v2.3 — Work의 단위, 발견되는 보드, 재작업 루프 (2026-08-21 02:30:18)</span></li><li><span class="pid">024</span> <a class="deliv" href="tools/post.py">tools/post.py</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> · <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 규칙 개정 v2.6 — 산출물 파일 존재 검사 (없는 파일로 DONE 금지) (2026-08-21 04:14:11)</span></li><li><span class="pid">022</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 규칙 개정 v2.4 — Work의 단위는 사람(역할), 에이전트는 역할을 나눠 맡는다 (2026-08-21 04:33:04)</span></li><li><span class="pid">023</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 규칙 개정 v2.5 — Gantt 중심 뷰: 모듈별·사람별 레인 (2026-08-21 04:33:04)</span></li><li><span class="pid">025</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 규칙 개정 v2.7 — 발행 권한은 필요의 주인에게 (전지적 SE 금지) (2026-08-21 07:20:23)</span></li><li><span class="pid">026</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← 규칙 개정 v2.8 — Gantt 사용성: 줌·접기·모바일·막대 내 이름 (2026-08-21 07:31:02)</span></li><li><span class="pid">000</span> <a class="deliv" href="RULES.md">RULES.md</a> · <a class="deliv" href="VALIDATION.md">VALIDATION.md</a> <span class="meta">← PBS WBS Board 규칙 만들기 (2026-08-21 07:50:30)</span></li></ul>
-</details>
-
+<footer id="foot"></footer>
+</div>
+<script id="data" type="application/json">{"meta": {"title": "PBS WBS Board 규칙 만들기", "generated": "2026-08-21 23:10:57", "counts": {"OPEN": 0, "TAKEN": 0, "DONE": 28}, "state": "프로젝트 완료: OPEN·TAKEN 게시글이 없고 루트 게시글이 DONE이다.", "ready": [], "warnings": [], "large": false, "rootRel": ".", "boardRel": "board", "boardArg": "board"}, "posts": [{"id": "000", "t": "PBS WBS Board 규칙 만들기", "st": "DONE", "pa": "", "ow": "claude", "tr": "", "af": [], "s": "2026-08-21 00:02", "f": "2026-08-21 23:10:44", "dl": ["RULES.md", "VALIDATION.md"], "fi": "000-pbs-wbs-board-rule.md", "d": 0, "rd": false, "sub": [28, 28], "v": "검증: v2.9까지 자식 전량 DONE — 뷰어 백지 재설계를 스스로의 보드로 기록·검증"}, {"id": "001", "t": "용어와 절차 정의", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": [], "s": "2026-08-21 00:02", "f": "2026-08-21 00:03", "dl": ["RULES.md"], "fi": "001-terms-and-process.md", "d": 1, "rd": false, "sub": [1, 1], "v": ""}, {"id": "002", "t": "게시글 양식과 board 디렉토리 구성", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["001"], "s": "2026-08-21 00:03", "f": "2026-08-21 00:04", "dl": ["board/"], "fi": "002-post-format.md", "d": 1, "rd": false, "sub": [1, 1], "v": ""}, {"id": "003", "t": "HTML 뷰 생성 도구 만들기", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["001"], "s": "2026-08-21 00:03", "f": "2026-08-21 00:04", "dl": ["tools/build_board_view.py"], "fi": "003-html-view-tool.md", "d": 1, "rd": false, "sub": [1, 1], "v": ""}, {"id": "004", "t": "현재 Board의 HTML 뷰 산출", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["002", "003"], "s": "2026-08-21 00:04", "f": "2026-08-21 00:05", "dl": ["board.html"], "fi": "004-html-view-output.md", "d": 1, "rd": false, "sub": [1, 1], "v": ""}, {"id": "005", "t": "규칙 자기 검증", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["004"], "s": "2026-08-21 00:05", "f": "2026-08-21 00:06", "dl": ["VALIDATION.md"], "fi": "005-self-validation.md", "d": 1, "rd": false, "sub": [1, 1], "v": ""}, {"id": "006", "t": "규칙 개정 v1.1 — Gantt 뷰와 병렬 진행", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["005"], "s": "2026-08-21 00:12", "f": "2026-08-21 00:20", "dl": ["RULES.md"], "fi": "006-gantt-and-parallel.md", "d": 1, "rd": false, "sub": [1, 1], "v": ""}, {"id": "007", "t": "규칙 개정 v1.2 — 취합 Work는 마지막에 끝난다, Gantt 종속성 화살표", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["006"], "s": "2026-08-21 00:29", "f": "2026-08-21 00:32", "dl": ["RULES.md"], "fi": "007-aggregate-last-and-gantt-deps.md", "d": 1, "rd": false, "sub": [1, 1], "v": ""}, {"id": "008", "t": "규칙 개정 v1.3 — 에이전트 사이클과 PBS 기록", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["007"], "s": "2026-08-21 00:36", "f": "2026-08-21 00:45", "dl": ["RULES.md", "VALIDATION.md"], "fi": "008-agent-cycle-and-pbs.md", "d": 1, "rd": false, "sub": [4, 4], "v": "검증: 이 개정 자체를 새 사이클대로 진행했다 — 집기(008 TAKEN), 필요"}, {"id": "009", "t": "사이클 규칙 문안 — 2절을 에이전트 사이클로 다시 쓰기", "st": "DONE", "pa": "008", "ow": "claude", "tr": "", "af": [], "s": "2026-08-21 00:37", "f": "2026-08-21 00:39", "dl": ["RULES.md"], "fi": "009-cycle-rule-text.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 개정문 전체를 다시 읽어 2절 6단계가 요구된 사이클(집기/필요 올리기/"}, {"id": "010", "t": "도구의 다중 산출물·PBS 기록 지원", "st": "DONE", "pa": "008", "ow": "claude", "tr": "", "af": [], "s": "2026-08-21 00:39", "f": "2026-08-21 00:41", "dl": ["tools/build_board_view.py"], "fi": "010-tool-multi-deliverable.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 도구 실행으로 board.html 생성 확인. \"RULES.md, VALIDATION.md\" 파싱이"}, {"id": "011", "t": "도구 상태 문구를 새 \"끝\" 정의와 사이클에 맞추기", "st": "DONE", "pa": "008", "ow": "claude", "tr": "", "af": ["010"], "s": "2026-08-21 00:43", "f": "2026-08-21 00:44", "dl": ["tools/build_board_view.py"], "fi": "011-tool-state-wording.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: OPEN 0·TAKEN 3 상태에서 도구를 실행해 \"TAKEN 게시글 3건이 끝나기를"}, {"id": "012", "t": "규칙 개정 v1.4 — 프로젝트마다 보드 하나 (다중 보드)", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["008"], "s": "2026-08-21 00:50", "f": "2026-08-21 00:52", "dl": ["RULES.md", "tools/build_board_view.py"], "fi": "012-multi-board.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: 인자 없이 실행하면 기존과 동일하게 board.html이 생성되고, 다른 위치의"}, {"id": "013", "t": "규칙 개정 v1.5 — track 필드, 단계도 Work, 병렬 에이전트 운용", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["012"], "s": "2026-08-21 00:54", "f": "2026-08-21 00:56", "dl": ["RULES.md", "tools/build_board_view.py"], "fi": "013-track-and-parallel-agents.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: 위성 보드에 track이 6개(SAT/SYS/STR/EPS/AOCS/COMM) 있는 상태로 뷰를"}, {"id": "014", "t": "규칙 개정 v1.6 — 웨이브 1 에이전트 불편 반영", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["013"], "s": "2026-08-21 00:57", "f": "2026-08-21 00:59", "dl": ["RULES.md", "tools/build_board_view.py"], "fi": "014-agent-feedback.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: parse_dt가 초 단위 시각을 파싱함을 확인. 위성 보드에 도구를 돌려 \"집기"}, {"id": "015", "t": "규칙 개정 v1.7 — 읽기 전용 집기 가능 조회와 시각 정합 검사", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["014"], "s": "2026-08-21 01:02", "f": "2026-08-21 01:04", "dl": ["RULES.md", "tools/build_board_view.py"], "fi": "015-ready-query.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: --ready가 파일을 쓰지 않고 목록만 출력함을 확인(집기 가능 0건이면 빈"}, {"id": "016", "t": "규칙 개정 v1.8 — 취합 시 자식 산출물 간 모순 처리", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["015"], "s": "2026-08-21 01:03:40", "f": "2026-08-21 01:04:50", "dl": ["RULES.md"], "fi": "016-aggregation-conflict.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: 규칙을 이번 사례(QM 17.4 vs FM 17.6 kg)에 대입 — 나중 실측(17.6)이"}, {"id": "017", "t": "규칙 개정 v1.9 — 레벨과 에이전트 등급, 상태 전환 소도구", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["016"], "s": "2026-08-21 01:14", "f": "2026-08-21 01:16", "dl": ["RULES.md", "tools/post.py"], "fi": "017-level-tier-tool.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: post.py를 임시 보드에서 시험 — 선행 미완 take 거부, 산출물 없는 done"}, {"id": "018", "t": "규칙 개정 v2.0 — 대용량 보드 뷰 (2,000건 이상)", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["017"], "s": "2026-08-21 01:17", "f": "2026-08-21 01:27", "dl": ["RULES.md", "tools/build_board_view.py"], "fi": "018-large-board-viewer.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: 게시글 2,190건의 satellite-full 보드로 실측 — 생성 0.21초, HTML 1.1MB."}, {"id": "019", "t": "규칙 개정 v2.1 — 대규모 웨이브 운용에서 배운 것", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["018"], "s": "2026-08-21 01:29:00", "f": "2026-08-21 01:31:04", "dl": ["RULES.md", "tools/post.py"], "fi": "019-mass-wave-lessons.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: 배치 관례·DONE 불가역·정체 인계 조항이 4절에 있음을 재독으로 확인, ready 파이프 정정은 head 파이프 재실행으로 확인"}, {"id": "020", "t": "규칙 개정 v2.2 — id 접두어 충돌 정정 (post.py 정확 일치)", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["019"], "s": "2026-08-21 01:40:30", "f": "2026-08-21 01:41:58", "dl": ["tools/post.py", "RULES.md"], "fi": "020-id-prefix-collision.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: QM-STR-BR과 QM-STR-BR-01이 각자 정확한 파일로 해석됨을 실보드에서 확인"}, {"id": "021", "t": "규칙 개정 v2.3 — Work의 단위, 발견되는 보드, 재작업 루프", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["020"], "s": "2026-08-21 02:02:30", "f": "2026-08-21 02:30:18", "dl": ["RULES.md", "VALIDATION.md"], "fi": "021-work-unit-and-discovery.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: K-SAT 3 실증 — 선게시 7건→발견 13건, 트랙당 Work 1건+내부 작업기록, EPS Rev.A→B 재작업, 통합시험 1차 불합격 3건→수정→재시험 합격, 입력 없는 산출물은 sysreq 하나뿐"}, {"id": "022", "t": "규칙 개정 v2.4 — Work의 단위는 사람(역할), 에이전트는 역할을 나눠 맡는다", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["021"], "s": "2026-08-21 03:47:30", "f": "2026-08-21 04:33:04", "dl": ["RULES.md"], "fi": "022-person-role-unit.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: K-SAT 4 실증 — 사람(역할) 308명이 owner로 기록, 에이전트 21회가 역할 평균 15명분 담당, Work 427건이 인수인계 경계에서 생성(설계→해석→구매→제작→검사→조립→시험 체인, 공용 시설 게이트, NCR 9건 재작업)"}, {"id": "023", "t": "규칙 개정 v2.5 — Gantt 중심 뷰: 모듈별·사람별 레인", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["022"], "s": "2026-08-21 03:49:00", "f": "2026-08-21 04:33:04", "dl": ["RULES.md", "tools/build_board_view.py"], "fi": "023-gantt-first-view.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: 5개 보드 재생성 확인 — Gantt 최상단·모듈별/사람별/계층 3모드, 사람별 모드에서 K-SAT 4 역할 308명 레인 렌더 확인, 나머지 섹션 기본 접힘"}, {"id": "024", "t": "규칙 개정 v2.6 — 산출물 파일 존재 검사 (없는 파일로 DONE 금지)", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["023"], "s": "2026-08-21 04:09:30", "f": "2026-08-21 04:14:11", "dl": ["tools/post.py", "tools/build_board_view.py", "RULES.md"], "fi": "024-deliverable-existence.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: 없는 경로 done 거부·실존 경로 통과·뷰 경고를 시험으로 확인, K-SAT 4 보드 경고 0 확인"}, {"id": "025", "t": "규칙 개정 v2.7 — 발행 권한은 필요의 주인에게 (전지적 SE 금지)", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["024"], "s": "2026-08-21 06:57:00", "f": "2026-08-21 07:20:23", "dl": ["RULES.md"], "fi": "025-need-owner-authority.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: K-SAT 5 실증 — 시작 7건→최종 44건, SE 발행 ICD 0건(당사자 협상 8건), AIT가 모듈 도착 후에야 시험 장비 필요 7건 발견, 통합만이 잡는 교차 결함 1건 승계 기록"}, {"id": "026", "t": "규칙 개정 v2.8 — Gantt 사용성: 줌·접기·모바일·막대 내 이름", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["025"], "s": "2026-08-21 07:28:20", "f": "2026-08-21 07:31:02", "dl": ["RULES.md", "tools/build_board_view.py"], "fi": "026-gantt-usability.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: K-SAT 5 보드로 검증 — 줌 ×2.56에서 막대 내 이름 왜곡 없이 판독, 390px 모바일 뷰포트에서 라벨 자동 숨김·가로 스크롤 확인, 6개 보드 재생성(2,190건 0.2초)"}, {"id": "027", "t": "규칙 개정 v2.9 — 뷰어 백지 재설계: 자료·그리기 분리", "st": "DONE", "pa": "000", "ow": "claude", "tr": "", "af": ["026"], "s": "2026-08-21 08:12:00", "f": "2026-08-21 23:10:44", "dl": ["RULES.md", "tools/build_board_view.py"], "fi": "027-viewer-redesign.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: 6개 보드 재생성·Playwright 검증(데스크톱/줌/모바일/다크/가상화/화살표) 콘솔 오류 0, 결함 1건 발견·수정"}]}</script>
 <script>
-document.querySelectorAll('.gmode button[data-g]').forEach(function (b) {
-  b.addEventListener('click', function () {
-    document.querySelectorAll('.gmode button[data-g]').forEach(function (x) { x.classList.remove('on'); });
-    b.classList.add('on');
-    ['g-track', 'g-owner', 'g-hier'].forEach(function (id) {
-      document.getElementById(id).hidden = (id !== b.dataset.g);
-    });
-  });
-});
-var zoom = 1;
-function applyZoom() {
-  document.querySelectorAll('.g-inner').forEach(function (el) {
-    el.style.width = (zoom * 100) + '%';
-  });
-}
-document.getElementById('zin').addEventListener('click', function () {
-  zoom = Math.min(zoom * 1.6, 24); applyZoom();
-});
-document.getElementById('zout').addEventListener('click', function () {
-  zoom = Math.max(zoom / 1.6, 1); applyZoom();
-});
-document.getElementById('ltog').addEventListener('click', function () {
-  document.body.classList.toggle('labels-off');
-  document.body.classList.toggle('labels-on');
-});
-</script>
+"use strict";
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const M = DATA.meta, POSTS = DATA.posts;
+const byId = new Map(); POSTS.forEach(p => { if (p.id) byId.set(p.id, p); });
+const kidsOf = new Map();
+POSTS.forEach(p => { if (p.pa && byId.has(p.pa)) {
+  if (!kidsOf.has(p.pa)) kidsOf.set(p.pa, []); kidsOf.get(p.pa).push(p); } });
+const rootsArr = POSTS.filter(p => !(p.pa && byId.has(p.pa)));
+const depOf = new Map(); // 역방향: 이 Work가 끝나기를 기다리는 것들
+POSTS.forEach(p => p.af.forEach(a => { if (byId.has(a)) {
+  if (!depOf.has(a)) depOf.set(a, []); depOf.get(a).push(p.id); } }));
 
-<p class="meta">이 페이지는 <code>python3 tools/build_board_view.py
-board</code>가 보드의 게시글에서 생성한다.
-규칙은 <a href="RULES.md">RULES.md</a> 참고.</p>
+const ts = s => s ? new Date(s.replace(' ', 'T')).getTime() : null;
+const NOW = ts(M.generated);
+POSTS.forEach(p => { p._s = ts(p.s); p._f = ts(p.f);
+  p._e = p._f != null ? p._f : (p._s != null ? NOW : null); });
+let T0 = Infinity, T1 = -Infinity;
+POSTS.forEach(p => { if (p._s != null) { T0 = Math.min(T0, p._s); T1 = Math.max(T1, p._e); } });
+if (!isFinite(T0)) { T0 = NOW - 3600e3; T1 = NOW; }
+if (T1 - T0 < 60e3) T1 = T0 + 60e3;
+const SPAN = T1 - T0;
+
+// 트랙 배지: 고정 순서 배정(등장순), 8색을 넘으면 중립 회색(순환 금지)
+const CAT = ['#2a78d6','#eb6834','#1baf7a','#eda100','#e87ba4','#008300','#4a3aa7','#e34948'];
+const trackColor = new Map();
+function tbadge(t) {
+  if (!t) return '';
+  if (!trackColor.has(t)) trackColor.set(t, trackColor.size < 8 ? CAT[trackColor.size] : '');
+  const c = trackColor.get(t);
+  const st = c ? ` style="border-left-color:${c};background:${c}1f"` : '';
+  return `<span class="tb"${st}>${esc(t)}</span>`;
+}
+function esc(s) { return String(s).replace(/[&<>"]/g,
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function sic(p) {
+  const s = p.st === 'DONE' ? ['done','●'] : p.st === 'TAKEN' ? ['taken','◐']
+        : p.rd ? ['ready','◍'] : ['open','○'];
+  return `<span class="sic ${s[0]}">${s[1]}</span>`;
+}
+function fmtDur(ms) {
+  const m = Math.round(ms / 60e3);
+  if (m < 60) return m + '분';
+  if (m < 60 * 48) return (m / 60).toFixed(1) + '시간';
+  return (m / 1440).toFixed(1) + '일';
+}
+
+// ── 상태 ─────────────────────────────────────────────────────────────
+const AXH = 34, ROW = 30;
+const S = {
+  mode: 'track', zoom: 1, q: '', sel: null, arrows: 'sel',
+  labelsOn: window.innerWidth > 700,
+  collapsed: new Set(), expandedAll: false,
+};
+// 기본 접힘: 레인 그룹은 전부, 계층은 (큰 보드) 깊이1부터 / (작은 보드) 깊이2부터
+function defaultCollapse() {
+  const c = new Set();
+  POSTS.forEach(p => { if (p.tr) c.add('T:' + p.tr); });
+  c.add('T:(트랙 없음)');
+  POSTS.forEach(p => { c.add('O:' + (p.ow || '(미배정)')); });
+  const lim = M.large ? 1 : 2;
+  POSTS.forEach(p => { if (kidsOf.has(p.id) && p.d >= lim) c.add('H:' + p.id); });
+  return c;
+}
+S.collapsed = defaultCollapse();
+if (!S.labelsOn) document.body.classList.add('labels-off');
+
+// ── 행 목록 만들기 (모드 = 묶음 방식일 뿐) ───────────────────────────
+function laneGroups(keyf, pfx) {
+  const groups = new Map();
+  POSTS.forEach(p => { const k = keyf(p);
+    if (!groups.has(k)) groups.set(k, []); groups.get(k).push(p); });
+  return [...groups.entries()].map(([k, items]) => {
+    const ss = items.map(p => p._s).filter(x => x != null);
+    const ee = items.map(p => p._e).filter(x => x != null);
+    return { k, key: pfx + k, items, s: ss.length ? Math.min(...ss) : null,
+             e: ee.length ? Math.max(...ee) : null,
+             done: items.filter(p => p.st === 'DONE').length };
+  }).sort((a, b) => (a.s ?? Infinity) - (b.s ?? Infinity) || (a.k < b.k ? -1 : 1));
+}
+function buildRows() {
+  const q = S.q.trim().toLowerCase();
+  if (q) {
+    const hit = POSTS.filter(p =>
+      (p.id + ' ' + p.t + ' ' + p.ow + ' ' + p.tr).toLowerCase().includes(q));
+    return hit.slice(0, 800).map(p => ({ p, depth: 0 }));
+  }
+  if (S.mode === 'hier') {
+    const out = [];
+    const walk = (p, depth) => {
+      const kids = kidsOf.get(p.id) || [];
+      const key = 'H:' + p.id;
+      const coll = kids.length > 0 && S.collapsed.has(key);
+      out.push({ p, depth, kids: kids.length, collapsed: coll, key });
+      if (kids.length && !coll) kids.forEach(k => walk(k, depth + 1));
+    };
+    rootsArr.forEach(r => walk(r, 0));
+    return out;
+  }
+  const lane = S.mode === 'track'
+    ? laneGroups(p => p.tr || '(트랙 없음)', 'T:')
+    : laneGroups(p => p.ow || '(미배정)', 'O:');
+  const out = [];
+  lane.forEach(g => {
+    out.push({ group: g, key: g.key, collapsed: S.collapsed.has(g.key) });
+    if (!S.collapsed.has(g.key))
+      [...g.items].sort((a, b) => (a._s ?? Infinity) - (b._s ?? Infinity)
+        || (a.id < b.id ? -1 : 1)).forEach(p => out.push({ p, depth: 1 }));
+  });
+  return out;
+}
+
+// ── 그리기 (보이는 행만) ─────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+const gscroll = $('gscroll'), gcanvas = $('gcanvas'), grows = $('grows');
+let rows = [], rowIdx = new Map();
+function labW() {
+  return S.labelsOn ? (window.innerWidth > 700 ? 250 : 150) : 0;
+}
+function chartW() {
+  const base = Math.max(gscroll.clientWidth - labW() - 20, 320);
+  return base * S.zoom;
+}
+function xOf(t) { return labW() + (t - T0) / SPAN * chartW(); }
+
+function tickStep(pxPerMs) {
+  const steps = [60e3, 300e3, 900e3, 1800e3, 3600e3, 3 * 3600e3, 6 * 3600e3,
+                 12 * 3600e3, 86400e3, 2 * 86400e3, 7 * 86400e3, 30 * 86400e3];
+  for (const s of steps) if (s * pxPerMs >= 88) return s;
+  return steps[steps.length - 1];
+}
+function layout() {
+  rows = buildRows();
+  rowIdx = new Map();
+  rows.forEach((r, i) => { if (r.p && r.p.id) rowIdx.set(r.p.id, i); });
+  gcanvas.style.width = (labW() + chartW()) + 'px';
+  gcanvas.style.height = (AXH + rows.length * ROW) + 'px';
+  document.documentElement.style.setProperty('--labw', labW() + 'px');
+  render();
+}
+function render() {
+  const sl = gscroll.scrollLeft, st = gscroll.scrollTop;
+  const vw = gscroll.clientWidth, vh = gscroll.clientHeight;
+  // 축 눈금 + 세로 격자 (보이는 범위만)
+  const pxPerMs = chartW() / SPAN;
+  const step = tickStep(pxPerMs);
+  const tA = T0 + Math.max(0, (sl - labW() - 200) / pxPerMs);
+  const tB = T0 + (sl + vw + 200) / pxPerMs;
+  let ticks = '', glines = '';
+  const fmt = step >= 86400e3 ? d => `${d.getMonth() + 1}-${d.getDate()}`
+    : step >= 3600e3 ? d => `${d.getMonth() + 1}-${d.getDate()} ${String(d.getHours()).padStart(2,'0')}시`
+    : d => `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+  for (let t = Math.ceil((tA - T0) / step) * step + T0; t <= Math.min(tB, T1 + step); t += step) {
+    const x = xOf(t);
+    if (x < labW() + 34) continue; // 라벨 열 밑에 반쯤 가려지는 눈금은 생략
+    ticks += `<div class="tick" style="left:${x}px">${fmt(new Date(t))}</div>`;
+    glines += `<div class="gline" style="left:${x}px"></div>`;
+  }
+  $('gticks').innerHTML = ticks;
+  $('ggrid').innerHTML = glines;
+  $('gcorner').textContent = `${rows.length}행 · ${M.generated}`;
+  // 지금 선
+  const anyTaken = POSTS.some(p => p.st === 'TAKEN');
+  $('gnow').hidden = !anyTaken;
+  if (anyTaken) $('gnow').style.left = xOf(NOW) + 'px';
+  // 사슬(선택 강조)
+  let chainSet = null;
+  if (S.sel) {
+    chainSet = new Set([S.sel]);
+    const wu = i => { (byId.get(i)?.af || []).forEach(a => {
+      if (byId.has(a) && !chainSet.has(a)) { chainSet.add(a); wu(a); } }); };
+    const wd = i => { (depOf.get(i) || []).forEach(x => {
+      if (!chainSet.has(x)) { chainSet.add(x); wd(x); } }); };
+    wu(S.sel); wd(S.sel);
+  }
+  // 보이는 행만 렌더
+  const i0 = Math.max(0, Math.floor((st - AXH) / ROW) - 4);
+  const i1 = Math.min(rows.length, Math.ceil((st + vh - AXH) / ROW) + 4);
+  let hrows = '';
+  for (let i = i0; i < i1; i++) {
+    const r = rows[i], y = AXH + i * ROW;
+    const even = i % 2 ? ' even' : '';
+    if (r.group) {
+      const g = r.group;
+      const caret = r.collapsed ? '▸' : '▾';
+      let bar = '';
+      if (g.s != null) {
+        const x = xOf(g.s), w = Math.max(xOf(g.e) - x, 3);
+        const cls = g.done === g.items.length ? 'done' : 'taken';
+        bar = `<div class="bar group rollup ${cls}" data-k="${esc(r.key)}"
+          style="left:${x}px;width:${w}px"></div>
+          <span class="bt" style="left:${x + w + 6}px">${g.done}/${g.items.length}건</span>`;
+      }
+      hrows += `<div class="row${even}" style="top:${y}px" data-k="${esc(r.key)}">
+        <div class="lab"><span class="caret">${caret}</span>${tbadge(g.k)} <b>${esc(g.k)}</b>
+        <span class="meta">${g.done}/${g.items.length}</span></div>${bar}</div>`;
+      continue;
+    }
+    const p = r.p;
+    const selCls = S.sel === p.id ? ' selrow' : (chainSet && !chainSet.has(p.id) ? ' dim' : '');
+    const pad = 6 + r.depth * 14;
+    const caret = r.kids ? `<span class="caret">${r.collapsed ? '▸' : '▾'}</span>` : '';
+    const nm = (p.id ? p.id + ' ' : '') + p.t;
+    const sub = p.sub && p.sub[0] > 1 ? ` <span class="meta">${p.sub[1]}/${p.sub[0]}</span>` : '';
+    const lab = `<div class="lab" style="padding-left:${pad}px" data-id="${esc(p.id)}"
+      ${r.kids ? `data-k="H:${esc(p.id)}"` : ''}>${caret}${sic(p)}
+      <span class="pid">${esc(p.id)}</span> ${esc(p.t)}${sub}</div>`;
+    let cell = '';
+    if (p._s != null) {
+      const x = xOf(p._s), w = Math.max(xOf(p._e) - x, 3);
+      const cls = p.st === 'DONE' ? 'done' : 'taken';
+      const grp = (r.kids || (S.mode === 'hier' && kidsOf.has(p.id))) ? ' group' : '';
+      cell = `<div class="bar ${cls}${grp}" data-id="${esc(p.id)}"
+        style="left:${x}px;width:${w}px"></div>
+        <span class="bt" style="left:${x + 4}px">${esc(nm)}</span>`;
+    } else {
+      const ends = p.af.map(a => byId.get(a)?._e).filter(x => x != null);
+      const x = xOf(ends.length ? Math.max(...ends) : NOW);
+      const cls = p.rd ? ' ready' : '';
+      const word = p.rd ? '집기 가능' : '대기';
+      cell = `<div class="ghost${cls}" data-id="${esc(p.id)}"
+        style="left:${x}px">${word} · ${esc(nm)}</div>`;
+    }
+    hrows += `<div class="row${even}${selCls}" style="top:${y}px">${lab}${cell}</div>`;
+  }
+  grows.innerHTML = hrows;
+  renderArrows(chainSet, i0, i1);
+}
+function renderArrows(chainSet, i0, i1) {
+  const svg = $('garrows');
+  svg.setAttribute('width', labW() + chartW());
+  svg.setAttribute('height', AXH + rows.length * ROW);
+  svg.style.width = (labW() + chartW()) + 'px';
+  svg.style.height = (AXH + rows.length * ROW) + 'px';
+  let edges = [];
+  if (S.arrows === 'sel' && S.sel && chainSet) {
+    chainSet.forEach(id => { (byId.get(id)?.af || []).forEach(a => {
+      if (chainSet.has(a)) edges.push([a, id]); }); });
+  } else if (S.arrows === 'all') {
+    POSTS.forEach(p => p.af.forEach(a => {
+      if (byId.has(a)) edges.push([a, p.id]); }));
+    if (edges.length > 900) edges = edges.slice(0, 900);
+  }
+  let out = '';
+  for (const [a, b] of edges) {
+    const ia = rowIdx.get(a), ib = rowIdx.get(b);
+    const pa = byId.get(a), pb = byId.get(b);
+    if (ia == null || ib == null || pa._e == null || pb._s == null) continue;
+    const x1 = xOf(pa._e), y1 = AXH + ia * ROW + ROW / 2;
+    const x2 = xOf(pb._s), y2 = AXH + ib * ROW + ROW / 2;
+    const mx = x1 + 7;
+    if (x2 >= x1 + 16)
+      out += `<path d="M ${x1} ${y1} H ${mx} V ${y2} H ${x2 - 7}"/>
+        <polygon points="${x2},${y2} ${x2 - 7},${y2 - 3.6} ${x2 - 7},${y2 + 3.6}"/>`;
+    else
+      out += `<path d="M ${x1} ${y1} H ${mx} V ${y2} H ${x2 + 7}"/>
+        <polygon points="${x2},${y2} ${x2 + 7},${y2 - 3.6} ${x2 + 7},${y2 + 3.6}"/>`;
+  }
+  svg.innerHTML = out;
+}
+
+// ── 상호작용 ─────────────────────────────────────────────────────────
+gscroll.addEventListener('scroll', () => requestAnimationFrame(render));
+window.addEventListener('resize', () => requestAnimationFrame(layout));
+gcanvas.addEventListener('click', e => {
+  const k = e.target.closest('[data-k]');
+  const idEl = e.target.closest('[data-id]');
+  if (idEl && idEl.dataset.id && !(e.target.closest('.lab') && k)) {
+    select(idEl.dataset.id); return;
+  }
+  if (k) { toggleKey(k.dataset.k); return; }
+});
+function toggleKey(key) {
+  if (S.collapsed.has(key)) S.collapsed.delete(key); else S.collapsed.add(key);
+  layout();
+}
+function select(id) {
+  if (!id || S.sel === id) { S.sel = null; $('panel').hidden = true; render(); return; }
+  S.sel = id; showPanel(id); render();
+}
+function showPanel(id) {
+  const p = byId.get(id); if (!p) return;
+  const word = p.st === 'DONE' ? 'DONE(완료)' : p.st === 'TAKEN' ? 'TAKEN(진행)'
+    : p.rd ? 'OPEN — 집기 가능' : 'OPEN(대기)';
+  const dur = p._s != null ? `${p.s} → ${p.f || '진행 중'}`
+    + (p._e != null ? ` <span class="meta">(${fmtDur(p._e - p._s)})</span>` : '') : '아직 시작 안 함';
+  const dls = p.dl.map(d =>
+    `<a class="deliv" href="${esc(M.rootRel + '/' + d)}">${esc(d)}</a>`).join('<br>') || '—';
+  const depBtn = a => `<button class="dep" data-sel="${esc(a)}">${esc(a)}</button>`;
+  const ups = p.af.filter(a => byId.has(a)).map(depBtn).join('') || '—';
+  const dns = (depOf.get(id) || []).map(depBtn).join('') || '—';
+  $('panel').innerHTML = `
+    <button class="x" title="닫기">✕</button>
+    <h3>${sic(p)} <span class="pid">${esc(p.id)}</span>
+      <a href="${esc(M.boardRel + '/' + p.fi)}">${esc(p.t)}</a></h3>
+    <dl>
+      <dt>상태</dt><dd>${esc(word)}</dd>
+      <dt>트랙</dt><dd>${p.tr ? tbadge(p.tr) + ' ' + esc(p.tr) : '—'}</dd>
+      <dt>담당</dt><dd>${esc(p.ow || '—')}</dd>
+      <dt>기간</dt><dd>${dur}</dd>
+      <dt>산출물</dt><dd>${dls}</dd>
+      <dt>선행</dt><dd>${ups}</dd>
+      <dt>후행</dt><dd>${dns}</dd>
+      ${p.v ? `<dt>검증</dt><dd>${esc(p.v.replace(/^검증:\s*/, ''))}</dd>` : ''}
+    </dl>`;
+  $('panel').hidden = false;
+}
+document.getElementById('panel').addEventListener('click', e => {
+  if (e.target.classList.contains('x')) { S.sel = null; $('panel').hidden = true; render(); }
+  const b = e.target.closest('[data-sel]');
+  if (b) { select(b.dataset.sel); scrollToRow(b.dataset.sel); }
+});
+function scrollToRow(id) {
+  const i = rowIdx.get(id);
+  if (i == null) return;
+  gscroll.scrollTop = Math.max(0, AXH + i * ROW - gscroll.clientHeight / 2);
+  const p = byId.get(id);
+  if (p && p._s != null)
+    gscroll.scrollLeft = Math.max(0, xOf(p._s) - labW() - 60);
+}
+// 모드·검색·토글
+$('modes').addEventListener('click', e => {
+  const b = e.target.closest('button[data-m]'); if (!b) return;
+  S.mode = b.dataset.m;
+  document.querySelectorAll('#modes button').forEach(x =>
+    x.classList.toggle('on', x === b));
+  layout();
+});
+$('q').addEventListener('input', () => { S.q = $('q').value; layout(); });
+$('lt').addEventListener('click', () => {
+  S.labelsOn = !S.labelsOn;
+  document.body.classList.toggle('labels-off', !S.labelsOn);
+  layout();
+});
+$('ar').addEventListener('click', () => {
+  S.arrows = S.arrows === 'sel' ? 'all' : S.arrows === 'all' ? 'off' : 'sel';
+  $('ar').textContent = '화살표: ' + (S.arrows === 'sel' ? '선택' : S.arrows === 'all' ? '전체' : '끄기');
+  render();
+});
+$('xp').addEventListener('click', () => {
+  S.expandedAll = !S.expandedAll;
+  $('xp').textContent = S.expandedAll ? '접힘' : '펼침';
+  S.collapsed = S.expandedAll ? new Set() : defaultCollapse();
+  layout();
+});
+// 줌: 버튼·ctrl+휠·핀치 — 화면 중심(또는 커서)을 고정점으로
+function zoomAt(factor, cx) {
+  const old = chartW();
+  S.zoom = Math.min(Math.max(S.zoom * factor, 1), 400);
+  const nw = chartW();
+  const px = gscroll.scrollLeft + cx - labW();
+  gscroll.scrollLeft += px * (nw / old - 1);
+  layout();
+}
+$('zi').addEventListener('click', () => zoomAt(1.6, gscroll.clientWidth / 2));
+$('zo').addEventListener('click', () => zoomAt(1 / 1.6, gscroll.clientWidth / 2));
+$('zf').addEventListener('click', () => { S.zoom = 1; layout(); });
+gscroll.addEventListener('wheel', e => {
+  if (!e.ctrlKey) return;
+  e.preventDefault();
+  zoomAt(e.deltaY < 0 ? 1.25 : 0.8, e.clientX - gscroll.getBoundingClientRect().left);
+}, { passive: false });
+let pinch = null;
+gscroll.addEventListener('touchstart', e => {
+  if (e.touches.length === 2)
+    pinch = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
+                       e.touches[0].clientY - e.touches[1].clientY);
+});
+gscroll.addEventListener('touchmove', e => {
+  if (pinch && e.touches.length === 2) {
+    e.preventDefault();
+    const d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
+                         e.touches[0].clientY - e.touches[1].clientY);
+    const cx = (e.touches[0].clientX + e.touches[1].clientX) / 2
+      - gscroll.getBoundingClientRect().left;
+    zoomAt(d / pinch, cx); pinch = d;
+  }
+}, { passive: false });
+gscroll.addEventListener('touchend', () => { pinch = null; });
+
+// ── 머리 요약·경고·아래 섹션 (자료에서 그때 만든다) ──────────────────
+(function head() {
+  const c = M.counts;
+  const rd = M.ready.length
+    ? `<span class="stat"><span class="sic ready">◍</span> 집기 가능 <b>${M.ready.length}</b></span>` : '';
+  $('summary').innerHTML = `
+    <span class="stat">게시글 <b>${POSTS.length}</b></span>
+    <span class="stat"><span class="sic open">○</span> OPEN <b>${c.OPEN || 0}</b></span>
+    <span class="stat"><span class="sic taken">◐</span> TAKEN <b>${c.TAKEN || 0}</b></span>
+    <span class="stat"><span class="sic done">●</span> DONE <b>${c.DONE || 0}</b></span>
+    <span class="meta">${esc(M.state)}</span>`;
+  if (M.warnings.length) {
+    const w = $('warnbox');
+    w.hidden = false;
+    w.innerHTML = `<summary>취합 순서 경고 ${M.warnings.length}건 (규칙 4절)</summary>
+      <ul>${M.warnings.slice(0, 80).map(x => `<li>${esc(x)}</li>`).join('')}
+      ${M.warnings.length > 80 ? `<li>… 외 ${M.warnings.length - 80}건</li>` : ''}</ul>`;
+    if (M.warnings.length <= 6) w.open = true;
+  }
+  $('foot').innerHTML = `이 페이지는 <code>python3 tools/build_board_view.py
+    ${esc(M.boardArg)}</code>가 보드의 게시글에서 생성한다 (${esc(M.generated)}).
+    규칙은 <a href="${esc(M.rootRel)}/RULES.md">RULES.md</a> 참고.`;
+})();
+function postLine(p) {
+  const own = p.ow ? ` <span class="meta">담당: ${esc(p.ow)}</span>` : '';
+  const sub = p.sub && p.sub[0] > 1 ? ` <span class="meta">${p.sub[1]}/${p.sub[0]}</span>` : '';
+  return `${sic(p)} <span class="pid">${esc(p.id)}</span> ${p.tr ? tbadge(p.tr) : ''}
+    <a href="${esc(M.boardRel + '/' + p.fi)}">${esc(p.t)}</a>${sub}${own}`;
+}
+function wbsTree(p, depth) {
+  const kids = kidsOf.get(p.id) || [];
+  if (!kids.length) return `<div class="node">${postLine(p)}</div>`;
+  return `<details${depth < 2 ? ' open' : ''}><summary>${postLine(p)}</summary>
+    <div class="kids">${kids.map(k => wbsTree(k, depth + 1)).join('')}</div></details>`;
+}
+function pbsTree(p, depth) {
+  const links = p.st === 'DONE' && p.dl.length
+    ? p.dl.map(d => `<a class="deliv" href="${esc(M.rootRel + '/' + d)}">${esc(d)}</a>`).join(' · ')
+    : '<span class="meta">(산출물 아직 없음)</span>';
+  const line = `<span class="pid">${esc(p.id)}</span> ${links}
+    <span class="meta">← ${esc(p.t)}</span>`;
+  const kids = kidsOf.get(p.id) || [];
+  if (!kids.length) return `<div class="node">${line}</div>`;
+  return `<details${depth < 2 ? ' open' : ''}><summary>${line}</summary>
+    <div class="kids">${kids.map(k => pbsTree(k, depth + 1)).join('')}</div></details>`;
+}
+function sumTable(keyf, name) {
+  const rowsM = new Map();
+  POSTS.forEach(p => { const k = keyf(p);
+    if (!rowsM.has(k)) rowsM.set(k, { OPEN: 0, TAKEN: 0, DONE: 0 });
+    rowsM.get(k)[p.st]++; });
+  if (rowsM.size > 40) return '';
+  const trs = [...rowsM.entries()].sort((a, b) => a[0] < b[0] ? -1 : 1).map(([k, r]) => {
+    const n = r.OPEN + r.TAKEN + r.DONE, pct = n ? Math.floor(r.DONE * 100 / n) : 0;
+    return `<tr><td>${esc(String(k))}</td><td>${n}</td><td>${r.OPEN}</td>
+      <td>${r.TAKEN}</td><td>${r.DONE}</td>
+      <td><span class="pbar"><div style="width:${pct}%"></div></span> ${pct}%</td></tr>`;
+  }).join('');
+  return `<table class="lvl"><tr><th>${name}</th><th>게시글</th><th>OPEN</th>
+    <th>TAKEN</th><th>DONE</th><th>진행률</th></tr>${trs}</table>`;
+}
+function buildSection(sec) {
+  if (sec === 'lvl')
+    return sumTable(p => 'L' + p.d, '레벨') + sumTable(p => p.tr || '-', 'track');
+  if (sec === 'wbs')
+    return `<div class="tree">${rootsArr.map(r => wbsTree(r, 0)).join('')}</div>`;
+  if (sec === 'pbs')
+    return `<div class="tree">${rootsArr.map(r => pbsTree(r, 0)).join('')}</div>`;
+  if (sec === 'comp') {
+    const comp = new Map();
+    POSTS.forEach(p => { if (p.st !== 'DONE') return;
+      p.dl.forEach(d => { if (!comp.has(d)) comp.set(d, []);
+        comp.get(d).push([p.f, p.id]); }); });
+    const dirs = new Map();
+    [...comp.entries()].sort().forEach(([path, hits]) => {
+      hits.sort();
+      const ids = hits.slice(0, 8).map(h => h[1]).join(', ')
+        + (hits.length > 8 ? ` 외 ${hits.length - 8}건` : '');
+      const li = `<li><a class="deliv" href="${esc(M.rootRel + '/' + path)}">${esc(path)}</a>
+        <span class="meta">← Work ${esc(ids)} · 마지막 갱신 ${esc(hits[hits.length - 1][0])}</span></li>`;
+      const dir = path.includes('/') ? path.slice(0, path.lastIndexOf('/')) : '.';
+      if (!dirs.has(dir)) dirs.set(dir, []); dirs.get(dir).push(li);
+    });
+    const note = `<p class="meta">같은 파일을 여러 Work가 갱신해도 한 번만 나타난다 —
+      일부만 갱신한 Work는 이 목록을 바꾸지 않을 수 있다.</p>`;
+    if (!M.large || dirs.size <= 2)
+      return `<ul class="flat">${[...dirs.values()].flat().join('')}</ul>` + note;
+    return [...dirs.entries()].sort().map(([d, lis]) =>
+      `<details class="sec"><summary><span class="deliv">${esc(d)}/</span>
+        <span class="meta">${lis.length}개 파일</span></summary>
+        <ul class="flat">${lis.join('')}</ul></details>`).join('') + note;
+  }
+  if (sec === 'tl') {
+    const done = POSTS.filter(p => p.st === 'DONE' && p.dl.length)
+      .sort((a, b) => (a.f + a.id) < (b.f + b.id) ? -1 : 1);
+    const li = p => `<li><span class="pid">${esc(p.id)}</span>
+      ${p.dl.map(d => `<a class="deliv" href="${esc(M.rootRel + '/' + d)}">${esc(d)}</a>`).join(' · ')}
+      <span class="meta">← ${esc(p.t)} (${esc(p.f)})</span></li>`;
+    if (!M.large) return `<ul class="flat">${done.map(li).join('')}</ul>`;
+    const g = new Map();
+    done.forEach(p => { const k = p.tr || '-';
+      if (!g.has(k)) g.set(k, []); g.get(k).push(p); });
+    return [...g.entries()].sort().map(([k, ps]) =>
+      `<details class="sec"><summary>${esc(k)} <span class="meta">${ps.length}건
+        (마지막 ${esc(ps[ps.length - 1].f)})</span></summary>
+        <ul class="flat">${ps.map(li).join('')}</ul></details>`).join('');
+  }
+  return '';
+}
+document.querySelectorAll('details.top[data-sec]').forEach(d => {
+  d.addEventListener('toggle', () => {
+    if (d.open && !d.dataset.built) {
+      d.querySelector('div').innerHTML = buildSection(d.dataset.sec);
+      d.dataset.built = '1';
+    }
+  });
+});
+
+layout();
+</script>
 </body>
 </html>
