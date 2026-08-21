@@ -77,12 +77,15 @@ def ready(board):
     for f in sorted(board.glob("*.md")):
         t = f.read_text(encoding="utf-8")
         posts[field(t, "id")] = (field(t, "status"), field(t, "after"), field(t, "title"), field(t, "track"))
-    for pid, (status, after, title, track) in posts.items():
-        if status != "OPEN":
-            continue
-        deps = [] if after in ("", "-") else [x.strip() for x in after.split(",") if x.strip()]
-        if all(posts.get(d, ("",))[0] == "DONE" for d in deps):
-            print(f"{pid}\t{track}\t{title}")
+    try:
+        for pid, (status, after, title, track) in posts.items():
+            if status != "OPEN":
+                continue
+            deps = [] if after in ("", "-") else [x.strip() for x in after.split(",") if x.strip()]
+            if all(posts.get(d, ("",))[0] == "DONE" for d in deps):
+                print(f"{pid}\t{track}\t{title}")
+    except BrokenPipeError:  # head 등으로 잘라 읽을 때 정상 종료
+        sys.stderr.close()
 
 
 def main():
