@@ -1,13 +1,13 @@
 ---
 id: M-EPS
 title: 전력 EM 모듈 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
-owner: -
+owner: EPS-LEAD
 deliverable: -
 after: REQ
 track: EPS
-started: -
+started: 2026-08-21 07:00:27
 finished: -
 ---
 

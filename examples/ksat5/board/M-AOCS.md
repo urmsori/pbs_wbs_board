@@ -1,13 +1,13 @@
 ---
 id: M-AOCS
 title: 자세제어 EM 모듈 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
-owner: -
+owner: AOCS-LEAD
 deliverable: -
 after: REQ
 track: AOCS
-started: -
+started: 2026-08-21 07:00:25
 finished: -
 ---
 

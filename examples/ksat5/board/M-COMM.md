@@ -1,13 +1,13 @@
 ---
 id: M-COMM
 title: 통신 EM 모듈 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
-owner: -
+owner: COMM-LEAD
 deliverable: -
 after: REQ
 track: COMM
-started: -
+started: 2026-08-21 07:00:42
 finished: -
 ---
 

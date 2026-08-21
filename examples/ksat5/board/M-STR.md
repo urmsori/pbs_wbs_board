@@ -1,13 +1,13 @@
 ---
 id: M-STR
 title: 구조 EM 모듈 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
-owner: -
+owner: STR-LEAD
 deliverable: -
 after: REQ
 track: STR
-started: -
+started: 2026-08-21 07:01:35
 finished: -
 ---
 
