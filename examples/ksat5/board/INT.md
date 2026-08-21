@@ -1,13 +1,13 @@
 ---
 id: INT
 title: 위성 통합·시험
-status: OPEN
+status: TAKEN
 parent: R00
-owner: -
+owner: AIT-LEAD
 deliverable: -
 after: M-STR, M-EPS, M-AOCS, M-COMM
 track: AIT
-started: -
+started: 2026-08-21 07:17:25
 finished: -
 ---
 
