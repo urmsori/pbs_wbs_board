@@ -1,14 +1,14 @@
 ---
 id: K71
 title: 송신 버스트(12W·10s) 시 버스 전압 유지 확인
-status: TAKEN
+status: DONE
 parent: K30
 owner: sonnet-eps
-deliverable: -
+deliverable: examples/ksat3/deliverables/eps-to-comm.md
 after: -
 track: EPS
 started: 2026-08-21 02:08:37
-finished: -
+finished: 2026-08-21 02:09:28
 ---
 
 COMM 송신 버스트 시 피크 소비전력 12 W(최대 10초)로 잡았다. sysreq의
@@ -17,3 +17,4 @@ COMM 송신 버스트 시 피크 소비전력 12 W(최대 10초)로 잡았다. s
 가능한지 확인이 필요하다(배터리 내부저항·레귤레이터 응답 등 고려).
 산출물: examples/ksat3/deliverables/eps-to-comm.md — 12 W·10초 버스트 부하
 조건에서의 버스 전압 유지 가능 여부(확인/불가 시 대안)를 명시한 문서.
+검증: eps-em 초안 그대로 대입 평가 — 현재 1S DET 설계로는 버스 전압 4.2V 상한이 요구 7.0V에 구조적으로 미달, 불가로 확인
