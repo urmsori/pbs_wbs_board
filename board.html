@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PBS WBS Board</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 2rem auto; max-width: 60rem;
+         padding: 0 1rem; color: #1a1a1a; background: #fff; line-height: 1.6; }
+  h1 { font-size: 1.5rem; } h2 { font-size: 1.15rem; margin-top: 2rem;
+       border-bottom: 1px solid #ddd; padding-bottom: .3rem; }
+  ul { list-style: none; padding-left: 1.2rem; border-left: 1px solid #e5e5e5; }
+  li { margin: .35rem 0; }
+  .badge { display: inline-block; font-size: .7rem; font-weight: 700;
+            padding: .1rem .45rem; border-radius: .6rem; vertical-align: middle; }
+  .badge.open  { background: #fde8e8; color: #b42318; }
+  .badge.taken { background: #fef4e6; color: #b25e09; }
+  .badge.done  { background: #e6f4ea; color: #1e7e34; }
+  .pid { color: #888; font-family: monospace; }
+  .meta { color: #888; font-size: .85rem; }
+  .pending { color: #aaa; }
+  .deliv { font-family: monospace; }
+  .summary { background: #f6f8fa; border: 1px solid #e5e5e5; border-radius: .5rem;
+              padding: .8rem 1rem; }
+  a { color: #0b57d0; text-decoration: none; } a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<h1>PBS WBS Board</h1>
+<p class="summary">게시글 6건 —
+  <span class="badge open">OPEN</span> 0 ·
+  <span class="badge taken">TAKEN</span> 0 ·
+  <span class="badge done">DONE</span> 6<br>
+  프로젝트 완료: OPEN 게시글이 없고 루트 게시글이 DONE이다.</p>
+
+<h2>WBS — Work 분해 트리</h2>
+<ul><li><span class="badge done">DONE</span> <span class="pid">000</span> <a href="board/000-pbs-wbs-board-rule.md">PBS WBS Board 규칙 v1.0 만들기</a> <span class="meta">담당: claude</span><ul><li><span class="badge done">DONE</span> <span class="pid">001</span> <a href="board/001-terms-and-process.md">용어와 절차 정의</a> <span class="meta">담당: claude</span></li><li><span class="badge done">DONE</span> <span class="pid">002</span> <a href="board/002-post-format.md">게시글 양식과 board 디렉토리 구성</a> <span class="meta">담당: claude</span></li><li><span class="badge done">DONE</span> <span class="pid">003</span> <a href="board/003-html-view-tool.md">HTML 뷰 생성 도구 만들기</a> <span class="meta">담당: claude</span></li><li><span class="badge done">DONE</span> <span class="pid">004</span> <a href="board/004-html-view-output.md">현재 Board의 HTML 뷰 산출</a> <span class="meta">담당: claude</span></li><li><span class="badge done">DONE</span> <span class="pid">005</span> <a href="board/005-self-validation.md">규칙 자기 검증</a> <span class="meta">담당: claude</span></li></ul></li></ul>
+
+<h2>PBS — 산출물 분해 트리 (구조로 취합)</h2>
+<ul><li><span class="pid">000</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← PBS WBS Board 규칙 v1.0 만들기</span><ul><li><span class="pid">001</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 용어와 절차 정의</span></li><li><span class="pid">002</span> <a class="deliv" href="board/">board/</a> <span class="meta">← 게시글 양식과 board 디렉토리 구성</span></li><li><span class="pid">003</span> <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← HTML 뷰 생성 도구 만들기</span></li><li><span class="pid">004</span> <a class="deliv" href="board.html">board.html</a> <span class="meta">← 현재 Board의 HTML 뷰 산출</span></li><li><span class="pid">005</span> <a class="deliv" href="VALIDATION.md">VALIDATION.md</a> <span class="meta">← 규칙 자기 검증</span></li></ul></li></ul>
+
+<h2>산출물 시간 순 목록 (id 순으로 취합)</h2>
+<ul><li><span class="pid">000</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← PBS WBS Board 규칙 v1.0 만들기</span></li><li><span class="pid">001</span> <a class="deliv" href="RULES.md">RULES.md</a> <span class="meta">← 용어와 절차 정의</span></li><li><span class="pid">002</span> <a class="deliv" href="board/">board/</a> <span class="meta">← 게시글 양식과 board 디렉토리 구성</span></li><li><span class="pid">003</span> <a class="deliv" href="tools/build_board_view.py">tools/build_board_view.py</a> <span class="meta">← HTML 뷰 생성 도구 만들기</span></li><li><span class="pid">004</span> <a class="deliv" href="board.html">board.html</a> <span class="meta">← 현재 Board의 HTML 뷰 산출</span></li><li><span class="pid">005</span> <a class="deliv" href="VALIDATION.md">VALIDATION.md</a> <span class="meta">← 규칙 자기 검증</span></li></ul>
+
+<p class="meta">이 페이지는 <code>python3 tools/build_board_view.py</code>가
+board/의 게시글에서 생성한다. 규칙은 <a href="RULES.md">RULES.md</a> 참고.</p>
+</body>
+</html>
