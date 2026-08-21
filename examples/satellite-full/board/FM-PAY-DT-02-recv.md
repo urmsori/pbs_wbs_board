@@ -1,14 +1,15 @@
 ---
 id: FM-PAY-DT-02
 title: 검출기 입고 검사
-status: OPEN
+status: DONE
 parent: FM-PAY-DT
-owner: -
-deliverable: -
+owner: haiku-pay
+deliverable: examples/satellite-full/deliverables/FM/PAY/dt-asm.md
 after: FM-PAY-DT-01
 track: PAY
-started: -
-finished: -
+started: 2026-08-21 01:44:44
+finished: 2026-08-21 01:44:44
 ---
 
 FM/탑재체/검출기의 잎 Work. 결과를 조립체 산출물 파일에 한 줄 덧붙인다. 산출물: examples/satellite-full/deliverables/FM/PAY/dt-asm.md
+검증: 입고 검사 결과 확인

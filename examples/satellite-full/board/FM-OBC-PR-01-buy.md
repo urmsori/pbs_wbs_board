@@ -1,14 +1,15 @@
 ---
 id: FM-OBC-PR-01
 title: 프로세서보드 비행부품 구매
-status: OPEN
+status: DONE
 parent: FM-OBC-PR
-owner: -
-deliverable: -
+owner: haiku-obc
+deliverable: examples/satellite-full/deliverables/FM/OBC/pr-asm.md
 after: QM
 track: OBC
-started: -
-finished: -
+started: 2026-08-21 01:44:32
+finished: 2026-08-21 01:44:32
 ---
 
 FM/탑재컴퓨터/프로세서보드의 잎 Work. 결과를 조립체 산출물 파일에 한 줄 덧붙인다. 산출물: examples/satellite-full/deliverables/FM/OBC/pr-asm.md
+검증: 비행부품 구매 결과 확인
