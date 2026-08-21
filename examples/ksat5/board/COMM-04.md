@@ -1,14 +1,14 @@
 ---
 id: COMM-04
 title: 송신 시 버스 전압 유지 확인
-status: TAKEN
+status: DONE
 parent: M-COMM
 owner: COMM-RF
-deliverable: -
+deliverable: examples/ksat5/deliverables/COMM/bus-voltage-check.md
 after: COMM-02
 track: COMM
 started: 2026-08-21 07:02:12
-finished: -
+finished: 2026-08-21 07:08:13
 ---
 
 COMM-LEAD의 필요: 트랜시버 EM(COMM-02)의 송신 전류 펄스가 위성 버스
@@ -17,3 +17,4 @@ COMM-LEAD의 필요: 트랜시버 EM(COMM-02)의 송신 전류 펄스가 위성 
 사람이 EPS 팀에 직접 ICD 요청(ICD-COMM-EPS)을 올린다.
 산출물: examples/ksat5/deliverables/COMM/bus-voltage-check.md (송신
 전류 프로파일 대비 EPS 확인 결과 반영)
+검증: EPS 회신 반영, 5V레일 rev.1 초과문제(-0.4A)를 rev.2 레일분리로 해소(+1.48A 여유) 확인; 액추에이터레일 퓨즈정격·EOD출력저하는 EPS-04 실측범위로 명시

@@ -1,14 +1,14 @@
 ---
 id: COMM-03
 title: 안테나 설계 및 구조 장착 인터페이스
-status: TAKEN
+status: DONE
 parent: M-COMM
 owner: COMM-RF
-deliverable: -
+deliverable: examples/ksat5/deliverables/COMM/antenna-design.md
 after: COMM-01
 track: COMM
 started: 2026-08-21 07:02:12
-finished: -
+finished: 2026-08-21 07:08:29
 ---
 
 COMM-LEAD의 필요: 링크버짓(COMM-01)이 요구하는 안테나(이득·전개
@@ -17,3 +17,4 @@ COMM-LEAD의 필요: 링크버짓(COMM-01)이 요구하는 안테나(이득·전
 ICD 요청(ICD-COMM-STR)을 올린다.
 산출물: examples/ksat5/deliverables/COMM/antenna-design.md (안테나
 형식·이득·전개 방식, 장착 인터페이스 합의 결과 반영)
+검증: STR 회신 포락선 범위 내 설계 확인; 방사패턴 실측은 COMM-05로 이월
