@@ -1,13 +1,13 @@
 ---
 id: INT2
 title: FM 통합·인도
-status: OPEN
+status: TAKEN
 parent: R00
-owner: -
+owner: AIT-01
 deliverable: -
 after: M2-STR, M2-EPS, M2-AOCS, M2-COMM
 track: AIT
-started: -
+started: 2026-08-21 07:44:46
 finished: -
 ---
 
