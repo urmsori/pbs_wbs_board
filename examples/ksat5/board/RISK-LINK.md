@@ -1,13 +1,13 @@
 ---
 id: RISK-LINK
 title: EOD 링크마진 0dB 확보 설계 종결
-status: OPEN
+status: TAKEN
 parent: INT2
-owner: -
+owner: COMM-DSN
 deliverable: -
 after: -
 track: COMM
-started: -
+started: 2026-08-21 07:35:35
 finished: -
 ---
 

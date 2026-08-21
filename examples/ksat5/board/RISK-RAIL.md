@@ -1,13 +1,13 @@
 ---
 id: RISK-RAIL
 title: 액추에이터 레일 3자 동시부하 예산·분기 퓨즈 정격 확정
-status: OPEN
+status: TAKEN
 parent: INT2
-owner: -
+owner: EPS-DSN
 deliverable: -
 after: -
 track: EPS
-started: -
+started: 2026-08-21 07:33:10
 finished: -
 ---
 

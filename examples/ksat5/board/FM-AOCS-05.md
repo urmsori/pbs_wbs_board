@@ -1,0 +1,17 @@
+---
+id: FM-AOCS-05
+title: FM 모듈 인도
+status: OPEN
+parent: M2-AOCS
+owner: -
+deliverable: -
+after: FM-AOCS-04
+track: AOCS
+started: -
+finished: -
+---
+
+AOCS-LEAD의 필요: FM-AOCS-04 수락시험 결과를 확인하고 FM 모듈 인도
+문서를 작성해 M2-AOCS를 마무리한다. 다른 팀 산출물 입력 없음 — 앞
+4단계 산출물만 있으면 착수 가능.
+산출물: examples/ksat5/deliverables/AOCS/module-fm.md
