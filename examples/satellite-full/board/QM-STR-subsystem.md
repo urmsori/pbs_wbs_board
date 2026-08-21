@@ -1,13 +1,13 @@
 ---
 id: QM-STR
 title: QM 구조계 취합
-status: OPEN
+status: TAKEN
 parent: QM
-owner: -
+owner: sonnet-agg-a
 deliverable: -
 after: QM-STR-MF, QM-STR-PN, QM-STR-SEP, QM-STR-BR, QM-STR-HG, QM-STR-MC
 track: STR
-started: -
+started: 2026-08-21 01:40:17
 finished: -
 ---
 

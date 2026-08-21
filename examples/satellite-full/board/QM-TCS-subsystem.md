@@ -1,13 +1,13 @@
 ---
 id: QM-TCS
 title: QM 열제어계 취합
-status: OPEN
+status: TAKEN
 parent: QM
-owner: -
+owner: sonnet-agg-a
 deliverable: -
 after: QM-TCS-HT, QM-TCS-ML, QM-TCS-RD, QM-TCS-TS, QM-TCS-HP, QM-TCS-TC
 track: TCS
-started: -
+started: 2026-08-21 01:40:17
 finished: -
 ---
 

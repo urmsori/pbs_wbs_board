@@ -1,13 +1,13 @@
 ---
 id: QM-EPS
 title: QM 전력계 취합
-status: OPEN
+status: TAKEN
 parent: QM
-owner: -
+owner: sonnet-agg-a
 deliverable: -
 after: QM-EPS-SA, QM-EPS-BT, QM-EPS-PC, QM-EPS-PD, QM-EPS-PB, QM-EPS-HN
 track: EPS
-started: -
+started: 2026-08-21 01:40:18
 finished: -
 ---
 

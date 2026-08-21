@@ -1,13 +1,13 @@
 ---
 id: QM-AOCS
 title: QM 자세제어계 취합
-status: OPEN
+status: TAKEN
 parent: QM
-owner: -
+owner: sonnet-agg-a
 deliverable: -
 after: QM-AOCS-ST, QM-AOCS-GY, QM-AOCS-RW, QM-AOCS-MT, QM-AOCS-SS, QM-AOCS-CB
 track: AOCS
-started: -
+started: 2026-08-21 01:40:18
 finished: -
 ---
 
