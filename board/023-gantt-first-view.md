@@ -1,14 +1,14 @@
 ---
 id: 023
 title: 규칙 개정 v2.5 — Gantt 중심 뷰: 모듈별·사람별 레인
-status: TAKEN
+status: DONE
 parent: 000
 owner: claude
-deliverable: -
+deliverable: RULES.md, tools/build_board_view.py
 after: 022
 track: -
 started: 2026-08-21 03:49:00
-finished: -
+finished: 2026-08-21 04:33:04
 ---
 
 사용자 지적: 뷰에서 중요한 것은 Gantt다. Gantt가 모듈별·사람별로 보여야
@@ -23,3 +23,4 @@ finished: -
    그룹별 상세 Gantt(접힘).
 ③ 요약표·WBS·PBS 구성·PBS 트리·시간순 목록은 전부 접힘(details)이 기본.
 검증: 기존 보드 4개(규칙·K-SAT 1·2·3)와 신규 ksat4에서 렌더 확인.
+검증: 5개 보드 재생성 확인 — Gantt 최상단·모듈별/사람별/계층 3모드, 사람별 모드에서 K-SAT 4 역할 308명 레인 렌더 확인, 나머지 섹션 기본 접힘
