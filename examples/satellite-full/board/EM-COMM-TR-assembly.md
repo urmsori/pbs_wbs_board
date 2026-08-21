@@ -1,13 +1,13 @@
 ---
 id: EM-COMM-TR
 title: S대역 트랜시버 취합·판정
-status: OPEN
+status: TAKEN
 parent: EM-COMM
-owner: -
+owner: sonnet-agg-b
 deliverable: -
 after: EM-COMM-TR-14
 track: COMM
-started: -
+started: 2026-08-21 01:31:23
 finished: -
 ---
 

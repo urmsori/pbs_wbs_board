@@ -1,13 +1,13 @@
 ---
 id: EM-TCS-HP
 title: 히트파이프 취합·판정
-status: OPEN
+status: TAKEN
 parent: EM-TCS
-owner: -
+owner: sonnet-agg-a
 deliverable: -
 after: EM-TCS-HP-14
 track: TCS
-started: -
+started: 2026-08-21 01:31:46
 finished: -
 ---
 
