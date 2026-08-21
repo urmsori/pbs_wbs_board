@@ -1,6 +1,6 @@
 # PBS WBS Board 규칙
 
-버전: 1.4 (2026-08-21) · 개정 이력: v1.0 `board/000`, v1.1 `board/006`(Gantt 뷰·병렬
+버전: 1.6 (2026-08-21) · 개정 이력: v1.0 `board/000`, v1.1 `board/006`(Gantt 뷰·병렬
 진행), v1.2 `board/007`(취합 Work는 마지막·Gantt 종속성 화살표), v1.3
 `board/008`(에이전트 사이클·PBS 기록), v1.4 `board/012`(다중 보드), v1.5
 `board/013`(track·단계도 Work·병렬 에이전트 운용), v1.6 `board/014`(웨이브 1
