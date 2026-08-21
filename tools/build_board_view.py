@@ -246,7 +246,8 @@ ROW_H = 26        # 한 Work 행의 높이(px). 세로는 1:1이라 왜곡이 �
 
 
 def build_gantt(sel_posts, by_id, now, base_depth=0):
-    """선택된 게시글들의 started~finished 막대 + after 화살표(선택 안에서만)."""
+    """선택된 게시글들의 Gantt (v2.8): HTML 막대에 Work 이름 내장, 화살표는
+    SVG 오버레이, 시간축은 줌(내부 폭 배율)과 가로 스크롤로 탐색한다."""
     spans = []
     for p in sel_posts:
         start = parse_dt(p["started"])
@@ -261,39 +262,41 @@ def build_gantt(sel_posts, by_id, now, base_depth=0):
     t_min, t_max = min(times), max(times)
     total = max((t_max - t_min).total_seconds(), 60)
 
-    def x(t):
-        return (t - t_min).total_seconds() / total * GANTT_W
+    def pct(t):
+        return (t - t_min).total_seconds() / total * 100.0
 
-    labels, strips, bars, arrows = [], [], [], []
+    labels, rows, arrows = [], [], []
     pos = {}  # id -> (행 번호, start, end)
     for i, (p, start, end) in enumerate(spans):
         if p["id"]:
             pos[p["id"]] = (i, start, end)
         status = p["status"].upper()
         depth = max(depth_of(p, by_id) - base_depth, 0)
-        if start or p.get("_synth"):
-            wait = ""
-        elif is_ready(p, by_id):
-            wait = ' <span class="ready">집기 가능</span>'
-        else:
-            wait = ' <span class="meta">— 대기(선행 미완)</span>'
         labels.append(
-            f'<div class="g-label" style="padding-left:{depth * 0.9}rem">'
-            f'<span class="pid">{esc(p["id"])}</span> {track_badge(p)}{esc(p["title"])}{wait}</div>'
+            f'<div class="g-label" style="padding-left:{depth * 0.7}rem">'
+            f'<span class="pid">{esc(p["id"])}</span> {track_badge(p)}{esc(p["title"])}</div>'
         )
-        y = i * ROW_H
-        if i % 2 == 1:
-            strips.append(f'<rect class="g-strip" x="0" y="{y}" width="{GANTT_W:.0f}" height="{ROW_H}"/>')
+        name = f'{p["id"]} {p["title"]}'.strip()
         if start:
-            x1 = x(start)
-            w = max(x(end) - x1, 12)
+            left = pct(start)
+            width = max(pct(end) - left, 0.15)
             tip = f'{p["id"]} {p["title"]} — {p["started"]} ~ {p["finished"] if p["finished"] != "-" else "진행 중"}'
-            bars.append(
-                f'<rect class="g-bar {status.lower()}" x="{x1:.1f}" y="{y + 6}" '
-                f'width="{w:.1f}" height="{ROW_H - 12}" rx="2"><title>{esc(tip)}</title></rect>'
+            cell = (
+                f'<div class="g-bar2 {status.lower()}" style="left:{left:.2f}%;width:{width:.2f}%" '
+                f'title="{esc(tip)}"><span class="g-bt">{esc(name)}</span></div>'
             )
+        elif p.get("_synth"):
+            cell = f'<div class="g-wait2">{esc(name)}</div>'
+        elif is_ready(p, by_id):
+            cell = f'<div class="g-wait2"><span class="ready">집기 가능</span> {esc(name)}</div>'
+        else:
+            cell = f'<div class="g-wait2">대기 · {esc(name)}</div>'
+        rows.append(f'<div class="g-r">{cell}</div>')
 
     # after 종속성: 선행 Work의 끝 → 후행 Work의 시작 (이 Gantt 안의 것만)
+    def x(t):
+        return (t - t_min).total_seconds() / total * GANTT_W
+
     for i, (p, start, end) in enumerate(spans):
         if not start:
             continue
@@ -316,17 +319,23 @@ def build_gantt(sel_posts, by_id, now, base_depth=0):
             arrows.append(f'<path class="g-dep" d="{path}"/><polygon class="g-dep-head" points="{head}"/>')
 
     height = len(spans) * ROW_H
-    svg = (
-        f'<svg class="g-chart" viewBox="0 0 {GANTT_W:.0f} {height}" '
-        f'preserveAspectRatio="none" style="height:{height}px">'
-        f'{"".join(strips)}{"".join(bars)}{"".join(arrows)}</svg>'
+    overlay = (
+        f'<svg class="g-ov" viewBox="0 0 {GANTT_W:.0f} {height}" '
+        f'preserveAspectRatio="none">{"".join(arrows)}</svg>'
+    )
+    inner = (
+        f'<div class="g-inner" style="height:{height}px">'
+        f'<div class="g-rows">{"".join(rows)}</div>{overlay}</div>'
     )
     axis = (
         f'<div class="g-row g-axis"><div class="g-label"></div>'
         f'<div class="g-track"><span>{esc(t_min.strftime("%Y-%m-%d %H:%M:%S"))}</span>'
         f'<span class="g-right">{esc(t_max.strftime("%Y-%m-%d %H:%M:%S"))}</span></div></div>'
     )
-    body = f'<div class="g-body"><div class="g-labels">{"".join(labels)}</div><div class="g-area">{svg}</div></div>'
+    body = (
+        f'<div class="g-body"><div class="g-labels">{"".join(labels)}</div>'
+        f'<div class="g-scroll">{inner}</div></div>'
+    )
     return f'<div class="gantt">{axis}{body}</div>'
 
 
@@ -669,7 +678,8 @@ def main():
   details.top {{ margin: 1.6rem 0 0; }}
   details.top > summary {{ cursor: pointer; font-size: 1.15rem; font-weight: 700;
                            border-bottom: 1px solid #ddd; padding-bottom: .3rem; }}
-  .gmode {{ margin: .4rem 0 .6rem; }}
+  .gmode {{ margin: .4rem 0 .6rem; display: flex; align-items: center; }}
+  .gsep {{ width: .8rem; }}
   .gmode button {{ font: inherit; font-size: .85rem; padding: .25rem .8rem;
                    border: 1px solid #ccc; background: #f6f8fa; cursor: pointer; }}
   .gmode button:first-child {{ border-radius: .4rem 0 0 .4rem; }}
@@ -679,19 +689,40 @@ def main():
             margin: .4rem 0; }}
   .g-row {{ display: flex; align-items: center; gap: .6rem; margin: .3rem 0; }}
   .g-body {{ display: flex; gap: .6rem; align-items: flex-start; }}
-  .g-labels {{ flex: 0 0 20rem; }}
-  .g-label {{ flex: 0 0 20rem; height: {ROW_H}px; line-height: {ROW_H}px; font-size: .85rem;
+  .g-labels {{ flex: 0 0 15rem; min-width: 0; }}
+  body.labels-off .g-labels {{ display: none; }}
+  .g-label {{ height: {ROW_H}px; line-height: {ROW_H}px; font-size: .8rem;
               overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
-  .g-area {{ flex: 1; min-width: 0; }}
-  .g-chart {{ width: 100%; display: block; background: #f8fafc; border-radius: .3rem; }}
-  .g-strip {{ fill: #eef1f5; }}
-  .g-bar.done  {{ fill: #34a853; }}
-  .g-bar.taken {{ fill: #f9ab00; }}
-  .g-bar.open  {{ fill: #d93025; }}
-  .g-dep {{ fill: none; stroke: #5f6b7a; stroke-width: 1.3; opacity: .75; }}
-  .g-dep-head {{ fill: #5f6b7a; opacity: .85; }}
+  .g-scroll {{ flex: 1; min-width: 0; overflow-x: auto; -webkit-overflow-scrolling: touch;
+               border-radius: .3rem; }}
+  .g-inner {{ position: relative; width: 100%; min-width: 100%; background: #f8fafc; }}
+  .g-rows {{ position: relative; }}
+  .g-r {{ position: relative; height: {ROW_H}px; }}
+  .g-r:nth-child(even) {{ background: #eef1f5; }}
+  .g-bar2 {{ position: absolute; top: 5px; height: {ROW_H - 10}px; border-radius: 3px;
+             min-width: 2px; }}
+  .g-bar2.done  {{ background: #34a853; }}
+  .g-bar2.taken {{ background: #f9ab00; }}
+  .g-bar2.open  {{ background: #d93025; }}
+  .g-bt {{ position: absolute; left: 3px; top: 50%; transform: translateY(-50%);
+           font-size: 10.5px; line-height: 1.35; color: #17301c;
+           background: rgba(255,255,255,.78); padding: 0 4px 1px; border-radius: 3px;
+           white-space: nowrap; pointer-events: none; }}
+  .g-wait2 {{ font-size: 10.5px; color: #8a94a3; line-height: {ROW_H}px; padding-left: 6px;
+              white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }}
+  .g-ov {{ position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }}
+  .g-dep {{ fill: none; stroke: #5f6b7a; stroke-width: 1.3; opacity: .7; }}
+  .g-dep-head {{ fill: #5f6b7a; opacity: .8; }}
   .g-axis .g-track {{ background: none; display: flex; justify-content: space-between;
                       font-size: .75rem; color: #888; height: auto; flex: 1; }}
+  @media (max-width: 700px) {{
+    body {{ margin: .8rem auto; padding: 0 .5rem; }}
+    .g-labels {{ display: none; }}
+    body.labels-on .g-labels {{ display: block; flex-basis: 9rem; }}
+    .gmode button {{ padding: .5rem .9rem; font-size: .95rem; }}
+    details.top > summary {{ font-size: 1rem; }}
+    table.lvl {{ font-size: .75rem; }}
+  }}
   .legend {{ font-size: .8rem; color: #666; margin-top: .4rem; }}
   .chip {{ display: inline-block; width: .8rem; height: .8rem; border-radius: .2rem;
            vertical-align: -.1rem; }}
@@ -711,6 +742,10 @@ def main():
   <button data-g="g-track" class="on">모듈별</button>
   <button data-g="g-owner">사람별</button>
   <button data-g="g-hier">계층</button>
+  <span class="gsep"></span>
+  <button id="zout" title="줌아웃">−</button>
+  <button id="zin" title="줌인">+</button>
+  <button id="ltog" title="라벨 열 표시/숨김">라벨</button>
 </div>
 <div id="g-track">{gantt_track}</div>
 <div id="g-owner" hidden>{gantt_owner}</div>
@@ -745,14 +780,30 @@ def main():
 </details>
 
 <script>
-document.querySelectorAll('.gmode button').forEach(function (b) {{
+document.querySelectorAll('.gmode button[data-g]').forEach(function (b) {{
   b.addEventListener('click', function () {{
-    document.querySelectorAll('.gmode button').forEach(function (x) {{ x.classList.remove('on'); }});
+    document.querySelectorAll('.gmode button[data-g]').forEach(function (x) {{ x.classList.remove('on'); }});
     b.classList.add('on');
     ['g-track', 'g-owner', 'g-hier'].forEach(function (id) {{
       document.getElementById(id).hidden = (id !== b.dataset.g);
     }});
   }});
+}});
+var zoom = 1;
+function applyZoom() {{
+  document.querySelectorAll('.g-inner').forEach(function (el) {{
+    el.style.width = (zoom * 100) + '%';
+  }});
+}}
+document.getElementById('zin').addEventListener('click', function () {{
+  zoom = Math.min(zoom * 1.6, 24); applyZoom();
+}});
+document.getElementById('zout').addEventListener('click', function () {{
+  zoom = Math.max(zoom / 1.6, 1); applyZoom();
+}});
+document.getElementById('ltog').addEventListener('click', function () {{
+  document.body.classList.toggle('labels-off');
+  document.body.classList.toggle('labels-on');
 }});
 </script>
 
