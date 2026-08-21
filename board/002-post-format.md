@@ -5,6 +5,9 @@ status: DONE
 parent: 000
 owner: claude
 deliverable: board/
+after: 001
+started: 2026-08-21 00:03
+finished: 2026-08-21 00:04
 ---
 
 게시글 파일의 양식(id/title/status/parent/owner/deliverable)과 상태 전이,

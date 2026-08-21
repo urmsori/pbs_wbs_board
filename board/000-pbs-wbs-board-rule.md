@@ -5,6 +5,9 @@ status: DONE
 parent: -
 owner: claude
 deliverable: RULES.md
+after: -
+started: 2026-08-21 00:02
+finished: 2026-08-21 00:06
 ---
 
 Product: 에이전트와 사람이 Board로 Work를 주고받아 Product를 만들고, 산출물을

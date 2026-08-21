@@ -5,6 +5,9 @@ status: DONE
 parent: 000
 owner: claude
 deliverable: board.html
+after: 002,003
+started: 2026-08-21 00:04
+finished: 2026-08-21 00:05
 ---
 
 003의 도구를 이 Board에 실제로 실행해 사람이 볼 수 있는 페이지를 만든다.

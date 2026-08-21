@@ -5,6 +5,9 @@ status: DONE
 parent: 000
 owner: claude
 deliverable: RULES.md
+after: -
+started: 2026-08-21 00:02
+finished: 2026-08-21 00:03
 ---
 
 Product/Work/산출물/Board/게시글/PBS/WBS 용어를 정의하고, 전체를 읽지 않아도

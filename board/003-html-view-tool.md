@@ -5,6 +5,9 @@ status: DONE
 parent: 000
 owner: claude
 deliverable: tools/build_board_view.py
+after: 001
+started: 2026-08-21 00:03
+finished: 2026-08-21 00:04
 ---
 
 Board는 사람도 지켜봐야 하므로, board/의 게시글을 취합해 WBS 트리·PBS 트리·
