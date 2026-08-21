@@ -1,13 +1,13 @@
 ---
 id: M2-COMM
 title: 통신 FM 모듈 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
-owner: -
+owner: COMM-LEAD
 deliverable: -
 after: INT
 track: COMM
-started: -
+started: 2026-08-21 07:37:30
 finished: -
 ---
 
