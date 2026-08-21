@@ -1,13 +1,13 @@
 ---
 id: F-AIT-1
 title: FM 전기 통합 시험
-status: OPEN
+status: TAKEN
 parent: F-PHASE
-owner: -
+owner: AIT-13
 deliverable: -
 after: F-STR-L1, F-TCS-L1, F-EPS-L1, F-AOCS-L1, F-OBC-L1, F-COMM-L1, F-PROP-L1, F-PAY-L1
 track: AIT
-started: -
+started: 2026-08-21 04:25:40
 finished: -
 ---
 
