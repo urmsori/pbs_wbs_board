@@ -1,14 +1,14 @@
 ---
 id: NEED-HAR-EPS
 title: EPS 인수 시험용 시험 하니스(PCU 백플레인·배터리 커넥터 대응)
-status: OPEN
+status: DONE
 parent: AIT-RX-EPS
-owner: -
-deliverable: -
+owner: HAR-TECH-01
+deliverable: examples/ksat5/deliverables/SUPPORT/need-har-eps.md
 after: -
 track: HAR
-started: -
-finished: -
+started: 2026-08-21 07:13:40
+finished: 2026-08-21 07:15:01
 ---
 
 AIT-TST의 필요: EPS EM 모듈을 EGSE에 연결해 시험하려는데, PCU와
@@ -25,3 +25,4 @@ AIT-TST의 필요: EPS EM 모듈을 EGSE에 연결해 시험하려는데, PCU와
 요청: PCU 34핀 백플레인 헤더 1채널(레일별 브레이크아웃 포함) + 배터리
 모의용 2핀 전력·1핀 서미스터 채널을 갖춘 EPS EM 모듈 시험 하니스.
 산출물: (지원 역할이 정함)
+검증: PCU 34핀 백플레인(레일별 브레이크아웃)+배터리 2핀/1핀 서미스터가 요청과 일치, icd-str-eps.md 커넥터 규격 확인

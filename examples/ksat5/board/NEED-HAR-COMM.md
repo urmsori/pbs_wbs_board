@@ -1,14 +1,14 @@
 ---
 id: NEED-HAR-COMM
 title: COMM 인수 시험용 전원·데이터 시험 하니스
-status: OPEN
+status: DONE
 parent: AIT-RX-COMM
-owner: -
-deliverable: -
+owner: HAR-TECH-01
+deliverable: examples/ksat5/deliverables/SUPPORT/need-har-comm.md
 after: -
 track: HAR
-started: -
-finished: -
+started: 2026-08-21 07:13:40
+finished: 2026-08-21 07:15:01
 ---
 
 AIT-TST의 필요: COMM EM 모듈을 EGSE에 연결해 시험하려는데, 전원 2계통과
@@ -28,3 +28,4 @@ AIT-TST의 필요: COMM EM 모듈을 EGSE에 연결해 시험하려는데, 전�
 요청: 전원 2핀×2(액추에이터 레일 가변 6.8~8.4V, 5V 로직 레일) + UART
 3.3V TTL 1채널을 갖춘 COMM EM 모듈 전원·데이터 시험 하니스.
 산출물: (지원 역할이 정함)
+검증: 전원2핀x2(6.8~8.4V가변,5V)+UART 3.3V TTL 1채널이 요청과 일치, 인출 위치·방향 확인

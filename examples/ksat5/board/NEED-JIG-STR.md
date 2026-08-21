@@ -1,14 +1,14 @@
 ---
 id: NEED-JIG-STR
 title: STR EM 모듈 인수용 인터페이스 정합 지그 세트
-status: OPEN
+status: DONE
 parent: AIT-RX-STR
-owner: -
-deliverable: -
+owner: GSE-TECH-01
+deliverable: examples/ksat5/deliverables/SUPPORT/need-jig-str.md
 after: -
 track: JIG
-started: -
-finished: -
+started: 2026-08-21 07:13:40
+finished: 2026-08-21 07:15:01
 ---
 
 AIT-TST의 필요: STR EM 모듈(module-em.md)을 인수하려는데, STR-05
@@ -35,3 +35,4 @@ mounting-interfaces.md(module-em.md §"끼워맞춤 검사" 표 근거 문서)�
 EPS 배터리 브래킷(잠정 합격) 항목을 최종 발자국 기준으로 재확인할
 수 있는 지그 포함.
 산출물: (지원 역할이 정함)
+검증: 10종 체결 패턴이 요청 표와 1:1 대응, EPS 배터리 잠정 합격 항목 재확인 지그 포함 확인

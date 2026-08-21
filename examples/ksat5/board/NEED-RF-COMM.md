@@ -1,14 +1,14 @@
 ---
 id: NEED-RF-COMM
 title: COMM 인수 시험용 RF 감쇠기·더미로드
-status: OPEN
+status: DONE
 parent: AIT-RX-COMM
-owner: -
-deliverable: -
+owner: GSE-TECH-01
+deliverable: examples/ksat5/deliverables/SUPPORT/need-rf-comm.md
 after: -
 track: RF
-started: -
-finished: -
+started: 2026-08-21 07:13:40
+finished: 2026-08-21 07:15:01
 ---
 
 AIT-TST의 필요: COMM EM 모듈(module-em.md) 인수 시험(링크버짓·PA 출력
@@ -28,3 +28,4 @@ AIT-TST의 필요: COMM EM 모듈(module-em.md) 인수 시험(링크버짓·PA �
 50Ω 더미로드(방사 없이 종단 측정용), PA 출력을 8.4V·6.8V 두 공급전압
 조건에서 정확히 측정할 수 있는 구성.
 산출물: (지원 역할이 정함)
+검증: SMA케이블+33dBm급 감쇠기+50Ω더미로드, 8.4V/6.8V 두 조건 측정 구성이 요청과 일치함을 확인

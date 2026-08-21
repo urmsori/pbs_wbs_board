@@ -1,14 +1,14 @@
 ---
 id: NEED-SW-EPS
 title: EPS 인수 시험용 EGSE SW(레일 텔레메트리·부하스텝)
-status: OPEN
+status: DONE
 parent: AIT-RX-EPS
-owner: -
-deliverable: -
+owner: SW-EGSE-01
+deliverable: examples/ksat5/deliverables/SUPPORT/need-sw-eps.md
 after: -
 track: SW
-started: -
-finished: -
+started: 2026-08-21 07:13:40
+finished: 2026-08-21 07:15:01
 ---
 
 AIT-TST의 필요: EPS EM 모듈(module-em.md) 인수 시험(버스 레귤레이션·
@@ -34,3 +34,4 @@ icd-eps-comm-power.md를 읽고 확인한 구체 요구:
 요청: 4레일 텔레메트리 로거, 부하스텝 파형 생성기(COMM 펄스 프로파일
 포함), 보호회로 트립점 판정기를 갖춘 EPS EGSE 시험용 SW 일체.
 산출물: (지원 역할이 정함)
+검증: 4레일 텔레메트리 로거·부하스텝(COMM펄스 포함)·보호회로 트립점 판정기 3항목 대응 확인
