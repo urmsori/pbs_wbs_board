@@ -1,13 +1,13 @@
 ---
 id: E-AOCS-T2
 title: 자세제어 기능시험 수행
-status: OPEN
+status: TAKEN
 parent: E-AOCS-L1
-owner: -
+owner: AOCS-TST-02
 deliverable: -
 after: E-AOCS-T1, E-FAC-V4
 track: AOCS
-started: -
+started: 2026-08-21 04:00:00
 finished: -
 ---
 

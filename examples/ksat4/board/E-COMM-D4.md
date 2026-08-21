@@ -1,13 +1,13 @@
 ---
 id: E-COMM-D4
 title: 통신 A4 설계
-status: OPEN
+status: TAKEN
 parent: E-COMM-L1
-owner: -
+owner: COMM-DSN-04
 deliverable: -
 after: E-SE-ICD-COMM
 track: COMM
-started: -
+started: 2026-08-21 03:57:15
 finished: -
 ---
 

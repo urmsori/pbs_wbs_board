@@ -1,13 +1,13 @@
 ---
 id: E-COMM-D2
 title: 통신 A2 설계
-status: OPEN
+status: TAKEN
 parent: E-COMM-L1
-owner: -
+owner: COMM-DSN-02
 deliverable: -
 after: E-SE-ICD-COMM
 track: COMM
-started: -
+started: 2026-08-21 03:57:15
 finished: -
 ---
 
