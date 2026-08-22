@@ -1,14 +1,14 @@
 ---
 id: M-AOCS
 title: 자세제어 비행모델 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: AOCS-LEAD-01
 deliverable: -
 after: REQ
 track: AOCS
-started: -
+started: 2026-08-22 01:20:56
 finished: -
 ---
 

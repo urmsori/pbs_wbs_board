@@ -1,14 +1,14 @@
 ---
 id: M-FSW
 title: 비행SW 비행모델 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: FSW-LEAD-01
 deliverable: -
 after: REQ
 track: FSW
-started: -
+started: 2026-08-22 01:19:34
 finished: -
 ---
 
