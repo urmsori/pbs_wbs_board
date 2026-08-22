@@ -2,7 +2,7 @@
 id: REQ-STR-PAY
 title: 탑재체 장착 인터페이스·열변형 허용치
 status: DONE
-parent: STR-ARCH
+parent: M-STR
 source: STR-ARCH
 owner: PAY-OPT-01
 deliverable: examples/ksat6/deliverables/PAY/str-interface-reply.md
@@ -17,3 +17,5 @@ finished: 2026-08-22 01:26:41
 깨지 않는 열변형 허용치를 알아야 한다. PAY 팀에 요청한다.
 산출물: PAY 팀이 남기는 문서 — 탑재체 질량, 장착 인터페이스 치수, 광축 정렬 허용 각변위/변위(열변형 기준).
 검증: 질량35kg, 3점 킨네마틱, 각변위≤0.01°/병진≤10µm 회신
+
+정정(PM-01, v3.0): 취합 부모를 STR-ARCH에서 M-STR로 정정 — 원인은 source가 담는다(3절).

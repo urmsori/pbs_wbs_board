@@ -2,7 +2,7 @@
 id: REQ-MECH-SA
 title: 전개 힌지 인터페이스(질량·관성·전개각)
 status: DONE
-parent: STR-ARCH
+parent: M-MECH
 source: STR-ARCH
 owner: SA-DSN-01
 deliverable: examples/ksat6/deliverables/SA/mech-str-interface-answer.md
@@ -18,3 +18,5 @@ MECH 팀이 곧 발행할 SA 전개힌지 쌍 설계의 입력이 되는 SA 패�
 SA 팀에 요청한다.
 산출물: SA 팀이 남기는 문서 — 윙당 질량·무게중심, 힌지축 기준 관성모멘트, 목표 전개각(완전 전개 기준).
 검증: SA-01 산출 기반 윙당 질량1.77kg·관성1.51kg·m²·목표전개각180°±1° 회신(패널기판 확정 전 잠정)
+
+정정(PM-01, v3.0): 취합 부모를 STR-ARCH에서 M-MECH로 정정 — 원인은 source가 담는다(3절).
