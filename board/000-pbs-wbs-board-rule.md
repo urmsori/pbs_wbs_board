@@ -1,13 +1,13 @@
 ---
 id: 000
 title: PBS WBS Board 규칙 만들기
-status: DONE
+status: TAKEN
 parent: -
 owner: claude
 deliverable: RULES.md, VALIDATION.md
 after: -
 started: 2026-08-21 00:02
-finished: 2026-08-21 23:10:44
+finished: -
 ---
 
 Product: 에이전트와 사람이 Board로 Work를 주고받아 Product를 만들고, 산출물을
@@ -19,3 +19,5 @@ RULES.md다. 개정 게시글이 새로 생기면 이 게시글은 TAKEN으로 �
 
 재개(v2.9): 사용자 요청 — HTML 뷰어를 처음부터 재설계한다. 개정 027이 끝나면 재취합한다(4절).
 검증: v2.9까지 자식 전량 DONE — 뷰어 백지 재설계를 스스로의 보드로 기록·검증
+
+재개(v3.0): 사용자 지적 — 선행·후행보다 '왜 이 Work가 있는가'가 중요하다. 028이 끝나면 재취합한다.
