@@ -1,5 +1,5 @@
 # STR 구조 비행모델 인도 — module-fm
-입력: examples/ksat6/deliverables/STR/architecture.md, examples/ksat6/deliverables/STR/unit1-panel-frame-design.md, examples/ksat6/deliverables/STR/unit1-panel-frame-mfg.md, examples/ksat6/deliverables/STR/unit1-panel-frame-inspection.md, examples/ksat6/deliverables/STR/unit2-brackets-design.md, examples/ksat6/deliverables/STR/unit2-brackets-mfg.md, examples/ksat6/deliverables/STR/unit2-brackets-inspection.md, examples/ksat6/deliverables/STR/unit2-brackets-rework.md, examples/ksat6/deliverables/STR/structural-analysis.md, examples/ksat6/deliverables/STR/vibration-test.md, examples/ksat6/deliverables/STR/final-inspection.md, examples/ksat6/deliverables/STR/interface-aocs.md, examples/ksat6/deliverables/STR/interface-comm.md, examples/ksat6/deliverables/STR/interface-prop.md
+입력: examples/ksat6/deliverables/STR/architecture.md, examples/ksat6/deliverables/STR/unit1-panel-frame-design.md, examples/ksat6/deliverables/STR/unit1-panel-frame-mfg.md, examples/ksat6/deliverables/STR/unit1-panel-frame-inspection.md, examples/ksat6/deliverables/STR/unit2-brackets-design.md, examples/ksat6/deliverables/STR/unit2-brackets-mfg.md, examples/ksat6/deliverables/STR/unit2-brackets-inspection.md, examples/ksat6/deliverables/STR/unit2-brackets-rework.md, examples/ksat6/deliverables/STR/structural-analysis.md, examples/ksat6/deliverables/STR/vibration-test.md, examples/ksat6/deliverables/STR/final-inspection.md, examples/ksat6/deliverables/STR/interface-aocs.md, examples/ksat6/deliverables/STR/interface-comm.md, examples/ksat6/deliverables/STR/interface-prop.md, examples/ksat6/deliverables/PAY/str-interface-reply.md
 
 ## 구성
 - 1차구조(6면 샌드위치 패널 + 코너프레임 4본 + 발사체 결합링), 2차 브래킷군
@@ -19,8 +19,13 @@
   (STR-U4-TST, 정현·랜덤 진동) → 최종검사(STR-U5-INS).
 - 외부 인터페이스 회신: SA(REQ-STR-SA·REQ-MECH-SA), AOCS(REQ-AOCS-STR),
   COMM(REQ-COMM-STR), PROP(REQ-PROP-STR) — 전량 회신 완료.
-- 잠정 가정: PAY 인터페이스(REQ-STR-PAY)는 폴링 8회×20초(160초) 내 미회신 —
-  탑재체 질량15kg·볼트원φ200mm 8-M6·정렬허용0.01°를 잠정치로 architecture.md에
-  반영해 진행. PAY 회신 도착 시 재작업 필요 여부 재확인 필요(미결).
+- PAY 인터페이스(REQ-STR-PAY): 폴링 8회×20초(160초) 내 미회신이라 잠정치
+  (질량15kg·볼트원φ200mm 8-M6)로 STR-ARCH를 1차 완료했다. 이후 PAY 실회신
+  (질량35kg·3점 킨매틱 마운트φ260mm·각변위≤0.01°·병진≤10µm)이 도착해
+  STR-ARCH-REV(정정 게시글)로 architecture.md를 개정, STR-ARCH를 재취합했다
+  — 규칙 4절 재작업 경로(잠정→실회신→정정)의 실제 사례. 최초 형상(킨매틱
+  3점)이 실회신과 일치해 1차구조·2차 브래킷 재설계는 불필요했고, 탑재체
+  35kg 자체는 STR 1차구조 22kg 예산과 별개 항목이라 질량 판정에 영향 없음.
+  잔여 미결 사항 없음.
 
-검증: sysreq STR 3항목(질량≤22kg, 1차모드≥40Hz, 준정적12g) 전량 실측/시험으로 충족 확인. PAY 인터페이스만 잠정 가정 표기.
+검증: sysreq STR 3항목(질량≤22kg→21.9kg, 1차모드≥40Hz→43.1Hz, 준정적12g→MS≈1.4) 전량 실측/시험으로 충족 확인. PAY 인터페이스는 잠정→실회신 반영까지 완료되어 미결 없음.
