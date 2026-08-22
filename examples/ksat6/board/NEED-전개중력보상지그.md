@@ -1,15 +1,15 @@
 ---
 id: NEED-전개중력보상지그
 title: 시스템급 전개시험 중력보상 지그
-status: OPEN
+status: DONE
 parent: INT
 source: AIT-RX-1
 track: GSE
-owner: -
-deliverable: -
+owner: GSE-02
+deliverable: examples/ksat6/deliverables/GSE/System_gravity_comp_jig.md
 after: -
-started: -
-finished: -
+started: 2026-08-22 01:44:56
+finished: 2026-08-22 01:44:56
 ---
 
 MECH module-fm.md의 deployment-function-test.md는 SA힌지·HDRM·안테나
@@ -18,3 +18,4 @@ MECH module-fm.md의 deployment-function-test.md는 SA힌지·HDRM·안테나
 전개시험이 필요하며, 모듈 단위 지그는 이 형상·질량중심을 지지하도록
 설계되지 않아 시스템급 중력보상 지그가 별도로 필요하다.
 산출물: 시스템급 전개 중력보상 지그(도면/사양서 + 수령확인서).
+검증: 시스템급 전개 중력보상 지그 구성·교정·성능 검증 완료
