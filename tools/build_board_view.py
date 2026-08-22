@@ -37,6 +37,7 @@ def parse_post(path):
         "title": path.stem,
         "status": "OPEN",
         "parent": "-",
+        "source": "-",
         "owner": "-",
         "deliverable": "-",
         "after": "-",
@@ -261,9 +262,16 @@ def main():
     data_posts = []
     for p in ordered:
         st = p["status"].upper()
+        # 원인(source): "왜 이 게시글이 있는가" — 생략하면 parent가 원인(3절 v3.0)
+        so = p.get("source", "-")
+        if so not in by_id:
+            so = p["parent"] if p["parent"] in by_id else ""
+        if so == p["id"]:
+            so = ""
         data_posts.append({
             "id": p["id"], "t": p["title"], "st": st,
             "pa": p["parent"] if p["parent"] in by_id else "",
+            "so": so,
             "ow": p["owner"] if p["owner"] != "-" else "",
             "tr": p.get("track", "-") if p.get("track", "-") != "-" else "",
             "af": after_ids(p),
@@ -317,7 +325,8 @@ TEMPLATE = r"""<!doctype html>
   --taken:#c98500; --taken-bg:rgba(250,178,25,.28);
   --wait:#898781;  --ready:#2a78d6; --ready-bg:rgba(42,120,214,.12);
   --crit:#d03b3b;  --crit-bg:rgba(208,59,59,.10);
-  --sel:#2a78d6; --stripe:rgba(11,11,11,.027); --chip:rgba(252,252,251,.82);
+  --sel:#2a78d6; --stripe:rgba(11,11,11,.027); --chip:rgba(252,252,251,.85);
+  --cause:#4a3aa7;
 }
 @media (prefers-color-scheme: dark) {
   :root:where(:not([data-theme="light"])) {
@@ -328,7 +337,8 @@ TEMPLATE = r"""<!doctype html>
     --taken:#fab219; --taken-bg:rgba(250,178,25,.26);
     --wait:#898781; --ready:#3987e5; --ready-bg:rgba(57,135,229,.20);
     --crit:#d03b3b; --crit-bg:rgba(208,59,59,.22);
-    --sel:#3987e5; --stripe:rgba(255,255,255,.03); --chip:rgba(26,26,25,.82);
+    --sel:#3987e5; --stripe:rgba(255,255,255,.03); --chip:rgba(26,26,25,.85);
+    --cause:#9085e9;
   }
 }
 :root[data-theme="dark"] {
@@ -339,7 +349,8 @@ TEMPLATE = r"""<!doctype html>
   --taken:#fab219; --taken-bg:rgba(250,178,25,.26);
   --wait:#898781; --ready:#3987e5; --ready-bg:rgba(57,135,229,.20);
   --crit:#d03b3b; --crit-bg:rgba(208,59,59,.22);
-  --sel:#3987e5; --stripe:rgba(255,255,255,.03); --chip:rgba(26,26,25,.82);
+  --sel:#3987e5; --stripe:rgba(255,255,255,.03); --chip:rgba(26,26,25,.85);
+  --cause:#9085e9;
 }
 * { box-sizing: border-box; }
 body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -397,14 +408,14 @@ a:hover { text-decoration: underline; }
          border-left: 1px solid var(--grid); }
 #gnow { position: absolute; top: 34px; bottom: 0; width: 0;
         border-left: 2px dashed var(--taken); opacity: .85; }
-.row { position: absolute; left: 0; height: 30px; width: 100%; }
+.row { position: absolute; left: 0; height: 32px; width: 100%; }
 .row.even { background: var(--stripe); }
-.row.dim .bar, .row.dim .bt, .row.dim .ghost { opacity: .25; }
+.row.dim .bar, .row.dim .bt, .row.dim .ghost { opacity: .22; }
 .row.dim .lab > * { opacity: .35; } /* 라벨 배경은 불투명하게 유지 — 뒤 막대 이름이 비치지 않게 */
 .row.selrow { background: var(--ready-bg); }
 .lab { position: sticky; left: 0; z-index: 20; display: inline-block;
        width: var(--labw); height: 100%; background: var(--surface);
-       border-right: 1px solid var(--grid); font-size: .76rem; line-height: 30px;
+       border-right: 1px solid var(--grid); font-size: .78rem; line-height: 32px;
        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
        padding: 0 6px; cursor: pointer; vertical-align: top; }
 .row.even .lab { background: color-mix(in srgb, var(--ink) 3%, var(--surface)); }
@@ -414,25 +425,33 @@ body.labels-off .lab, body.labels-off #gcorner { display: none; }
 .sic { font-weight: 700; }
 .sic.done { color: var(--done); } .sic.taken { color: var(--taken); }
 .sic.open { color: var(--wait); } .sic.ready { color: var(--ready); }
-.bar { position: absolute; top: 7px; height: 16px; border-radius: 4px;
-       cursor: pointer; min-width: 3px; }
-.bar.done  { background: var(--done-bg);  border: 1.5px solid var(--done); }
-.bar.taken { background: var(--taken-bg); border: 1.5px solid var(--taken); }
-.bar.group { top: 11px; height: 8px; border-radius: 4px; }
+/* 막대: 색 = 트랙(정체, JS가 배정) · 상태 = 채움/빗금/점선 윤곽 + 아이콘 */
+.bar { position: absolute; top: 8px; height: 17px; border-radius: 4px;
+       cursor: pointer; min-width: 3px; border: 1.5px solid transparent; }
+.bar.taken { background-image: repeating-linear-gradient(45deg,
+       rgba(255,255,255,.55) 0 5px, transparent 5px 10px); }
+.bar.group { top: 12px; height: 9px; border-radius: 4.5px; }
 .bar.rollup { cursor: pointer; }
-.ghost { position: absolute; top: 7px; height: 16px; border-radius: 8px;
+.ghost { position: absolute; top: 8px; height: 17px; border-radius: 8px;
          border: 1.5px dashed var(--wait); color: var(--muted);
-         font-size: .68rem; line-height: 13px; padding: 0 8px; cursor: pointer;
+         font-size: .7rem; line-height: 14px; padding: 0 8px; cursor: pointer;
          white-space: nowrap; background: var(--surface); }
 .ghost.ready { border-color: var(--ready); color: var(--ready);
                border-style: solid; background: var(--ready-bg); }
 .bt { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
-      font-size: .72rem; color: var(--ink); background: var(--chip);
+      font-size: .74rem; color: var(--ink); background: var(--chip);
       padding: 0 4px; border-radius: 3px; white-space: nowrap;
       pointer-events: none; }
 #garrows { position: absolute; left: 0; top: 0; z-index: 10; pointer-events: none; }
-#garrows path { fill: none; stroke: var(--ink2); stroke-width: 1.4; opacity: .8; }
-#garrows polygon { fill: var(--ink2); opacity: .9; }
+#garrows path.aft { fill: none; stroke: var(--ink2); stroke-width: 1.4; opacity: .8; }
+#garrows polygon.aft { fill: var(--ink2); opacity: .9; }
+#garrows path.cse { fill: none; stroke: var(--cause); stroke-width: 1.6;
+                    stroke-dasharray: 5 4; opacity: .9; }
+#garrows polygon.cse { fill: var(--cause); opacity: .95; }
+.gapmark { position: absolute; top: 34px; bottom: 0; width: 0;
+           border-left: 2px dotted var(--axis); }
+.gaplab { position: absolute; top: 2px; transform: translateX(-50%);
+          font-size: .64rem; color: var(--muted); }
 #legend { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin: .5rem 0 0;
           font-size: .78rem; color: var(--ink2); }
 
@@ -506,7 +525,8 @@ footer { margin-top: 2rem; color: var(--muted); font-size: .8rem; }
     <button id="zi" title="줌인">+</button>
   </div>
   <button id="lt" title="라벨 열 표시/숨김">라벨</button>
-  <button id="ar" title="종속성 화살표 (선택 사슬/전체/끄기)">화살표: 선택</button>
+  <button id="ar" title="화살표 종류: 원인(왜 생겼나)/선행(순서)/둘 다/끄기">화살표: 원인</button>
+  <button id="cp" title="이벤트 없는 긴 시간 간격을 접는다">압축</button>
   <button id="xp" title="모든 그룹 펼치기/접기">펼침</button>
 </div>
 
@@ -518,11 +538,9 @@ footer { margin-top: 2rem; color: var(--muted); font-size: .8rem; }
   <svg id="garrows"></svg>
 </div></div>
 <div id="legend">
-  <span><span class="sic open">○</span> OPEN(대기)</span>
-  <span><span class="sic ready">◍</span> 집기 가능</span>
-  <span><span class="sic taken">◐</span> TAKEN(진행 — 현재 시각까지 표시)</span>
-  <span><span class="sic done">●</span> DONE(완료)</span>
-  <span>막대 클릭 = 선행·후행 사슬 강조 · 그룹/부모 라벨 클릭 = 접기</span>
+  <span>막대 색 = <b>트랙</b> · 상태: 채움 ● 완료 · 빗금 ◐ 진행 · 점선 ○ 대기 · <span class="sic ready">◍</span> 집기 가능</span>
+  <span><span style="color:var(--cause)">⤳ 점선 화살표</span> = 원인(이 Work가 이 필요를 낳았다) · <span style="color:var(--ink2)">→ 실선</span> = 선행(끝나야 시작)</span>
+  <span>막대 클릭 = 왜·순서 사슬 강조 + 상세 · 그룹/부모 라벨 클릭 = 접기 · ⋯ = 접힌 유휴 구간</span>
   <span>루트(취합) Work는 항상 가장 늦게 끝난다(규칙 4절)</span>
 </div>
 <div id="panel" class="card" hidden></div>
@@ -548,6 +566,9 @@ const rootsArr = POSTS.filter(p => !(p.pa && byId.has(p.pa)));
 const depOf = new Map(); // 역방향: 이 Work가 끝나기를 기다리는 것들
 POSTS.forEach(p => p.af.forEach(a => { if (byId.has(a)) {
   if (!depOf.has(a)) depOf.set(a, []); depOf.get(a).push(p.id); } }));
+const spawnOf = new Map(); // 원인 역방향: 이 Work가 낳은 게시글들 (so)
+POSTS.forEach(p => { if (p.so && byId.has(p.so)) {
+  if (!spawnOf.has(p.so)) spawnOf.set(p.so, []); spawnOf.get(p.so).push(p.id); } });
 
 const ts = s => s ? new Date(s.replace(' ', 'T')).getTime() : null;
 const NOW = ts(M.generated);
@@ -559,16 +580,65 @@ if (!isFinite(T0)) { T0 = NOW - 3600e3; T1 = NOW; }
 if (T1 - T0 < 60e3) T1 = T0 + 60e3;
 const SPAN = T1 - T0;
 
-// 트랙 배지: 고정 순서 배정(등장순), 8색을 넘으면 중립 회색(순환 금지)
-const CAT = ['#2a78d6','#eb6834','#1baf7a','#eda100','#e87ba4','#008300','#4a3aa7','#e34948'];
-const trackColor = new Map();
+// ── 유휴 간격 압축 축: 이벤트 없는 긴 간격을 상한으로 접는 조각별 선형 스케일
+const CMP = (() => {
+  const evs = [...new Set(POSTS.flatMap(p =>
+    [p._s, p._e]).filter(x => x != null))].sort((a, b) => a - b);
+  const TH = Math.max(SPAN / 40, 60e3); // 이보다 긴 공백은 이 길이로 접는다
+  // 경계표 R(실제)↔V(가상): R = [T0, gap시작, gap끝, gap시작, ...]
+  // 짝수 인덱스에서 시작하는 구간은 1:1, 홀수 인덱스 구간(gap)은 TH로 접힘.
+  const R = [T0], V = [0];
+  for (let i = 0; i < evs.length - 1; i++) {
+    const a = evs[i], b = evs[i + 1];
+    if (b - a > TH) {
+      V.push(V[V.length - 1] + (a - R[R.length - 1])); R.push(a);
+      V.push(V[V.length - 1] + TH); R.push(b);
+    }
+  }
+  const uEnd = V[V.length - 1] + (T1 - R[R.length - 1]);
+  const gaps = [];
+  for (let k = 1; k + 1 < R.length; k += 2)
+    gaps.push({ ta: R[k], tb: R[k + 1], ua: V[k], ub: V[k + 1], dt: R[k + 1] - R[k] });
+  function uOf(t) {
+    if (t <= T0) return t - T0;
+    let lo = 0, hi = R.length - 1;
+    while (lo < hi) { const m = (lo + hi + 1) >> 1; if (R[m] <= t) lo = m; else hi = m - 1; }
+    if (lo % 2 === 0 || lo === R.length - 1) return V[lo] + (t - R[lo]);
+    return V[lo] + (t - R[lo]) / (R[lo + 1] - R[lo]) * (V[lo + 1] - V[lo]);
+  }
+  const avail = gaps.length > 0 && uEnd < SPAN / 1.5;
+  return { avail, on: avail, uEnd: Math.max(uEnd, 60e3), uOf, gaps, R, V, TH };
+})();
+
+// 트랙 색: 고정 순서 배정(등장순), 8색을 넘으면 중립 회색(순환 금지)
+const CAT  = ['#2a78d6','#eb6834','#1baf7a','#eda100','#e87ba4','#008300','#4a3aa7','#e34948'];
+const CATD = ['#3987e5','#d95926','#199e70','#c98500','#d55181','#008300','#9085e9','#e66767'];
+const NEUT = ['#898781', '#898781'];
+const trackSlot = new Map();
+function slotOf(t) {
+  if (!t) return -1;
+  if (!trackSlot.has(t)) trackSlot.set(t, trackSlot.size);
+  return trackSlot.get(t);
+}
+function isDark() {
+  const th = document.documentElement.dataset.theme;
+  if (th === 'dark') return true;
+  if (th === 'light') return false;
+  return matchMedia('(prefers-color-scheme: dark)').matches;
+}
+function tcolor(t) {
+  const s = slotOf(t);
+  if (s < 0 || s >= 8) return NEUT[isDark() ? 1 : 0];
+  return (isDark() ? CATD : CAT)[s];
+}
 function tbadge(t) {
   if (!t) return '';
-  if (!trackColor.has(t)) trackColor.set(t, trackColor.size < 8 ? CAT[trackColor.size] : '');
-  const c = trackColor.get(t);
+  const c = slotOf(t) < 8 ? tcolor(t) : '';
   const st = c ? ` style="border-left-color:${c};background:${c}1f"` : '';
   return `<span class="tb"${st}>${esc(t)}</span>`;
 }
+try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change',
+  () => requestAnimationFrame(() => render())); } catch (e) {}
 function esc(s) { return String(s).replace(/[&<>"]/g,
   c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 function sic(p) {
@@ -584,10 +654,10 @@ function fmtDur(ms) {
 }
 
 // ── 상태 ─────────────────────────────────────────────────────────────
-const AXH = 34, ROW = 30;
+const AXH = 34, ROW = 32;
 const S = {
-  mode: 'track', zoom: 1, q: '', sel: null, arrows: 'sel',
-  labelsOn: window.innerWidth > 700,
+  mode: 'track', zoom: 1, q: '', sel: null, arrows: 'src',
+  labelsOn: window.innerWidth > 700, compress: CMP.on,
   collapsed: new Set(), expandedAll: false,
 };
 // 기본 접힘: 레인 그룹은 전부, 계층은 (큰 보드) 깊이1부터 / (작은 보드) 깊이2부터
@@ -659,7 +729,9 @@ function chartW() {
   const base = Math.max(gscroll.clientWidth - labW() - 20, 320);
   return base * S.zoom;
 }
-function xOf(t) { return labW() + (t - T0) / SPAN * chartW(); }
+function uSpan() { return S.compress ? CMP.uEnd : SPAN; }
+function uOf(t) { return S.compress ? CMP.uOf(t) : (t - T0); }
+function xOf(t) { return labW() + uOf(t) / uSpan() * chartW(); }
 
 function tickStep(pxPerMs) {
   const steps = [60e3, 300e3, 900e3, 1800e3, 3600e3, 3 * 3600e3, 6 * 3600e3,
@@ -679,20 +751,43 @@ function layout() {
 function render() {
   const sl = gscroll.scrollLeft, st = gscroll.scrollTop;
   const vw = gscroll.clientWidth, vh = gscroll.clientHeight;
-  // 축 눈금 + 세로 격자 (보이는 범위만)
-  const pxPerMs = chartW() / SPAN;
+  // 축 눈금 + 세로 격자
+  const pxPerMs = chartW() / uSpan();
   const step = tickStep(pxPerMs);
-  const tA = T0 + Math.max(0, (sl - labW() - 200) / pxPerMs);
-  const tB = T0 + (sl + vw + 200) / pxPerMs;
-  let ticks = '', glines = '';
   const fmt = step >= 86400e3 ? d => `${d.getMonth() + 1}-${d.getDate()}`
     : step >= 3600e3 ? d => `${d.getMonth() + 1}-${d.getDate()} ${String(d.getHours()).padStart(2,'0')}시`
     : d => `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
-  for (let t = Math.ceil((tA - T0) / step) * step + T0; t <= Math.min(tB, T1 + step); t += step) {
+  let ticks = '', glines = '';
+  const cand = [];
+  const addTick = t => {
     const x = xOf(t);
-    if (x < labW() + 34) continue; // 라벨 열 밑에 반쯤 가려지는 눈금은 생략
+    if (x < labW() + 34 || x < sl - 200 || x > sl + vw + 200) return;
+    cand.push([x, t]);
+  };
+  if (!S.compress) {
+    for (let t = T0 + step; t <= T1 + step; t += step) addTick(t);
+  } else {
+    // 밀집 구간마다: 시작 눈금 + 안에 규칙 눈금. 접힌 구간엔 ⋯ 표식.
+    const R = CMP.R;
+    for (let k = 0; k < R.length; k += 2) {
+      const a = R[k], b = (k + 1 < R.length) ? R[k + 1] : T1;
+      addTick(a === T0 ? a + step : a);
+      for (let t = Math.ceil((a + 1) / step) * step; t < b; t += step) addTick(t);
+    }
+  }
+  cand.sort((a, b) => a[0] - b[0]);
+  let lastX = -1e9;
+  for (const [x, t] of cand) {
+    if (x - lastX < 52) continue; // 겹치는 눈금은 생략
+    lastX = x;
     ticks += `<div class="tick" style="left:${x}px">${fmt(new Date(t))}</div>`;
     glines += `<div class="gline" style="left:${x}px"></div>`;
+  }
+  if (S.compress) for (const g of CMP.gaps) {
+    const x = labW() + (g.ua + g.ub) / 2 / uSpan() * chartW();
+    if (x < sl - 200 || x > sl + vw + 200) continue;
+    glines += `<div class="gapmark" style="left:${x}px"></div>`;
+    ticks += `<div class="gaplab" style="left:${x}px">⋯ ${fmtDur(g.dt)}</div>`;
   }
   $('gticks').innerHTML = ticks;
   $('ggrid').innerHTML = glines;
@@ -709,7 +804,12 @@ function render() {
       if (byId.has(a) && !chainSet.has(a)) { chainSet.add(a); wu(a); } }); };
     const wd = i => { (depOf.get(i) || []).forEach(x => {
       if (!chainSet.has(x)) { chainSet.add(x); wd(x); } }); };
-    wu(S.sel); wd(S.sel);
+    // 왜 사슬: 원인(source)을 루트까지, 그리고 이 Work가 낳은 것들을 끝까지
+    const cu = i => { const s = byId.get(i)?.so;
+      if (s && !chainSet.has(s)) { chainSet.add(s); cu(s); } };
+    const cd = i => { (spawnOf.get(i) || []).forEach(x => {
+      if (!chainSet.has(x)) { chainSet.add(x); cd(x); } }); };
+    wu(S.sel); wd(S.sel); cu(S.sel); cd(S.sel);
   }
   // 보이는 행만 렌더
   const i0 = Math.max(0, Math.floor((st - AXH) / ROW) - 4);
@@ -721,12 +821,13 @@ function render() {
     if (r.group) {
       const g = r.group;
       const caret = r.collapsed ? '▸' : '▾';
+      const gc = tcolor(S.mode === 'track' ? g.k : (g.items[0]?.tr || ''));
       let bar = '';
       if (g.s != null) {
         const x = xOf(g.s), w = Math.max(xOf(g.e) - x, 3);
-        const cls = g.done === g.items.length ? 'done' : 'taken';
-        bar = `<div class="bar group rollup ${cls}" data-k="${esc(r.key)}"
-          style="left:${x}px;width:${w}px"></div>
+        const part = g.done === g.items.length ? '' : ' taken';
+        bar = `<div class="bar group rollup${part}" data-k="${esc(r.key)}"
+          style="left:${x}px;width:${w}px;background-color:${gc};border-color:${gc}"></div>
           <span class="bt" style="left:${x + w + 6}px">${g.done}/${g.items.length}건</span>`;
       }
       hrows += `<div class="row${even}" style="top:${y}px" data-k="${esc(r.key)}">
@@ -738,7 +839,8 @@ function render() {
     const selCls = S.sel === p.id ? ' selrow' : (chainSet && !chainSet.has(p.id) ? ' dim' : '');
     const pad = 6 + r.depth * 14;
     const caret = r.kids ? `<span class="caret">${r.collapsed ? '▸' : '▾'}</span>` : '';
-    const nm = (p.id ? p.id + ' ' : '') + p.t;
+    const ic = p.st === 'DONE' ? '●' : p.st === 'TAKEN' ? '◐' : p.rd ? '◍' : '○';
+    const nm = `${ic} ${p.id ? p.id + ' ' : ''}${p.t}`;
     const sub = p.sub && p.sub[0] > 1 ? ` <span class="meta">${p.sub[1]}/${p.sub[0]}</span>` : '';
     const lab = `<div class="lab" style="padding-left:${pad}px" data-id="${esc(p.id)}"
       ${r.kids ? `data-k="H:${esc(p.id)}"` : ''}>${caret}${sic(p)}
@@ -746,10 +848,11 @@ function render() {
     let cell = '';
     if (p._s != null) {
       const x = xOf(p._s), w = Math.max(xOf(p._e) - x, 3);
+      const c = tcolor(p.tr);
       const cls = p.st === 'DONE' ? 'done' : 'taken';
       const grp = (r.kids || (S.mode === 'hier' && kidsOf.has(p.id))) ? ' group' : '';
       cell = `<div class="bar ${cls}${grp}" data-id="${esc(p.id)}"
-        style="left:${x}px;width:${w}px"></div>
+        style="left:${x}px;width:${w}px;background-color:${c};border-color:${c}"></div>
         <span class="bt" style="left:${x + 4}px">${esc(nm)}</span>`;
     } else {
       const ends = p.af.map(a => byId.get(a)?._e).filter(x => x != null);
@@ -762,37 +865,62 @@ function render() {
     hrows += `<div class="row${even}${selCls}" style="top:${y}px">${lab}${cell}</div>`;
   }
   grows.innerHTML = hrows;
-  renderArrows(chainSet, i0, i1);
+  renderArrows(chainSet);
 }
-function renderArrows(chainSet, i0, i1) {
+function ghostX(p) {
+  const ends = p.af.map(a => byId.get(a)?._e).filter(x => x != null);
+  return xOf(ends.length ? Math.max(...ends) : NOW);
+}
+function renderArrows(chainSet) {
   const svg = $('garrows');
   svg.setAttribute('width', labW() + chartW());
   svg.setAttribute('height', AXH + rows.length * ROW);
   svg.style.width = (labW() + chartW()) + 'px';
   svg.style.height = (AXH + rows.length * ROW) + 'px';
   let edges = [];
-  if (S.arrows === 'sel' && S.sel && chainSet) {
-    chainSet.forEach(id => { (byId.get(id)?.af || []).forEach(a => {
-      if (chainSet.has(a)) edges.push([a, id]); }); });
-  } else if (S.arrows === 'all') {
-    POSTS.forEach(p => p.af.forEach(a => {
-      if (byId.has(a)) edges.push([a, p.id]); }));
-    if (edges.length > 900) edges = edges.slice(0, 900);
+  const seen = new Set();
+  const push = (a, b, k) => { const key = k + a + '>' + b;
+    if (!seen.has(key)) { seen.add(key); edges.push({ a, b, k }); } };
+  if (S.sel && chainSet) { // 선택 중엔 사슬의 화살표만 — 나머지는 소음이다
+    chainSet.forEach(id => { const p = byId.get(id); if (!p) return;
+      p.af.forEach(a => { if (chainSet.has(a)) push(a, id, 'aft'); });
+      if (p.so && chainSet.has(p.so)) push(p.so, id, 'cse'); });
+  } else {
+    if (S.arrows === 'src' || S.arrows === 'both')
+      POSTS.forEach(p => { if (p.so) push(p.so, p.id, 'cse'); });
+    if (S.arrows === 'after' || S.arrows === 'both')
+      POSTS.forEach(p => p.af.forEach(a => { if (byId.has(a)) push(a, p.id, 'aft'); }));
   }
+  if (edges.length > 1200) edges = edges.slice(0, 1200);
   let out = '';
-  for (const [a, b] of edges) {
+  for (const { a, b, k } of edges) {
     const ia = rowIdx.get(a), ib = rowIdx.get(b);
     const pa = byId.get(a), pb = byId.get(b);
-    if (ia == null || ib == null || pa._e == null || pb._s == null) continue;
-    const x1 = xOf(pa._e), y1 = AXH + ia * ROW + ROW / 2;
-    const x2 = xOf(pb._s), y2 = AXH + ib * ROW + ROW / 2;
-    const mx = x1 + 7;
-    if (x2 >= x1 + 16)
-      out += `<path d="M ${x1} ${y1} H ${mx} V ${y2} H ${x2 - 7}"/>
-        <polygon points="${x2},${y2} ${x2 - 7},${y2 - 3.6} ${x2 - 7},${y2 + 3.6}"/>`;
-    else
-      out += `<path d="M ${x1} ${y1} H ${mx} V ${y2} H ${x2 + 7}"/>
-        <polygon points="${x2},${y2} ${x2 + 7},${y2 - 3.6} ${x2 + 7},${y2 + 3.6}"/>`;
+    if (ia == null || ib == null) continue;
+    const y1 = AXH + ia * ROW + ROW / 2, y2 = AXH + ib * ROW + ROW / 2;
+    const x2 = pb._s != null ? xOf(pb._s) : ghostX(pb);
+    if (k === 'cse') {
+      // 원인: 낳은 시점(자식 시작 x)에서 원인 Work의 행으로부터 수직으로 떨어진다
+      if (pa._s == null) continue;
+      const xs = Math.min(Math.max(x2, xOf(pa._s)), xOf(pa._e) + 4);
+      const dn = y2 > y1 ? 1 : -1;
+      const yb = y2 - dn * 11;
+      if (Math.abs(xs - x2) < 8)
+        out += `<path class="cse" d="M ${xs} ${y1 + dn * 10} V ${yb}"/>
+          <polygon class="cse" points="${x2},${y2 - dn * 3} ${x2 - 4},${yb} ${x2 + 4},${yb}"/>`;
+      else
+        out += `<path class="cse" d="M ${xs} ${y1 + dn * 10} V ${y2} H ${x2 - 8}"/>
+          <polygon class="cse" points="${x2},${y2} ${x2 - 8},${y2 - 3.8} ${x2 - 8},${y2 + 3.8}"/>`;
+    } else {
+      if (pa._e == null || pb._s == null) continue;
+      const x1 = xOf(pa._e), mx = x1 + 7;
+      if (x2 >= x1 + 16)
+        out += `<path class="aft" d="M ${x1} ${y1} H ${mx} V ${y2} H ${x2 - 7}"/>
+          <polygon class="aft" points="${x2},${y2} ${x2 - 7},${y2 - 3.6} ${x2 - 7},${y2 + 3.6}"/>`;
+      else
+        out += `<path class="aft" d="M ${x1} ${y1} H ${mx} V ${y2} H ${x2 + 7}"/>
+          <polygon class="aft" points="${x2},${y2} ${x2 + 7},${y2 - 3.6} ${x2 + 7},${y2 + 3.6}"/>`;
+    }
   }
   svg.innerHTML = out;
 }
@@ -827,11 +955,26 @@ function showPanel(id) {
   const depBtn = a => `<button class="dep" data-sel="${esc(a)}">${esc(a)}</button>`;
   const ups = p.af.filter(a => byId.has(a)).map(depBtn).join('') || '—';
   const dns = (depOf.get(id) || []).map(depBtn).join('') || '—';
+  // 왜 있나: source를 루트까지 따라간 사슬 (가까운 원인부터)
+  const why = [];
+  for (let s = p.so, seen = new Set(); s && byId.has(s) && !seen.has(s); s = byId.get(s).so) {
+    seen.add(s); why.push(s);
+  }
+  const whyRow = why.length
+    ? why.map(depBtn).join('<span class="meta"> ← </span>')
+      + ` <span class="meta">(${esc(byId.get(p.so)?.t || '').slice(0, 40)}${(byId.get(p.so)?.t || '').length > 40 ? '…' : ''}이(가) 낳음)</span>`
+    : '<span class="meta">루트 — 이 프로젝트의 출발점</span>';
+  const spawned = (spawnOf.get(id) || []);
+  const spRow = spawned.length
+    ? spawned.slice(0, 14).map(depBtn).join('') + (spawned.length > 14 ? ` <span class="meta">외 ${spawned.length - 14}건</span>` : '')
+    : '—';
   $('panel').innerHTML = `
     <button class="x" title="닫기">✕</button>
     <h3>${sic(p)} <span class="pid">${esc(p.id)}</span>
       <a href="${esc(M.boardRel + '/' + p.fi)}">${esc(p.t)}</a></h3>
     <dl>
+      <dt>왜 있나</dt><dd>${whyRow}</dd>
+      <dt>낳은 것</dt><dd>${spRow}</dd>
       <dt>상태</dt><dd>${esc(word)}</dd>
       <dt>트랙</dt><dd>${p.tr ? tbadge(p.tr) + ' ' + esc(p.tr) : '—'}</dd>
       <dt>담당</dt><dd>${esc(p.ow || '—')}</dd>
@@ -871,10 +1014,18 @@ $('lt').addEventListener('click', () => {
   layout();
 });
 $('ar').addEventListener('click', () => {
-  S.arrows = S.arrows === 'sel' ? 'all' : S.arrows === 'all' ? 'off' : 'sel';
-  $('ar').textContent = '화살표: ' + (S.arrows === 'sel' ? '선택' : S.arrows === 'all' ? '전체' : '끄기');
+  const order = ['src', 'after', 'both', 'off'];
+  S.arrows = order[(order.indexOf(S.arrows) + 1) % 4];
+  $('ar').textContent = '화살표: ' +
+    ({ src: '원인', after: '선행', both: '둘 다', off: '끄기' })[S.arrows];
   render();
 });
+$('cp').addEventListener('click', () => {
+  S.compress = !S.compress;
+  $('cp').classList.toggle('on', S.compress);
+  layout();
+});
+if (!CMP.avail) $('cp').hidden = true; else $('cp').classList.toggle('on', S.compress);
 $('xp').addEventListener('click', () => {
   S.expandedAll = !S.expandedAll;
   $('xp').textContent = S.expandedAll ? '접힘' : '펼침';

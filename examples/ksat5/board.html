@@ -13,7 +13,8 @@
   --taken:#c98500; --taken-bg:rgba(250,178,25,.28);
   --wait:#898781;  --ready:#2a78d6; --ready-bg:rgba(42,120,214,.12);
   --crit:#d03b3b;  --crit-bg:rgba(208,59,59,.10);
-  --sel:#2a78d6; --stripe:rgba(11,11,11,.027); --chip:rgba(252,252,251,.82);
+  --sel:#2a78d6; --stripe:rgba(11,11,11,.027); --chip:rgba(252,252,251,.85);
+  --cause:#4a3aa7;
 }
 @media (prefers-color-scheme: dark) {
   :root:where(:not([data-theme="light"])) {
@@ -24,7 +25,8 @@
     --taken:#fab219; --taken-bg:rgba(250,178,25,.26);
     --wait:#898781; --ready:#3987e5; --ready-bg:rgba(57,135,229,.20);
     --crit:#d03b3b; --crit-bg:rgba(208,59,59,.22);
-    --sel:#3987e5; --stripe:rgba(255,255,255,.03); --chip:rgba(26,26,25,.82);
+    --sel:#3987e5; --stripe:rgba(255,255,255,.03); --chip:rgba(26,26,25,.85);
+    --cause:#9085e9;
   }
 }
 :root[data-theme="dark"] {
@@ -35,7 +37,8 @@
   --taken:#fab219; --taken-bg:rgba(250,178,25,.26);
   --wait:#898781; --ready:#3987e5; --ready-bg:rgba(57,135,229,.20);
   --crit:#d03b3b; --crit-bg:rgba(208,59,59,.22);
-  --sel:#3987e5; --stripe:rgba(255,255,255,.03); --chip:rgba(26,26,25,.82);
+  --sel:#3987e5; --stripe:rgba(255,255,255,.03); --chip:rgba(26,26,25,.85);
+  --cause:#9085e9;
 }
 * { box-sizing: border-box; }
 body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -93,14 +96,14 @@ a:hover { text-decoration: underline; }
          border-left: 1px solid var(--grid); }
 #gnow { position: absolute; top: 34px; bottom: 0; width: 0;
         border-left: 2px dashed var(--taken); opacity: .85; }
-.row { position: absolute; left: 0; height: 30px; width: 100%; }
+.row { position: absolute; left: 0; height: 32px; width: 100%; }
 .row.even { background: var(--stripe); }
-.row.dim .bar, .row.dim .bt, .row.dim .ghost { opacity: .25; }
+.row.dim .bar, .row.dim .bt, .row.dim .ghost { opacity: .22; }
 .row.dim .lab > * { opacity: .35; } /* 라벨 배경은 불투명하게 유지 — 뒤 막대 이름이 비치지 않게 */
 .row.selrow { background: var(--ready-bg); }
 .lab { position: sticky; left: 0; z-index: 20; display: inline-block;
        width: var(--labw); height: 100%; background: var(--surface);
-       border-right: 1px solid var(--grid); font-size: .76rem; line-height: 30px;
+       border-right: 1px solid var(--grid); font-size: .78rem; line-height: 32px;
        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
        padding: 0 6px; cursor: pointer; vertical-align: top; }
 .row.even .lab { background: color-mix(in srgb, var(--ink) 3%, var(--surface)); }
@@ -110,25 +113,33 @@ body.labels-off .lab, body.labels-off #gcorner { display: none; }
 .sic { font-weight: 700; }
 .sic.done { color: var(--done); } .sic.taken { color: var(--taken); }
 .sic.open { color: var(--wait); } .sic.ready { color: var(--ready); }
-.bar { position: absolute; top: 7px; height: 16px; border-radius: 4px;
-       cursor: pointer; min-width: 3px; }
-.bar.done  { background: var(--done-bg);  border: 1.5px solid var(--done); }
-.bar.taken { background: var(--taken-bg); border: 1.5px solid var(--taken); }
-.bar.group { top: 11px; height: 8px; border-radius: 4px; }
+/* 막대: 색 = 트랙(정체, JS가 배정) · 상태 = 채움/빗금/점선 윤곽 + 아이콘 */
+.bar { position: absolute; top: 8px; height: 17px; border-radius: 4px;
+       cursor: pointer; min-width: 3px; border: 1.5px solid transparent; }
+.bar.taken { background-image: repeating-linear-gradient(45deg,
+       rgba(255,255,255,.55) 0 5px, transparent 5px 10px); }
+.bar.group { top: 12px; height: 9px; border-radius: 4.5px; }
 .bar.rollup { cursor: pointer; }
-.ghost { position: absolute; top: 7px; height: 16px; border-radius: 8px;
+.ghost { position: absolute; top: 8px; height: 17px; border-radius: 8px;
          border: 1.5px dashed var(--wait); color: var(--muted);
-         font-size: .68rem; line-height: 13px; padding: 0 8px; cursor: pointer;
+         font-size: .7rem; line-height: 14px; padding: 0 8px; cursor: pointer;
          white-space: nowrap; background: var(--surface); }
 .ghost.ready { border-color: var(--ready); color: var(--ready);
                border-style: solid; background: var(--ready-bg); }
 .bt { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
-      font-size: .72rem; color: var(--ink); background: var(--chip);
+      font-size: .74rem; color: var(--ink); background: var(--chip);
       padding: 0 4px; border-radius: 3px; white-space: nowrap;
       pointer-events: none; }
 #garrows { position: absolute; left: 0; top: 0; z-index: 10; pointer-events: none; }
-#garrows path { fill: none; stroke: var(--ink2); stroke-width: 1.4; opacity: .8; }
-#garrows polygon { fill: var(--ink2); opacity: .9; }
+#garrows path.aft { fill: none; stroke: var(--ink2); stroke-width: 1.4; opacity: .8; }
+#garrows polygon.aft { fill: var(--ink2); opacity: .9; }
+#garrows path.cse { fill: none; stroke: var(--cause); stroke-width: 1.6;
+                    stroke-dasharray: 5 4; opacity: .9; }
+#garrows polygon.cse { fill: var(--cause); opacity: .95; }
+.gapmark { position: absolute; top: 34px; bottom: 0; width: 0;
+           border-left: 2px dotted var(--axis); }
+.gaplab { position: absolute; top: 2px; transform: translateX(-50%);
+          font-size: .64rem; color: var(--muted); }
 #legend { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin: .5rem 0 0;
           font-size: .78rem; color: var(--ink2); }
 
@@ -202,7 +213,8 @@ footer { margin-top: 2rem; color: var(--muted); font-size: .8rem; }
     <button id="zi" title="줌인">+</button>
   </div>
   <button id="lt" title="라벨 열 표시/숨김">라벨</button>
-  <button id="ar" title="종속성 화살표 (선택 사슬/전체/끄기)">화살표: 선택</button>
+  <button id="ar" title="화살표 종류: 원인(왜 생겼나)/선행(순서)/둘 다/끄기">화살표: 원인</button>
+  <button id="cp" title="이벤트 없는 긴 시간 간격을 접는다">압축</button>
   <button id="xp" title="모든 그룹 펼치기/접기">펼침</button>
 </div>
 
@@ -214,11 +226,9 @@ footer { margin-top: 2rem; color: var(--muted); font-size: .8rem; }
   <svg id="garrows"></svg>
 </div></div>
 <div id="legend">
-  <span><span class="sic open">○</span> OPEN(대기)</span>
-  <span><span class="sic ready">◍</span> 집기 가능</span>
-  <span><span class="sic taken">◐</span> TAKEN(진행 — 현재 시각까지 표시)</span>
-  <span><span class="sic done">●</span> DONE(완료)</span>
-  <span>막대 클릭 = 선행·후행 사슬 강조 · 그룹/부모 라벨 클릭 = 접기</span>
+  <span>막대 색 = <b>트랙</b> · 상태: 채움 ● 완료 · 빗금 ◐ 진행 · 점선 ○ 대기 · <span class="sic ready">◍</span> 집기 가능</span>
+  <span><span style="color:var(--cause)">⤳ 점선 화살표</span> = 원인(이 Work가 이 필요를 낳았다) · <span style="color:var(--ink2)">→ 실선</span> = 선행(끝나야 시작)</span>
+  <span>막대 클릭 = 왜·순서 사슬 강조 + 상세 · 그룹/부모 라벨 클릭 = 접기 · ⋯ = 접힌 유휴 구간</span>
   <span>루트(취합) Work는 항상 가장 늦게 끝난다(규칙 4절)</span>
 </div>
 <div id="panel" class="card" hidden></div>
@@ -231,7 +241,7 @@ footer { margin-top: 2rem; color: var(--muted); font-size: .8rem; }
 
 <footer id="foot"></footer>
 </div>
-<script id="data" type="application/json">{"meta": {"title": "K-SAT 5 기술위성 개발", "generated": "2026-08-21 23:10:57", "counts": {"OPEN": 0, "TAKEN": 0, "DONE": 80}, "state": "프로젝트 완료: OPEN·TAKEN 게시글이 없고 루트 게시글이 DONE이다.", "ready": [], "warnings": [], "large": false, "rootRel": "../..", "boardRel": "board", "boardArg": "examples/ksat5/board"}, "posts": [{"id": "R00", "t": "K-SAT 5 기술위성 개발", "st": "DONE", "pa": "", "ow": "PM-01", "tr": "SAT", "af": [], "s": "2026-08-21 06:58:00", "f": "2026-08-21 07:49:59", "dl": ["examples/ksat5/README.md", "examples/ksat5/deliverables/AIT/integration-fm.md"], "fi": "R00.md", "d": 0, "rd": false, "sub": [80, 80], "v": "검증: 자식 79건 전량 DONE, INT2 판정에서 승계 리스크 2건(RISK-RAIL·RISK-LINK) 종결 근거·수치 확인, 운용 제약 4건 이관 명시 — FM 위성 인도"}, {"id": "REQ", "t": "시스템 요구사항 정의", "st": "DONE", "pa": "R00", "ow": "SE-01", "tr": "SE", "af": [], "s": "2026-08-21 06:58:33", "f": "2026-08-21 06:58:33", "dl": ["examples/ksat5/deliverables/sysreq.md"], "fi": "REQ.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: 배분 합계 정합 확인"}, {"id": "M-AOCS", "t": "자세제어 EM 모듈 인도 요청", "st": "DONE", "pa": "R00", "ow": "AOCS-LEAD", "tr": "AOCS", "af": ["REQ"], "s": "2026-08-21 07:00:25", "f": "2026-08-21 07:06:38", "dl": ["examples/ksat5/deliverables/AOCS/module-em.md"], "fi": "M-AOCS.md", "d": 1, "rd": false, "sub": [6, 6], "v": "검증: 하위 Work AOCS-01~04 전건 DONE, 종합 지향오차 0.47도<=0.5도 확인"}, {"id": "AOCS-01", "t": "지향정확도 예산 배분 및 센서/액추에이터 선정", "st": "DONE", "pa": "M-AOCS", "ow": "AOCS-LEAD", "tr": "AOCS", "af": [], "s": "2026-08-21 07:00:54", "f": "2026-08-21 07:01:10", "dl": ["examples/ksat5/deliverables/AOCS/pointing-budget.md"], "fi": "AOCS-01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 지향오차 RSS 0.49도<=0.5도, 질량 배분 합계 2.00kg=배분치 확인"}, {"id": "AOCS-02", "t": "AOCS 제어 알고리즘 및 온보드 SW 설계", "st": "DONE", "pa": "M-AOCS", "ow": "AOCS-SW", "tr": "AOCS", "af": ["AOCS-01"], "s": "2026-08-21 07:01:14", "f": "2026-08-21 07:01:29", "dl": ["examples/ksat5/deliverables/AOCS/control-sw-design.md"], "fi": "AOCS-02.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 모드 전이표 완결성 확인, 제어목표 0.30도가 배분과 일치 확인"}, {"id": "AOCS-03", "t": "센서 장착 설계 (구조 인터페이스 포함)", "st": "DONE", "pa": "M-AOCS", "ow": "AOCS-DSN", "tr": "AOCS", "af": ["AOCS-01"], "s": "2026-08-21 07:01:33", "f": "2026-08-21 07:06:02", "dl": ["examples/ksat5/deliverables/AOCS/sensor-mounting-design.md"], "fi": "AOCS-03.md", "d": 2, "rd": false, "sub": [2, 2], "v": "검증: STR 회신치(정렬<=0.015도/150Hz)가 요청치(<=0.02도/120Hz) 초과 충족 확인"}, {"id": "ICD-AOCS-STR", "t": "AOCS 센서 장착면 정렬·강성 ICD (AOCS↔STR)", "st": "DONE", "pa": "AOCS-03", "ow": "STR-DSN", "tr": "STR", "af": [], "s": "2026-08-21 07:04:53", "f": "2026-08-21 07:05:19", "dl": ["examples/ksat5/deliverables/STR/icd-aocs-str.md"], "fi": "ICD-AOCS-STR.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 스타트래커 요구(0.02도,120Hz) 대비 회신치(0.015도,150Hz) 초과 충족 확인"}, {"id": "AOCS-04", "t": "AOCS 모듈 통합·기능시험", "st": "DONE", "pa": "M-AOCS", "ow": "AOCS-TST", "tr": "AOCS", "af": ["AOCS-02", "AOCS-03"], "s": "2026-08-21 07:06:05", "f": "2026-08-21 07:06:22", "dl": ["examples/ksat5/deliverables/AOCS/module-test-report.md"], "fi": "AOCS-04.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 종합 지향오차 0.47도<=0.5도, 소비전력 실측치가 산정치 이내 확인"}, {"id": "M-COMM", "t": "통신 EM 모듈 인도 요청", "st": "DONE", "pa": "R00", "ow": "COMM-LEAD", "tr": "COMM", "af": ["REQ"], "s": "2026-08-21 07:00:42", "f": "2026-08-21 07:09:00", "dl": ["examples/ksat5/deliverables/COMM/module-em.md"], "fi": "M-COMM.md", "d": 1, "rd": false, "sub": [8, 8], "v": "검증: COMM-01~05 전량 DONE, 모듈 인도문서로 취합 완료"}, {"id": "COMM-01", "t": "UHF 링크버짓 및 통신 아키텍처 설계", "st": "DONE", "pa": "M-COMM", "ow": "COMM-DSN", "tr": "COMM", "af": [], "s": "2026-08-21 07:01:29", "f": "2026-08-21 07:01:47", "dl": ["examples/ksat5/deliverables/COMM/link-budget.md"], "fi": "COMM-01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 링크버짓 합산 마진 6.3dB ≥ 6dB 확인"}, {"id": "COMM-02", "t": "UHF 송수신기(트랜시버) EM 설계", "st": "DONE", "pa": "M-COMM", "ow": "COMM-RF", "tr": "COMM", "af": ["COMM-01"], "s": "2026-08-21 07:01:48", "f": "2026-08-21 07:02:06", "dl": ["examples/ksat5/deliverables/COMM/transceiver-em.md"], "fi": "COMM-02.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 링크버짓 요구 출력 2W 반영, 소비전력 프로파일 설계검토 통과"}, {"id": "COMM-03", "t": "안테나 설계 및 구조 장착 인터페이스", "st": "DONE", "pa": "M-COMM", "ow": "COMM-RF", "tr": "COMM", "af": ["COMM-01"], "s": "2026-08-21 07:02:12", "f": "2026-08-21 07:08:29", "dl": ["examples/ksat5/deliverables/COMM/antenna-design.md"], "fi": "COMM-03.md", "d": 2, "rd": false, "sub": [2, 2], "v": "검증: STR 회신 포락선 범위 내 설계 확인; 방사패턴 실측은 COMM-05로 이월"}, {"id": "ICD-COMM-STR", "t": "안테나 장착 위치·전개 여유 공간 협의", "st": "DONE", "pa": "COMM-03", "ow": "STR-DSN", "tr": "STR", "af": [], "s": "2026-08-21 07:04:53", "f": "2026-08-21 07:05:19", "dl": ["examples/ksat5/deliverables/STR/icd-comm-str.md"], "fi": "ICD-COMM-STR.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 전개전 포락선 6U 표준 범위 내, 전개후 인접기구 이격 30mm 이상 확인"}, {"id": "COMM-04", "t": "송신 시 버스 전압 유지 확인", "st": "DONE", "pa": "M-COMM", "ow": "COMM-RF", "tr": "COMM", "af": ["COMM-02"], "s": "2026-08-21 07:02:12", "f": "2026-08-21 07:08:13", "dl": ["examples/ksat5/deliverables/COMM/bus-voltage-check.md"], "fi": "COMM-04.md", "d": 2, "rd": false, "sub": [2, 2], "v": "검증: EPS 회신 반영, 5V레일 rev.1 초과문제(-0.4A)를 rev.2 레일분리로 해소(+1.48A 여유) 확인; 액추에이터레일 퓨즈정격·EOD출력저하는 EPS-04 실측범위로 명시"}, {"id": "ICD-COMM-EPS", "t": "송신 시 버스 전압 유지 확인 요청", "st": "DONE", "pa": "COMM-04", "ow": "EPS-DSN", "tr": "EPS", "af": [], "s": "2026-08-21 07:05:57", "f": "2026-08-21 07:06:52", "dl": ["examples/ksat5/deliverables/EPS/icd-comm-eps.md"], "fi": "ICD-COMM-EPS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: COMM 실측 전류프로파일×EPS-02 레일정격 합산 결과 엣지 조건 정격 20% 초과 확인, 설계변경 권고 회신"}, {"id": "COMM-05", "t": "통신 모듈 통합·기능시험 및 인도", "st": "DONE", "pa": "M-COMM", "ow": "COMM-TST", "tr": "COMM", "af": ["COMM-02", "COMM-03", "COMM-04"], "s": "2026-08-21 07:08:35", "f": "2026-08-21 07:09:00", "dl": ["examples/ksat5/deliverables/COMM/module-em.md"], "fi": "COMM-05.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 통합점검 4항목 중 3항목 통과, 질량 여유0으로 조건부통과; 잔여리스크 3건 AIT로 명시 이월"}, {"id": "M-EPS", "t": "전력 EM 모듈 인도 요청", "st": "DONE", "pa": "R00", "ow": "EPS-LEAD", "tr": "EPS", "af": ["REQ"], "s": "2026-08-21 07:00:27", "f": "2026-08-21 07:09:19", "dl": ["examples/ksat5/deliverables/EPS/module-em.md"], "fi": "M-EPS.md", "d": 1, "rd": false, "sub": [8, 8], "v": "검증: EPS-01~05 전 자식 DONE, 발생/질량/배터리/인터페이스 정합 확인 완료 — EM 모듈 인도"}, {"id": "EPS-01", "t": "전력 발생계(태양전지판) 설계", "st": "DONE", "pa": "M-EPS", "ow": "EPS-DSN", "tr": "EPS", "af": [], "s": "2026-08-21 07:00:53", "f": "2026-08-21 07:01:15", "dl": ["examples/ksat5/deliverables/EPS/power-generation.md"], "fi": "EPS-01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 발생 전력 EOL 궤도평균 20.6W ≥ 20W 요구치 충족, 질량 0.80kg ≤ 3.0kg 배분 확인"}, {"id": "EPS-02", "t": "전력조절계(PCU) 및 버스 설계", "st": "DONE", "pa": "M-EPS", "ow": "EPS-DSN", "tr": "EPS", "af": ["EPS-01"], "s": "2026-08-21 07:01:18", "f": "2026-08-21 07:01:44", "dl": ["examples/ksat5/deliverables/EPS/power-conditioning.md"], "fi": "EPS-02.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: S3R+BDR 레귤레이션 방식과 4개 레일 구성, 보호회로 항목 설계 검토로 확인"}, {"id": "EPS-03", "t": "배터리 용량 설계", "st": "DONE", "pa": "M-EPS", "ow": "EPS-BAT", "tr": "EPS", "af": ["EPS-01"], "s": "2026-08-21 07:01:48", "f": "2026-08-21 07:08:44", "dl": ["examples/ksat5/deliverables/EPS/battery-sizing.md"], "fi": "EPS-03.md", "d": 2, "rd": false, "sub": [3, 3], "v": "검증: 식 구간 에너지수요(마진포함 5.71Wh) 대비 선정팩 25.8Wh로 DoD 22% 산출, LEO Li-ion 통상 한도(25~30%) 이내 확인, 첨두전류 2.46A 셀 정격 이내"}, {"id": "ICD-EPS-AOCS", "t": "AOCS 구동기 소비 전력 프로파일 요청", "st": "DONE", "pa": "EPS-03", "ow": "AOCS-DSN", "tr": "AOCS", "af": [], "s": "2026-08-21 07:05:08", "f": "2026-08-21 07:05:39", "dl": ["examples/ksat5/deliverables/AOCS/icd-eps-aocs-power-profile.md"], "fi": "ICD-EPS-AOCS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: NOMINAL 3.2W/첨두 9.1W 산정치 정합, 6.8~8.4V 구간 동작 확인"}, {"id": "ICD-EPS-COMM", "t": "COMM 송신기 소비 전력 프로파일 요청", "st": "DONE", "pa": "EPS-03", "ow": "COMM-RF", "tr": "COMM", "af": [], "s": "2026-08-21 07:05:57", "f": "2026-08-21 07:06:54", "dl": ["examples/ksat5/deliverables/COMM/icd-eps-comm-power.md", "examples/ksat5/deliverables/COMM/transceiver-em.md"], "fi": "ICD-EPS-COMM.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 전력 프로파일·duty cycle 회신, PA효율 역산치와 transceiver-em.md rev.2 정합 확인"}, {"id": "EPS-04", "t": "EPS EM 모듈 시험계획", "st": "DONE", "pa": "M-EPS", "ow": "EPS-TST", "tr": "EPS", "af": ["EPS-02"], "s": "2026-08-21 07:02:04", "f": "2026-08-21 07:02:23", "dl": ["examples/ksat5/deliverables/EPS/test-plan.md"], "fi": "EPS-04.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 5개 시험 항목·합격 기준을 EPS-01/EPS-02 설계값 대비 도출, 정합성 검토 완료"}, {"id": "EPS-05", "t": "EPS EM 모듈 통합·인도", "st": "DONE", "pa": "M-EPS", "ow": "EPS-LEAD", "tr": "EPS", "af": ["EPS-01", "EPS-02", "EPS-03", "EPS-04"], "s": "2026-08-21 07:08:48", "f": "2026-08-21 07:09:14", "dl": ["examples/ksat5/deliverables/EPS/module-em.md"], "fi": "EPS-05.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 발생≥20W, 질량≤3.0kg, 배터리 DoD≤25~30%, STR/COMM ICD 확정 반영 4개 내부산출물 통합 정합 확인"}, {"id": "M-STR", "t": "구조 EM 모듈 인도 요청", "st": "DONE", "pa": "R00", "ow": "STR-LEAD", "tr": "STR", "af": ["REQ"], "s": "2026-08-21 07:01:35", "f": "2026-08-21 07:08:56", "dl": ["examples/ksat5/deliverables/STR/module-em.md"], "fi": "M-STR.md", "d": 1, "rd": false, "sub": [9, 9], "v": "검증: 자식 전량 DONE, 구조질량 2.97kg<=배분3.00kg 확인"}, {"id": "STR-01", "t": "1차 구조 설계 (프레임·패널, 6U 표준 포락선)", "st": "DONE", "pa": "M-STR", "ow": "STR-DSN", "tr": "STR", "af": [], "s": "2026-08-21 07:03:19", "f": "2026-08-21 07:03:38", "dl": ["examples/ksat5/deliverables/STR/primary-structure-design.md"], "fi": "STR-01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 질량 배분 2.40+0.60=3.00kg <= STR 배분 3.0kg 확인, 포락선 6U 표준 범위 내 확인"}, {"id": "STR-02", "t": "서브시스템 장착 인터페이스 설계", "st": "DONE", "pa": "M-STR", "ow": "STR-DSN", "tr": "STR", "af": ["STR-01", "ICD-STR-EPS", "ICD-STR-AOCS", "ICD-STR-COMM"], "s": "2026-08-21 07:07:11", "f": "2026-08-21 07:07:44", "dl": ["examples/ksat5/deliverables/STR/mounting-interfaces.md"], "fi": "STR-02.md", "d": 2, "rd": false, "sub": [4, 4], "v": "검증: EPS/AOCS/COMM 발자국 반영, AOCS 정렬·강성 및 COMM 안테나 포락선 요구 충족, STR 구조질량 2.95kg<=3.00kg 확인"}, {"id": "ICD-STR-AOCS", "t": "AOCS 모듈 질량·장착 발자국 확인 요청", "st": "DONE", "pa": "STR-02", "ow": "AOCS-DSN", "tr": "AOCS", "af": [], "s": "2026-08-21 07:05:08", "f": "2026-08-21 07:05:39", "dl": ["examples/ksat5/deliverables/AOCS/icd-str-aocs-mass-footprint.md"], "fi": "ICD-STR-AOCS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 구성품별 질량 합계 2.00kg = AOCS 배분 2.0kg 일치 확인"}, {"id": "ICD-STR-COMM", "t": "COMM 모듈 질량·장착 발자국 확인 요청", "st": "DONE", "pa": "STR-02", "ow": "COMM-RF", "tr": "COMM", "af": [], "s": "2026-08-21 07:05:57", "f": "2026-08-21 07:06:54", "dl": ["examples/ksat5/deliverables/COMM/icd-str-comm-footprint.md", "examples/ksat5/deliverables/COMM/transceiver-em.md"], "fi": "ICD-STR-COMM.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 질량·외형·홀패턴·커넥터 위치 회신, STR-02 착수 가능"}, {"id": "ICD-STR-EPS", "t": "EPS 모듈 질량·장착 발자국 확인 요청", "st": "DONE", "pa": "STR-02", "ow": "EPS-DSN", "tr": "EPS", "af": [], "s": "2026-08-21 07:05:57", "f": "2026-08-21 07:06:52", "dl": ["examples/ksat5/deliverables/EPS/icd-str-eps.md"], "fi": "ICD-STR-EPS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 태양전지판·PCU 발자국/질량은 EPS-01/02 확정치, 배터리는 EPS-03 대기 중 잠정치로 명시, 총질량 1.30kg(잠정) ≤ 배분 3.0kg 확인"}, {"id": "STR-03", "t": "구조 해석 (강도·진동)", "st": "DONE", "pa": "M-STR", "ow": "STR-ANL", "tr": "STR", "af": ["STR-02"], "s": "2026-08-21 07:07:48", "f": "2026-08-21 07:08:07", "dl": ["examples/ksat5/deliverables/STR/structural-analysis.md"], "fi": "STR-03.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 임계부재 최소 MS=+4.0, 전체 1차모드 185Hz>=100Hz, 스타트래커 브래킷 158Hz>=ICD약속치 150Hz 확인"}, {"id": "STR-04", "t": "구조체 제작", "st": "DONE", "pa": "M-STR", "ow": "STR-MFG", "tr": "STR", "af": ["STR-03"], "s": "2026-08-21 07:08:10", "f": "2026-08-21 07:08:26", "dl": ["examples/ksat5/deliverables/STR/fabrication-record.md"], "fi": "STR-04.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 전 부재 도면 공차 이내 실측 확인, 실측질량 2.97kg<=배분 3.00kg 확인"}, {"id": "STR-05", "t": "끼워맞춤 검사 및 EM 모듈 인도", "st": "DONE", "pa": "M-STR", "ow": "STR-QA", "tr": "STR", "af": ["STR-04"], "s": "2026-08-21 07:08:30", "f": "2026-08-21 07:08:51", "dl": ["examples/ksat5/deliverables/STR/module-em.md"], "fi": "STR-05.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 끼워맞춤 검사 8항목 중 7확정+1잠정 합격, 실측질량 2.97kg<=배분3.00kg, 해석요구 전항 충족 확인"}, {"id": "INT", "t": "위성 통합·시험", "st": "DONE", "pa": "R00", "ow": "AIT-LEAD", "tr": "AIT", "af": ["M-STR", "M-EPS", "M-AOCS", "M-COMM"], "s": "2026-08-21 07:17:25", "f": "2026-08-21 07:19:18", "dl": ["examples/ksat5/deliverables/AIT/integration-report.md"], "fi": "INT.md", "d": 1, "rd": false, "sub": [12, 12], "v": "검증: 질량합 7.44kg<=9.2kg배분, 전력수지 20.6W>=3.71W, ICD 8쌍 대조(7쌍 정합/1쌍 교차리스크 발견) 확인"}, {"id": "AIT-RX-AOCS", "t": "AOCS EM 모듈 인수 시험", "st": "DONE", "pa": "INT", "ow": "AIT-TST", "tr": "AIT", "af": ["M-AOCS"], "s": "2026-08-21 07:08:00", "f": "2026-08-21 07:09:58", "dl": ["examples/ksat5/deliverables/AIT/rx-aocs.md"], "fi": "AIT-RX-AOCS.md", "d": 2, "rd": false, "sub": [3, 3], "v": "검증: 모드전이 5시나리오 전건 통과, 지향오차 0.47도 재현 확인"}, {"id": "NEED-HAR-AOCS", "t": "AOCS 인수 시험용 시험 하니스(커넥터 인출면 대응)", "st": "DONE", "pa": "AIT-RX-AOCS", "ow": "HAR-TECH-01", "tr": "HAR", "af": [], "s": "2026-08-21 07:08:46", "f": "2026-08-21 07:09:19", "dl": ["examples/ksat5/deliverables/SUPPORT/need-har-aocs.md"], "fi": "NEED-HAR-AOCS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 10채널 인출면·수량이 요청 표와 1:1 일치, 트렁크/개별 인출 구분 확인"}, {"id": "NEED-SW-AOCS", "t": "AOCS 인수 시험용 EGSE SW(센서 자극·텔레메트리)", "st": "DONE", "pa": "AIT-RX-AOCS", "ow": "SW-EGSE-01", "tr": "SW", "af": [], "s": "2026-08-21 07:08:46", "f": "2026-08-21 07:09:19", "dl": ["examples/ksat5/deliverables/SUPPORT/need-sw-aocs.md"], "fi": "NEED-SW-AOCS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 4모드 트리거·센서 자극·텔레메트리 로거·지향오차 산출기 4항목 대응 확인"}, {"id": "AIT-RX-COMM", "t": "COMM EM 모듈 인수 시험", "st": "DONE", "pa": "INT", "ow": "AIT-TST", "tr": "AIT", "af": ["M-COMM"], "s": "2026-08-21 07:11:24", "f": "2026-08-21 07:17:21", "dl": ["examples/ksat5/deliverables/AIT/rx-comm.md"], "fi": "AIT-RX-COMM.md", "d": 2, "rd": false, "sub": [3, 3], "v": "검증: PA출력 실측(8.4V/6.8V), EOD 링크마진 6.0dB로 요구충족 확인(여유0dB 잔여리스크 이월)"}, {"id": "NEED-HAR-COMM", "t": "COMM 인수 시험용 전원·데이터 시험 하니스", "st": "DONE", "pa": "AIT-RX-COMM", "ow": "HAR-TECH-01", "tr": "HAR", "af": [], "s": "2026-08-21 07:13:40", "f": "2026-08-21 07:15:01", "dl": ["examples/ksat5/deliverables/SUPPORT/need-har-comm.md"], "fi": "NEED-HAR-COMM.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 전원2핀x2(6.8~8.4V가변,5V)+UART 3.3V TTL 1채널이 요청과 일치, 인출 위치·방향 확인"}, {"id": "NEED-RF-COMM", "t": "COMM 인수 시험용 RF 감쇠기·더미로드", "st": "DONE", "pa": "AIT-RX-COMM", "ow": "GSE-TECH-01", "tr": "RF", "af": [], "s": "2026-08-21 07:13:40", "f": "2026-08-21 07:15:01", "dl": ["examples/ksat5/deliverables/SUPPORT/need-rf-comm.md"], "fi": "NEED-RF-COMM.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: SMA케이블+33dBm급 감쇠기+50Ω더미로드, 8.4V/6.8V 두 조건 측정 구성이 요청과 일치함을 확인"}, {"id": "AIT-RX-EPS", "t": "EPS EM 모듈 인수 시험", "st": "DONE", "pa": "INT", "ow": "AIT-TST", "tr": "AIT", "af": ["M-EPS"], "s": "2026-08-21 07:11:24", "f": "2026-08-21 07:17:21", "dl": ["examples/ksat5/deliverables/AIT/rx-eps.md"], "fi": "AIT-RX-EPS.md", "d": 2, "rd": false, "sub": [3, 3], "v": "검증: 4레일 텔레메트리/부하스텝/보호회로/EOD유지 5개항목 전건 통과(부하프로파일 인용오류 정정 후 재시험)"}, {"id": "NEED-HAR-EPS", "t": "EPS 인수 시험용 시험 하니스(PCU 백플레인·배터리 커넥터 대응)", "st": "DONE", "pa": "AIT-RX-EPS", "ow": "HAR-TECH-01", "tr": "HAR", "af": [], "s": "2026-08-21 07:13:40", "f": "2026-08-21 07:15:01", "dl": ["examples/ksat5/deliverables/SUPPORT/need-har-eps.md"], "fi": "NEED-HAR-EPS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: PCU 34핀 백플레인(레일별 브레이크아웃)+배터리 2핀/1핀 서미스터가 요청과 일치, icd-str-eps.md 커넥터 규격 확인"}, {"id": "NEED-SW-EPS", "t": "EPS 인수 시험용 EGSE SW(레일 텔레메트리·부하스텝)", "st": "DONE", "pa": "AIT-RX-EPS", "ow": "SW-EGSE-01", "tr": "SW", "af": [], "s": "2026-08-21 07:13:40", "f": "2026-08-21 07:15:01", "dl": ["examples/ksat5/deliverables/SUPPORT/need-sw-eps.md"], "fi": "NEED-SW-EPS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 4레일 텔레메트리 로거·부하스텝(COMM펄스 포함)·보호회로 트립점 판정기 3항목 대응 확인"}, {"id": "AIT-RX-STR", "t": "STR EM 모듈 인수 시험", "st": "DONE", "pa": "INT", "ow": "AIT-TST", "tr": "AIT", "af": ["M-STR"], "s": "2026-08-21 07:11:24", "f": "2026-08-21 07:17:21", "dl": ["examples/ksat5/deliverables/AIT/rx-str.md"], "fi": "AIT-RX-STR.md", "d": 2, "rd": false, "sub": [2, 2], "v": "검증: 지그 10종 전건 정합, EPS배터리 잠정판정 최종확정, 질량 2.97kg<=3.00kg 확인"}, {"id": "NEED-JIG-STR", "t": "STR EM 모듈 인수용 인터페이스 정합 지그 세트", "st": "DONE", "pa": "AIT-RX-STR", "ow": "GSE-TECH-01", "tr": "JIG", "af": [], "s": "2026-08-21 07:13:40", "f": "2026-08-21 07:15:01", "dl": ["examples/ksat5/deliverables/SUPPORT/need-jig-str.md"], "fi": "NEED-JIG-STR.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 10종 체결 패턴이 요청 표와 1:1 대응, EPS 배터리 잠정 합격 항목 재확인 지그 포함 확인"}, {"id": "M2-AOCS", "t": "자세제어 FM 모듈 인도 요청", "st": "DONE", "pa": "R00", "ow": "AOCS-LEAD", "tr": "AOCS", "af": ["INT"], "s": "2026-08-21 07:35:47", "f": "2026-08-21 07:37:40", "dl": ["examples/ksat5/deliverables/AOCS/module-fm.md"], "fi": "M2-AOCS.md", "d": 1, "rd": false, "sub": [6, 6], "v": "검증: FM-AOCS-05 인도 완료, 종합 지향오차 0.45도<=0.5도 확인"}, {"id": "FM-AOCS-01", "t": "FM 설계갱신 (EM 결과·리스크 반영)", "st": "DONE", "pa": "M2-AOCS", "ow": "AOCS-DSN", "tr": "AOCS", "af": [], "s": "2026-08-21 07:36:11", "f": "2026-08-21 07:36:28", "dl": ["examples/ksat5/deliverables/AOCS/design-update-fm.md"], "fi": "FM-AOCS-01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 게인 조정이 EM 여유 확대 방향, guard band 강제화가 최악조건 차단함을 확인"}, {"id": "FM-AOCS-02", "t": "비행품(FM) 제작", "st": "DONE", "pa": "M2-AOCS", "ow": "AOCS-MFG", "tr": "AOCS", "af": ["FM-AOCS-01"], "s": "2026-08-21 07:36:32", "f": "2026-08-21 07:36:46", "dl": ["examples/ksat5/deliverables/AOCS/fabrication-record-fm.md"], "fi": "FM-AOCS-02.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: FM 실측 질량 합계 1.998kg<=배분 2.000kg, 체결 사양 일치 확인"}, {"id": "FM-AOCS-03", "t": "FM 센서·액추에이터 교정", "st": "DONE", "pa": "M2-AOCS", "ow": "AOCS-CAL", "tr": "AOCS", "af": ["FM-AOCS-02"], "s": "2026-08-21 07:36:49", "f": "2026-08-21 07:37:01", "dl": ["examples/ksat5/deliverables/AOCS/calibration-report-fm.md"], "fi": "FM-AOCS-03.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: STT 정렬잔차 0.008도<=0.015도, 전구성품 교정편차 설계여유 이내 확인"}, {"id": "FM-AOCS-04", "t": "FM 모듈 수락시험", "st": "DONE", "pa": "M2-AOCS", "ow": "AOCS-TST", "tr": "AOCS", "af": ["FM-AOCS-03"], "s": "2026-08-21 07:37:05", "f": "2026-08-21 07:37:20", "dl": ["examples/ksat5/deliverables/AOCS/acceptance-test-fm.md"], "fi": "FM-AOCS-04.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 종합 지향오차 0.45도<=0.5도, guard band 강제 로직 정상 동작 확인"}, {"id": "FM-AOCS-05", "t": "FM 모듈 인도", "st": "DONE", "pa": "M2-AOCS", "ow": "AOCS-LEAD", "tr": "AOCS", "af": ["FM-AOCS-04"], "s": "2026-08-21 07:37:24", "f": "2026-08-21 07:37:40", "dl": ["examples/ksat5/deliverables/AOCS/module-fm.md"], "fi": "FM-AOCS-05.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 하위 Work FM-AOCS-01~04 전건 DONE, 종합 지향오차 0.45도<=0.5도 확인"}, {"id": "M2-COMM", "t": "통신 FM 모듈 인도 요청", "st": "DONE", "pa": "R00", "ow": "COMM-LEAD", "tr": "COMM", "af": ["INT"], "s": "2026-08-21 07:37:30", "f": "2026-08-21 07:41:56", "dl": ["examples/ksat5/deliverables/COMM/module-fm.md"], "fi": "M2-COMM.md", "d": 1, "rd": false, "sub": [6, 6], "v": "검증: COMM-FM-01~05 전건 DONE으로 취합; RISK-LINK(EOD마진 0dB→실측7.8dB, 목표7.5dB 상회) 및 rail-budget.md(EPS 3자협상 확정 퓨즈정격 1.25A/3.0A) 반영해 EM 승계 리스크 2건 모두 하드웨어 조치 종결, 동시부하재현·운용제약은 AIT로 이월"}, {"id": "COMM-FM-01", "t": "설계 갱신 (EM 승계 리스크 반영)", "st": "DONE", "pa": "M2-COMM", "ow": "COMM-DSN", "tr": "COMM", "af": ["RISK-LINK"], "s": "2026-08-21 07:37:57", "f": "2026-08-21 07:38:19", "dl": ["examples/ksat5/deliverables/COMM/design-update-fm.md"], "fi": "COMM-FM-01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EM대비 변경분(안테나 피드망) 형상·질량·인터페이스 무영향 확인; RISK-RAIL 미확정은 이월 명시"}, {"id": "COMM-FM-02", "t": "비행품(FM) 제작", "st": "DONE", "pa": "M2-COMM", "ow": "COMM-MFG", "tr": "COMM", "af": ["COMM-FM-01"], "s": "2026-08-21 07:39:36", "f": "2026-08-21 07:39:56", "dl": ["examples/ksat5/deliverables/COMM/fabrication-record-fm.md"], "fi": "COMM-FM-02.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 비행급 부품 스크리닝 완료, 피드망 위상오차 ±1.6°(목표±2° 이내)·삽입손실 0.6dB절감(목표0.5dB 이상) 실측 확인, 질량 0.700kg 배분내"}, {"id": "COMM-FM-03", "t": "수락검사", "st": "DONE", "pa": "M2-COMM", "ow": "COMM-QA", "tr": "COMM", "af": ["COMM-FM-02"], "s": "2026-08-21 07:40:01", "f": "2026-08-21 07:40:31", "dl": ["examples/ksat5/deliverables/COMM/acceptance-inspection-fm.md"], "fi": "COMM-FM-03.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 치수·질량·RF 전항목 합격; rail-budget.md 확정 퓨즈정격(1.25A/3.0A, 선택성42%) 인용해 RISK-RAIL 이월항목 재확인·종결, 운용제약은 인도시 이월 명시"}, {"id": "COMM-FM-04", "t": "수락시험", "st": "DONE", "pa": "M2-COMM", "ow": "COMM-TST", "tr": "COMM", "af": ["COMM-FM-03"], "s": "2026-08-21 07:40:37", "f": "2026-08-21 07:41:16", "dl": ["examples/ksat5/deliverables/COMM/acceptance-test-fm.md"], "fi": "COMM-FM-04.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EOD 링크마진 실측 7.8dB≥목표7.5dB 검증완료; 레일전류 5V/액추에이터 각 여유74%/41% 확인; 동시부하 재현은 AIT범위로 이월"}, {"id": "COMM-FM-05", "t": "FM 모듈 인도", "st": "DONE", "pa": "M2-COMM", "ow": "COMM-LEAD", "tr": "COMM", "af": ["COMM-FM-04"], "s": "2026-08-21 07:41:21", "f": "2026-08-21 07:41:49", "dl": ["examples/ksat5/deliverables/COMM/module-fm.md"], "fi": "COMM-FM-05.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 수락검사·수락시험 전건 통과 취합해 FM 모듈 인도 확정; AOCS-COMM 동시부하 재현·운용제약 이행은 AIT/운영단계로 이월 명시"}, {"id": "M2-EPS", "t": "전력 FM 모듈 인도 요청", "st": "DONE", "pa": "R00", "ow": "EPS-LEAD", "tr": "EPS", "af": ["INT"], "s": "2026-08-21 07:38:56", "f": "2026-08-21 07:41:25", "dl": ["examples/ksat5/deliverables/EPS/module-fm.md"], "fi": "M2-EPS.md", "d": 1, "rd": false, "sub": [6, 6], "v": "검증: EPS-F01~05 전 자식 DONE, RISK-RAIL 종결 반영 확인 — FM 모듈 인도"}, {"id": "EPS-F01", "t": "FM 설계 갱신 (EM 승계 리스크 반영)", "st": "DONE", "pa": "M2-EPS", "ow": "EPS-DSN", "tr": "EPS", "af": ["RISK-RAIL"], "s": "2026-08-21 07:39:22", "f": "2026-08-21 07:39:45", "dl": ["examples/ksat5/deliverables/EPS/design-update-fm.md"], "fi": "EPS-F01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: rail-budget 퓨즈정격(2.0A/1.25A/3.0A) 회로도·BOM 3단 반영 확인, EM 대비 발생/버스/배터리 수치 변경없음 승계 확인"}, {"id": "EPS-F02", "t": "FM 비행품 제작", "st": "DONE", "pa": "M2-EPS", "ow": "EPS-MFG", "tr": "EPS", "af": ["EPS-F01"], "s": "2026-08-21 07:39:49", "f": "2026-08-21 07:40:09", "dl": ["examples/ksat5/deliverables/EPS/build-record-fm.md"], "fi": "EPS-F02.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 부품 이력 전 항목 기록, 레일별 연속성시험 전 통과, 토크체결 기록 확인(조립자 1차 점검)"}, {"id": "EPS-F03", "t": "FM 수락검사(Acceptance Inspection)", "st": "DONE", "pa": "M2-EPS", "ow": "EPS-QA", "tr": "EPS", "af": ["EPS-F02"], "s": "2026-08-21 07:40:12", "f": "2026-08-21 07:40:29", "dl": ["examples/ksat5/deliverables/EPS/acceptance-inspection-fm.md"], "fi": "EPS-F03.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 퓨즈3종·배터리실측·치수체결·서류 전항목 독립 재검사 합격 판정"}, {"id": "EPS-F04", "t": "FM 번인시험(Burn-in Test)", "st": "DONE", "pa": "M2-EPS", "ow": "EPS-TST", "tr": "EPS", "af": ["EPS-F03"], "s": "2026-08-21 07:40:34", "f": "2026-08-21 07:40:57", "dl": ["examples/ksat5/deliverables/EPS/burn-in-fm.md"], "fi": "EPS-F04.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EM 5항목 전건 재합격, 72h통전+온도사이클 초기고장없음, 공유레일 4시나리오(단독2/동시1/고장모사1) 전건 설계대로 트립·선택성 실증"}, {"id": "EPS-F05", "t": "FM 모듈 인도", "st": "DONE", "pa": "M2-EPS", "ow": "EPS-LEAD", "tr": "EPS", "af": ["EPS-F04"], "s": "2026-08-21 07:41:02", "f": "2026-08-21 07:41:25", "dl": ["examples/ksat5/deliverables/EPS/module-fm.md"], "fi": "EPS-F05.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EPS-F01~04 전건 DONE 확인, EM대비 발생/질량 불변, rail-budget 퓨즈정격 실물실증 확인, 운용절차 항목 AIT/AOCS 인계 명시"}, {"id": "M2-STR", "t": "구조 FM 모듈 인도 요청", "st": "DONE", "pa": "R00", "ow": "STR-LEAD", "tr": "STR", "af": ["INT"], "s": "2026-08-21 07:33:20", "f": "2026-08-21 07:36:21", "dl": ["examples/ksat5/deliverables/STR/module-fm.md"], "fi": "M2-STR.md", "d": 1, "rd": false, "sub": [6, 6], "v": "검증: FM 내부분해 5건 전량 DONE, 최종질량 2.96kg<=배분3.00kg 확인"}, {"id": "STR-FM-01", "t": "설계 갱신 (EM 승계 리스크 반영)", "st": "DONE", "pa": "M2-STR", "ow": "STR-DSN", "tr": "STR", "af": [], "s": "2026-08-21 07:34:45", "f": "2026-08-21 07:35:05", "dl": ["examples/ksat5/deliverables/STR/design-update-fm.md"], "fi": "STR-FM-01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EPS 배터리 브래킷 형상 불변·질량 마진방향 확인, STR 구조질량 2.95kg 불변으로 배분 3.00kg 이내 확인"}, {"id": "STR-FM-02", "t": "해석 갱신 (FM 설계 기준 강도·진동 재검증)", "st": "DONE", "pa": "M2-STR", "ow": "STR-ANL", "tr": "STR", "af": ["STR-FM-01"], "s": "2026-08-21 07:35:09", "f": "2026-08-21 07:35:25", "dl": ["examples/ksat5/deliverables/STR/structural-analysis-fm.md"], "fi": "STR-FM-02.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 임계부재 MS=+4.02(EM대비 개선), 전체1차모드 185.4Hz>=100Hz, 국부모드 전건 요구 충족 재확인"}, {"id": "STR-FM-03", "t": "비행 구조 제작", "st": "DONE", "pa": "M2-STR", "ow": "STR-MFG", "tr": "STR", "af": ["STR-FM-02"], "s": "2026-08-21 07:35:29", "f": "2026-08-21 07:35:41", "dl": ["examples/ksat5/deliverables/STR/fabrication-record-fm.md"], "fi": "STR-FM-03.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 재료로트·트래블러 전건 기록 완료, 실측질량 2.96kg<=배분3.00kg 확인"}, {"id": "STR-FM-04", "t": "치수 수락검사", "st": "DONE", "pa": "M2-STR", "ow": "STR-QA", "tr": "STR", "af": ["STR-FM-03"], "s": "2026-08-21 07:35:45", "f": "2026-08-21 07:36:01", "dl": ["examples/ksat5/deliverables/STR/acceptance-inspection-fm.md"], "fi": "STR-FM-04.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: CMM 실측 12항목 전건 도면공차 이내 합격, 질량 2.96kg<=3.00kg 확인, FM 구조체 수락 판정"}, {"id": "STR-FM-05", "t": "FM 모듈 인도", "st": "DONE", "pa": "M2-STR", "ow": "STR-LEAD", "tr": "STR", "af": ["STR-FM-04"], "s": "2026-08-21 07:36:04", "f": "2026-08-21 07:36:21", "dl": ["examples/ksat5/deliverables/STR/module-fm.md"], "fi": "STR-FM-05.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 내부 Work 4건 전건 DONE, 최종질량 2.96kg<=3.00kg, 강도·진동 여유 EM 동등이상 확인"}, {"id": "INT2", "t": "FM 통합·인도", "st": "DONE", "pa": "R00", "ow": "AIT-01", "tr": "AIT", "af": ["M2-STR", "M2-EPS", "M2-AOCS", "M2-COMM"], "s": "2026-08-21 07:44:46", "f": "2026-08-21 07:47:55", "dl": ["examples/ksat5/deliverables/AIT/integration-fm.md"], "fi": "INT2.md", "d": 1, "rd": false, "sub": [11, 11], "v": "검증: 리스크 2건 종결 확인(레일 2.08A 재현·퓨즈 선택성, 링크마진 7.8dB), 운용 제약 이관"}, {"id": "AIT-RX2-AOCS", "t": "AOCS FM 모듈 인수 검사", "st": "DONE", "pa": "INT2", "ow": "AIT-TST-01", "tr": "AIT", "af": [], "s": "2026-08-21 07:45:37", "f": "2026-08-21 07:46:35", "dl": ["examples/ksat5/deliverables/AIT/rx2-aocs.md"], "fi": "AIT-RX2-AOCS.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EM하니스/SW 재사용, 모드전이 전건통과, 지향오차0.45도 일치, guardband로직 재현"}, {"id": "AIT-RX2-COMM", "t": "COMM FM 모듈 인수 검사", "st": "DONE", "pa": "INT2", "ow": "AIT-TST-01", "tr": "AIT", "af": [], "s": "2026-08-21 07:45:37", "f": "2026-08-21 07:46:35", "dl": ["examples/ksat5/deliverables/AIT/rx2-comm.md"], "fi": "AIT-RX2-COMM.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EM하니스/RF키트 재사용, 링크마진7.8dB 재확인, 동시부하는 INT2-TST 이월"}, {"id": "AIT-RX2-EPS", "t": "EPS FM 모듈 인수 검사", "st": "DONE", "pa": "INT2", "ow": "AIT-QA-01", "tr": "AIT", "af": [], "s": "2026-08-21 07:45:37", "f": "2026-08-21 07:46:35", "dl": ["examples/ksat5/deliverables/AIT/rx2-eps.md"], "fi": "AIT-RX2-EPS.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EM하니스/SW 재사용, 4레일 텔레메트리 기준이내, 퓨즈정격 실물대조 일치, 동시부하 실모듈재현은 INT2-TST 이월"}, {"id": "AIT-RX2-STR", "t": "STR FM 모듈 인수 검사", "st": "DONE", "pa": "INT2", "ow": "AIT-QA-01", "tr": "AIT", "af": [], "s": "2026-08-21 07:45:37", "f": "2026-08-21 07:46:35", "dl": ["examples/ksat5/deliverables/AIT/rx2-str.md"], "fi": "AIT-RX2-STR.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EM지그10종 재사용 정합, 질량2.96kg<=3.00kg 확인, 잔여 미결 없음"}, {"id": "NEED-FM-DUALLOAD", "t": "AOCS-COMM 동시부하(2.08A, ≤5s) 재현시험용 이중부하 시험 리그", "st": "DONE", "pa": "INT2", "ow": "GSE-01", "tr": "GSE", "af": [], "s": "2026-08-21 07:45:16", "f": "2026-08-21 07:45:16", "dl": ["examples/ksat5/deliverables/GSE/NEED-FM-DUALLOAD_deliverable.md"], "fi": "NEED-FM-DUALLOAD.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: GSE 장비 구성, 교정, 통신 확인 완료"}, {"id": "RISK-LINK", "t": "EOD 링크마진 0dB 확보 설계 종결", "st": "DONE", "pa": "INT2", "ow": "COMM-DSN", "tr": "COMM", "af": [], "s": "2026-08-21 07:35:35", "f": "2026-08-21 07:36:40", "dl": ["examples/ksat5/deliverables/COMM/link-margin-fix.md", "examples/ksat5/deliverables/COMM/antenna-design.md"], "fi": "RISK-LINK.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 방안A(피드망 위상 재최적화, 무게/전력 영향없음) 채택, EOD 마진 6.0dB(여유0)→7.5dB(여유1.5dB) 재계산 확인; 방사패턴 실측은 FM AIT로 이월"}, {"id": "RISK-RAIL", "t": "액추에이터 레일 3자 동시부하 예산·분기 퓨즈 정격 확정", "st": "DONE", "pa": "INT2", "ow": "EPS-DSN", "tr": "EPS", "af": [], "s": "2026-08-21 07:33:10", "f": "2026-08-21 07:38:52", "dl": ["examples/ksat5/deliverables/EPS/rail-budget.md"], "fi": "RISK-RAIL.md", "d": 2, "rd": false, "sub": [3, 3], "v": "검증: AOCS/COMM 회신 대조로 2.08A/≤5s 최악조건 확정, 분기2.0A·1.25A/상위공용3.0A 퓨즈 정격이 83%이하 여유로 통과, 선택성 67%/42%≤80% 확인, 운용제약(guard band 확대·스케줄 금지·궤도실측) 병행 권고"}, {"id": "REQ-RAIL-AOCS", "t": "슬루 첨두 시간 프로파일 재확인 (공유 레일 동시부하 검토용)", "st": "DONE", "pa": "RISK-RAIL", "ow": "AOCS-DSN", "tr": "AOCS", "af": [], "s": "2026-08-21 07:33:41", "f": "2026-08-21 07:34:00", "dl": ["examples/ksat5/deliverables/AOCS/rail-profile.md"], "fi": "REQ-RAIL-AOCS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 궤도당 첨두 누적시간(최악 360s/통상 80s)이 시험·ICD 산정치와 정합함을 확인"}, {"id": "REQ-RAIL-COMM", "t": "송신 펄스 프로파일 재확인 (공유 레일 동시부하 검토용)", "st": "DONE", "pa": "RISK-RAIL", "ow": "COMM-DSN", "tr": "COMM", "af": [], "s": "2026-08-21 07:36:45", "f": "2026-08-21 07:37:25", "dl": ["examples/ksat5/deliverables/COMM/req-rail-comm-tx-timing.md"], "fi": "REQ-RAIL-COMM.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 펄스 시간프로파일 회신, 전류수치 변경없음(icd-eps-comm-power.md 유효) 확인; AOCS 슬루 동시성은 AOCS 확인 필요로 명시"}, {"id": "INT2-TST", "t": "FM 통합시험(동시부하 재현·링크마진 통합확인)", "st": "DONE", "pa": "INT2", "ow": "AIT-TST-01", "tr": "AIT", "af": ["NEED-FM-DUALLOAD", "AIT-RX2-STR", "AIT-RX2-EPS", "AIT-RX2-AOCS", "AIT-RX2-COMM"], "s": "2026-08-21 07:46:49", "f": "2026-08-21 07:47:25", "dl": ["examples/ksat5/deliverables/AIT/integration-test-fm.md"], "fi": "INT2-TST.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 동시부하 실모듈재현(레일6.83V유지,퓨즈미동작), 링크마진 통합확인7.8dB, 운용제약4건 채택"}]}</script>
+<script id="data" type="application/json">{"meta": {"title": "K-SAT 5 기술위성 개발", "generated": "2026-08-22 01:13:39", "counts": {"OPEN": 0, "TAKEN": 0, "DONE": 80}, "state": "프로젝트 완료: OPEN·TAKEN 게시글이 없고 루트 게시글이 DONE이다.", "ready": [], "warnings": [], "large": false, "rootRel": "../..", "boardRel": "board", "boardArg": "examples/ksat5/board"}, "posts": [{"id": "R00", "t": "K-SAT 5 기술위성 개발", "st": "DONE", "pa": "", "so": "", "ow": "PM-01", "tr": "SAT", "af": [], "s": "2026-08-21 06:58:00", "f": "2026-08-21 07:49:59", "dl": ["examples/ksat5/README.md", "examples/ksat5/deliverables/AIT/integration-fm.md"], "fi": "R00.md", "d": 0, "rd": false, "sub": [80, 80], "v": "검증: 자식 79건 전량 DONE, INT2 판정에서 승계 리스크 2건(RISK-RAIL·RISK-LINK) 종결 근거·수치 확인, 운용 제약 4건 이관 명시 — FM 위성 인도"}, {"id": "REQ", "t": "시스템 요구사항 정의", "st": "DONE", "pa": "R00", "so": "R00", "ow": "SE-01", "tr": "SE", "af": [], "s": "2026-08-21 06:58:33", "f": "2026-08-21 06:58:33", "dl": ["examples/ksat5/deliverables/sysreq.md"], "fi": "REQ.md", "d": 1, "rd": false, "sub": [1, 1], "v": "검증: 배분 합계 정합 확인"}, {"id": "M-AOCS", "t": "자세제어 EM 모듈 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "AOCS-LEAD", "tr": "AOCS", "af": ["REQ"], "s": "2026-08-21 07:00:25", "f": "2026-08-21 07:06:38", "dl": ["examples/ksat5/deliverables/AOCS/module-em.md"], "fi": "M-AOCS.md", "d": 1, "rd": false, "sub": [6, 6], "v": "검증: 하위 Work AOCS-01~04 전건 DONE, 종합 지향오차 0.47도<=0.5도 확인"}, {"id": "AOCS-01", "t": "지향정확도 예산 배분 및 센서/액추에이터 선정", "st": "DONE", "pa": "M-AOCS", "so": "M-AOCS", "ow": "AOCS-LEAD", "tr": "AOCS", "af": [], "s": "2026-08-21 07:00:54", "f": "2026-08-21 07:01:10", "dl": ["examples/ksat5/deliverables/AOCS/pointing-budget.md"], "fi": "AOCS-01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 지향오차 RSS 0.49도<=0.5도, 질량 배분 합계 2.00kg=배분치 확인"}, {"id": "AOCS-02", "t": "AOCS 제어 알고리즘 및 온보드 SW 설계", "st": "DONE", "pa": "M-AOCS", "so": "M-AOCS", "ow": "AOCS-SW", "tr": "AOCS", "af": ["AOCS-01"], "s": "2026-08-21 07:01:14", "f": "2026-08-21 07:01:29", "dl": ["examples/ksat5/deliverables/AOCS/control-sw-design.md"], "fi": "AOCS-02.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 모드 전이표 완결성 확인, 제어목표 0.30도가 배분과 일치 확인"}, {"id": "AOCS-03", "t": "센서 장착 설계 (구조 인터페이스 포함)", "st": "DONE", "pa": "M-AOCS", "so": "M-AOCS", "ow": "AOCS-DSN", "tr": "AOCS", "af": ["AOCS-01"], "s": "2026-08-21 07:01:33", "f": "2026-08-21 07:06:02", "dl": ["examples/ksat5/deliverables/AOCS/sensor-mounting-design.md"], "fi": "AOCS-03.md", "d": 2, "rd": false, "sub": [2, 2], "v": "검증: STR 회신치(정렬<=0.015도/150Hz)가 요청치(<=0.02도/120Hz) 초과 충족 확인"}, {"id": "ICD-AOCS-STR", "t": "AOCS 센서 장착면 정렬·강성 ICD (AOCS↔STR)", "st": "DONE", "pa": "AOCS-03", "so": "AOCS-03", "ow": "STR-DSN", "tr": "STR", "af": [], "s": "2026-08-21 07:04:53", "f": "2026-08-21 07:05:19", "dl": ["examples/ksat5/deliverables/STR/icd-aocs-str.md"], "fi": "ICD-AOCS-STR.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 스타트래커 요구(0.02도,120Hz) 대비 회신치(0.015도,150Hz) 초과 충족 확인"}, {"id": "AOCS-04", "t": "AOCS 모듈 통합·기능시험", "st": "DONE", "pa": "M-AOCS", "so": "M-AOCS", "ow": "AOCS-TST", "tr": "AOCS", "af": ["AOCS-02", "AOCS-03"], "s": "2026-08-21 07:06:05", "f": "2026-08-21 07:06:22", "dl": ["examples/ksat5/deliverables/AOCS/module-test-report.md"], "fi": "AOCS-04.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 종합 지향오차 0.47도<=0.5도, 소비전력 실측치가 산정치 이내 확인"}, {"id": "M-COMM", "t": "통신 EM 모듈 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "COMM-LEAD", "tr": "COMM", "af": ["REQ"], "s": "2026-08-21 07:00:42", "f": "2026-08-21 07:09:00", "dl": ["examples/ksat5/deliverables/COMM/module-em.md"], "fi": "M-COMM.md", "d": 1, "rd": false, "sub": [8, 8], "v": "검증: COMM-01~05 전량 DONE, 모듈 인도문서로 취합 완료"}, {"id": "COMM-01", "t": "UHF 링크버짓 및 통신 아키텍처 설계", "st": "DONE", "pa": "M-COMM", "so": "M-COMM", "ow": "COMM-DSN", "tr": "COMM", "af": [], "s": "2026-08-21 07:01:29", "f": "2026-08-21 07:01:47", "dl": ["examples/ksat5/deliverables/COMM/link-budget.md"], "fi": "COMM-01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 링크버짓 합산 마진 6.3dB ≥ 6dB 확인"}, {"id": "COMM-02", "t": "UHF 송수신기(트랜시버) EM 설계", "st": "DONE", "pa": "M-COMM", "so": "M-COMM", "ow": "COMM-RF", "tr": "COMM", "af": ["COMM-01"], "s": "2026-08-21 07:01:48", "f": "2026-08-21 07:02:06", "dl": ["examples/ksat5/deliverables/COMM/transceiver-em.md"], "fi": "COMM-02.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 링크버짓 요구 출력 2W 반영, 소비전력 프로파일 설계검토 통과"}, {"id": "COMM-03", "t": "안테나 설계 및 구조 장착 인터페이스", "st": "DONE", "pa": "M-COMM", "so": "M-COMM", "ow": "COMM-RF", "tr": "COMM", "af": ["COMM-01"], "s": "2026-08-21 07:02:12", "f": "2026-08-21 07:08:29", "dl": ["examples/ksat5/deliverables/COMM/antenna-design.md"], "fi": "COMM-03.md", "d": 2, "rd": false, "sub": [2, 2], "v": "검증: STR 회신 포락선 범위 내 설계 확인; 방사패턴 실측은 COMM-05로 이월"}, {"id": "ICD-COMM-STR", "t": "안테나 장착 위치·전개 여유 공간 협의", "st": "DONE", "pa": "COMM-03", "so": "COMM-03", "ow": "STR-DSN", "tr": "STR", "af": [], "s": "2026-08-21 07:04:53", "f": "2026-08-21 07:05:19", "dl": ["examples/ksat5/deliverables/STR/icd-comm-str.md"], "fi": "ICD-COMM-STR.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 전개전 포락선 6U 표준 범위 내, 전개후 인접기구 이격 30mm 이상 확인"}, {"id": "COMM-04", "t": "송신 시 버스 전압 유지 확인", "st": "DONE", "pa": "M-COMM", "so": "M-COMM", "ow": "COMM-RF", "tr": "COMM", "af": ["COMM-02"], "s": "2026-08-21 07:02:12", "f": "2026-08-21 07:08:13", "dl": ["examples/ksat5/deliverables/COMM/bus-voltage-check.md"], "fi": "COMM-04.md", "d": 2, "rd": false, "sub": [2, 2], "v": "검증: EPS 회신 반영, 5V레일 rev.1 초과문제(-0.4A)를 rev.2 레일분리로 해소(+1.48A 여유) 확인; 액추에이터레일 퓨즈정격·EOD출력저하는 EPS-04 실측범위로 명시"}, {"id": "ICD-COMM-EPS", "t": "송신 시 버스 전압 유지 확인 요청", "st": "DONE", "pa": "COMM-04", "so": "COMM-04", "ow": "EPS-DSN", "tr": "EPS", "af": [], "s": "2026-08-21 07:05:57", "f": "2026-08-21 07:06:52", "dl": ["examples/ksat5/deliverables/EPS/icd-comm-eps.md"], "fi": "ICD-COMM-EPS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: COMM 실측 전류프로파일×EPS-02 레일정격 합산 결과 엣지 조건 정격 20% 초과 확인, 설계변경 권고 회신"}, {"id": "COMM-05", "t": "통신 모듈 통합·기능시험 및 인도", "st": "DONE", "pa": "M-COMM", "so": "M-COMM", "ow": "COMM-TST", "tr": "COMM", "af": ["COMM-02", "COMM-03", "COMM-04"], "s": "2026-08-21 07:08:35", "f": "2026-08-21 07:09:00", "dl": ["examples/ksat5/deliverables/COMM/module-em.md"], "fi": "COMM-05.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 통합점검 4항목 중 3항목 통과, 질량 여유0으로 조건부통과; 잔여리스크 3건 AIT로 명시 이월"}, {"id": "M-EPS", "t": "전력 EM 모듈 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "EPS-LEAD", "tr": "EPS", "af": ["REQ"], "s": "2026-08-21 07:00:27", "f": "2026-08-21 07:09:19", "dl": ["examples/ksat5/deliverables/EPS/module-em.md"], "fi": "M-EPS.md", "d": 1, "rd": false, "sub": [8, 8], "v": "검증: EPS-01~05 전 자식 DONE, 발생/질량/배터리/인터페이스 정합 확인 완료 — EM 모듈 인도"}, {"id": "EPS-01", "t": "전력 발생계(태양전지판) 설계", "st": "DONE", "pa": "M-EPS", "so": "M-EPS", "ow": "EPS-DSN", "tr": "EPS", "af": [], "s": "2026-08-21 07:00:53", "f": "2026-08-21 07:01:15", "dl": ["examples/ksat5/deliverables/EPS/power-generation.md"], "fi": "EPS-01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 발생 전력 EOL 궤도평균 20.6W ≥ 20W 요구치 충족, 질량 0.80kg ≤ 3.0kg 배분 확인"}, {"id": "EPS-02", "t": "전력조절계(PCU) 및 버스 설계", "st": "DONE", "pa": "M-EPS", "so": "M-EPS", "ow": "EPS-DSN", "tr": "EPS", "af": ["EPS-01"], "s": "2026-08-21 07:01:18", "f": "2026-08-21 07:01:44", "dl": ["examples/ksat5/deliverables/EPS/power-conditioning.md"], "fi": "EPS-02.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: S3R+BDR 레귤레이션 방식과 4개 레일 구성, 보호회로 항목 설계 검토로 확인"}, {"id": "EPS-03", "t": "배터리 용량 설계", "st": "DONE", "pa": "M-EPS", "so": "M-EPS", "ow": "EPS-BAT", "tr": "EPS", "af": ["EPS-01"], "s": "2026-08-21 07:01:48", "f": "2026-08-21 07:08:44", "dl": ["examples/ksat5/deliverables/EPS/battery-sizing.md"], "fi": "EPS-03.md", "d": 2, "rd": false, "sub": [3, 3], "v": "검증: 식 구간 에너지수요(마진포함 5.71Wh) 대비 선정팩 25.8Wh로 DoD 22% 산출, LEO Li-ion 통상 한도(25~30%) 이내 확인, 첨두전류 2.46A 셀 정격 이내"}, {"id": "ICD-EPS-AOCS", "t": "AOCS 구동기 소비 전력 프로파일 요청", "st": "DONE", "pa": "EPS-03", "so": "EPS-03", "ow": "AOCS-DSN", "tr": "AOCS", "af": [], "s": "2026-08-21 07:05:08", "f": "2026-08-21 07:05:39", "dl": ["examples/ksat5/deliverables/AOCS/icd-eps-aocs-power-profile.md"], "fi": "ICD-EPS-AOCS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: NOMINAL 3.2W/첨두 9.1W 산정치 정합, 6.8~8.4V 구간 동작 확인"}, {"id": "ICD-EPS-COMM", "t": "COMM 송신기 소비 전력 프로파일 요청", "st": "DONE", "pa": "EPS-03", "so": "EPS-03", "ow": "COMM-RF", "tr": "COMM", "af": [], "s": "2026-08-21 07:05:57", "f": "2026-08-21 07:06:54", "dl": ["examples/ksat5/deliverables/COMM/icd-eps-comm-power.md", "examples/ksat5/deliverables/COMM/transceiver-em.md"], "fi": "ICD-EPS-COMM.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 전력 프로파일·duty cycle 회신, PA효율 역산치와 transceiver-em.md rev.2 정합 확인"}, {"id": "EPS-04", "t": "EPS EM 모듈 시험계획", "st": "DONE", "pa": "M-EPS", "so": "M-EPS", "ow": "EPS-TST", "tr": "EPS", "af": ["EPS-02"], "s": "2026-08-21 07:02:04", "f": "2026-08-21 07:02:23", "dl": ["examples/ksat5/deliverables/EPS/test-plan.md"], "fi": "EPS-04.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 5개 시험 항목·합격 기준을 EPS-01/EPS-02 설계값 대비 도출, 정합성 검토 완료"}, {"id": "EPS-05", "t": "EPS EM 모듈 통합·인도", "st": "DONE", "pa": "M-EPS", "so": "M-EPS", "ow": "EPS-LEAD", "tr": "EPS", "af": ["EPS-01", "EPS-02", "EPS-03", "EPS-04"], "s": "2026-08-21 07:08:48", "f": "2026-08-21 07:09:14", "dl": ["examples/ksat5/deliverables/EPS/module-em.md"], "fi": "EPS-05.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 발생≥20W, 질량≤3.0kg, 배터리 DoD≤25~30%, STR/COMM ICD 확정 반영 4개 내부산출물 통합 정합 확인"}, {"id": "M-STR", "t": "구조 EM 모듈 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "STR-LEAD", "tr": "STR", "af": ["REQ"], "s": "2026-08-21 07:01:35", "f": "2026-08-21 07:08:56", "dl": ["examples/ksat5/deliverables/STR/module-em.md"], "fi": "M-STR.md", "d": 1, "rd": false, "sub": [9, 9], "v": "검증: 자식 전량 DONE, 구조질량 2.97kg<=배분3.00kg 확인"}, {"id": "STR-01", "t": "1차 구조 설계 (프레임·패널, 6U 표준 포락선)", "st": "DONE", "pa": "M-STR", "so": "M-STR", "ow": "STR-DSN", "tr": "STR", "af": [], "s": "2026-08-21 07:03:19", "f": "2026-08-21 07:03:38", "dl": ["examples/ksat5/deliverables/STR/primary-structure-design.md"], "fi": "STR-01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 질량 배분 2.40+0.60=3.00kg <= STR 배분 3.0kg 확인, 포락선 6U 표준 범위 내 확인"}, {"id": "STR-02", "t": "서브시스템 장착 인터페이스 설계", "st": "DONE", "pa": "M-STR", "so": "M-STR", "ow": "STR-DSN", "tr": "STR", "af": ["STR-01", "ICD-STR-EPS", "ICD-STR-AOCS", "ICD-STR-COMM"], "s": "2026-08-21 07:07:11", "f": "2026-08-21 07:07:44", "dl": ["examples/ksat5/deliverables/STR/mounting-interfaces.md"], "fi": "STR-02.md", "d": 2, "rd": false, "sub": [4, 4], "v": "검증: EPS/AOCS/COMM 발자국 반영, AOCS 정렬·강성 및 COMM 안테나 포락선 요구 충족, STR 구조질량 2.95kg<=3.00kg 확인"}, {"id": "ICD-STR-AOCS", "t": "AOCS 모듈 질량·장착 발자국 확인 요청", "st": "DONE", "pa": "STR-02", "so": "STR-02", "ow": "AOCS-DSN", "tr": "AOCS", "af": [], "s": "2026-08-21 07:05:08", "f": "2026-08-21 07:05:39", "dl": ["examples/ksat5/deliverables/AOCS/icd-str-aocs-mass-footprint.md"], "fi": "ICD-STR-AOCS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 구성품별 질량 합계 2.00kg = AOCS 배분 2.0kg 일치 확인"}, {"id": "ICD-STR-COMM", "t": "COMM 모듈 질량·장착 발자국 확인 요청", "st": "DONE", "pa": "STR-02", "so": "STR-02", "ow": "COMM-RF", "tr": "COMM", "af": [], "s": "2026-08-21 07:05:57", "f": "2026-08-21 07:06:54", "dl": ["examples/ksat5/deliverables/COMM/icd-str-comm-footprint.md", "examples/ksat5/deliverables/COMM/transceiver-em.md"], "fi": "ICD-STR-COMM.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 질량·외형·홀패턴·커넥터 위치 회신, STR-02 착수 가능"}, {"id": "ICD-STR-EPS", "t": "EPS 모듈 질량·장착 발자국 확인 요청", "st": "DONE", "pa": "STR-02", "so": "STR-02", "ow": "EPS-DSN", "tr": "EPS", "af": [], "s": "2026-08-21 07:05:57", "f": "2026-08-21 07:06:52", "dl": ["examples/ksat5/deliverables/EPS/icd-str-eps.md"], "fi": "ICD-STR-EPS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 태양전지판·PCU 발자국/질량은 EPS-01/02 확정치, 배터리는 EPS-03 대기 중 잠정치로 명시, 총질량 1.30kg(잠정) ≤ 배분 3.0kg 확인"}, {"id": "STR-03", "t": "구조 해석 (강도·진동)", "st": "DONE", "pa": "M-STR", "so": "M-STR", "ow": "STR-ANL", "tr": "STR", "af": ["STR-02"], "s": "2026-08-21 07:07:48", "f": "2026-08-21 07:08:07", "dl": ["examples/ksat5/deliverables/STR/structural-analysis.md"], "fi": "STR-03.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 임계부재 최소 MS=+4.0, 전체 1차모드 185Hz>=100Hz, 스타트래커 브래킷 158Hz>=ICD약속치 150Hz 확인"}, {"id": "STR-04", "t": "구조체 제작", "st": "DONE", "pa": "M-STR", "so": "M-STR", "ow": "STR-MFG", "tr": "STR", "af": ["STR-03"], "s": "2026-08-21 07:08:10", "f": "2026-08-21 07:08:26", "dl": ["examples/ksat5/deliverables/STR/fabrication-record.md"], "fi": "STR-04.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 전 부재 도면 공차 이내 실측 확인, 실측질량 2.97kg<=배분 3.00kg 확인"}, {"id": "STR-05", "t": "끼워맞춤 검사 및 EM 모듈 인도", "st": "DONE", "pa": "M-STR", "so": "M-STR", "ow": "STR-QA", "tr": "STR", "af": ["STR-04"], "s": "2026-08-21 07:08:30", "f": "2026-08-21 07:08:51", "dl": ["examples/ksat5/deliverables/STR/module-em.md"], "fi": "STR-05.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 끼워맞춤 검사 8항목 중 7확정+1잠정 합격, 실측질량 2.97kg<=배분3.00kg, 해석요구 전항 충족 확인"}, {"id": "INT", "t": "위성 통합·시험", "st": "DONE", "pa": "R00", "so": "R00", "ow": "AIT-LEAD", "tr": "AIT", "af": ["M-STR", "M-EPS", "M-AOCS", "M-COMM"], "s": "2026-08-21 07:17:25", "f": "2026-08-21 07:19:18", "dl": ["examples/ksat5/deliverables/AIT/integration-report.md"], "fi": "INT.md", "d": 1, "rd": false, "sub": [12, 12], "v": "검증: 질량합 7.44kg<=9.2kg배분, 전력수지 20.6W>=3.71W, ICD 8쌍 대조(7쌍 정합/1쌍 교차리스크 발견) 확인"}, {"id": "AIT-RX-AOCS", "t": "AOCS EM 모듈 인수 시험", "st": "DONE", "pa": "INT", "so": "INT", "ow": "AIT-TST", "tr": "AIT", "af": ["M-AOCS"], "s": "2026-08-21 07:08:00", "f": "2026-08-21 07:09:58", "dl": ["examples/ksat5/deliverables/AIT/rx-aocs.md"], "fi": "AIT-RX-AOCS.md", "d": 2, "rd": false, "sub": [3, 3], "v": "검증: 모드전이 5시나리오 전건 통과, 지향오차 0.47도 재현 확인"}, {"id": "NEED-HAR-AOCS", "t": "AOCS 인수 시험용 시험 하니스(커넥터 인출면 대응)", "st": "DONE", "pa": "AIT-RX-AOCS", "so": "AIT-RX-AOCS", "ow": "HAR-TECH-01", "tr": "HAR", "af": [], "s": "2026-08-21 07:08:46", "f": "2026-08-21 07:09:19", "dl": ["examples/ksat5/deliverables/SUPPORT/need-har-aocs.md"], "fi": "NEED-HAR-AOCS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 10채널 인출면·수량이 요청 표와 1:1 일치, 트렁크/개별 인출 구분 확인"}, {"id": "NEED-SW-AOCS", "t": "AOCS 인수 시험용 EGSE SW(센서 자극·텔레메트리)", "st": "DONE", "pa": "AIT-RX-AOCS", "so": "AIT-RX-AOCS", "ow": "SW-EGSE-01", "tr": "SW", "af": [], "s": "2026-08-21 07:08:46", "f": "2026-08-21 07:09:19", "dl": ["examples/ksat5/deliverables/SUPPORT/need-sw-aocs.md"], "fi": "NEED-SW-AOCS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 4모드 트리거·센서 자극·텔레메트리 로거·지향오차 산출기 4항목 대응 확인"}, {"id": "AIT-RX-COMM", "t": "COMM EM 모듈 인수 시험", "st": "DONE", "pa": "INT", "so": "INT", "ow": "AIT-TST", "tr": "AIT", "af": ["M-COMM"], "s": "2026-08-21 07:11:24", "f": "2026-08-21 07:17:21", "dl": ["examples/ksat5/deliverables/AIT/rx-comm.md"], "fi": "AIT-RX-COMM.md", "d": 2, "rd": false, "sub": [3, 3], "v": "검증: PA출력 실측(8.4V/6.8V), EOD 링크마진 6.0dB로 요구충족 확인(여유0dB 잔여리스크 이월)"}, {"id": "NEED-HAR-COMM", "t": "COMM 인수 시험용 전원·데이터 시험 하니스", "st": "DONE", "pa": "AIT-RX-COMM", "so": "AIT-RX-COMM", "ow": "HAR-TECH-01", "tr": "HAR", "af": [], "s": "2026-08-21 07:13:40", "f": "2026-08-21 07:15:01", "dl": ["examples/ksat5/deliverables/SUPPORT/need-har-comm.md"], "fi": "NEED-HAR-COMM.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 전원2핀x2(6.8~8.4V가변,5V)+UART 3.3V TTL 1채널이 요청과 일치, 인출 위치·방향 확인"}, {"id": "NEED-RF-COMM", "t": "COMM 인수 시험용 RF 감쇠기·더미로드", "st": "DONE", "pa": "AIT-RX-COMM", "so": "AIT-RX-COMM", "ow": "GSE-TECH-01", "tr": "RF", "af": [], "s": "2026-08-21 07:13:40", "f": "2026-08-21 07:15:01", "dl": ["examples/ksat5/deliverables/SUPPORT/need-rf-comm.md"], "fi": "NEED-RF-COMM.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: SMA케이블+33dBm급 감쇠기+50Ω더미로드, 8.4V/6.8V 두 조건 측정 구성이 요청과 일치함을 확인"}, {"id": "AIT-RX-EPS", "t": "EPS EM 모듈 인수 시험", "st": "DONE", "pa": "INT", "so": "INT", "ow": "AIT-TST", "tr": "AIT", "af": ["M-EPS"], "s": "2026-08-21 07:11:24", "f": "2026-08-21 07:17:21", "dl": ["examples/ksat5/deliverables/AIT/rx-eps.md"], "fi": "AIT-RX-EPS.md", "d": 2, "rd": false, "sub": [3, 3], "v": "검증: 4레일 텔레메트리/부하스텝/보호회로/EOD유지 5개항목 전건 통과(부하프로파일 인용오류 정정 후 재시험)"}, {"id": "NEED-HAR-EPS", "t": "EPS 인수 시험용 시험 하니스(PCU 백플레인·배터리 커넥터 대응)", "st": "DONE", "pa": "AIT-RX-EPS", "so": "AIT-RX-EPS", "ow": "HAR-TECH-01", "tr": "HAR", "af": [], "s": "2026-08-21 07:13:40", "f": "2026-08-21 07:15:01", "dl": ["examples/ksat5/deliverables/SUPPORT/need-har-eps.md"], "fi": "NEED-HAR-EPS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: PCU 34핀 백플레인(레일별 브레이크아웃)+배터리 2핀/1핀 서미스터가 요청과 일치, icd-str-eps.md 커넥터 규격 확인"}, {"id": "NEED-SW-EPS", "t": "EPS 인수 시험용 EGSE SW(레일 텔레메트리·부하스텝)", "st": "DONE", "pa": "AIT-RX-EPS", "so": "AIT-RX-EPS", "ow": "SW-EGSE-01", "tr": "SW", "af": [], "s": "2026-08-21 07:13:40", "f": "2026-08-21 07:15:01", "dl": ["examples/ksat5/deliverables/SUPPORT/need-sw-eps.md"], "fi": "NEED-SW-EPS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 4레일 텔레메트리 로거·부하스텝(COMM펄스 포함)·보호회로 트립점 판정기 3항목 대응 확인"}, {"id": "AIT-RX-STR", "t": "STR EM 모듈 인수 시험", "st": "DONE", "pa": "INT", "so": "INT", "ow": "AIT-TST", "tr": "AIT", "af": ["M-STR"], "s": "2026-08-21 07:11:24", "f": "2026-08-21 07:17:21", "dl": ["examples/ksat5/deliverables/AIT/rx-str.md"], "fi": "AIT-RX-STR.md", "d": 2, "rd": false, "sub": [2, 2], "v": "검증: 지그 10종 전건 정합, EPS배터리 잠정판정 최종확정, 질량 2.97kg<=3.00kg 확인"}, {"id": "NEED-JIG-STR", "t": "STR EM 모듈 인수용 인터페이스 정합 지그 세트", "st": "DONE", "pa": "AIT-RX-STR", "so": "AIT-RX-STR", "ow": "GSE-TECH-01", "tr": "JIG", "af": [], "s": "2026-08-21 07:13:40", "f": "2026-08-21 07:15:01", "dl": ["examples/ksat5/deliverables/SUPPORT/need-jig-str.md"], "fi": "NEED-JIG-STR.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 10종 체결 패턴이 요청 표와 1:1 대응, EPS 배터리 잠정 합격 항목 재확인 지그 포함 확인"}, {"id": "M2-AOCS", "t": "자세제어 FM 모듈 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "AOCS-LEAD", "tr": "AOCS", "af": ["INT"], "s": "2026-08-21 07:35:47", "f": "2026-08-21 07:37:40", "dl": ["examples/ksat5/deliverables/AOCS/module-fm.md"], "fi": "M2-AOCS.md", "d": 1, "rd": false, "sub": [6, 6], "v": "검증: FM-AOCS-05 인도 완료, 종합 지향오차 0.45도<=0.5도 확인"}, {"id": "FM-AOCS-01", "t": "FM 설계갱신 (EM 결과·리스크 반영)", "st": "DONE", "pa": "M2-AOCS", "so": "M2-AOCS", "ow": "AOCS-DSN", "tr": "AOCS", "af": [], "s": "2026-08-21 07:36:11", "f": "2026-08-21 07:36:28", "dl": ["examples/ksat5/deliverables/AOCS/design-update-fm.md"], "fi": "FM-AOCS-01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 게인 조정이 EM 여유 확대 방향, guard band 강제화가 최악조건 차단함을 확인"}, {"id": "FM-AOCS-02", "t": "비행품(FM) 제작", "st": "DONE", "pa": "M2-AOCS", "so": "M2-AOCS", "ow": "AOCS-MFG", "tr": "AOCS", "af": ["FM-AOCS-01"], "s": "2026-08-21 07:36:32", "f": "2026-08-21 07:36:46", "dl": ["examples/ksat5/deliverables/AOCS/fabrication-record-fm.md"], "fi": "FM-AOCS-02.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: FM 실측 질량 합계 1.998kg<=배분 2.000kg, 체결 사양 일치 확인"}, {"id": "FM-AOCS-03", "t": "FM 센서·액추에이터 교정", "st": "DONE", "pa": "M2-AOCS", "so": "M2-AOCS", "ow": "AOCS-CAL", "tr": "AOCS", "af": ["FM-AOCS-02"], "s": "2026-08-21 07:36:49", "f": "2026-08-21 07:37:01", "dl": ["examples/ksat5/deliverables/AOCS/calibration-report-fm.md"], "fi": "FM-AOCS-03.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: STT 정렬잔차 0.008도<=0.015도, 전구성품 교정편차 설계여유 이내 확인"}, {"id": "FM-AOCS-04", "t": "FM 모듈 수락시험", "st": "DONE", "pa": "M2-AOCS", "so": "M2-AOCS", "ow": "AOCS-TST", "tr": "AOCS", "af": ["FM-AOCS-03"], "s": "2026-08-21 07:37:05", "f": "2026-08-21 07:37:20", "dl": ["examples/ksat5/deliverables/AOCS/acceptance-test-fm.md"], "fi": "FM-AOCS-04.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 종합 지향오차 0.45도<=0.5도, guard band 강제 로직 정상 동작 확인"}, {"id": "FM-AOCS-05", "t": "FM 모듈 인도", "st": "DONE", "pa": "M2-AOCS", "so": "M2-AOCS", "ow": "AOCS-LEAD", "tr": "AOCS", "af": ["FM-AOCS-04"], "s": "2026-08-21 07:37:24", "f": "2026-08-21 07:37:40", "dl": ["examples/ksat5/deliverables/AOCS/module-fm.md"], "fi": "FM-AOCS-05.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 하위 Work FM-AOCS-01~04 전건 DONE, 종합 지향오차 0.45도<=0.5도 확인"}, {"id": "M2-COMM", "t": "통신 FM 모듈 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "COMM-LEAD", "tr": "COMM", "af": ["INT"], "s": "2026-08-21 07:37:30", "f": "2026-08-21 07:41:56", "dl": ["examples/ksat5/deliverables/COMM/module-fm.md"], "fi": "M2-COMM.md", "d": 1, "rd": false, "sub": [6, 6], "v": "검증: COMM-FM-01~05 전건 DONE으로 취합; RISK-LINK(EOD마진 0dB→실측7.8dB, 목표7.5dB 상회) 및 rail-budget.md(EPS 3자협상 확정 퓨즈정격 1.25A/3.0A) 반영해 EM 승계 리스크 2건 모두 하드웨어 조치 종결, 동시부하재현·운용제약은 AIT로 이월"}, {"id": "COMM-FM-01", "t": "설계 갱신 (EM 승계 리스크 반영)", "st": "DONE", "pa": "M2-COMM", "so": "M2-COMM", "ow": "COMM-DSN", "tr": "COMM", "af": ["RISK-LINK"], "s": "2026-08-21 07:37:57", "f": "2026-08-21 07:38:19", "dl": ["examples/ksat5/deliverables/COMM/design-update-fm.md"], "fi": "COMM-FM-01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EM대비 변경분(안테나 피드망) 형상·질량·인터페이스 무영향 확인; RISK-RAIL 미확정은 이월 명시"}, {"id": "COMM-FM-02", "t": "비행품(FM) 제작", "st": "DONE", "pa": "M2-COMM", "so": "M2-COMM", "ow": "COMM-MFG", "tr": "COMM", "af": ["COMM-FM-01"], "s": "2026-08-21 07:39:36", "f": "2026-08-21 07:39:56", "dl": ["examples/ksat5/deliverables/COMM/fabrication-record-fm.md"], "fi": "COMM-FM-02.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 비행급 부품 스크리닝 완료, 피드망 위상오차 ±1.6°(목표±2° 이내)·삽입손실 0.6dB절감(목표0.5dB 이상) 실측 확인, 질량 0.700kg 배분내"}, {"id": "COMM-FM-03", "t": "수락검사", "st": "DONE", "pa": "M2-COMM", "so": "M2-COMM", "ow": "COMM-QA", "tr": "COMM", "af": ["COMM-FM-02"], "s": "2026-08-21 07:40:01", "f": "2026-08-21 07:40:31", "dl": ["examples/ksat5/deliverables/COMM/acceptance-inspection-fm.md"], "fi": "COMM-FM-03.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 치수·질량·RF 전항목 합격; rail-budget.md 확정 퓨즈정격(1.25A/3.0A, 선택성42%) 인용해 RISK-RAIL 이월항목 재확인·종결, 운용제약은 인도시 이월 명시"}, {"id": "COMM-FM-04", "t": "수락시험", "st": "DONE", "pa": "M2-COMM", "so": "M2-COMM", "ow": "COMM-TST", "tr": "COMM", "af": ["COMM-FM-03"], "s": "2026-08-21 07:40:37", "f": "2026-08-21 07:41:16", "dl": ["examples/ksat5/deliverables/COMM/acceptance-test-fm.md"], "fi": "COMM-FM-04.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EOD 링크마진 실측 7.8dB≥목표7.5dB 검증완료; 레일전류 5V/액추에이터 각 여유74%/41% 확인; 동시부하 재현은 AIT범위로 이월"}, {"id": "COMM-FM-05", "t": "FM 모듈 인도", "st": "DONE", "pa": "M2-COMM", "so": "M2-COMM", "ow": "COMM-LEAD", "tr": "COMM", "af": ["COMM-FM-04"], "s": "2026-08-21 07:41:21", "f": "2026-08-21 07:41:49", "dl": ["examples/ksat5/deliverables/COMM/module-fm.md"], "fi": "COMM-FM-05.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 수락검사·수락시험 전건 통과 취합해 FM 모듈 인도 확정; AOCS-COMM 동시부하 재현·운용제약 이행은 AIT/운영단계로 이월 명시"}, {"id": "M2-EPS", "t": "전력 FM 모듈 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "EPS-LEAD", "tr": "EPS", "af": ["INT"], "s": "2026-08-21 07:38:56", "f": "2026-08-21 07:41:25", "dl": ["examples/ksat5/deliverables/EPS/module-fm.md"], "fi": "M2-EPS.md", "d": 1, "rd": false, "sub": [6, 6], "v": "검증: EPS-F01~05 전 자식 DONE, RISK-RAIL 종결 반영 확인 — FM 모듈 인도"}, {"id": "EPS-F01", "t": "FM 설계 갱신 (EM 승계 리스크 반영)", "st": "DONE", "pa": "M2-EPS", "so": "M2-EPS", "ow": "EPS-DSN", "tr": "EPS", "af": ["RISK-RAIL"], "s": "2026-08-21 07:39:22", "f": "2026-08-21 07:39:45", "dl": ["examples/ksat5/deliverables/EPS/design-update-fm.md"], "fi": "EPS-F01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: rail-budget 퓨즈정격(2.0A/1.25A/3.0A) 회로도·BOM 3단 반영 확인, EM 대비 발생/버스/배터리 수치 변경없음 승계 확인"}, {"id": "EPS-F02", "t": "FM 비행품 제작", "st": "DONE", "pa": "M2-EPS", "so": "M2-EPS", "ow": "EPS-MFG", "tr": "EPS", "af": ["EPS-F01"], "s": "2026-08-21 07:39:49", "f": "2026-08-21 07:40:09", "dl": ["examples/ksat5/deliverables/EPS/build-record-fm.md"], "fi": "EPS-F02.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 부품 이력 전 항목 기록, 레일별 연속성시험 전 통과, 토크체결 기록 확인(조립자 1차 점검)"}, {"id": "EPS-F03", "t": "FM 수락검사(Acceptance Inspection)", "st": "DONE", "pa": "M2-EPS", "so": "M2-EPS", "ow": "EPS-QA", "tr": "EPS", "af": ["EPS-F02"], "s": "2026-08-21 07:40:12", "f": "2026-08-21 07:40:29", "dl": ["examples/ksat5/deliverables/EPS/acceptance-inspection-fm.md"], "fi": "EPS-F03.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 퓨즈3종·배터리실측·치수체결·서류 전항목 독립 재검사 합격 판정"}, {"id": "EPS-F04", "t": "FM 번인시험(Burn-in Test)", "st": "DONE", "pa": "M2-EPS", "so": "M2-EPS", "ow": "EPS-TST", "tr": "EPS", "af": ["EPS-F03"], "s": "2026-08-21 07:40:34", "f": "2026-08-21 07:40:57", "dl": ["examples/ksat5/deliverables/EPS/burn-in-fm.md"], "fi": "EPS-F04.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EM 5항목 전건 재합격, 72h통전+온도사이클 초기고장없음, 공유레일 4시나리오(단독2/동시1/고장모사1) 전건 설계대로 트립·선택성 실증"}, {"id": "EPS-F05", "t": "FM 모듈 인도", "st": "DONE", "pa": "M2-EPS", "so": "M2-EPS", "ow": "EPS-LEAD", "tr": "EPS", "af": ["EPS-F04"], "s": "2026-08-21 07:41:02", "f": "2026-08-21 07:41:25", "dl": ["examples/ksat5/deliverables/EPS/module-fm.md"], "fi": "EPS-F05.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EPS-F01~04 전건 DONE 확인, EM대비 발생/질량 불변, rail-budget 퓨즈정격 실물실증 확인, 운용절차 항목 AIT/AOCS 인계 명시"}, {"id": "M2-STR", "t": "구조 FM 모듈 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "STR-LEAD", "tr": "STR", "af": ["INT"], "s": "2026-08-21 07:33:20", "f": "2026-08-21 07:36:21", "dl": ["examples/ksat5/deliverables/STR/module-fm.md"], "fi": "M2-STR.md", "d": 1, "rd": false, "sub": [6, 6], "v": "검증: FM 내부분해 5건 전량 DONE, 최종질량 2.96kg<=배분3.00kg 확인"}, {"id": "STR-FM-01", "t": "설계 갱신 (EM 승계 리스크 반영)", "st": "DONE", "pa": "M2-STR", "so": "M2-STR", "ow": "STR-DSN", "tr": "STR", "af": [], "s": "2026-08-21 07:34:45", "f": "2026-08-21 07:35:05", "dl": ["examples/ksat5/deliverables/STR/design-update-fm.md"], "fi": "STR-FM-01.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EPS 배터리 브래킷 형상 불변·질량 마진방향 확인, STR 구조질량 2.95kg 불변으로 배분 3.00kg 이내 확인"}, {"id": "STR-FM-02", "t": "해석 갱신 (FM 설계 기준 강도·진동 재검증)", "st": "DONE", "pa": "M2-STR", "so": "M2-STR", "ow": "STR-ANL", "tr": "STR", "af": ["STR-FM-01"], "s": "2026-08-21 07:35:09", "f": "2026-08-21 07:35:25", "dl": ["examples/ksat5/deliverables/STR/structural-analysis-fm.md"], "fi": "STR-FM-02.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 임계부재 MS=+4.02(EM대비 개선), 전체1차모드 185.4Hz>=100Hz, 국부모드 전건 요구 충족 재확인"}, {"id": "STR-FM-03", "t": "비행 구조 제작", "st": "DONE", "pa": "M2-STR", "so": "M2-STR", "ow": "STR-MFG", "tr": "STR", "af": ["STR-FM-02"], "s": "2026-08-21 07:35:29", "f": "2026-08-21 07:35:41", "dl": ["examples/ksat5/deliverables/STR/fabrication-record-fm.md"], "fi": "STR-FM-03.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 재료로트·트래블러 전건 기록 완료, 실측질량 2.96kg<=배분3.00kg 확인"}, {"id": "STR-FM-04", "t": "치수 수락검사", "st": "DONE", "pa": "M2-STR", "so": "M2-STR", "ow": "STR-QA", "tr": "STR", "af": ["STR-FM-03"], "s": "2026-08-21 07:35:45", "f": "2026-08-21 07:36:01", "dl": ["examples/ksat5/deliverables/STR/acceptance-inspection-fm.md"], "fi": "STR-FM-04.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: CMM 실측 12항목 전건 도면공차 이내 합격, 질량 2.96kg<=3.00kg 확인, FM 구조체 수락 판정"}, {"id": "STR-FM-05", "t": "FM 모듈 인도", "st": "DONE", "pa": "M2-STR", "so": "M2-STR", "ow": "STR-LEAD", "tr": "STR", "af": ["STR-FM-04"], "s": "2026-08-21 07:36:04", "f": "2026-08-21 07:36:21", "dl": ["examples/ksat5/deliverables/STR/module-fm.md"], "fi": "STR-FM-05.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 내부 Work 4건 전건 DONE, 최종질량 2.96kg<=3.00kg, 강도·진동 여유 EM 동등이상 확인"}, {"id": "INT2", "t": "FM 통합·인도", "st": "DONE", "pa": "R00", "so": "R00", "ow": "AIT-01", "tr": "AIT", "af": ["M2-STR", "M2-EPS", "M2-AOCS", "M2-COMM"], "s": "2026-08-21 07:44:46", "f": "2026-08-21 07:47:55", "dl": ["examples/ksat5/deliverables/AIT/integration-fm.md"], "fi": "INT2.md", "d": 1, "rd": false, "sub": [11, 11], "v": "검증: 리스크 2건 종결 확인(레일 2.08A 재현·퓨즈 선택성, 링크마진 7.8dB), 운용 제약 이관"}, {"id": "AIT-RX2-AOCS", "t": "AOCS FM 모듈 인수 검사", "st": "DONE", "pa": "INT2", "so": "INT2", "ow": "AIT-TST-01", "tr": "AIT", "af": [], "s": "2026-08-21 07:45:37", "f": "2026-08-21 07:46:35", "dl": ["examples/ksat5/deliverables/AIT/rx2-aocs.md"], "fi": "AIT-RX2-AOCS.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EM하니스/SW 재사용, 모드전이 전건통과, 지향오차0.45도 일치, guardband로직 재현"}, {"id": "AIT-RX2-COMM", "t": "COMM FM 모듈 인수 검사", "st": "DONE", "pa": "INT2", "so": "INT2", "ow": "AIT-TST-01", "tr": "AIT", "af": [], "s": "2026-08-21 07:45:37", "f": "2026-08-21 07:46:35", "dl": ["examples/ksat5/deliverables/AIT/rx2-comm.md"], "fi": "AIT-RX2-COMM.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EM하니스/RF키트 재사용, 링크마진7.8dB 재확인, 동시부하는 INT2-TST 이월"}, {"id": "AIT-RX2-EPS", "t": "EPS FM 모듈 인수 검사", "st": "DONE", "pa": "INT2", "so": "INT2", "ow": "AIT-QA-01", "tr": "AIT", "af": [], "s": "2026-08-21 07:45:37", "f": "2026-08-21 07:46:35", "dl": ["examples/ksat5/deliverables/AIT/rx2-eps.md"], "fi": "AIT-RX2-EPS.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EM하니스/SW 재사용, 4레일 텔레메트리 기준이내, 퓨즈정격 실물대조 일치, 동시부하 실모듈재현은 INT2-TST 이월"}, {"id": "AIT-RX2-STR", "t": "STR FM 모듈 인수 검사", "st": "DONE", "pa": "INT2", "so": "INT2", "ow": "AIT-QA-01", "tr": "AIT", "af": [], "s": "2026-08-21 07:45:37", "f": "2026-08-21 07:46:35", "dl": ["examples/ksat5/deliverables/AIT/rx2-str.md"], "fi": "AIT-RX2-STR.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: EM지그10종 재사용 정합, 질량2.96kg<=3.00kg 확인, 잔여 미결 없음"}, {"id": "NEED-FM-DUALLOAD", "t": "AOCS-COMM 동시부하(2.08A, ≤5s) 재현시험용 이중부하 시험 리그", "st": "DONE", "pa": "INT2", "so": "INT2", "ow": "GSE-01", "tr": "GSE", "af": [], "s": "2026-08-21 07:45:16", "f": "2026-08-21 07:45:16", "dl": ["examples/ksat5/deliverables/GSE/NEED-FM-DUALLOAD_deliverable.md"], "fi": "NEED-FM-DUALLOAD.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: GSE 장비 구성, 교정, 통신 확인 완료"}, {"id": "RISK-LINK", "t": "EOD 링크마진 0dB 확보 설계 종결", "st": "DONE", "pa": "INT2", "so": "INT2", "ow": "COMM-DSN", "tr": "COMM", "af": [], "s": "2026-08-21 07:35:35", "f": "2026-08-21 07:36:40", "dl": ["examples/ksat5/deliverables/COMM/link-margin-fix.md", "examples/ksat5/deliverables/COMM/antenna-design.md"], "fi": "RISK-LINK.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 방안A(피드망 위상 재최적화, 무게/전력 영향없음) 채택, EOD 마진 6.0dB(여유0)→7.5dB(여유1.5dB) 재계산 확인; 방사패턴 실측은 FM AIT로 이월"}, {"id": "RISK-RAIL", "t": "액추에이터 레일 3자 동시부하 예산·분기 퓨즈 정격 확정", "st": "DONE", "pa": "INT2", "so": "INT2", "ow": "EPS-DSN", "tr": "EPS", "af": [], "s": "2026-08-21 07:33:10", "f": "2026-08-21 07:38:52", "dl": ["examples/ksat5/deliverables/EPS/rail-budget.md"], "fi": "RISK-RAIL.md", "d": 2, "rd": false, "sub": [3, 3], "v": "검증: AOCS/COMM 회신 대조로 2.08A/≤5s 최악조건 확정, 분기2.0A·1.25A/상위공용3.0A 퓨즈 정격이 83%이하 여유로 통과, 선택성 67%/42%≤80% 확인, 운용제약(guard band 확대·스케줄 금지·궤도실측) 병행 권고"}, {"id": "REQ-RAIL-AOCS", "t": "슬루 첨두 시간 프로파일 재확인 (공유 레일 동시부하 검토용)", "st": "DONE", "pa": "RISK-RAIL", "so": "RISK-RAIL", "ow": "AOCS-DSN", "tr": "AOCS", "af": [], "s": "2026-08-21 07:33:41", "f": "2026-08-21 07:34:00", "dl": ["examples/ksat5/deliverables/AOCS/rail-profile.md"], "fi": "REQ-RAIL-AOCS.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 궤도당 첨두 누적시간(최악 360s/통상 80s)이 시험·ICD 산정치와 정합함을 확인"}, {"id": "REQ-RAIL-COMM", "t": "송신 펄스 프로파일 재확인 (공유 레일 동시부하 검토용)", "st": "DONE", "pa": "RISK-RAIL", "so": "RISK-RAIL", "ow": "COMM-DSN", "tr": "COMM", "af": [], "s": "2026-08-21 07:36:45", "f": "2026-08-21 07:37:25", "dl": ["examples/ksat5/deliverables/COMM/req-rail-comm-tx-timing.md"], "fi": "REQ-RAIL-COMM.md", "d": 3, "rd": false, "sub": [1, 1], "v": "검증: 펄스 시간프로파일 회신, 전류수치 변경없음(icd-eps-comm-power.md 유효) 확인; AOCS 슬루 동시성은 AOCS 확인 필요로 명시"}, {"id": "INT2-TST", "t": "FM 통합시험(동시부하 재현·링크마진 통합확인)", "st": "DONE", "pa": "INT2", "so": "INT2", "ow": "AIT-TST-01", "tr": "AIT", "af": ["NEED-FM-DUALLOAD", "AIT-RX2-STR", "AIT-RX2-EPS", "AIT-RX2-AOCS", "AIT-RX2-COMM"], "s": "2026-08-21 07:46:49", "f": "2026-08-21 07:47:25", "dl": ["examples/ksat5/deliverables/AIT/integration-test-fm.md"], "fi": "INT2-TST.md", "d": 2, "rd": false, "sub": [1, 1], "v": "검증: 동시부하 실모듈재현(레일6.83V유지,퓨즈미동작), 링크마진 통합확인7.8dB, 운용제약4건 채택"}]}</script>
 <script>
 "use strict";
 const DATA = JSON.parse(document.getElementById('data').textContent);
@@ -244,6 +254,9 @@ const rootsArr = POSTS.filter(p => !(p.pa && byId.has(p.pa)));
 const depOf = new Map(); // 역방향: 이 Work가 끝나기를 기다리는 것들
 POSTS.forEach(p => p.af.forEach(a => { if (byId.has(a)) {
   if (!depOf.has(a)) depOf.set(a, []); depOf.get(a).push(p.id); } }));
+const spawnOf = new Map(); // 원인 역방향: 이 Work가 낳은 게시글들 (so)
+POSTS.forEach(p => { if (p.so && byId.has(p.so)) {
+  if (!spawnOf.has(p.so)) spawnOf.set(p.so, []); spawnOf.get(p.so).push(p.id); } });
 
 const ts = s => s ? new Date(s.replace(' ', 'T')).getTime() : null;
 const NOW = ts(M.generated);
@@ -255,16 +268,65 @@ if (!isFinite(T0)) { T0 = NOW - 3600e3; T1 = NOW; }
 if (T1 - T0 < 60e3) T1 = T0 + 60e3;
 const SPAN = T1 - T0;
 
-// 트랙 배지: 고정 순서 배정(등장순), 8색을 넘으면 중립 회색(순환 금지)
-const CAT = ['#2a78d6','#eb6834','#1baf7a','#eda100','#e87ba4','#008300','#4a3aa7','#e34948'];
-const trackColor = new Map();
+// ── 유휴 간격 압축 축: 이벤트 없는 긴 간격을 상한으로 접는 조각별 선형 스케일
+const CMP = (() => {
+  const evs = [...new Set(POSTS.flatMap(p =>
+    [p._s, p._e]).filter(x => x != null))].sort((a, b) => a - b);
+  const TH = Math.max(SPAN / 40, 60e3); // 이보다 긴 공백은 이 길이로 접는다
+  // 경계표 R(실제)↔V(가상): R = [T0, gap시작, gap끝, gap시작, ...]
+  // 짝수 인덱스에서 시작하는 구간은 1:1, 홀수 인덱스 구간(gap)은 TH로 접힘.
+  const R = [T0], V = [0];
+  for (let i = 0; i < evs.length - 1; i++) {
+    const a = evs[i], b = evs[i + 1];
+    if (b - a > TH) {
+      V.push(V[V.length - 1] + (a - R[R.length - 1])); R.push(a);
+      V.push(V[V.length - 1] + TH); R.push(b);
+    }
+  }
+  const uEnd = V[V.length - 1] + (T1 - R[R.length - 1]);
+  const gaps = [];
+  for (let k = 1; k + 1 < R.length; k += 2)
+    gaps.push({ ta: R[k], tb: R[k + 1], ua: V[k], ub: V[k + 1], dt: R[k + 1] - R[k] });
+  function uOf(t) {
+    if (t <= T0) return t - T0;
+    let lo = 0, hi = R.length - 1;
+    while (lo < hi) { const m = (lo + hi + 1) >> 1; if (R[m] <= t) lo = m; else hi = m - 1; }
+    if (lo % 2 === 0 || lo === R.length - 1) return V[lo] + (t - R[lo]);
+    return V[lo] + (t - R[lo]) / (R[lo + 1] - R[lo]) * (V[lo + 1] - V[lo]);
+  }
+  const avail = gaps.length > 0 && uEnd < SPAN / 1.5;
+  return { avail, on: avail, uEnd: Math.max(uEnd, 60e3), uOf, gaps, R, V, TH };
+})();
+
+// 트랙 색: 고정 순서 배정(등장순), 8색을 넘으면 중립 회색(순환 금지)
+const CAT  = ['#2a78d6','#eb6834','#1baf7a','#eda100','#e87ba4','#008300','#4a3aa7','#e34948'];
+const CATD = ['#3987e5','#d95926','#199e70','#c98500','#d55181','#008300','#9085e9','#e66767'];
+const NEUT = ['#898781', '#898781'];
+const trackSlot = new Map();
+function slotOf(t) {
+  if (!t) return -1;
+  if (!trackSlot.has(t)) trackSlot.set(t, trackSlot.size);
+  return trackSlot.get(t);
+}
+function isDark() {
+  const th = document.documentElement.dataset.theme;
+  if (th === 'dark') return true;
+  if (th === 'light') return false;
+  return matchMedia('(prefers-color-scheme: dark)').matches;
+}
+function tcolor(t) {
+  const s = slotOf(t);
+  if (s < 0 || s >= 8) return NEUT[isDark() ? 1 : 0];
+  return (isDark() ? CATD : CAT)[s];
+}
 function tbadge(t) {
   if (!t) return '';
-  if (!trackColor.has(t)) trackColor.set(t, trackColor.size < 8 ? CAT[trackColor.size] : '');
-  const c = trackColor.get(t);
+  const c = slotOf(t) < 8 ? tcolor(t) : '';
   const st = c ? ` style="border-left-color:${c};background:${c}1f"` : '';
   return `<span class="tb"${st}>${esc(t)}</span>`;
 }
+try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change',
+  () => requestAnimationFrame(() => render())); } catch (e) {}
 function esc(s) { return String(s).replace(/[&<>"]/g,
   c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 function sic(p) {
@@ -280,10 +342,10 @@ function fmtDur(ms) {
 }
 
 // ── 상태 ─────────────────────────────────────────────────────────────
-const AXH = 34, ROW = 30;
+const AXH = 34, ROW = 32;
 const S = {
-  mode: 'track', zoom: 1, q: '', sel: null, arrows: 'sel',
-  labelsOn: window.innerWidth > 700,
+  mode: 'track', zoom: 1, q: '', sel: null, arrows: 'src',
+  labelsOn: window.innerWidth > 700, compress: CMP.on,
   collapsed: new Set(), expandedAll: false,
 };
 // 기본 접힘: 레인 그룹은 전부, 계층은 (큰 보드) 깊이1부터 / (작은 보드) 깊이2부터
@@ -355,7 +417,9 @@ function chartW() {
   const base = Math.max(gscroll.clientWidth - labW() - 20, 320);
   return base * S.zoom;
 }
-function xOf(t) { return labW() + (t - T0) / SPAN * chartW(); }
+function uSpan() { return S.compress ? CMP.uEnd : SPAN; }
+function uOf(t) { return S.compress ? CMP.uOf(t) : (t - T0); }
+function xOf(t) { return labW() + uOf(t) / uSpan() * chartW(); }
 
 function tickStep(pxPerMs) {
   const steps = [60e3, 300e3, 900e3, 1800e3, 3600e3, 3 * 3600e3, 6 * 3600e3,
@@ -375,20 +439,43 @@ function layout() {
 function render() {
   const sl = gscroll.scrollLeft, st = gscroll.scrollTop;
   const vw = gscroll.clientWidth, vh = gscroll.clientHeight;
-  // 축 눈금 + 세로 격자 (보이는 범위만)
-  const pxPerMs = chartW() / SPAN;
+  // 축 눈금 + 세로 격자
+  const pxPerMs = chartW() / uSpan();
   const step = tickStep(pxPerMs);
-  const tA = T0 + Math.max(0, (sl - labW() - 200) / pxPerMs);
-  const tB = T0 + (sl + vw + 200) / pxPerMs;
-  let ticks = '', glines = '';
   const fmt = step >= 86400e3 ? d => `${d.getMonth() + 1}-${d.getDate()}`
     : step >= 3600e3 ? d => `${d.getMonth() + 1}-${d.getDate()} ${String(d.getHours()).padStart(2,'0')}시`
     : d => `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
-  for (let t = Math.ceil((tA - T0) / step) * step + T0; t <= Math.min(tB, T1 + step); t += step) {
+  let ticks = '', glines = '';
+  const cand = [];
+  const addTick = t => {
     const x = xOf(t);
-    if (x < labW() + 34) continue; // 라벨 열 밑에 반쯤 가려지는 눈금은 생략
+    if (x < labW() + 34 || x < sl - 200 || x > sl + vw + 200) return;
+    cand.push([x, t]);
+  };
+  if (!S.compress) {
+    for (let t = T0 + step; t <= T1 + step; t += step) addTick(t);
+  } else {
+    // 밀집 구간마다: 시작 눈금 + 안에 규칙 눈금. 접힌 구간엔 ⋯ 표식.
+    const R = CMP.R;
+    for (let k = 0; k < R.length; k += 2) {
+      const a = R[k], b = (k + 1 < R.length) ? R[k + 1] : T1;
+      addTick(a === T0 ? a + step : a);
+      for (let t = Math.ceil((a + 1) / step) * step; t < b; t += step) addTick(t);
+    }
+  }
+  cand.sort((a, b) => a[0] - b[0]);
+  let lastX = -1e9;
+  for (const [x, t] of cand) {
+    if (x - lastX < 52) continue; // 겹치는 눈금은 생략
+    lastX = x;
     ticks += `<div class="tick" style="left:${x}px">${fmt(new Date(t))}</div>`;
     glines += `<div class="gline" style="left:${x}px"></div>`;
+  }
+  if (S.compress) for (const g of CMP.gaps) {
+    const x = labW() + (g.ua + g.ub) / 2 / uSpan() * chartW();
+    if (x < sl - 200 || x > sl + vw + 200) continue;
+    glines += `<div class="gapmark" style="left:${x}px"></div>`;
+    ticks += `<div class="gaplab" style="left:${x}px">⋯ ${fmtDur(g.dt)}</div>`;
   }
   $('gticks').innerHTML = ticks;
   $('ggrid').innerHTML = glines;
@@ -405,7 +492,12 @@ function render() {
       if (byId.has(a) && !chainSet.has(a)) { chainSet.add(a); wu(a); } }); };
     const wd = i => { (depOf.get(i) || []).forEach(x => {
       if (!chainSet.has(x)) { chainSet.add(x); wd(x); } }); };
-    wu(S.sel); wd(S.sel);
+    // 왜 사슬: 원인(source)을 루트까지, 그리고 이 Work가 낳은 것들을 끝까지
+    const cu = i => { const s = byId.get(i)?.so;
+      if (s && !chainSet.has(s)) { chainSet.add(s); cu(s); } };
+    const cd = i => { (spawnOf.get(i) || []).forEach(x => {
+      if (!chainSet.has(x)) { chainSet.add(x); cd(x); } }); };
+    wu(S.sel); wd(S.sel); cu(S.sel); cd(S.sel);
   }
   // 보이는 행만 렌더
   const i0 = Math.max(0, Math.floor((st - AXH) / ROW) - 4);
@@ -417,12 +509,13 @@ function render() {
     if (r.group) {
       const g = r.group;
       const caret = r.collapsed ? '▸' : '▾';
+      const gc = tcolor(S.mode === 'track' ? g.k : (g.items[0]?.tr || ''));
       let bar = '';
       if (g.s != null) {
         const x = xOf(g.s), w = Math.max(xOf(g.e) - x, 3);
-        const cls = g.done === g.items.length ? 'done' : 'taken';
-        bar = `<div class="bar group rollup ${cls}" data-k="${esc(r.key)}"
-          style="left:${x}px;width:${w}px"></div>
+        const part = g.done === g.items.length ? '' : ' taken';
+        bar = `<div class="bar group rollup${part}" data-k="${esc(r.key)}"
+          style="left:${x}px;width:${w}px;background-color:${gc};border-color:${gc}"></div>
           <span class="bt" style="left:${x + w + 6}px">${g.done}/${g.items.length}건</span>`;
       }
       hrows += `<div class="row${even}" style="top:${y}px" data-k="${esc(r.key)}">
@@ -434,7 +527,8 @@ function render() {
     const selCls = S.sel === p.id ? ' selrow' : (chainSet && !chainSet.has(p.id) ? ' dim' : '');
     const pad = 6 + r.depth * 14;
     const caret = r.kids ? `<span class="caret">${r.collapsed ? '▸' : '▾'}</span>` : '';
-    const nm = (p.id ? p.id + ' ' : '') + p.t;
+    const ic = p.st === 'DONE' ? '●' : p.st === 'TAKEN' ? '◐' : p.rd ? '◍' : '○';
+    const nm = `${ic} ${p.id ? p.id + ' ' : ''}${p.t}`;
     const sub = p.sub && p.sub[0] > 1 ? ` <span class="meta">${p.sub[1]}/${p.sub[0]}</span>` : '';
     const lab = `<div class="lab" style="padding-left:${pad}px" data-id="${esc(p.id)}"
       ${r.kids ? `data-k="H:${esc(p.id)}"` : ''}>${caret}${sic(p)}
@@ -442,10 +536,11 @@ function render() {
     let cell = '';
     if (p._s != null) {
       const x = xOf(p._s), w = Math.max(xOf(p._e) - x, 3);
+      const c = tcolor(p.tr);
       const cls = p.st === 'DONE' ? 'done' : 'taken';
       const grp = (r.kids || (S.mode === 'hier' && kidsOf.has(p.id))) ? ' group' : '';
       cell = `<div class="bar ${cls}${grp}" data-id="${esc(p.id)}"
-        style="left:${x}px;width:${w}px"></div>
+        style="left:${x}px;width:${w}px;background-color:${c};border-color:${c}"></div>
         <span class="bt" style="left:${x + 4}px">${esc(nm)}</span>`;
     } else {
       const ends = p.af.map(a => byId.get(a)?._e).filter(x => x != null);
@@ -458,37 +553,62 @@ function render() {
     hrows += `<div class="row${even}${selCls}" style="top:${y}px">${lab}${cell}</div>`;
   }
   grows.innerHTML = hrows;
-  renderArrows(chainSet, i0, i1);
+  renderArrows(chainSet);
 }
-function renderArrows(chainSet, i0, i1) {
+function ghostX(p) {
+  const ends = p.af.map(a => byId.get(a)?._e).filter(x => x != null);
+  return xOf(ends.length ? Math.max(...ends) : NOW);
+}
+function renderArrows(chainSet) {
   const svg = $('garrows');
   svg.setAttribute('width', labW() + chartW());
   svg.setAttribute('height', AXH + rows.length * ROW);
   svg.style.width = (labW() + chartW()) + 'px';
   svg.style.height = (AXH + rows.length * ROW) + 'px';
   let edges = [];
-  if (S.arrows === 'sel' && S.sel && chainSet) {
-    chainSet.forEach(id => { (byId.get(id)?.af || []).forEach(a => {
-      if (chainSet.has(a)) edges.push([a, id]); }); });
-  } else if (S.arrows === 'all') {
-    POSTS.forEach(p => p.af.forEach(a => {
-      if (byId.has(a)) edges.push([a, p.id]); }));
-    if (edges.length > 900) edges = edges.slice(0, 900);
+  const seen = new Set();
+  const push = (a, b, k) => { const key = k + a + '>' + b;
+    if (!seen.has(key)) { seen.add(key); edges.push({ a, b, k }); } };
+  if (S.sel && chainSet) { // 선택 중엔 사슬의 화살표만 — 나머지는 소음이다
+    chainSet.forEach(id => { const p = byId.get(id); if (!p) return;
+      p.af.forEach(a => { if (chainSet.has(a)) push(a, id, 'aft'); });
+      if (p.so && chainSet.has(p.so)) push(p.so, id, 'cse'); });
+  } else {
+    if (S.arrows === 'src' || S.arrows === 'both')
+      POSTS.forEach(p => { if (p.so) push(p.so, p.id, 'cse'); });
+    if (S.arrows === 'after' || S.arrows === 'both')
+      POSTS.forEach(p => p.af.forEach(a => { if (byId.has(a)) push(a, p.id, 'aft'); }));
   }
+  if (edges.length > 1200) edges = edges.slice(0, 1200);
   let out = '';
-  for (const [a, b] of edges) {
+  for (const { a, b, k } of edges) {
     const ia = rowIdx.get(a), ib = rowIdx.get(b);
     const pa = byId.get(a), pb = byId.get(b);
-    if (ia == null || ib == null || pa._e == null || pb._s == null) continue;
-    const x1 = xOf(pa._e), y1 = AXH + ia * ROW + ROW / 2;
-    const x2 = xOf(pb._s), y2 = AXH + ib * ROW + ROW / 2;
-    const mx = x1 + 7;
-    if (x2 >= x1 + 16)
-      out += `<path d="M ${x1} ${y1} H ${mx} V ${y2} H ${x2 - 7}"/>
-        <polygon points="${x2},${y2} ${x2 - 7},${y2 - 3.6} ${x2 - 7},${y2 + 3.6}"/>`;
-    else
-      out += `<path d="M ${x1} ${y1} H ${mx} V ${y2} H ${x2 + 7}"/>
-        <polygon points="${x2},${y2} ${x2 + 7},${y2 - 3.6} ${x2 + 7},${y2 + 3.6}"/>`;
+    if (ia == null || ib == null) continue;
+    const y1 = AXH + ia * ROW + ROW / 2, y2 = AXH + ib * ROW + ROW / 2;
+    const x2 = pb._s != null ? xOf(pb._s) : ghostX(pb);
+    if (k === 'cse') {
+      // 원인: 낳은 시점(자식 시작 x)에서 원인 Work의 행으로부터 수직으로 떨어진다
+      if (pa._s == null) continue;
+      const xs = Math.min(Math.max(x2, xOf(pa._s)), xOf(pa._e) + 4);
+      const dn = y2 > y1 ? 1 : -1;
+      const yb = y2 - dn * 11;
+      if (Math.abs(xs - x2) < 8)
+        out += `<path class="cse" d="M ${xs} ${y1 + dn * 10} V ${yb}"/>
+          <polygon class="cse" points="${x2},${y2 - dn * 3} ${x2 - 4},${yb} ${x2 + 4},${yb}"/>`;
+      else
+        out += `<path class="cse" d="M ${xs} ${y1 + dn * 10} V ${y2} H ${x2 - 8}"/>
+          <polygon class="cse" points="${x2},${y2} ${x2 - 8},${y2 - 3.8} ${x2 - 8},${y2 + 3.8}"/>`;
+    } else {
+      if (pa._e == null || pb._s == null) continue;
+      const x1 = xOf(pa._e), mx = x1 + 7;
+      if (x2 >= x1 + 16)
+        out += `<path class="aft" d="M ${x1} ${y1} H ${mx} V ${y2} H ${x2 - 7}"/>
+          <polygon class="aft" points="${x2},${y2} ${x2 - 7},${y2 - 3.6} ${x2 - 7},${y2 + 3.6}"/>`;
+      else
+        out += `<path class="aft" d="M ${x1} ${y1} H ${mx} V ${y2} H ${x2 + 7}"/>
+          <polygon class="aft" points="${x2},${y2} ${x2 + 7},${y2 - 3.6} ${x2 + 7},${y2 + 3.6}"/>`;
+    }
   }
   svg.innerHTML = out;
 }
@@ -523,11 +643,26 @@ function showPanel(id) {
   const depBtn = a => `<button class="dep" data-sel="${esc(a)}">${esc(a)}</button>`;
   const ups = p.af.filter(a => byId.has(a)).map(depBtn).join('') || '—';
   const dns = (depOf.get(id) || []).map(depBtn).join('') || '—';
+  // 왜 있나: source를 루트까지 따라간 사슬 (가까운 원인부터)
+  const why = [];
+  for (let s = p.so, seen = new Set(); s && byId.has(s) && !seen.has(s); s = byId.get(s).so) {
+    seen.add(s); why.push(s);
+  }
+  const whyRow = why.length
+    ? why.map(depBtn).join('<span class="meta"> ← </span>')
+      + ` <span class="meta">(${esc(byId.get(p.so)?.t || '').slice(0, 40)}${(byId.get(p.so)?.t || '').length > 40 ? '…' : ''}이(가) 낳음)</span>`
+    : '<span class="meta">루트 — 이 프로젝트의 출발점</span>';
+  const spawned = (spawnOf.get(id) || []);
+  const spRow = spawned.length
+    ? spawned.slice(0, 14).map(depBtn).join('') + (spawned.length > 14 ? ` <span class="meta">외 ${spawned.length - 14}건</span>` : '')
+    : '—';
   $('panel').innerHTML = `
     <button class="x" title="닫기">✕</button>
     <h3>${sic(p)} <span class="pid">${esc(p.id)}</span>
       <a href="${esc(M.boardRel + '/' + p.fi)}">${esc(p.t)}</a></h3>
     <dl>
+      <dt>왜 있나</dt><dd>${whyRow}</dd>
+      <dt>낳은 것</dt><dd>${spRow}</dd>
       <dt>상태</dt><dd>${esc(word)}</dd>
       <dt>트랙</dt><dd>${p.tr ? tbadge(p.tr) + ' ' + esc(p.tr) : '—'}</dd>
       <dt>담당</dt><dd>${esc(p.ow || '—')}</dd>
@@ -567,10 +702,18 @@ $('lt').addEventListener('click', () => {
   layout();
 });
 $('ar').addEventListener('click', () => {
-  S.arrows = S.arrows === 'sel' ? 'all' : S.arrows === 'all' ? 'off' : 'sel';
-  $('ar').textContent = '화살표: ' + (S.arrows === 'sel' ? '선택' : S.arrows === 'all' ? '전체' : '끄기');
+  const order = ['src', 'after', 'both', 'off'];
+  S.arrows = order[(order.indexOf(S.arrows) + 1) % 4];
+  $('ar').textContent = '화살표: ' +
+    ({ src: '원인', after: '선행', both: '둘 다', off: '끄기' })[S.arrows];
   render();
 });
+$('cp').addEventListener('click', () => {
+  S.compress = !S.compress;
+  $('cp').classList.toggle('on', S.compress);
+  layout();
+});
+if (!CMP.avail) $('cp').hidden = true; else $('cp').classList.toggle('on', S.compress);
 $('xp').addEventListener('click', () => {
   S.expandedAll = !S.expandedAll;
   $('xp').textContent = S.expandedAll ? '접힘' : '펼침';
