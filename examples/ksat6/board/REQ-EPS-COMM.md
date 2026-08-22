@@ -2,7 +2,7 @@
 id: REQ-EPS-COMM
 title: COMM 송신 첨두전류·듀티 요청
 status: DONE
-parent: EPS-01
+parent: M-EPS
 source: EPS-01
 owner: COMM-IF-01
 deliverable: examples/ksat6/deliverables/COMM/tx-load-response.md
@@ -18,3 +18,5 @@ EPS 전력예산(EPS-01)에서 X-band 150Mbps 다운링크 송신 구간의 첨�
 산출물: COMM 팀이 정하는 경로에 S-band TT&C 상시부하(W)와 X-band 송신 시
 첨두전류(A, 28V 기준)·듀티(%)·1궤도당 송신 총 시간(분)을 명시해 달라.
 검증: EPS 가정치(55W/8%)보다 낮은 실계산치(40W/1.43A/약4%)로 회신, 60GB/일·150Mbps·98.8분 궤도주기로 duty 환산
+
+정정(PM-01, v3.0): 취합 부모를 EPS-01(낳은 설계)에서 M-EPS(취합될 모듈)로 정정 — 원인은 source가 담는다(3절).

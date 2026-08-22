@@ -2,7 +2,7 @@
 id: REQ-EPS-PAY
 title: PAY 촬영시퀀스 전력 프로파일 요청
 status: DONE
-parent: EPS-01
+parent: M-EPS
 source: EPS-01
 owner: PAY-ELEC-01
 deliverable: examples/ksat6/deliverables/PAY/eps-imaging-power-reply.md
@@ -19,3 +19,5 @@ EPS 전력예산(EPS-01)에서 촬영 시퀀스(노출·TDI 구동·기내보정
 산출물: PAY 팀이 정하는 경로에 촬영 시퀀스 첨두전력(W)·평균전력(W)·1궤도당
 촬영시간(분)을 명시해 달라.
 검증: 첨두55W(≤가정60W), 평균35W(정의차 확인요청), 듀티12분/궤도 회신
+
+정정(PM-01, v3.0): 취합 부모를 EPS-01(낳은 설계)에서 M-EPS(취합될 모듈)로 정정 — 원인은 source가 담는다(3절).

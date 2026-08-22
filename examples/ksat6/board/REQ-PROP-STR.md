@@ -2,7 +2,7 @@
 id: REQ-PROP-STR
 title: 추진 탱크 장착점·배관 경로 볼륨 요청
 status: DONE
-parent: PROP-01
+parent: M-PROP
 source: PROP-01
 owner: STR-DSN-02
 deliverable: examples/ksat6/deliverables/STR/interface-prop.md
@@ -21,3 +21,5 @@ PROP-04(배관 조립)의 인터페이스가 고정된다 — PROP 단독으로�
 산출물: STR 팀이 확정한 탱크 장착점 좌표·배관 경로 볼륨 도면
 (examples/ksat6/deliverables/STR/ 아래, STR 팀이 경로를 정한다).
 검증: 탱크 장착점·배관 경로 볼륨 확정, 요청 클리어런스30mm·곡률반경25mm 조건 충족
+
+정정(PM-01, v3.0): 취합 부모를 PROP-01(낳은 설계)에서 M-PROP(취합될 모듈)로 정정 — 원인은 source가 담는다(3절).

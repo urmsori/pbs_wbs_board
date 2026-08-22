@@ -2,7 +2,7 @@
 id: REQ-PROP-FSW
 title: 밸브 구동·잠금 로직 요구 전달
 status: DONE
-parent: PROP-01
+parent: M-PROP
 source: PROP-01
 owner: FSW-COMM-01
 deliverable: examples/ksat6/deliverables/FSW/reply-prop-valve-logic.md
@@ -19,3 +19,5 @@ PROP 계통 설계(PROP-01)에서 래치밸브 이중코일 펄스구동(50ms)·
 산출물: FSW 팀이 반영한 밸브 구동·잠금 로직 요구 확인 문서
 (examples/ksat6/deliverables/FSW/ 아래, FSW 팀이 경로를 정한다).
 검증: PROP-01 4개 요구항목 1:1 반영 확인, comm-payload-sw.md 검증케이스5와 교차확인
+
+정정(PM-01, v3.0): 취합 부모를 PROP-01(낳은 설계)에서 M-PROP(취합될 모듈)로 정정 — 원인은 source가 담는다(3절).

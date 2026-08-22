@@ -2,7 +2,7 @@
 id: REQ-PAY-TCS
 title: 초점면 온도 안정성 요구 전달
 status: DONE
-parent: PAY-01
+parent: M-PAY
 source: PAY-01
 owner: TCS-ANL-01
 deliverable: examples/ksat6/deliverables/TCS/pay-thermal-confirmation.md
@@ -20,3 +20,5 @@ finished: 2026-08-22 01:25:20
 여부·제어대역폭·히터 예산(sysreq TCS 히터 예산 ≤25W 이내) 배분을
 명시해 달라.
 검증: TVAC 실측 구배1.6°C≤2°C, 히터예산21.7W≤25W로 PAY ±0.5°C 요구 달성 확인
+
+정정(PM-01, v3.0): 취합 부모를 PAY-01(낳은 설계)에서 M-PAY(취합될 모듈)로 정정 — 원인은 source가 담는다(3절).

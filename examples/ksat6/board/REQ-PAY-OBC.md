@@ -2,7 +2,7 @@
 id: REQ-PAY-OBC
 title: 대용량 저장·전송 대역 확인
 status: DONE
-parent: PAY-01
+parent: M-PAY
 source: PAY-01
 owner: OBC-MEM-01
 deliverable: examples/ksat6/deliverables/OBC/reply-pay-storage-bandwidth.md
@@ -21,3 +21,5 @@ finished: 2026-08-22 01:27:04
 산출물: OBC 팀이 정하는 경로에 SpW 인터페이스 지속 처리율(Mbps) 여유,
 128GB 중 탑재체 영상버퍼 할당량(GB) 확답을 명시해 달라.
 검증: SpW 채널여유(200Mbps>115Mbps), 118GB≈일60GB 대비 2일치 버퍼 여유 계산 확인
+
+정정(PM-01, v3.0): 취합 부모를 PAY-01(낳은 설계)에서 M-PAY(취합될 모듈)로 정정 — 원인은 source가 담는다(3절).

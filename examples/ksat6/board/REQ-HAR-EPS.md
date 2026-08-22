@@ -2,7 +2,7 @@
 id: REQ-HAR-EPS
 title: EPS 배전 출력 커넥터·전류 정격 요청 (하니스 설계용)
 status: DONE
-parent: HAR-D1
+parent: M-HAR
 source: HAR-D1
 owner: EPS-DSN-02
 deliverable: examples/ksat6/deliverables/EPS/distribution-connector-spec.md
@@ -20,3 +20,5 @@ EPS 팀이 배전 출력 커넥터 사양서(파트번호·채널별 핀 배치�
 산출물: EPS 팀 판단(예: examples/ksat6/deliverables/EPS/ 아래 배전 커넥터
 사양 문서).
 검증: PCDU 채널 커넥터·전류정격표 회신, 전압강하 판정은 HAR 몫으로 명시
+
+정정(PM-01, v3.0): 취합 부모를 HAR-D1(낳은 설계)에서 M-HAR(취합될 모듈)로 정정 — 원인은 source가 담는다(3절).

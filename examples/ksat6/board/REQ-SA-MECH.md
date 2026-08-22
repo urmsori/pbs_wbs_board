@@ -2,7 +2,7 @@
 id: REQ-SA-MECH
 title: SA 전개힌지 인터페이스·전개각 확정 요청
 status: DONE
-parent: SA-01
+parent: M-SA
 source: SA-01
 owner: MECH-DSN-01
 deliverable: examples/ksat6/deliverables/MECH/interface-sa.md
@@ -19,3 +19,5 @@ SA 셀 스트링 레이업(SA-01)과 패널 기판 설계를 위해 전개힌지
 산출물: MECH 팀이 정하는 경로에 힌지 인터페이스 도면/치수, 목표 전개각(°,
 공차), 힌지 강성(Nm/rad)을 명시해 달라.
 검증: 힌지강성45Nm/rad 적용시 전개후1차모드 약0.87Hz ≥ sysreq SA 0.8Hz(예비)
+
+정정(PM-01, v3.0): 취합 부모를 SA-01(낳은 설계)에서 M-SA(취합될 모듈)로 정정 — 원인은 source가 담는다(3절).

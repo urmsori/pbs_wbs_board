@@ -2,7 +2,7 @@
 id: REQ-FSW-AOCS
 title: "[FSW→AOCS] 제어 알고리즘 인터페이스(제어주기·센서/액추에이터 신호) 요청"
 status: DONE
-parent: FSW-AOCS
+parent: M-FSW
 source: FSW-AOCS
 owner: AOCS-DSN-01
 deliverable: examples/ksat6/deliverables/AOCS/fsw-if-reply.md
@@ -19,3 +19,5 @@ finished: 2026-08-22 01:26:34
 산출물: AOCS 팀이 제어주기(Hz), 센서/액추에이터 신호 목록(이름·형식·주기·단위)을
 회신 문서로 남긴다. FSW는 이를 입력으로 aocs-sw.md의 제어 루프를 확정한다.
 검증: 제어주기20Hz·신호목록 회신, pointing-budget 안정도 배분과 정합
+
+정정(PM-01, v3.0): 취합 부모를 FSW-AOCS(낳은 설계)에서 M-FSW(취합될 모듈)로 정정 — 원인은 source가 담는다(3절).

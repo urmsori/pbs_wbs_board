@@ -2,7 +2,7 @@
 id: REQ-OBC-PAY
 title: "[OBC→PAY] 탑재체 데이터율·SpW 링크 수 확정 요청"
 status: DONE
-parent: OBC-IO
+parent: M-OBC
 source: OBC-IO
 owner: PAY-ELEC-01
 deliverable: examples/ksat6/deliverables/PAY/obc-datarate-reply.md
@@ -19,3 +19,5 @@ OBC I/O보드(OBC-IO)의 SpW 포트 수·채널별 대역폭을 배정하려면 
 산출물: PAY 팀이 탑재체 데이터율(Mbps, 버스트/평균)과 필요 SpW 링크 수(포트당 대역폭 포함)를
 회신 문서로 남긴다. OBC는 이를 입력으로 io-board.md의 채널 배정표를 확정한다.
 검증: 데이터율100~115Mbps, SpW 2링크, 버퍼30GB 요청 회신
+
+정정(PM-01, v3.0): 취합 부모를 OBC-IO(낳은 설계)에서 M-OBC(취합될 모듈)로 정정 — 원인은 source가 담는다(3절).

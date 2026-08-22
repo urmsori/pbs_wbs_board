@@ -2,7 +2,7 @@
 id: REQ-TCS-PAY
 title: 광학부 온도 안정성 요구 전달
 status: DONE
-parent: TCS-01
+parent: M-TCS
 source: TCS-01
 owner: PAY-OPT-01
 deliverable: examples/ksat6/deliverables/PAY/tcs-thermal-confirm.md
@@ -19,3 +19,5 @@ TCS 단독으로는 광학 설계 여유(허용 초점이동량)를 알 수 없�
 산출물: PAY 팀이 위 구배·변동 요구의 수용 가능 여부(또는 대안 수치)를 확인한 문서
 (examples/ksat6/deliverables/PAY/ 아래, PAY 팀이 경로를 정한다).
 검증: TCS 제시 ±0.5°C, 구배≤2°C 수용 확인 — PAY 독자 산출과 일치
+
+정정(PM-01, v3.0): 취합 부모를 TCS-01(낳은 설계)에서 M-TCS(취합될 모듈)로 정정 — 원인은 source가 담는다(3절).
