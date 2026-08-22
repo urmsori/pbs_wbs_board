@@ -1,14 +1,14 @@
 ---
 id: M-COMM
 title: 통신 비행모델 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: COMM-LEAD-01
 deliverable: -
 after: REQ
 track: COMM
-started: -
+started: 2026-08-22 01:18:36
 finished: -
 ---
 
