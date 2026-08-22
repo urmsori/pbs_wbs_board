@@ -1,7 +1,7 @@
 ---
 id: C-LB
 title: S/X-band 링크 버짓 산출
-status: TAKEN
+status: DONE
 parent: M-COMM
 source: -
 owner: COMM-DSN-01
@@ -9,7 +9,7 @@ deliverable: examples/ksat6/deliverables/COMM/link-budget.md
 after: -
 track: COMM
 started: 2026-08-22 01:22:06
-finished: 2026-08-22 01:22:53
+finished: 2026-08-22 01:31:46
 ---
 
 sysreq.md의 S-band TT&C(상향 64kbps/하향 2Mbps)·X-band 150Mbps 요구를
@@ -23,3 +23,4 @@ REQ-COMM-OBC, REQ-COMM-STR, REQ-COMM-EPS를 발행한다(source=이 게시글).
 검증: FSPL/C/N0/Eb-N0 계산 재검산, S-band 하향 마진 +1.44dB(빠듯), X-band 하향 +6.26dB, S-band 상향 +29.5dB로 정직 기록
 재취합(규칙 4절): 자식 REQ-COMM-OBC/STR/EPS 3건이 모두 DONE되어 finished를
 갱신한다 — 산출물 내용 변경 없음, 취합 순서만 정정.
+검증: 재취합: 자식 REQ-COMM-OBC/STR/EPS 3건 DONE 확인, finished 갱신
