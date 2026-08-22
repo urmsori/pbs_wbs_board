@@ -1,14 +1,14 @@
 ---
 id: 028
 title: 규칙 개정 v3.0 — "왜"의 기록: 발생 원인 관계와 왜 뷰, 역할 규모 상한
-status: TAKEN
+status: DONE
 parent: 000
 owner: claude
 deliverable: RULES.md, tools/build_board_view.py
 after: 027
 track: -
 started: 2026-08-21 08:40:00
-finished: -
+finished: 2026-08-22 01:49:26
 ---
 
 사용자 지적:
@@ -36,3 +36,9 @@ finished: -
 - tools/build_board_view.py: 원인/선행 화살표 모드, 막대 색=트랙(상태는
   채움/빗금/윤곽+아이콘), 유휴 간격 압축 축, 행 높이·라벨 확대.
 검증: 기존 6개 보드 + 새 K-SAT 6(전체 PBS 커버) 보드에서 확인한다.
+
+검증: 기존 6개 보드 재생성 + K-SAT 6 신규 실증(128건·17트랙·역할 72명 전원
+≤6건·source 31건) — 원인 화살표·왜 사슬·간격 압축·트랙 색을 Playwright로
+확인(콘솔 오류 0). K-SAT 6 진행 중 "취합 부모 ≠ 원인" 마찰(위반 12건)이
+발견되어 규칙 문장으로 반영·정정했다 — 규칙이 자기 예시에서 또 고쳐졌다.
+검증: K-SAT 6 실증(128건·17트랙·역할 상한·source 사슬) + 취합부모≠원인 마찰 발견·반영, 뷰어 검증 콘솔 오류 0
