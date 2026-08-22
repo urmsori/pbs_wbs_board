@@ -1,14 +1,14 @@
 ---
 id: FSW-VV
 title: SW 검증(프로세서 시뮬)
-status: OPEN
+status: TAKEN
 parent: M-FSW
 source: -
-owner: -
+owner: FSW-VV-01
 deliverable: -
 after: FSW-AOCS, FSW-EPS, FSW-COMM
 track: FSW
-started: -
+started: 2026-08-22 01:28:35
 finished: -
 ---
 
