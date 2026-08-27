@@ -50,3 +50,33 @@ waveguide-route-spec.md는 자동으로 재검토 대상이 되지 않는다.
 
 검증: "입력:" 3경로 중 2건 적법(자기팀·보드게시글), 1건 부적법(타 사슬
 산출물 무단 인용) 확인 — 결함 1건 발견, PAY track 수정 요청 발행.
+
+## 정정 확인 (PAY-CORR-01 재취합)
+PAY track이 수정 요청(PAY-CORR-01)을 DONE 처리했다(산출물
+examples/ksat8/deliverables/PAY/corr-01-record.md). 그 수정 기록과 현재
+waveguide-route-spec.md 실물을 대조해 재확인한다.
+
+- **경로 수정**: waveguide-route-spec.md "입력:" 줄에서 부적법 경로
+  (examples/ksat8/deliverables/HAR/pay-waveguide-budget.md)가 제거되고,
+  남은 두 경로(examples/ksat8/deliverables/PAY/u1-dsn.md — 자기 track,
+  examples/ksat8/board/REQ-HAR-PAY-RF.md — 보드 게시글)만 남았음을 파일
+  실물에서 직접 확인 — **적법**.
+- **서술 정합**: 본문 손실배분 서술도 "PAY-U1-DSN 링크예산의 설계치(sysreq
+  상한 0.8dB)"로 재작성되어, 제거된 경로(HAR 실측 0.57dB)에 대한 서술
+  의존이 함께 해소됐음을 확인 — 경로만 지우고 서술은 그대로 두는 반쪽
+  수정이 아니었다.
+- **판정 불변 확인**: 회신 결론(WR-42, 28포트, 4×7격자, 손실배분 0.8dB)은
+  수정 전후 동일 — 정정이 판정 자체를 바꾸지 않았다.
+- **도구 재검증**: `python3 tools/build_board_view.py examples/ksat8/board`
+  재실행 결과 REQ-HAR-PAY-RF 관련 "보이지 않는 종속" 경고 **소멸** 확인.
+- **재발방지 서술**: corr-01-record.md에 "반대쪽 사슬 회신을 인용하지
+  않는다"는 재발방지 원칙이 명시되어 감사1·2 공통 원인(PAY-DSN-01/
+  PAY-IF-01의 양방향 ICD 처리 관행)에 대한 조치로 타당하다고 판단한다.
+- 선행조치 시점 주장(감사 요청 이전에 이미 자체 수정했다는 서술)은
+  post.py 기록상의 started/finished(2026-08-27 04:15:55, PAY-CORR-01
+  take/done 시각)와 정확히 일치하지는 않아 시점 서술 자체는 별도 검증
+  대상이 아니나, **결과물(현재 파일 상태)이 적법함은 도구·수기 대조 모두로
+  확인**되므로 결함은 종결로 판정한다.
+
+검증: PAY-CORR-01 반영 확인 — waveguide-route-spec.md "입력:" 2경로 전건
+적법, 서술 정합, 판정 불변, build_board_view 경고 소멸 — 정정 종결.
