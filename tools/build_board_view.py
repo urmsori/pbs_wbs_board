@@ -203,6 +203,72 @@ def aggregation_warnings(posts, by_id, roots, children):
     return warns
 
 
+def input_warnings(posts):
+    """규칙 4절 v3.2: 산출물의 '입력:' 경로는 그 보드의 다른 Work 산출물이어야
+    한다 — 보드 기록 없이 읽어 쓴 정보(보드 밖 입력)는 보이지 않는 종속이다."""
+    import re
+    by_id = {p["id"]: p for p in posts if p["id"]}
+    producer = {}          # 경로 → 생산 게시글 (여럿이면 아무거나 — 같은 파일 갱신)
+    producer_name = {}     # 파일명 → 생산 게시글 (축약 표기 대조)
+    for p in posts:
+        for d in deliverables(p):
+            producer[d] = p
+            producer_name[os.path.basename(d)] = p
+
+    def ancestors(p):
+        out, seen = [p], set()
+        while p["parent"] in by_id and p["parent"] not in seen:
+            seen.add(p["parent"])
+            p = by_id[p["parent"]]
+            out.append(p)
+        return out
+
+    board_rel = os.path.relpath(BOARD, ROOT)
+    warns = []
+    for p in posts:
+        if p["status"].upper() != "DONE":
+            continue
+        if p.get("track", "-") == "PA" and p["id"].startswith("AUDIT"):
+            continue  # PA 표본 감사는 불시 열람이 본질 — 예외(v3.2)
+        anc = ancestors(p)
+        anc_ids = {a["id"] for a in anc}
+        allowed_after = set()
+        for a in anc:
+            allowed_after.update(after_ids(a))
+        for d in deliverables(p):
+            f = ROOT / d
+            if not f.exists() or f.suffix != ".md":
+                continue
+            try:
+                head = f.read_text(encoding="utf-8")[:1500]
+            except OSError:
+                continue
+            m = re.search(r"^\s*입력:\s*(.+)$", head, re.M)
+            if not m or "없음" in m.group(1):
+                continue
+            for path in re.findall(r"[\w./-]+\.(?:md|py|csv|json|txt)", m.group(1)):
+                if path.startswith(board_rel) or os.path.basename(path) == "RULES.md":
+                    continue  # 게시글(공용 기록)과 규칙은 모두의 전제
+                q = producer.get(path) or producer_name.get(os.path.basename(path))
+                if q is None:
+                    warns.append(f'{p["id"]}의 산출물 {d}가 보드 밖 입력을 쓴다: '
+                                 f'{path} — 어떤 Work도 만들지 않은 정보(v3.2).')
+                elif not (
+                    q.get("track", "-") == p.get("track", "-")   # 자기 팀 산출물
+                    or q["id"] in allowed_after                   # after로 받은 산출물
+                    or q["id"] in anc_ids                         # 취합 사슬 위의 것
+                    or q["parent"] in anc_ids                     # 내 사슬에서 발행한 요청의 회신
+                    or q.get("source", "-") in anc_ids
+                    or q["id"] == p.get("source", "-")            # 나를 낳은 Work의 산출물
+                ):
+                    warns.append(f'{p["id"]}가 요청 없이 남의 산출물을 읽었다: '
+                                 f'{path} (만든 Work: {q["id"]}) — 보이지 않는 종속(v3.2).')
+                if len(warns) >= 200:
+                    warns.append("입력 추적 경고가 200건을 넘어 이후는 생략한다.")
+                    return warns
+    return warns
+
+
 def rules_version_warning():
     """RULES.md 머리의 '버전:' 줄이 개정 이력의 마지막 항목과 다르면 경고."""
     import re
@@ -252,7 +318,8 @@ def main():
         state_line = "진행 중: OPEN 게시글을 집어 계속한다."
     else:
         state_line = f'진행 중: TAKEN 게시글 {counts.get("TAKEN", 0)}건이 끝나기를 기다린다.'
-    warns = aggregation_warnings(posts, by_id, roots, children) + rules_version_warning()
+    warns = (aggregation_warnings(posts, by_id, roots, children)
+             + input_warnings(posts) + rules_version_warning())
     ready_ids = [p["id"] for p in posts if is_ready(p, by_id)]
 
     # 자료 한 벌: 계층 DFS 순서(형제는 위상 정렬)를 정본 순서로 내장한다.
