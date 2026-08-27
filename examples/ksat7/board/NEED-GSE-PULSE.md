@@ -1,15 +1,15 @@
 ---
 id: NEED-GSE-PULSE
 title: SAR 1.8kW 펄스 위성통합상태 흡수·계측 설비
-status: OPEN
+status: DONE
 parent: INT
 source: AIT-RX-2
 track: GSE
-owner: -
-deliverable: -
+owner: GSE-02
+deliverable: examples/ksat7/deliverables/GSE/pulse-daq-confirmation.md
 after: -
-started: -
-finished: -
+started: 2026-08-27 02:27:20
+finished: 2026-08-27 02:27:39
 ---
 
 EPS-U2 펄스 실증(battery-pulse-discharge-test.md)은 "교정된 전자부하·DAQ"로 PAY 파형을
@@ -31,3 +31,4 @@ EPS-U2 펄스 실증(battery-pulse-discharge-test.md)은 "교정된 전자부하
 
 산출물 제안: examples/ksat7/deliverables/GSE/pulse-daq-confirmation.md
 검증: 요청 사양 대비 확보 설비(형식·채널수·대역폭) 회신
+검증: 고속 계측설비 구성·교정 완료 — 16채널 200kHz DAQ, <0.5ms 에지 포착, 20궤도 연속 로깅

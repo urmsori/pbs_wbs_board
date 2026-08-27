@@ -1,15 +1,15 @@
 ---
 id: NEED-GSE-DEPLOY
 title: SAR 2단+SA 3윙 통합형상 동시 중력보상 설비
-status: OPEN
+status: DONE
 parent: INT
 source: AIT-RX-1
 track: GSE
-owner: -
-deliverable: -
+owner: GSE-01
+deliverable: examples/ksat7/deliverables/GSE/deploy-offload-confirmation.md
 after: -
-started: -
-finished: -
+started: 2026-08-27 02:27:00
+finished: 2026-08-27 02:27:16
 ---
 
 MECH-U1(SAR 2단 전개기구, 안테나 실측72.0kg)과 MECH-U2(SA 힌지×3윙, 패널7.6kg/윙)의 전개
@@ -30,3 +30,4 @@ MECH-U1(SAR 2단 전개기구, 안테나 실측72.0kg)과 MECH-U2(SA 힌지×3�
 
 산출물 제안: examples/ksat7/deliverables/GSE/deploy-offload-confirmation.md
 검증: 요청 사양 대비 확보 설비(지지용량·오프로드포인트수) 회신
+검증: 중력보상 설비 구성·교정 완료 — 지지용량 94.8kg, 오프로드 포인트 7식, 이격거리 트래킹 시스템 통합
