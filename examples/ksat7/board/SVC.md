@@ -1,14 +1,14 @@
 ---
 id: SVC
 title: 프로젝트 지원 서비스 운영 (CM·PA·구매·교정·시설)
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: SVC-LEAD-01
 deliverable: -
 after: -
 track: SVC
-started: -
+started: 2026-08-27 01:46:17
 finished: -
 ---
 
