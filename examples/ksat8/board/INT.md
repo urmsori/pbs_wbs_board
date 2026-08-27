@@ -1,14 +1,14 @@
 ---
 id: INT
 title: 위성 조립·통합·시험·인도
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: AIT-01
 deliverable: -
 after: M-STR, M-MECH, M-TCS, M-PROP, M-EPS, M-SA, M-AOCS, M-OBC, M-COMM, M-PAY, M-HAR, M-FSW, M-GS
 track: AIT
-started: -
+started: 2026-08-27 04:21:17
 finished: -
 ---
 
