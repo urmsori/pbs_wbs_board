@@ -1,7 +1,7 @@
 ---
 id: M-GS
 title: 지상국·운용 비행모델 인도 요청
-status: DONE
+status: TAKEN
 parent: R00
 source: -
 owner: GS-LEAD-01

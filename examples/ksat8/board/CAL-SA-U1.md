@@ -1,14 +1,14 @@
 ---
 id: CAL-SA-U1
 title: 태양광 시뮬레이터(플래시) 교정 요청
-status: OPEN
+status: TAKEN
 parent: M-SA
 source: SA-U1-INS
-owner: -
+owner: CAL-02
 deliverable: -
 after: -
 track: CAL
-started: -
+started: 2026-08-27 04:09:48
 finished: -
 ---
 
