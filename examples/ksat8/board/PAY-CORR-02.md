@@ -1,15 +1,15 @@
 ---
 id: PAY-CORR-02
 title: twta-heat-layout.md 입력 경로 정정 요청 (AUDIT-2 결함)
-status: OPEN
+status: DONE
 parent: AUDIT-2
 source: AUDIT-2
-owner: -
-deliverable: -
+owner: PAY-IF-01
+deliverable: examples/ksat8/deliverables/PAY/corr-02-record.md
 after: -
 track: PAY
-started: -
-finished: -
+started: 2026-08-27 04:15:55
+finished: 2026-08-27 04:15:55
 ---
 
 감사(AUDIT-2)에서 REQ-TCS-PAY-발열 회신
@@ -25,3 +25,4 @@ REQ-TCS-PAY-발열(parent: M-TCS)의 취합 사슬 위에 있지 않다 — AUDI
 회신을 정식 요청 없이 재사용하지 않도록 유의해 달라.
 산출물 제안: examples/ksat8/deliverables/PAY/twta-heat-layout.md(갱신).
 검증: "입력:" 경로 전건 적법(자기팀/after/자기사슬회신/source/보드) 확인
+검증: twta-heat-layout.md 입력줄 재확인 — 부적법 경로 제거 완료(선행조치), 2건 전부 적법
