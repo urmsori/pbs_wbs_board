@@ -1,14 +1,14 @@
 ---
 id: M-GS
 title: 지상국·운용 비행모델 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: GS-LEAD-01
 deliverable: -
 after: REQ
 track: GS
-started: -
+started: 2026-08-27 01:49:21
 finished: -
 ---
 
