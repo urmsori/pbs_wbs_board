@@ -1,14 +1,14 @@
 ---
 id: SA-U1-CLN
 title: 2윙 패널 세척
-status: OPEN
+status: TAKEN
 parent: M-SA
 source: -
-owner: -
+owner: SA-U1-CLN-01
 deliverable: -
 after: SA-U1-MFG
 track: SA
-started: -
+started: 2026-08-27 04:07:51
 finished: -
 ---
 

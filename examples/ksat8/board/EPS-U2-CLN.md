@@ -1,14 +1,14 @@
 ---
 id: EPS-U2-CLN
 title: 배터리팩 세척
-status: OPEN
+status: TAKEN
 parent: M-EPS
 source: -
-owner: -
+owner: EPS-U2-CLN-01
 deliverable: -
 after: EPS-U2-MFG
 track: EPS
-started: -
+started: 2026-08-27 04:07:51
 finished: -
 ---
 

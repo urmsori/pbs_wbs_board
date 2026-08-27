@@ -1,14 +1,14 @@
 ---
 id: EPS-U1-CLN
 title: PCU 세척
-status: OPEN
+status: TAKEN
 parent: M-EPS
 source: -
-owner: -
+owner: EPS-U1-CLN-01
 deliverable: -
 after: EPS-U1-MFG
 track: EPS
-started: -
+started: 2026-08-27 04:07:51
 finished: -
 ---
 

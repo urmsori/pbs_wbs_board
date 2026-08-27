@@ -1,7 +1,7 @@
 ---
 id: COMM-U1
 title: TT&C 트랜스폰더 유닛 (설계~제작~RF시험)
-status: DONE
+status: TAKEN
 parent: M-COMM
 source: M-COMM
 owner: COMM-LEAD-01
