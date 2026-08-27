@@ -1,6 +1,9 @@
 # GS-U1 관제소 적합성 분석·IOT 30일 계획
 
-입력: examples/ksat8/deliverables/COMM/REQ-GS-COMM-프로토콜-reply.md, examples/ksat8/deliverables/COMM/comm-corr-02.md, examples/ksat8/deliverables/PAY/REQ-GS-PAY-IOT-reply.md, examples/ksat8/deliverables/SE/sysreq.md
+입력: examples/ksat8/deliverables/COMM/REQ-GS-COMM-프로토콜-reply.md, examples/ksat8/deliverables/COMM/REQ-GS-COMM-EIRP확정-reply.md, examples/ksat8/deliverables/PAY/REQ-GS-PAY-IOT-reply.md, examples/ksat8/deliverables/SE/sysreq.md
+
+개정(재취합): 안테나 정정 반영 확정 EIRP를 REQ-GS-COMM-EIRP확정 정식
+회신으로 재확인(요청 없이 comm-corr-02.md를 직접 인용했던 것을 시정).
 
 ## 1. 관제소 적합성 판정 (sysreq "GS: 관제소 적합성")
 
@@ -10,7 +13,7 @@
 | 상향 2087.5MHz / 하향 2255.5MHz | S-band TT&C 대역(2025–2120/2200–2300MHz) 전대역 대응 | 적합 |
 | 변조: PCM/PSK/PM | 표준 복조기 지원 방식 | 적합 |
 | 레인징: PN(2²²−1)+턴어라운드240/221 | 표준 레인징 장비 지원 방식 | 적합 |
-| 위성 하향 EIRP 4.8dBW(comm-corr-02.md 확정, 재계산 불필요) | 관제소 G/T 5dB/K 가정(COMM 링크버짓 전제와 동일) | 마진 ≥6dB로 링크 성립 — 적합 |
+| 위성 하향 EIRP 4.8dBW(REQ-GS-COMM-EIRP확정 회신 확정치) | 관제소 G/T 5dB/K 가정(COMM 링크버짓 전제와 동일) | 마진 ≥6dB로 링크 성립 — 적합 |
 
 **판정: 기존 표준 S-band TT&C 관제소로 적합(추가 장비 불요).**
 

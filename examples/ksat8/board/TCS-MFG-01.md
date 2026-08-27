@@ -8,7 +8,7 @@ owner: TCS-MFG-01
 deliverable: examples/ksat8/deliverables/TCS/panel-mfg.md
 after: REQ-TCS-CM-형상관리
 track: TCS
-started: 2026-08-27 04:03:30
+started: 2026-08-27 04:02:50
 finished: 2026-08-27 04:03:16
 ---
 

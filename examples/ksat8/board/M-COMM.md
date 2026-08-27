@@ -1,7 +1,7 @@
 ---
 id: M-COMM
 title: TT&C통신 비행모델 인도 요청
-status: DONE
+status: TAKEN
 parent: R00
 source: -
 owner: COMM-LEAD-01

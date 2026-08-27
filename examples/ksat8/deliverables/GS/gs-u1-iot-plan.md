@@ -2,6 +2,9 @@
 
 입력: examples/ksat8/deliverables/GS/gs-u1-plan.md, examples/ksat8/deliverables/GS/gs-u1-review.md
 
+개정(재취합): gs-u1-plan.md의 입력 인용을 REQ-GS-COMM-EIRP확정 정식회신으로
+시정한 개정판을 반영해 재취합한다(판정 결과 변경 없음).
+
 ## 체인 요약
 계획수립(PLN, COMM·PAY 회신 기반)→검토(RVW, 승인)→취합. 전 단계 DONE.
 
