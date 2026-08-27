@@ -1,14 +1,14 @@
 ---
 id: FSW-U2
 title: TM/TC 데이터베이스 취합
-status: OPEN
+status: TAKEN
 parent: M-FSW
 source: M-FSW
-owner: -
+owner: FSW-DB-01
 deliverable: -
 after: -
 track: FSW
-started: -
+started: 2026-08-27 04:07:41
 finished: -
 ---
 

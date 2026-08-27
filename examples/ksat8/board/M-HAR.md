@@ -9,7 +9,7 @@ deliverable: examples/ksat8/deliverables/HAR/module-fm.md
 after: REQ
 track: HAR
 started: 2026-08-27 03:42:17
-finished: 2026-08-27 03:58:18
+finished: 2026-08-27 04:07:45
 ---
 
 고전압 100V·대전류 배선, RF 도파관.
@@ -17,3 +17,6 @@ v3.2: **설계에 쓸 모든 외부 정보는 먼저 요청 게시글로 올려�
 남의 파일을 읽어 "입력:"에 적으면 도구가 보이지 않는 종속으로 경고한다.
 산출물: examples/ksat8/deliverables/HAR/module-fm.md
 검증: 100V절연 242~245MOhm, 전압강하<=1%, 도파관손실0.58dB<=0.8dB — PA입회/STR라우팅 회신 미접수 리스크 기록
+
+재취합(규칙 4절): 늦게 닫힌 자식 REQ-HAR-STR-경로(STR 라우팅 회신)·PA-HAR-U1(PA 입회) 반영 — 미해소 리스크 2건 중 STR 라우팅 건 해소.
+검증: 재취합 — STR 라우팅 회신·PA 입회 반영, 잔여 리스크는 PAY 플랜지 물리정합(INT 이관)만
