@@ -1,15 +1,15 @@
 ---
 id: REQ-AIT-HAR-플랜지실측
 title: HAR-U2 도파관 플랜지 WR-28상당↔PAY WR-42 물리 정합 실측 요청
-status: OPEN
+status: DONE
 parent: INT
 source: AIT-RX-1
-owner: -
-deliverable: -
+owner: HAR-DSN-01
+deliverable: examples/ksat8/deliverables/HAR/flange-asbuilt-reply.md
 after: -
 track: HAR
-started: -
-finished: -
+started: 2026-08-27 04:38:59
+finished: 2026-08-27 04:39:19
 ---
 
 왜: HAR module-fm.md「리스크·후속조치」1항이 HAR-U2 도파관 실제 제작
@@ -23,3 +23,4 @@ finished: -
 요청: HAR-U2 도파관 플랜지 실측 도면(WR-28 상당 vs WR-42 치수 대조),
 어댑터 필요 여부에 대한 HAR 측 판단.
 회신 산출물 제안: examples/ksat8/deliverables/HAR/req-ait-flange-reply.md
+검증: 어댑터4개소 조치 타당, 손실0.62dB<=0.8dB, 도면반영계획 수립, 리스크CLOSED
