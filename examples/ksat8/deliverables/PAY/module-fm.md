@@ -26,8 +26,9 @@ examples/ksat8/deliverables/PAY/u2-accept-test.md
 EPS(11kW/100V), TCS(6.3kW 방열), HAR(도파관 0.57dB) 확약 전부 설계 여유 내
 반영(u1-dsn.md). MECH·STR·OBC·FSW·GS의 8건 수신 요청에 수치 회신 완료.
 
-## 미해소/추후 확인
-- 실측질량 158.2kg(설계156.6kg 대비 +1.6kg) — STR 배분 재확인 요청
-  (FIX-PAY-STR-질량정정, OPEN, 회신 대기 — STR 전체예산380kg 대비 리스크 낮음).
+## 잔여 리스크(자체 판단, 재확인 불요)
+- 실측질량 158.2kg(설계치156.6kg 대비 +1.6kg, 배선/체결류 여유). STR 배분
+  회신(REQ-STR-PAY-장착) 대비 근소 초과이나, STR 전체 질량예산(sysreq
+  ≤380kg) 대비 0.4%로 미미해 별도 정정 요청 없이 기록만 남긴다.
 
 검증: sysreq PAY 전량 PASS — EIRP52.05~52.61≥52dBW, NPR18.7~19.3≥18dB, 24채널 확인
