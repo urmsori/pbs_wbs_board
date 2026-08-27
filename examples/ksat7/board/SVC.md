@@ -9,7 +9,7 @@ deliverable: examples/ksat7/deliverables/SVC/service-summary.md
 after: -
 track: SVC
 started: 2026-08-27 01:46:17
-finished: 2026-08-27 02:17:40
+finished: 2026-08-27 02:39:00
 ---
 
 공용 직능은 팀이 아니라 서비스 부서다(v3.1). 각 팀이 track CM/PA/PUR/CAL/FAC로
@@ -17,3 +17,6 @@ finished: 2026-08-27 02:17:40
 스스로 발행한다(source=이 게시글). 산출물: examples/ksat7/deliverables/SVC/service-summary.md
 — 처리 요청 통계·PA 감사 결과 취합. 모든 팀 인도(M-*)와 감사가 끝난 뒤 마감.
 검증: 13개 M-* 전부 DONE, 서비스 61건+감사4건 전건 DONE(결함1건 정정완료), 연속 폴링 OPEN 없음 확인
+
+재취합(규칙 4절): 자식 AUDIT-4 재취합에 따른 갱신.
+검증: 재취합 — AUDIT-4 정정 반영
