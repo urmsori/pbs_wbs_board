@@ -1,15 +1,15 @@
 ---
 id: NEED-GSE-100V통합전원
 title: 100V 고전압 통합 전원 SCOE(INT-TST-2 15kW 통합부하시험용)
-status: OPEN
+status: DONE
 parent: INT
 source: AIT-RX-2
-owner: -
-deliverable: -
+owner: GSE-03
+deliverable: examples/ksat8/deliverables/GSE/scoe-100v-reply.md
 after: -
 track: GSE
-started: -
-finished: -
+started: 2026-08-27 04:33:15
+finished: 2026-08-27 04:33:15
 ---
 
 왜: INT-TST-2(전기 100V·15kW 통합 부하시험)는 EPS 비행모델(PCU·배터리)에
@@ -34,3 +34,4 @@ EPS module-fm.md·CAL/eps-u1-cal.md·FAC/eps-u1-fac.md 확인 결과, 전기시�
 모니터링 8채널 이상 — PAY/EP/COMM/히터/HK) 가용 여부. 신규 조달 시
 필요 사양·조달 기간.
 회신 산출물 제안: examples/ksat8/deliverables/GSE/scoe-100v-reply.md
+검증: 100V/15kW SCOE 구성·교정 완료, 인터록<10ms·접지분리>100MΩ 합격

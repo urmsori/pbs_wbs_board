@@ -1,15 +1,15 @@
 ---
 id: NEED-GSE-전개중력보상
 title: 반사판 2기+SA 2윙 동시전개 대형 중력보상 지그(INT-TST-1용)
-status: OPEN
+status: DONE
 parent: INT
 source: AIT-RX-1
-owner: -
-deliverable: -
+owner: GSE-03
+deliverable: examples/ksat8/deliverables/GSE/scoe-gravcomp-reply.md
 after: -
 track: GSE
-started: -
-finished: -
+started: 2026-08-27 04:33:15
+finished: 2026-08-27 04:33:15
 ---
 
 왜: INT-TST-1(기계·정렬)은 통합된 위성 본체에서 반사판 2기(MECH-U1)와
@@ -29,3 +29,4 @@ MECH module-fm.md·FAC/mech-u1-fac-booking.md 확인 결과, MECH-U1
 전체를 지지, 4개 전개축 동시 모니터링 가능) 가용 여부. 신규 조달/제작
 시 필요 사양·소요 기간.
 회신 산출물 제안: examples/ksat8/deliverables/GSE/scoe-gravcomp-reply.md
+검증: 4축 대형 중력보상 지그 구성·안전검증 완료, 클리어런스±5mm 합격

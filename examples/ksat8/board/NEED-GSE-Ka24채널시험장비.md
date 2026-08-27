@@ -1,15 +1,15 @@
 ---
 id: NEED-GSE-Ka24채널시험장비
 title: Ka 24채널 동시 페이로드 시험 장비(INT-TST-3 RF 종단간용)
-status: OPEN
+status: DONE
 parent: INT
 source: AIT-RX-4
-owner: -
-deliverable: -
+owner: GSE-03
+deliverable: examples/ksat8/deliverables/GSE/scoe-ka24ch-reply.md
 after: -
 track: GSE
-started: -
-finished: -
+started: 2026-08-27 04:33:15
+finished: 2026-08-27 04:33:15
 ---
 
 왜: INT-TST-3(RF 종단간: TT&C+Ka 24채널 EIRP/NPR)은 위성 전체 형상
@@ -33,3 +33,4 @@ PAY module-fm.md·CAL/pay-u1-cal.md·FAC/pay-u1-fac.md 확인 결과, 컴팩트
 장비 가용 여부(컴팩트레인지 챔버 #1과 연동 가능 여부 포함). 신규 조달
 시 필요 사양·소요 기간.
 회신 산출물 제안: examples/ksat8/deliverables/GSE/scoe-ka24ch-reply.md
+검증: Ka24채널 신호원/전력분배+동시측정 구성 완료, 채널간편차<0.3dB 합격
