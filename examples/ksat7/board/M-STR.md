@@ -9,7 +9,7 @@ deliverable: examples/ksat7/deliverables/STR/module-fm.md
 after: REQ
 track: STR
 started: 2026-08-27 01:48:00
-finished: 2026-08-27 02:06:17
+finished: 2026-08-27 02:15:51
 ---
 
 1차 구조체·2차 브래킷. SAR 안테나(대형)의 장착 강성 포함.
@@ -18,3 +18,4 @@ v3.1: 설계·제작·시험 각각이 여러 직능의 인수인계 사슬이�
 공용 직능(CM 배포·PA 입회·구매·교정·시설)은 해당 track으로 요청을 올려라.
 산출물: examples/ksat7/deliverables/STR/module-fm.md
 검증: 질량·준정적10g충족, 1차모드 미충족(NCR/RED, rev.2이관) — 2/3 항목 충족
+검증: rev.2: 1차모드36.1Hz≥35Hz(실측,NCR CLOSED), 질량44.6kg≤45kg, 준정적10g충족 — 전항목 충족

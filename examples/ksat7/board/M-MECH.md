@@ -9,7 +9,7 @@ deliverable: examples/ksat7/deliverables/MECH/module-fm.md
 after: REQ
 track: MECH
 started: 2026-08-27 01:48:00
-finished: 2026-08-27 02:06:17
+finished: 2026-08-27 02:15:51
 ---
 
 SAR 안테나 패널 전개(2단), 태양전지판 전개.
@@ -18,3 +18,4 @@ v3.1: 설계·제작·시험 각각이 여러 직능의 인수인계 사슬이�
 공용 직능(CM 배포·PA 입회·구매·교정·시설)은 해당 track으로 요청을 올려라.
 산출물: examples/ksat7/deliverables/MECH/module-fm.md
 검증: 전개충격37.1g≤40g, 단일고장허용 — 전항목 충족
+검증: rev.2: SA힌지1차모드0.53Hz≥0.5Hz(실측,NCR CLOSED), 전개충격37.1g≤40g, 단일고장허용 — 전항목 충족
