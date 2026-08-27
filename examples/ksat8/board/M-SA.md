@@ -1,14 +1,14 @@
 ---
 id: M-SA
 title: 태양전지판 비행모델 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: SA-LEAD-01
 deliverable: -
 after: REQ
 track: SA
-started: -
+started: 2026-08-27 03:41:47
 finished: -
 ---
 

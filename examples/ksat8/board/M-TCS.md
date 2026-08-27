@@ -1,14 +1,14 @@
 ---
 id: M-TCS
 title: 열제어 비행모델 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: TCS-LEAD-01
 deliverable: -
 after: REQ
 track: TCS
-started: -
+started: 2026-08-27 03:42:33
 finished: -
 ---
 

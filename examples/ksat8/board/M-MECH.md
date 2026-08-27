@@ -1,14 +1,14 @@
 ---
 id: M-MECH
 title: 전개기구 비행모델 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: MECH-LEAD-01
 deliverable: -
 after: REQ
 track: MECH
-started: -
+started: 2026-08-27 03:47:15
 finished: -
 ---
 

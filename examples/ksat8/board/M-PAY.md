@@ -1,14 +1,14 @@
 ---
 id: M-PAY
 title: Ka중계기 비행모델 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: PAY-LEAD-01
 deliverable: -
 after: REQ
 track: PAY
-started: -
+started: 2026-08-27 03:42:04
 finished: -
 ---
 

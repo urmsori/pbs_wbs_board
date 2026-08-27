@@ -1,14 +1,14 @@
 ---
 id: M-PROP
 title: 추진 비행모델 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: PROP-LEAD-01
 deliverable: -
 after: REQ
 track: PROP
-started: -
+started: 2026-08-27 03:42:33
 finished: -
 ---
 

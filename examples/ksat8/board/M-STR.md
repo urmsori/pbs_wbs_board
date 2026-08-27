@@ -1,14 +1,14 @@
 ---
 id: M-STR
 title: 구조 비행모델 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: STR-LEAD-01
 deliverable: -
 after: REQ
 track: STR
-started: -
+started: 2026-08-27 03:47:15
 finished: -
 ---
 
