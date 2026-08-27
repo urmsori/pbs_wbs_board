@@ -1,14 +1,14 @@
 ---
 id: GS-U1-OPS
 title: 지상국 운용 절차
-status: OPEN
+status: TAKEN
 parent: M-GS
 source: -
-owner: -
+owner: GS-OPS-01
 deliverable: -
 after: GS-U1-TST
 track: GS
-started: -
+started: 2026-08-27 02:07:54
 finished: -
 ---
 
