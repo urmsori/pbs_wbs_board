@@ -260,6 +260,7 @@ def input_warnings(posts):
                     or q["parent"] in anc_ids                     # 내 사슬에서 발행한 요청의 회신
                     or q.get("source", "-") in anc_ids
                     or q["id"] == p.get("source", "-")            # 나를 낳은 Work의 산출물
+                    or p["id"] in {a["id"] for a in ancestors(q)}  # 취합: 부모는 자식 산출물을 읽는다
                 ):
                     warns.append(f'{p["id"]}가 요청 없이 남의 산출물을 읽었다: '
                                  f'{path} (만든 Work: {q["id"]}) — 보이지 않는 종속(v3.2).')
