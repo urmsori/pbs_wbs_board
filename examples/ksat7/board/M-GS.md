@@ -1,15 +1,15 @@
 ---
 id: M-GS
 title: 지상국·운용 비행모델 인도 요청
-status: TAKEN
+status: DONE
 parent: R00
 source: -
 owner: GS-LEAD-01
-deliverable: -
+deliverable: examples/ksat7/deliverables/GS/module-fm.md
 after: REQ
 track: GS
 started: 2026-08-27 01:49:21
-finished: -
+finished: 2026-08-27 02:11:06
 ---
 
 수신 3개소 적합성·운용 절차·초기운용.
@@ -17,3 +17,4 @@ SE는 결과만 요청한다 — 분해는 GS 팀이 자기 지평에서 스스�
 v3.1: 설계·제작·시험 각각이 여러 직능의 인수인계 사슬이다(역할당 1~3건 정상).
 공용 직능(CM 배포·PA 입회·구매·교정·시설)은 해당 track으로 요청을 올려라.
 산출물: examples/ksat7/deliverables/GS/module-fm.md
+검증: sysreq GS(수신3개소·초기운용30일·SAR보정계획) 전부 충족(PASS)
