@@ -2,6 +2,9 @@
 
 입력: examples/ksat8/deliverables/GS/gs-u1-iot-plan.md
 
+개정(재취합): GS-U1이 REQ-GS-COMM-EIRP확정 정식회신으로 입력 인용을
+시정한 개정판을 반영해 재취합됐다(판정 결과 변경 없음).
+
 ## 인도 내역
 관제소 적합성 판정 + IOT 30일 계획(GS-U1) DONE — 운용 체인(계획수립→
 검토→취합)으로 완료, 입력은 전부 COMM·PAY 회신.

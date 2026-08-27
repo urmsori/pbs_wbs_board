@@ -1,4 +1,4 @@
-입력: examples/ksat8/deliverables/OBC/obc-design.md, examples/ksat8/deliverables/OBC/obc-anl-elec.md, examples/ksat8/deliverables/OBC/obc-anl-therm.md, examples/ksat8/deliverables/OBC/drawing-check.md, examples/ksat8/deliverables/OBC/review-01.md, examples/ksat8/deliverables/OBC/review-02.md, examples/ksat8/deliverables/OBC/rb-disposition.md, examples/ksat8/deliverables/OBC/iqc-report.md, examples/ksat8/deliverables/OBC/obc-mfg.md, examples/ksat8/deliverables/OBC/obc-asy.md, examples/ksat8/deliverables/OBC/obc-ins.md, examples/ksat8/deliverables/OBC/obc-tst.md, examples/ksat8/deliverables/COMM/obc-if-reply.md, examples/ksat8/deliverables/PAY/obc-tm-reply.md
+입력: examples/ksat8/deliverables/OBC/obc-design.md, examples/ksat8/deliverables/OBC/obc-anl-elec.md, examples/ksat8/deliverables/OBC/obc-anl-therm.md, examples/ksat8/deliverables/OBC/drawing-check.md, examples/ksat8/deliverables/OBC/review-01.md, examples/ksat8/deliverables/OBC/review-02.md, examples/ksat8/deliverables/OBC/rb-disposition.md, examples/ksat8/deliverables/OBC/iqc-report.md, examples/ksat8/deliverables/OBC/obc-mfg.md, examples/ksat8/deliverables/OBC/obc-asy.md, examples/ksat8/deliverables/OBC/obc-ins.md, examples/ksat8/deliverables/OBC/obc-tst.md, examples/ksat8/deliverables/COMM/obc-if-reply.md, examples/ksat8/deliverables/PAY/obc-tm-reply.md, examples/ksat8/deliverables/CM/obc-baseline.md, examples/ksat8/deliverables/PUR/obc-parts.md
 
 # OBC 비행모델 인도 (module-fm)
 
@@ -22,10 +22,13 @@
   ×24+공통40=400점) 수신 — drawing-check.md에서 원 설계(obc-design.md)의
   잠정치(2,600점)를 **정정**했다.
 
-## 진행 중(비차단) 서비스 요청
-REQ-OBC-CM-REL(형상관리 배포)·REQ-OBC-PUR(부품 구매)는 서비스 부서
-대기열에서 처리 중이며 OPEN 상태다 — 물리 조달·배포 절차이므로 설계·
-제작·시험 문서화 완료를 막지 않는다(진행 중인 정상 상태).
+## 서비스 요청 처리 결과 (재취합 — v2.9 취합 순서 정정)
+REQ-OBC-CM-REL(형상관리 배포, → CM/obc-baseline.md, 베이스라인
+OBC-U1-BL-001)·REQ-OBC-PUR(부품 구매, → PUR/obc-parts.md, PO 4건 발주)
+모두 최초 module-fm 취합(2026-08-27 04:06:19) **이후**에 서비스 부서가
+회신을 완료했다(각각 04:05:38, 04:06:39). 규칙 4절(취합 순서)에 따라
+M-OBC를 재취합해 finished를 갱신한다 — 부모(M-OBC)의 finished가 항상
+모든 자식보다 늦어야 하므로.
 
 ## PBS 구성
 설계 7건(DSN·ANLE·ANLT·CHK·RVW1·RVW2·RB) + 제작 4건(IQC·MFG·ASY·INS) +

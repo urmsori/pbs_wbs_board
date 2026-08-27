@@ -1,6 +1,10 @@
 # M-COMM TT&C통신 비행모델 인도
 
-입력: examples/ksat8/deliverables/COMM/comm-u1-fm-package.md, examples/ksat8/deliverables/COMM/comm-corr-01.md, examples/ksat8/deliverables/COMM/comm-corr-02.md
+입력: examples/ksat8/deliverables/COMM/comm-u1-fm-package.md, examples/ksat8/deliverables/COMM/comm-corr-01.md, examples/ksat8/deliverables/COMM/comm-corr-02.md, examples/ksat8/deliverables/COMM/REQ-GS-COMM-EIRP확정-reply.md
+
+개정(재취합): COMM-U1이 CM/PUR/CAL/FAC/PA 회신·정정 2건을 반영해
+재취합됐고, GS 앞 EIRP 확정 회신도 추가되어 함께 재취합한다(수치 변경
+없음).
 
 ## 인도 내역
 TT&C 트랜스폰더 1식(SN COMM-FM-001) — COMM-U1 유닛 전 체인(설계 풀체인

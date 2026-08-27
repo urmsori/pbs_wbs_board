@@ -2,7 +2,7 @@
 id: FIX-PAY-STR-질량정정
 title: 중계기 패널 실측질량 정정 회신 (STR 배분 대비)
 status: OPEN
-parent: M-PAY
+parent: M-STR
 source: PAY-U1-MFG
 owner: -
 deliverable: -
