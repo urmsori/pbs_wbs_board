@@ -4,7 +4,7 @@ title: 중계기 IOT 시험 요구 (채널·EIRP 측정 항목)
 status: DONE
 parent: M-GS
 source: M-GS
-owner: PAY-DSN-01
+owner: PAY-IF-02
 deliverable: examples/ksat8/deliverables/PAY/REQ-GS-PAY-IOT-reply.md
 after: -
 track: PAY

@@ -4,7 +4,7 @@ title: 중계기 11kW 부하 프로파일(채널 구성별) 요청
 status: DONE
 parent: M-EPS
 source: EPS-U1-DSN
-owner: PAY-DSN-01
+owner: PAY-IF-01
 deliverable: examples/ksat8/deliverables/PAY/eps-pay-load-reply.md
 after: -
 track: PAY

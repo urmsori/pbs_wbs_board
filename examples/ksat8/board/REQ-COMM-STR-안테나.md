@@ -1,15 +1,15 @@
 ---
 id: REQ-COMM-STR-안테나
 title: TT&C 안테나 장착·시야 요청
-status: OPEN
+status: DONE
 parent: M-COMM
 source: M-COMM
-owner: -
-deliverable: -
+owner: STR-DSN-01
+deliverable: examples/ksat8/deliverables/STR/REQ-COMM-STR-안테나-reply.md
 after: -
 track: STR
-started: -
-finished: -
+started: 2026-08-27 04:02:52
+finished: 2026-08-27 04:02:52
 ---
 
 TT&C 트랜스폰더(COMM-U1) RF 설계(안테나 배치·급전선 경로·차폐)를 시작하려면
@@ -20,3 +20,4 @@ TT&C 트랜스폰더(COMM-U1) RF 설계(안테나 배치·급전선 경로·차�
 (3) 반사판·SA 전개 시 상호 간섭(RF 차폐·다중경로) 여부.
 
 회신 산출물 경로 제안: examples/ksat8/deliverables/STR/REQ-COMM-STR-안테나-reply.md
+검증: 상판 2개소 대칭 장착, 무차폐±90°, 전개과도구간 일시간섭 가능 회신

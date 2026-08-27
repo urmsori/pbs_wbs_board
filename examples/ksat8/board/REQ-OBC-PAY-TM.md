@@ -4,7 +4,7 @@ title: 중계기 TM 점수 요청
 status: DONE
 parent: M-OBC
 source: OBC-U1-DSN
-owner: PAY-DSN-01
+owner: PAY-IF-02
 deliverable: examples/ksat8/deliverables/PAY/obc-tm-reply.md
 after: -
 track: PAY

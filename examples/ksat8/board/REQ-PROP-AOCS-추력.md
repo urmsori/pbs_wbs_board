@@ -4,7 +4,7 @@ title: 모멘텀 언로딩용 이온추력기 운용 요구
 status: DONE
 parent: M-PROP
 source: PROP-DSN-02
-owner: AOCS-DSN-01
+owner: AOCS-IF-01
 deliverable: examples/ksat8/deliverables/AOCS/unloading-thrust-req.md
 after: -
 track: AOCS

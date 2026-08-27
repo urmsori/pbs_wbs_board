@@ -4,7 +4,7 @@ title: 중계기 TM/TC·채널 스위칭 명령셋 요청
 status: DONE
 parent: M-FSW
 source: FSW-U1
-owner: PAY-DSN-01
+owner: PAY-IF-02
 deliverable: examples/ksat8/deliverables/PAY/fsw-tmtc-reply.md
 after: -
 track: PAY

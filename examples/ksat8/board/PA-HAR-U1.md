@@ -1,18 +1,19 @@
 ---
 id: PA-HAR-U1
 title: HAR-U1 100V 전력 하니스 검사 입회 요청
-status: OPEN
+status: DONE
 parent: M-HAR
 source: HAR-U1-CLN-01
-owner: -
-deliverable: -
+owner: PA-01
+deliverable: examples/ksat8/deliverables/PA/har-u1-inspection-witness.md
 after: -
 track: PA
-started: -
-finished: -
+started: 2026-08-27 04:02:02
+finished: 2026-08-27 04:02:16
 ---
 
 세척 완료된 HAR-U1 배선 조립체의 절연저항·전압강하 검사(HAR-U1-INS-01)에
 품질보증 입회를 요청한다. sysreq.md HAR 항목(100V 절연) 관련 검사이므로
 입회 확인이 필요하다.
 산출물 제안: examples/ksat8/deliverables/PA/har-u1-inspection-witness.md
+검증: 실측치 원본 대조 일치, 소급 입회 완료(실시간 지연 리스크 정직기록)

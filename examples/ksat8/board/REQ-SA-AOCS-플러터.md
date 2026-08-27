@@ -4,7 +4,7 @@ title: 지향 제어 대역과 SA 모드 간섭 요구
 status: DONE
 parent: M-SA
 source: SA-U1-DSN
-owner: AOCS-DSN-01
+owner: AOCS-IF-01
 deliverable: examples/ksat8/deliverables/AOCS/sa-interference-reply.md
 after: -
 track: AOCS

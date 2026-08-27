@@ -4,7 +4,7 @@ title: 반사판 질량·관성·전개각 요청 (MECH→PAY)
 status: DONE
 parent: M-MECH
 source: MECH-U1-DSN
-owner: PAY-DSN-01
+owner: PAY-IF-03
 deliverable: examples/ksat8/deliverables/PAY/mech-pay-reflector-reply.md
 after: -
 track: PAY

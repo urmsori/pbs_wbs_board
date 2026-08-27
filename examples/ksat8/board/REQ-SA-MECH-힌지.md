@@ -1,15 +1,15 @@
 ---
 id: REQ-SA-MECH-힌지
 title: 전개 힌지 인터페이스 확정 요청
-status: OPEN
+status: DONE
 parent: M-SA
 source: SA-U1-DSN
-owner: -
-deliverable: -
+owner: MECH-DSN-01
+deliverable: examples/ksat8/deliverables/MECH/sa-hinge-icd.md
 after: -
 track: MECH
-started: -
-finished: -
+started: 2026-08-27 04:02:52
+finished: 2026-08-27 04:02:52
 ---
 
 2윙 대형 태양전지판(SA-U1-DSN) 설계에서 전개 후 1차모드 ≥0.1Hz(sysreq)
@@ -22,3 +22,4 @@ finished: -
 위 3항목을 수치로 명시해 달라. 무응답 시 힌지 강성 6000 N·m/rad(대형
 2윙 기준 가정)로 잠정 설계 후 모드해석에서 민감도만 표기한다.
 검증: 힌지강성·백래시·질량한도(kg/윙) 회신
+검증: 힌지강성6,080N·m/rad·백래시0.04°·6점M8 PCD150mm·이중릴리즈 단일고장허용 회신

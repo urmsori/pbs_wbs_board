@@ -10,3 +10,9 @@ sysreq SA 2항목(EOL 16kW, 전개후 1차모드≥0.1Hz) 대비: EOL 설계치
 
 검증: sysreq SA 2항목 설계단계 충족(조건부: 힌지강성 실회신 시 재검증),
 CM·PUR 요청 진행
+
+## 조건 해소
+입력: examples/ksat8/deliverables/SA/panel-design.md
+MECH 힌지강성 실회신(6,080N·m/rad) 반영 재계산 결과 1차모드 0.118Hz로
+마진 18% 유지 확인 — 조건부 승인의 재검증 조건 해소.
+검증(해소): 힌지강성 실측 반영 후에도 1차모드≥0.1Hz(마진18%) 유지 확인

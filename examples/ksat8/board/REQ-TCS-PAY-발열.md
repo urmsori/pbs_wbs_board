@@ -4,7 +4,7 @@ title: TWTA 채널별 발열·배치 정보 요청
 status: DONE
 parent: M-TCS
 source: TCS-DSN-01
-owner: PAY-DSN-01
+owner: PAY-IF-01
 deliverable: examples/ksat8/deliverables/PAY/twta-heat-layout.md
 after: -
 track: PAY

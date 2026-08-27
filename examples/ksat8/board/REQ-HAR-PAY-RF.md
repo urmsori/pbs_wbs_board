@@ -4,7 +4,7 @@ title: 도파관 경로 요구·플랜지 규격 요청 (도파관·RF 하니스
 status: DONE
 parent: M-HAR
 source: HAR-U2-DSN-01
-owner: PAY-DSN-01
+owner: PAY-IF-01
 deliverable: examples/ksat8/deliverables/PAY/waveguide-route-spec.md
 after: -
 track: PAY

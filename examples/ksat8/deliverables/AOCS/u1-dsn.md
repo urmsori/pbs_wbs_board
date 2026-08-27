@@ -36,3 +36,26 @@ examples/ksat8/deliverables/PROP/aocs-unloading-interface.md
 - 추력기-휠축 정렬 허용오차: ≤1.0°(토크 분해 오차 <5% 유지).
 
 검증: RSS 123.1arcsec(0.0342°) ≤ 0.05°(마진31.6%), 대역폭0.02Hz(SA모드대비6.0배 이격) 충족.
+
+---
+## 정정(FIX-AOCS-U1-STR정렬반영) — STR 정식 회신 반영
+
+입력: examples/ksat8/deliverables/STR/aocs-alignment-spec.md, examples/ksat8/deliverables/AOCS/u1-dsn.md
+
+STR 정식 회신(정렬큐브 수직도10arcsec·열드리프트5arcsec/궤도, 안테나
+보어사이트 열드리프트18arcsec/궤도) 반영 — 정렬오차 RSS = √(10²+5²+18²) =
+**21.2 arcsec**(기존 잠정치 50arcsec보다 유리, 정정).
+
+### 지향오차 예산 재계산
+| 항목 | 배분(arcsec) |
+|---|---|
+| 정렬오차(STR 실측) | 21.2 |
+| 센서오차 | 39.1 |
+| 제어오차 | 90.0 |
+| 반사판 열/구조왜곡 | 55.0 |
+| **RSS 합** | **114.5 → 0.0318° ≤ 0.05°(마진 36.4%)** |
+
+AOCS-U1-RVW-A 조건부 승인 조건(STR 정식 회신 후 재확인) 충족 — 마진이
+기존 31.6%에서 **36.4%로 개선**되어 BASELINE(AOCS-U1-BL-001) 유지 확정.
+
+검증: 정정 RSS 114.5arcsec(0.0318°)≤0.05°(마진36.4%, 기존31.6%보다 개선) — BASELINE 유지

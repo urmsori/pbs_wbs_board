@@ -4,7 +4,7 @@ title: Ka 중계기 패널 질량·장착·방열 인터페이스 요청 (STR→
 status: DONE
 parent: M-STR
 source: STR-U2-DSN
-owner: PAY-DSN-01
+owner: PAY-IF-03
 deliverable: examples/ksat8/deliverables/PAY/str-pay-mount-reply.md
 after: -
 track: PAY

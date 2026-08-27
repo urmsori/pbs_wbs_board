@@ -4,7 +4,7 @@ title: AOCS TM/TC·제어 알고리즘 인터페이스 요청
 status: DONE
 parent: M-FSW
 source: FSW-U1
-owner: AOCS-DSN-01
+owner: AOCS-IF-01
 deliverable: examples/ksat8/deliverables/AOCS/fsw-tmtc-reply.md
 after: -
 track: AOCS
