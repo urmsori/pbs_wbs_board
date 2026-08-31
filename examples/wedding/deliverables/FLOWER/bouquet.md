@@ -1,6 +1,6 @@
 # 부케 제작·인도 (FLO-01)
 입력: 자기 트랙(-), BG 회신(examples/wedding/deliverables/BG/reply-flower-부케.md),
-MAKEUP 회신(examples/wedding/deliverables/MAKEUP/reply-photo-완료시각.md — 신부 도착 11:50)
+MAKEUP 회신(examples/wedding/deliverables/MAKEUP/reply-flower-완료시각.md — 신부 도착 11:50)
 
 ## BG 회신 요약
 스타일: 화이트 카라 + 그린 유칼립투스, 라운드 폼(드레스 미니멀 실크에 맞춤).
