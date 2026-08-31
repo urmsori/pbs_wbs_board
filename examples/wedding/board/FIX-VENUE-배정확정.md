@@ -1,0 +1,17 @@
+---
+id: FIX-VENUE-배정확정
+title: 소회의실 정식 배정 + 반입 시간 분리 확정
+status: OPEN
+parent: REH
+source: REH
+owner: -
+deliverable: -
+after: -
+track: VENUE
+started: -
+finished: -
+---
+
+리허설에서 확인 필요 2건: ① 혼주 착석 코스 서빙을 소회의실로 옮기는 안(FOOD plan)의
+정식 배정 확인 ② 화물 엘리베이터 1대 병목 — FLOWER(11:00)와 GIFT 포토테이블(11:20)
+반입 시간 분리 확정. 산출물: examples/wedding/deliverables/VENUE/reh-assignments.md

@@ -1,14 +1,14 @@
 ---
 id: REH
 title: 예식 리허설 (D-7)
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: PLAN-01
 deliverable: -
 after: M-VENUE, M-FOOD, M-GIFT, M-TRANS, M-MC, M-MUSIC, M-PHOTO, M-DVD, M-MAKEUP, M-FLOWER, M-BG
 track: PLAN
-started: -
+started: 2026-08-31 12:01:50
 finished: -
 ---
 
