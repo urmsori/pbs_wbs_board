@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>지우·민준, 결혼이라는 프로젝트</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --ground:#FAF6F1; --card:#FFFFFF; --ink:#26211C; --ink2:#6B6157;
+  --muted:#9A8F84; --line:#EAE1D6; --accent:#3E6B5A; --accent-soft:#E4EDE8;
+  --bride:#B4756B; --bride-soft:#F5E4E1; --groom:#5B7185; --groom-soft:#E4EAF0;
+  --other:#8A7F74; --other-soft:#EFEAE3; --now:#3E6B5A; --warn:#B3543F;
+  --sheet:#FFFFFF; --scrim:rgba(38,33,28,.45); --ring-bg:#EAE1D6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground:#1B1713; --card:#262019; --ink:#F0E9E1; --ink2:#BDB1A4;
+    --muted:#8A7F74; --line:#3A322A; --accent:#7FA893; --accent-soft:#2C3A33;
+    --bride:#D89A90; --bride-soft:#3E2C29; --groom:#8FA6BC; --groom-soft:#28313B;
+    --other:#9A8F84; --other-soft:#322B24; --now:#7FA893; --warn:#D8846F;
+    --sheet:#262019; --scrim:rgba(0,0,0,.6); --ring-bg:#3A322A;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground:#1B1713; --card:#262019; --ink:#F0E9E1; --ink2:#BDB1A4;
+  --muted:#8A7F84; --line:#3A322A; --accent:#7FA893; --accent-soft:#2C3A33;
+  --bride:#D89A90; --bride-soft:#3E2C29; --groom:#8FA6BC; --groom-soft:#28313B;
+  --other:#9A8F84; --other-soft:#322B24; --now:#7FA893; --warn:#D8846F;
+  --sheet:#262019; --scrim:rgba(0,0,0,.6); --ring-bg:#3A322A;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink);
+  font-family: "Noto Sans KR", system-ui, -apple-system, sans-serif;
+  font-size: 15px; line-height: 1.55; }
+.app { max-width: 480px; margin: 0 auto; min-height: 100vh; padding-bottom: 4rem; }
+
+header { position: sticky; top: 0; z-index: 20; background: var(--ground);
+  padding: 1rem 1.1rem .7rem; border-bottom: 1px solid var(--line); }
+.h-row { display: flex; align-items: center; gap: .9rem; }
+.ring { flex: 0 0 auto; }
+h1 { font-family: "Gowun Batang", serif; font-weight: 700; font-size: 1.18rem;
+  margin: 0; text-wrap: balance; }
+.h-sub { color: var(--ink2); font-size: .8rem; margin-top: .15rem; }
+.chips { display: flex; gap: .4rem; margin-top: .7rem; overflow-x: auto;
+  scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip { flex: 0 0 auto; font: inherit; font-size: .8rem; padding: .3rem .8rem;
+  border-radius: 999px; border: 1px solid var(--line); background: var(--card);
+  color: var(--ink2); cursor: pointer; }
+.chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.now-box { margin: .9rem 1.1rem 0; background: var(--accent-soft);
+  border: 1px solid var(--accent); border-radius: 14px; padding: .7rem .9rem; }
+.now-box h2 { margin: 0 0 .35rem; font-size: .8rem; letter-spacing: .06em;
+  color: var(--accent); font-weight: 700; }
+.done-box { margin: .9rem 1.1rem 0; background: var(--accent-soft);
+  border-radius: 14px; padding: .8rem 1rem; color: var(--accent);
+  font-weight: 500; text-align: center; }
+.warn-box { margin: .9rem 1.1rem 0; border: 1px solid var(--warn);
+  border-radius: 14px; padding: .6rem .9rem; color: var(--warn); font-size: .8rem; }
+
+.phase { margin: 1.1rem 1.1rem 0; }
+.ph-head { display: flex; align-items: center; gap: .6rem; cursor: pointer;
+  padding: .3rem 0; }
+.ph-no { flex: 0 0 auto; width: 1.7rem; height: 1.7rem; border-radius: 50%;
+  display: grid; place-items: center; font-size: .75rem; font-weight: 700;
+  background: var(--accent-soft); color: var(--accent); }
+.ph-no.alldone { background: var(--accent); color: #fff; }
+.ph-title { font-family: "Gowun Batang", serif; font-weight: 700;
+  font-size: 1rem; flex: 1; min-width: 0; }
+.ph-prog { font-size: .75rem; color: var(--muted);
+  font-variant-numeric: tabular-nums; }
+.ph-bar { height: 3px; border-radius: 2px; background: var(--ring-bg);
+  margin: .25rem 0 .4rem 2.3rem; overflow: hidden; }
+.ph-bar div { height: 100%; background: var(--accent); }
+.cards { display: flex; flex-direction: column; gap: .5rem; margin-left: .82rem;
+  padding-left: 1.45rem; border-left: 2px solid var(--line); }
+.phase.closed .cards, .phase.closed .ph-bar { display: none; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  padding: .65rem .8rem; display: flex; gap: .65rem; align-items: flex-start;
+  cursor: pointer; min-height: 52px; }
+.card:active { transform: scale(.985); }
+.st { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%;
+  margin-top: .1rem; display: grid; place-items: center; font-size: 13px;
+  border: 2px solid var(--muted); color: transparent; }
+.st.done { background: var(--accent); border-color: var(--accent); color: #fff; }
+.st.taken { border-color: var(--accent); color: var(--accent);
+  background: var(--accent-soft); }
+.st.ready { border-color: var(--now); color: var(--now); animation: pulse 1.6s infinite; }
+@keyframes pulse { 0%,100%{box-shadow:0 0 0 0 var(--accent-soft)} 50%{box-shadow:0 0 0 5px var(--accent-soft)} }
+@media (prefers-reduced-motion: reduce) { .st.ready { animation: none; } }
+.c-main { flex: 1; min-width: 0; }
+.c-title { font-weight: 500; font-size: .92rem; }
+.c-title.done-t { color: var(--ink2); }
+.c-meta { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .3rem; }
+.tag { font-size: .68rem; padding: .08rem .5rem; border-radius: 999px;
+  background: var(--other-soft); color: var(--other); }
+.tag.bride { background: var(--bride-soft); color: var(--bride); }
+.tag.groom { background: var(--groom-soft); color: var(--groom); }
+.tag.req { background: var(--accent-soft); color: var(--accent); }
+
+.foot { margin: 1.6rem 1.1rem 0; text-align: center; color: var(--muted);
+  font-size: .75rem; }
+.foot .fin { font-family: "Gowun Batang", serif; font-size: 1rem;
+  color: var(--accent); margin-bottom: .3rem; }
+
+#scrim { position: fixed; inset: 0; background: var(--scrim); z-index: 40; }
+#sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+  max-width: 480px; margin: 0 auto; background: var(--sheet);
+  border-radius: 18px 18px 0 0; padding: 1rem 1.2rem 1.4rem;
+  max-height: 78vh; overflow-y: auto; box-shadow: 0 -6px 30px rgba(0,0,0,.18); }
+#sheet .grip { width: 36px; height: 4px; border-radius: 2px; background: var(--line);
+  margin: 0 auto .8rem; }
+#sheet h3 { font-family: "Gowun Batang", serif; margin: 0 0 .2rem;
+  font-size: 1.05rem; text-wrap: balance; }
+#sheet .s-id { color: var(--muted); font-size: .75rem; }
+.s-row { margin-top: .7rem; }
+.s-label { font-size: .7rem; letter-spacing: .06em; color: var(--muted);
+  margin-bottom: .25rem; font-weight: 700; }
+.s-body { font-size: .88rem; }
+.why { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; }
+.why button, .dep-b { font: inherit; font-size: .8rem; padding: .25rem .7rem;
+  border-radius: 999px; border: 1px solid var(--accent); background: var(--card);
+  color: var(--accent); cursor: pointer; }
+.why .arr { color: var(--muted); }
+.s-body a { color: var(--accent); word-break: break-all; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="h-row">
+    <svg class="ring" width="52" height="52" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="22" fill="none" stroke="var(--ring-bg)" stroke-width="5"/>
+      <circle id="ringFg" cx="26" cy="26" r="22" fill="none" stroke="var(--accent)"
+        stroke-width="5" stroke-linecap="round" transform="rotate(-90 26 26)"/>
+      <text id="ringTx" x="26" y="30" text-anchor="middle" font-size="12"
+        font-weight="700" fill="var(--ink)"></text>
+    </svg>
+    <div style="min-width:0">
+      <h1 id="ttl"></h1>
+      <div class="h-sub" id="sub"></div>
+    </div>
+  </div>
+  <div class="chips" id="filters"></div>
+</header>
+
+<div id="warnbox" class="warn-box" hidden></div>
+<div id="nowbox" class="now-box" hidden><h2>지금 할 일</h2><div id="nowlist"></div></div>
+<div id="phases"></div>
+<div class="foot" id="foot"></div>
+</div>
+
+<div id="scrim" hidden></div>
+<div id="sheet" hidden role="dialog" aria-modal="true"><div class="grip"></div><div id="sheetBody"></div></div>
+
+<script id="data" type="application/json">{"meta": {"title": "지우·민준, 결혼이라는 프로젝트", "generated": "2026-08-31 12:15", "counts": {"OPEN": 0, "TAKEN": 1, "DONE": 1}, "warnings": [], "rootRel": "../..", "boardRel": "board", "boardArg": "examples/journey/board"}, "posts": [{"id": "R00", "t": "지우·민준, 결혼이라는 프로젝트", "st": "TAKEN", "pa": "", "so": "", "ow": "BRIDE", "tr": "US", "af": [], "s": "2026-08-31 12:42:00", "f": "", "dl": [], "fi": "R00.md", "rd": false, "sub": [2, 1], "v": "검증: 자식 전량 DONE, 입력 추적 경고 0, 루트(여정 완료) 마지막."}, {"id": "BRIEF", "t": "둘의 합의 — 예산·날짜·원칙", "st": "DONE", "pa": "R00", "so": "R00", "ow": "GROOM", "tr": "US", "af": [], "s": "2026-08-31 12:12:53", "f": "2026-08-31 12:12:53", "dl": ["examples/journey/deliverables/US/brief.md"], "fi": "BRIEF.md", "rd": false, "sub": [1, 1], "v": "검증: 둘이 합의·서명 — 예산 상한, 5원칙, 모르는 것 목록 명시"}]}</script>
+<script>
+"use strict";
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const M = DATA.meta, POSTS = DATA.posts;
+const byId = new Map(); POSTS.forEach(p => p.id && byId.set(p.id, p));
+const kids = new Map();
+POSTS.forEach(p => { if (p.pa && byId.has(p.pa)) {
+  if (!kids.has(p.pa)) kids.set(p.pa, []); kids.get(p.pa).push(p); } });
+const spawn = new Map();
+POSTS.forEach(p => { if (p.so && byId.has(p.so)) {
+  if (!spawn.has(p.so)) spawn.set(p.so, []); spawn.get(p.so).push(p); } });
+const roots = POSTS.filter(p => !(p.pa && byId.has(p.pa)));
+const esc = s => String(s).replace(/[&<>"]/g,
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// 담당 → 칩. 신부/신랑은 색으로, 나머지는 track으로.
+function ownerTag(p) {
+  const o = p.ow;
+  if (/^BRIDE/i.test(o) || /지우/.test(o)) return '<span class="tag bride">지우</span>';
+  if (/^GROOM/i.test(o) || /민준/.test(o)) return '<span class="tag groom">민준</span>';
+  if (o) return `<span class="tag">${esc(o)}</span>`;
+  return '';
+}
+function reqTag(p) {
+  if (p.id.startsWith('REQ') || p.id.startsWith('FIX') || p.id.startsWith('CORR'))
+    return `<span class="tag req">요청 → ${esc(p.tr || '상대')}</span>`;
+  return p.tr && p.tr !== 'US' ? `<span class="tag">${esc(p.tr)}</span>` : '';
+}
+function stIcon(p) {
+  if (p.st === 'DONE') return '<span class="st done">✓</span>';
+  if (p.st === 'TAKEN') return '<span class="st taken">…</span>';
+  if (p.rd) return '<span class="st ready">!</span>';
+  return '<span class="st"></span>';
+}
+
+// 섹션 = 루트의 자식(위상 순). 자식이 없는 항목은 한 장짜리 섹션.
+const sections = [];
+roots.forEach(r => (kids.get(r.id) || []).forEach(ph => {
+  const flat = [];
+  (function walk(q) { flat.push(q); (kids.get(q.id) || []).forEach(walk); })(ph);
+  sections.push({ ph, cards: flat.slice(1).length ? flat.slice(1) : [ph],
+                  self: flat.slice(1).length > 0 });
+}));
+
+const S = { filter: 'all', remain: false, open: new Set() };
+sections.forEach((sec, i) => {
+  const done = sec.cards.every(c => c.st === 'DONE');
+  if (!done) S.open.add(i); // 끝난 단계는 접고, 진행 중인 단계는 펼친다
+});
+
+function matches(p) {
+  if (S.remain && p.st === 'DONE') return false;
+  if (S.filter === 'bride') return /^BRIDE|지우/i.test(p.ow);
+  if (S.filter === 'groom') return /^GROOM|민준/i.test(p.ow);
+  if (S.filter === 'other') return p.ow && !/^BRIDE|^GROOM|지우|민준/i.test(p.ow);
+  return true;
+}
+
+function render() {
+  const total = POSTS.length, done = POSTS.filter(p => p.st === 'DONE').length;
+  const pct = total ? done / total : 0;
+  const C = 2 * Math.PI * 22;
+  const fg = document.getElementById('ringFg');
+  fg.setAttribute('stroke-dasharray', `${(C * pct).toFixed(1)} ${C.toFixed(1)}`);
+  document.getElementById('ringTx').textContent = Math.round(pct * 100) + '%';
+  document.getElementById('ttl').textContent = M.title;
+  document.getElementById('sub').textContent =
+    `${done}/${total} 완료 · ${M.generated} 기준`;
+
+  const ready = POSTS.filter(p => p.rd);
+  const nb = document.getElementById('nowbox');
+  if (ready.length) {
+    nb.hidden = false;
+    document.getElementById('nowlist').innerHTML = ready.map(p =>
+      `<div class="card" data-id="${esc(p.id)}" style="border-color:var(--accent)">
+        ${stIcon(p)}<div class="c-main"><div class="c-title">${esc(p.t)}</div>
+        <div class="c-meta">${ownerTag(p)}${reqTag(p)}</div></div></div>`).join('');
+  } else {
+    nb.hidden = true;
+    const allDone = roots.every(r => r.st === 'DONE');
+    if (allDone && !document.getElementById('doneBanner')) {
+      const d = document.createElement('div');
+      d.id = 'doneBanner'; d.className = 'done-box';
+      d.textContent = '여정 완료 — 모든 일이 끝났어요';
+      nb.parentNode.insertBefore(d, nb);
+    }
+  }
+  if (M.warnings.length) {
+    const w = document.getElementById('warnbox');
+    w.hidden = false;
+    w.textContent = `규칙 검사 경고 ${M.warnings.length}건 — ` + M.warnings[0];
+  }
+
+  document.getElementById('phases').innerHTML = sections.map((sec, i) => {
+    const cs = sec.cards.filter(matches);
+    if (!cs.length && (S.filter !== 'all' || S.remain)) return '';
+    const dn = sec.cards.filter(c => c.st === 'DONE').length, n = sec.cards.length;
+    const closed = !S.open.has(i);
+    return `<section class="phase${closed ? ' closed' : ''}" data-i="${i}">
+      <div class="ph-head" data-ph="${i}">
+        <span class="ph-no${dn === n ? ' alldone' : ''}">${dn === n ? '✓' : i + 1}</span>
+        <span class="ph-title">${esc(sec.ph.t)}</span>
+        <span class="ph-prog">${dn}/${n}</span>
+      </div>
+      <div class="ph-bar"><div style="width:${n ? (dn / n * 100).toFixed(0) : 0}%"></div></div>
+      <div class="cards">${cs.map(p => `
+        <div class="card" data-id="${esc(p.id)}">
+          ${stIcon(p)}
+          <div class="c-main">
+            <div class="c-title${p.st === 'DONE' ? ' done-t' : ''}">${esc(p.t)}</div>
+            <div class="c-meta">${ownerTag(p)}${reqTag(p)}</div>
+          </div>
+        </div>`).join('')}</div>
+    </section>`;
+  }).join('');
+
+  const r0 = roots[0];
+  document.getElementById('foot').innerHTML = r0 ?
+    `<div class="fin">${r0.st === 'DONE' ? '“' + esc(r0.t) + '” — 완주' : esc(r0.t) + ' — 진행 중'}</div>
+     이 페이지는 보드(${esc(M.boardArg)})의 기록에서 만들어졌다 ·
+     <a href="${esc(M.rootRel)}/RULES.md">규칙</a>` : '';
+}
+
+// 필터 칩
+const FILTERS = [['all', '전체'], ['bride', '지우'], ['groom', '민준'], ['other', '상대방']];
+document.getElementById('filters').innerHTML =
+  FILTERS.map(([k, l]) => `<button class="chip${k === 'all' ? ' on' : ''}" data-f="${k}">${l}</button>`).join('')
+  + `<button class="chip" data-remain="1">남은 일만</button>`;
+document.getElementById('filters').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.f) {
+    S.filter = b.dataset.f;
+    document.querySelectorAll('[data-f]').forEach(x => x.classList.toggle('on', x === b));
+  } else { S.remain = !S.remain; b.classList.toggle('on', S.remain); }
+  render();
+});
+
+document.body.addEventListener('click', e => {
+  const ph = e.target.closest('[data-ph]');
+  if (ph) { const i = +ph.dataset.ph;
+    S.open.has(i) ? S.open.delete(i) : S.open.add(i); render(); return; }
+  const c = e.target.closest('[data-id]');
+  if (c) openSheet(c.dataset.id);
+});
+
+// 바텀시트
+function openSheet(id) {
+  const p = byId.get(id); if (!p) return;
+  const why = [];
+  for (let s = p.so, seen = new Set(); s && byId.has(s) && !seen.has(s); s = byId.get(s).so) {
+    seen.add(s); why.push(s);
+  }
+  const whyRow = why.length
+    ? why.map(a => `<button data-go="${esc(a)}">${esc(byId.get(a).t.slice(0, 16))}${byId.get(a).t.length > 16 ? '…' : ''}</button>`)
+        .join('<span class="arr">←</span>')
+    : '<span style="color:var(--muted)">여정의 출발점</span>';
+  const sp = (spawn.get(id) || []);
+  const dls = p.dl.map(d =>
+    `<a href="${esc(M.rootRel + '/' + d)}">${esc(d.split('/').pop())}</a>`).join('<br>') || '—';
+  const word = p.st === 'DONE' ? '완료' : p.st === 'TAKEN' ? '진행 중'
+    : p.rd ? '지금 할 수 있어요' : '앞의 일이 끝나면';
+  const when = p.f ? `완료: ${p.f}` : p.s ? `시작: ${p.s}` : '';
+  document.getElementById('sheetBody').innerHTML = `
+    <h3>${esc(p.t)}</h3>
+    <div class="s-id">${esc(p.id)}${p.ow ? ' · ' + esc(p.ow) : ''}${when ? ' · ' + esc(when) : ''}</div>
+    <div class="s-row"><div class="s-label">왜 이 일이 있나</div>
+      <div class="s-body why">${whyRow}</div></div>
+    <div class="s-row"><div class="s-label">상태</div><div class="s-body">${word}</div></div>
+    ${p.af.length ? `<div class="s-row"><div class="s-label">먼저 끝나야 하는 일</div>
+      <div class="s-body why">${p.af.filter(a => byId.has(a)).map(a =>
+        `<button data-go="${esc(a)}">${esc(byId.get(a).t.slice(0, 16))}</button>`).join('')}</div></div>` : ''}
+    ${sp.length ? `<div class="s-row"><div class="s-label">이 일이 만든 일</div>
+      <div class="s-body why">${sp.slice(0, 8).map(q =>
+        `<button data-go="${esc(q.id)}">${esc(q.t.slice(0, 16))}</button>`).join('')}</div></div>` : ''}
+    <div class="s-row"><div class="s-label">남긴 기록</div><div class="s-body">${dls}</div></div>
+    ${p.v ? `<div class="s-row"><div class="s-label">확인</div>
+      <div class="s-body">${esc(p.v.replace(/^검증:\s*/, ''))}</div></div>` : ''}
+    <div class="s-row"><div class="s-body">
+      <a href="${esc(M.boardRel + '/' + p.fi)}">게시글 원문 보기</a></div></div>`;
+  document.getElementById('sheet').hidden = false;
+  document.getElementById('scrim').hidden = false;
+}
+function closeSheet() {
+  document.getElementById('sheet').hidden = true;
+  document.getElementById('scrim').hidden = true;
+}
+document.getElementById('scrim').addEventListener('click', closeSheet);
+document.getElementById('sheet').addEventListener('click', e => {
+  const b = e.target.closest('[data-go]');
+  if (b) openSheet(b.dataset.go);
+});
+addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+
+render();
+</script>
+</body>
+</html>

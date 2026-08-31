@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>지우·민준 결혼식 웨딩 런시트</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --ground:#FAF6F1; --card:#FFFFFF; --ink:#26211C; --ink2:#6B6157;
+  --muted:#9A8F84; --line:#EAE1D6; --accent:#3E6B5A; --accent-soft:#E4EDE8;
+  --bride:#B4756B; --bride-soft:#F5E4E1; --groom:#5B7185; --groom-soft:#E4EAF0;
+  --other:#8A7F74; --other-soft:#EFEAE3; --now:#3E6B5A; --warn:#B3543F;
+  --sheet:#FFFFFF; --scrim:rgba(38,33,28,.45); --ring-bg:#EAE1D6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground:#1B1713; --card:#262019; --ink:#F0E9E1; --ink2:#BDB1A4;
+    --muted:#8A7F74; --line:#3A322A; --accent:#7FA893; --accent-soft:#2C3A33;
+    --bride:#D89A90; --bride-soft:#3E2C29; --groom:#8FA6BC; --groom-soft:#28313B;
+    --other:#9A8F84; --other-soft:#322B24; --now:#7FA893; --warn:#D8846F;
+    --sheet:#262019; --scrim:rgba(0,0,0,.6); --ring-bg:#3A322A;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground:#1B1713; --card:#262019; --ink:#F0E9E1; --ink2:#BDB1A4;
+  --muted:#8A7F84; --line:#3A322A; --accent:#7FA893; --accent-soft:#2C3A33;
+  --bride:#D89A90; --bride-soft:#3E2C29; --groom:#8FA6BC; --groom-soft:#28313B;
+  --other:#9A8F84; --other-soft:#322B24; --now:#7FA893; --warn:#D8846F;
+  --sheet:#262019; --scrim:rgba(0,0,0,.6); --ring-bg:#3A322A;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink);
+  font-family: "Noto Sans KR", system-ui, -apple-system, sans-serif;
+  font-size: 15px; line-height: 1.55; }
+.app { max-width: 480px; margin: 0 auto; min-height: 100vh; padding-bottom: 4rem; }
+
+header { position: sticky; top: 0; z-index: 20; background: var(--ground);
+  padding: 1rem 1.1rem .7rem; border-bottom: 1px solid var(--line); }
+.h-row { display: flex; align-items: center; gap: .9rem; }
+.ring { flex: 0 0 auto; }
+h1 { font-family: "Gowun Batang", serif; font-weight: 700; font-size: 1.18rem;
+  margin: 0; text-wrap: balance; }
+.h-sub { color: var(--ink2); font-size: .8rem; margin-top: .15rem; }
+.chips { display: flex; gap: .4rem; margin-top: .7rem; overflow-x: auto;
+  scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip { flex: 0 0 auto; font: inherit; font-size: .8rem; padding: .3rem .8rem;
+  border-radius: 999px; border: 1px solid var(--line); background: var(--card);
+  color: var(--ink2); cursor: pointer; }
+.chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.now-box { margin: .9rem 1.1rem 0; background: var(--accent-soft);
+  border: 1px solid var(--accent); border-radius: 14px; padding: .7rem .9rem; }
+.now-box h2 { margin: 0 0 .35rem; font-size: .8rem; letter-spacing: .06em;
+  color: var(--accent); font-weight: 700; }
+.done-box { margin: .9rem 1.1rem 0; background: var(--accent-soft);
+  border-radius: 14px; padding: .8rem 1rem; color: var(--accent);
+  font-weight: 500; text-align: center; }
+.warn-box { margin: .9rem 1.1rem 0; border: 1px solid var(--warn);
+  border-radius: 14px; padding: .6rem .9rem; color: var(--warn); font-size: .8rem; }
+
+.phase { margin: 1.1rem 1.1rem 0; }
+.ph-head { display: flex; align-items: center; gap: .6rem; cursor: pointer;
+  padding: .3rem 0; }
+.ph-no { flex: 0 0 auto; width: 1.7rem; height: 1.7rem; border-radius: 50%;
+  display: grid; place-items: center; font-size: .75rem; font-weight: 700;
+  background: var(--accent-soft); color: var(--accent); }
+.ph-no.alldone { background: var(--accent); color: #fff; }
+.ph-title { font-family: "Gowun Batang", serif; font-weight: 700;
+  font-size: 1rem; flex: 1; min-width: 0; }
+.ph-prog { font-size: .75rem; color: var(--muted);
+  font-variant-numeric: tabular-nums; }
+.ph-bar { height: 3px; border-radius: 2px; background: var(--ring-bg);
+  margin: .25rem 0 .4rem 2.3rem; overflow: hidden; }
+.ph-bar div { height: 100%; background: var(--accent); }
+.cards { display: flex; flex-direction: column; gap: .5rem; margin-left: .82rem;
+  padding-left: 1.45rem; border-left: 2px solid var(--line); }
+.phase.closed .cards, .phase.closed .ph-bar { display: none; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  padding: .65rem .8rem; display: flex; gap: .65rem; align-items: flex-start;
+  cursor: pointer; min-height: 52px; }
+.card:active { transform: scale(.985); }
+.st { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%;
+  margin-top: .1rem; display: grid; place-items: center; font-size: 13px;
+  border: 2px solid var(--muted); color: transparent; }
+.st.done { background: var(--accent); border-color: var(--accent); color: #fff; }
+.st.taken { border-color: var(--accent); color: var(--accent);
+  background: var(--accent-soft); }
+.st.ready { border-color: var(--now); color: var(--now); animation: pulse 1.6s infinite; }
+@keyframes pulse { 0%,100%{box-shadow:0 0 0 0 var(--accent-soft)} 50%{box-shadow:0 0 0 5px var(--accent-soft)} }
+@media (prefers-reduced-motion: reduce) { .st.ready { animation: none; } }
+.c-main { flex: 1; min-width: 0; }
+.c-title { font-weight: 500; font-size: .92rem; }
+.c-title.done-t { color: var(--ink2); }
+.c-meta { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .3rem; }
+.tag { font-size: .68rem; padding: .08rem .5rem; border-radius: 999px;
+  background: var(--other-soft); color: var(--other); }
+.tag.bride { background: var(--bride-soft); color: var(--bride); }
+.tag.groom { background: var(--groom-soft); color: var(--groom); }
+.tag.req { background: var(--accent-soft); color: var(--accent); }
+
+.foot { margin: 1.6rem 1.1rem 0; text-align: center; color: var(--muted);
+  font-size: .75rem; }
+.foot .fin { font-family: "Gowun Batang", serif; font-size: 1rem;
+  color: var(--accent); margin-bottom: .3rem; }
+
+#scrim { position: fixed; inset: 0; background: var(--scrim); z-index: 40; }
+#sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+  max-width: 480px; margin: 0 auto; background: var(--sheet);
+  border-radius: 18px 18px 0 0; padding: 1rem 1.2rem 1.4rem;
+  max-height: 78vh; overflow-y: auto; box-shadow: 0 -6px 30px rgba(0,0,0,.18); }
+#sheet .grip { width: 36px; height: 4px; border-radius: 2px; background: var(--line);
+  margin: 0 auto .8rem; }
+#sheet h3 { font-family: "Gowun Batang", serif; margin: 0 0 .2rem;
+  font-size: 1.05rem; text-wrap: balance; }
+#sheet .s-id { color: var(--muted); font-size: .75rem; }
+.s-row { margin-top: .7rem; }
+.s-label { font-size: .7rem; letter-spacing: .06em; color: var(--muted);
+  margin-bottom: .25rem; font-weight: 700; }
+.s-body { font-size: .88rem; }
+.why { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; }
+.why button, .dep-b { font: inherit; font-size: .8rem; padding: .25rem .7rem;
+  border-radius: 999px; border: 1px solid var(--accent); background: var(--card);
+  color: var(--accent); cursor: pointer; }
+.why .arr { color: var(--muted); }
+.s-body a { color: var(--accent); word-break: break-all; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="h-row">
+    <svg class="ring" width="52" height="52" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="22" fill="none" stroke="var(--ring-bg)" stroke-width="5"/>
+      <circle id="ringFg" cx="26" cy="26" r="22" fill="none" stroke="var(--accent)"
+        stroke-width="5" stroke-linecap="round" transform="rotate(-90 26 26)"/>
+      <text id="ringTx" x="26" y="30" text-anchor="middle" font-size="12"
+        font-weight="700" fill="var(--ink)"></text>
+    </svg>
+    <div style="min-width:0">
+      <h1 id="ttl"></h1>
+      <div class="h-sub" id="sub"></div>
+    </div>
+  </div>
+  <div class="chips" id="filters"></div>
+</header>
+
+<div id="warnbox" class="warn-box" hidden></div>
+<div id="nowbox" class="now-box" hidden><h2>지금 할 일</h2><div id="nowlist"></div></div>
+<div id="phases"></div>
+<div class="foot" id="foot"></div>
+</div>
+
+<div id="scrim" hidden></div>
+<div id="sheet" hidden role="dialog" aria-modal="true"><div class="grip"></div><div id="sheetBody"></div></div>
+
+<script id="data" type="application/json">{"meta": {"title": "지우·민준 결혼식 웨딩 런시트", "generated": "2026-08-31 12:15", "counts": {"OPEN": 0, "TAKEN": 0, "DONE": 66}, "warnings": [], "rootRel": "../..", "boardRel": "board", "boardArg": "examples/wedding/board"}, "posts": [{"id": "R00", "t": "지우·민준 결혼식 웨딩 런시트", "st": "DONE", "pa": "", "so": "", "ow": "PLAN-01", "tr": "WED", "af": [], "s": "2026-08-27 05:02:00", "f": "2026-08-31 12:05:13", "dl": ["examples/wedding/deliverables/PLAN/runsheet.md", "examples/wedding/README.md"], "fi": "R00.md", "rd": false, "sub": [66, 66], "v": "검증: 자식 전량 DONE, 런시트 전 행의 출처가 보드에 존재(입력 추적 경고 0), 리허설 발견 4건 반영 — 최종"}, {"id": "BRIEF", "t": "신랑신부 기본 정보·요구", "st": "DONE", "pa": "R00", "so": "R00", "ow": "BG-01", "tr": "BG", "af": [], "s": "2026-08-31 11:41:13", "f": "2026-08-31 11:41:13", "dl": ["examples/wedding/deliverables/BG/brief.md"], "fi": "BRIEF.md", "rd": false, "sub": [1, 1], "v": "검증: 신랑신부 합의 완료 — 일시·형식·꼭 원하는 것·예민한 것 명시"}, {"id": "M-BG", "t": "신랑신부·양가 파트 계획 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "BG-BRIDE(신부)", "tr": "BG", "af": ["BRIEF"], "s": "2026-08-31 11:42:57", "f": "2026-08-31 11:52:05", "dl": ["examples/wedding/deliverables/BG/plan.md"], "fi": "M-BG.md", "rd": false, "sub": [8, 8], "v": "검증: 회신 10건(BG track 응답 9건 + 자기발행 REQ-BG-VENUE-별실 회신 1건)을 입력으로 분단위 타임라인·리스크 4건 확정"}, {"id": "BG-FAMPHOTOLIST", "t": "원판(가족사진) 촬영 가족 명단", "st": "DONE", "pa": "M-BG", "so": "M-BG", "ow": "BG-GROOM(신랑)", "tr": "BG", "af": ["BRIEF"], "s": "2026-08-31 11:48:35", "f": "2026-08-31 11:48:53", "dl": ["examples/wedding/deliverables/BG/family-photo-list.md"], "fi": "BG-FAMPHOTOLIST.md", "rd": false, "sub": [1, 1], "v": "검증: 8개 조합·순서·인원·특이사항 확정, 조부모 우선 배치로 30분 목표 반영"}, {"id": "BG-FLOWERKIDS", "t": "화동 2명 준비 (6·7세 조카)", "st": "DONE", "pa": "M-BG", "so": "M-BG", "ow": "BG-AUNT-01(신부 이모)", "tr": "BG", "af": ["BRIEF"], "s": "2026-08-31 11:50:28", "f": "2026-08-31 11:51:30", "dl": ["examples/wedding/deliverables/BG/flower-kids.md"], "fi": "BG-FLOWERKIDS.md", "rd": false, "sub": [1, 1], "v": "검증: 명단·리허설(11:00-11:30)·비상대응 확정(VENUE 회신 입력)"}, {"id": "BG-GIFTDESK", "t": "축의대 인선·운영 (양가 각 2명, 사촌 이상 친족)", "st": "DONE", "pa": "M-BG", "so": "M-BG", "ow": "BG-COUSIN-01(신부측 사촌)·BG-COUSIN-02(신랑측 사촌)", "tr": "BG", "af": ["BRIEF"], "s": "2026-08-31 11:50:28", "f": "2026-08-31 11:51:30", "dl": ["examples/wedding/deliverables/BG/gift-desk.md"], "fi": "BG-GIFTDESK.md", "rd": false, "sub": [1, 1], "v": "검증: 인선 4인·위치·운영시각·봉투 인계 절차 확정(VENUE 회신 입력)"}, {"id": "BG-HANBOK", "t": "신부 어머니 한복·헬퍼 인계", "st": "DONE", "pa": "M-BG", "so": "M-BG", "ow": "BG-MOMB(신부어머니)", "tr": "BG", "af": ["BRIEF"], "s": "2026-08-31 11:50:28", "f": "2026-08-31 11:51:30", "dl": ["examples/wedding/deliverables/BG/hanbok.md"], "fi": "BG-HANBOK.md", "rd": false, "sub": [1, 1], "v": "검증: 착장 시간·장소·헬퍼 합류·인사 후 동선 확정(VENUE 회신 입력)"}, {"id": "BG-HOST-ESCORT", "t": "혼주 의전 동선 (화촉점화 여부 판단 포함)", "st": "DONE", "pa": "M-BG", "so": "M-BG", "ow": "BG-MOMB(신부어머니)·BG-MOMG(신랑어머니)", "tr": "BG", "af": ["BRIEF"], "s": "2026-08-31 11:50:28", "f": "2026-08-31 11:51:30", "dl": ["examples/wedding/deliverables/BG/host-escort.md"], "fi": "BG-HOST-ESCORT.md", "rd": false, "sub": [1, 1], "v": "검증: 화촉점화 생략 결정, 분단위 동선 확정(VENUE 회신 입력)"}, {"id": "BG-VOWREAD", "t": "성혼선언문 준비 (낭독 연습 포함)", "st": "DONE", "pa": "M-BG", "so": "M-BG", "ow": "BG-DADG(신랑아버지)", "tr": "BG", "af": ["BRIEF"], "s": "2026-08-31 11:50:28", "f": "2026-08-31 11:51:30", "dl": ["examples/wedding/deliverables/BG/vow-reading.md"], "fi": "BG-VOWREAD.md", "rd": false, "sub": [1, 1], "v": "검증: 낭독자·문안·연습 일정 확정"}, {"id": "REQ-BG-VENUE-별실", "t": "혼주·화동 대기 공간 및 축의대 위치 확인 요청", "st": "DONE", "pa": "M-BG", "so": "M-BG", "ow": "VEN-USH-01(안내·주차팀장)", "tr": "VENUE", "af": [], "s": "2026-08-31 11:47:43", "f": "2026-08-31 11:48:25", "dl": ["examples/wedding/deliverables/VENUE/reply-bg-별실.md"], "fi": "REQ-BG-VENUE-별실.md", "rd": false, "sub": [1, 1], "v": "검증: VIP라운지, 축의대 로비 2테이블+잠금함, 화촉점화대 없음 회신"}, {"id": "M-DVD", "t": "본식영상 파트 계획 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "DVD-MAIN-01(메인 캠)", "tr": "DVD", "af": ["BRIEF"], "s": "2026-08-31 11:45:14", "f": "2026-08-31 11:58:50", "dl": ["examples/wedding/deliverables/DVD/plan.md"], "fi": "M-DVD.md", "rd": false, "sub": [5, 5], "v": "검증: 회신 2건(VENUE·MC) 확정 입력"}, {"id": "DVD-MAIN-01", "t": "2캠 플랜 (메인 캠)", "st": "DONE", "pa": "M-DVD", "so": "M-DVD", "ow": "DVD-MAIN-01(메인 캠)", "tr": "DVD", "af": ["BRIEF"], "s": "2026-08-31 11:46:06", "f": "2026-08-31 11:53:36", "dl": ["examples/wedding/deliverables/DVD/2cam-plan.md"], "fi": "DVD-MAIN-01.md", "rd": false, "sub": [1, 1], "v": "검증: 2캠 위치·전원·컷포인트 확정, 회신 2건(VENUE·MC) 입력"}, {"id": "DVD-SUB-01", "t": "오디오 수음 계획", "st": "DONE", "pa": "M-DVD", "so": "M-DVD", "ow": "DVD-SUB-01(오디오/서브캠)", "tr": "DVD", "af": [], "s": "2026-08-31 11:46:06", "f": "2026-08-31 11:53:36", "dl": ["examples/wedding/deliverables/DVD/audio-plan.md"], "fi": "DVD-SUB-01.md", "rd": false, "sub": [1, 1], "v": "검증: XLR 2채널 라인아웃 확정, VENUE 회신 반영"}, {"id": "REQ-DVD-MC-식순", "t": "식순 확정본 요청 (컷 포인트 설계용)", "st": "DONE", "pa": "M-DVD", "so": "DVD-MAIN-01", "ow": "MC-01(사회자)", "tr": "MC", "af": [], "s": "2026-08-31 11:49:16", "f": "2026-08-31 11:49:36", "dl": ["examples/wedding/deliverables/MC/reply-dvd-식순.md"], "fi": "REQ-DVD-MC-식순.md", "rd": false, "sub": [1, 1], "v": "검증: 시간대별 식순 확정본(컷 포인트 메모 포함) 회신, 반지교환 없음 명시"}, {"id": "REQ-DVD-VENUE-전원", "t": "2캠 위치 전원·음향 라인아웃 확인 요청", "st": "DONE", "pa": "M-DVD", "so": "DVD-MAIN-01", "ow": "VEN-SOUND-01(음향감독)", "tr": "VENUE", "af": [], "s": "2026-08-31 11:47:43", "f": "2026-08-31 11:48:25", "dl": ["examples/wedding/deliverables/VENUE/reply-dvd-전원.md"], "fi": "REQ-DVD-VENUE-전원.md", "rd": false, "sub": [1, 1], "v": "검증: 정면 콘센트 근접, 후면 8m 연장필요, XLR 2채널 회신"}, {"id": "M-FLOWER", "t": "부케·꽃장식 파트 계획 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "FLO-01(플로리스트)", "tr": "FLOWER", "af": ["BRIEF"], "s": "2026-08-31 11:45:15", "f": "2026-08-31 11:58:50", "dl": ["examples/wedding/deliverables/FLOWER/plan.md"], "fi": "M-FLOWER.md", "rd": false, "sub": [6, 6], "v": "검증: 회신 3건(BG·VENUE·MAKEUP) 확정 입력"}, {"id": "FLO-01", "t": "부케 제작·인도", "st": "DONE", "pa": "M-FLOWER", "so": "M-FLOWER", "ow": "FLO-01(플로리스트)", "tr": "FLOWER", "af": ["BRIEF"], "s": "2026-08-31 11:46:06", "f": "2026-08-31 11:53:36", "dl": ["examples/wedding/deliverables/FLOWER/bouquet.md"], "fi": "FLO-01.md", "rd": false, "sub": [1, 1], "v": "검증: 부케 스타일·토스 확정, 회신 2건(BG·MAKEUP) 입력"}, {"id": "FLO-02", "t": "단상 장식 설치", "st": "DONE", "pa": "M-FLOWER", "so": "M-FLOWER", "ow": "FLO-02(설치팀)", "tr": "FLOWER", "af": [], "s": "2026-08-31 11:46:06", "f": "2026-08-31 11:53:36", "dl": ["examples/wedding/deliverables/FLOWER/venue-decor.md"], "fi": "FLO-02.md", "rd": false, "sub": [1, 1], "v": "검증: 단상 장식 반입·설치 확정, VENUE 회신 반영"}, {"id": "REQ-FLOWER-BG-부케", "t": "부케 스타일·토스 여부·받을 사람 확인 요청", "st": "DONE", "pa": "M-FLOWER", "so": "FLO-01", "ow": "BG-BRIDE(신부)", "tr": "BG", "af": [], "s": "2026-08-31 11:48:59", "f": "2026-08-31 11:49:47", "dl": ["examples/wedding/deliverables/BG/reply-flower-부케.md"], "fi": "REQ-FLOWER-BG-부케.md", "rd": false, "sub": [1, 1], "v": "검증: 스타일·토스 여부·받을 사람 확정"}, {"id": "REQ-FLOWER-MAKEUP-완료시각", "t": "신부 식장 도착 시각 확인 요청 (부케 인도 타이밍용)", "st": "DONE", "pa": "M-FLOWER", "so": "FLO-01", "ow": "MU-DIR-01(원장)", "tr": "MAKEUP", "af": [], "s": "2026-08-31 11:54:46", "f": "2026-08-31 11:54:46", "dl": ["examples/wedding/deliverables/MAKEUP/reply-flower-완료시각.md"], "fi": "REQ-FLOWER-MAKEUP-완료시각.md", "rd": false, "sub": [1, 1], "v": "검증: 도착 11:50 회신"}, {"id": "REQ-FLOWER-VENUE-반입", "t": "단상 장식 반입 가능 시각·동선 확인 요청", "st": "DONE", "pa": "M-FLOWER", "so": "FLO-02", "ow": "VEN-SET-01(세팅팀장)", "tr": "VENUE", "af": [], "s": "2026-08-31 11:47:43", "f": "2026-08-31 11:48:25", "dl": ["examples/wedding/deliverables/VENUE/reply-flower-반입.md"], "fi": "REQ-FLOWER-VENUE-반입.md", "rd": false, "sub": [1, 1], "v": "검증: 11:00 즉시 반입가능, 화물엘리베이터, 골격 12:00까지 회신"}, {"id": "M-FOOD", "t": "연회 파트 계획 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "FOOD-CAPT-01(연회 캡틴)", "tr": "FOOD", "af": ["BRIEF"], "s": "2026-08-31 11:44:48", "f": "2026-08-31 11:52:17", "dl": ["examples/wedding/deliverables/FOOD/plan.md"], "fi": "M-FOOD.md", "rd": false, "sub": [3, 3], "v": "검증: 회신 1건+자기트랙 1건을 입력으로 확정, 보증230명·오픈13:00·마감15:00 확정, 소회의실 리스크 1건 명시"}, {"id": "FOOD-SVC-01", "t": "혼주 테이블 서빙", "st": "DONE", "pa": "M-FOOD", "so": "M-FOOD", "ow": "FOOD-SVC-01(혼주 서빙 담당)", "tr": "FOOD", "af": ["BRIEF"], "s": "2026-08-31 11:47:13", "f": "2026-08-31 11:50:35", "dl": ["examples/wedding/deliverables/FOOD/svc.md"], "fi": "FOOD-SVC-01.md", "rd": false, "sub": [1, 1], "v": "검증: 혼주 8인×2테이블 착석서빙, 13:40 착석·14:00 이후 소회의실 이동 확정"}, {"id": "REQ-FOOD-BG-식수", "t": "보증 인원·혼주 테이블 구성·아동식 수 확인 요청", "st": "DONE", "pa": "M-FOOD", "so": "M-FOOD", "ow": "BG-BRIDE(신부)·BG-GROOM(신랑)", "tr": "BG", "af": [], "s": "2026-08-31 11:48:59", "f": "2026-08-31 11:49:47", "dl": ["examples/wedding/deliverables/BG/reply-food-식수.md"], "fi": "REQ-FOOD-BG-식수.md", "rd": false, "sub": [1, 1], "v": "검증: 보증 230명, 혼주 테이블 좌석·인원, 아동식 8식 확정"}, {"id": "M-GIFT", "t": "답례품·포토부스 파트 계획 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "GIFT-01(답례품·포토)", "tr": "GIFT", "af": ["BRIEF"], "s": "2026-08-31 11:44:48", "f": "2026-08-31 11:52:33", "dl": ["examples/wedding/deliverables/GIFT/plan.md"], "fi": "M-GIFT.md", "rd": false, "sub": [3, 3], "v": "검증: 회신 1건+자기트랙 1건을 입력으로 확정, 답례품165개·포토테이블 11:30-14:20 확정, 반입병목 리스크 명시"}, {"id": "GIFT-02", "t": "답례품 출구 배부", "st": "DONE", "pa": "M-GIFT", "so": "M-GIFT", "ow": "GIFT-02(답례품 배부 담당)", "tr": "GIFT", "af": ["BRIEF"], "s": "2026-08-31 11:47:13", "f": "2026-08-31 11:50:53", "dl": ["examples/wedding/deliverables/GIFT/exit.md"], "fi": "GIFT-02.md", "rd": false, "sub": [1, 1], "v": "검증: 답례품 165개, 출구 2열 배부 13:00-14:00 확정"}, {"id": "REQ-GIFT-BG-수량", "t": "답례품 수량·성장사진 12장 전달 방법 확인 요청", "st": "DONE", "pa": "M-GIFT", "so": "M-GIFT", "ow": "BG-BRIDE(신부)", "tr": "BG", "af": [], "s": "2026-08-31 11:48:59", "f": "2026-08-31 11:49:47", "dl": ["examples/wedding/deliverables/BG/reply-gift-수량.md"], "fi": "REQ-GIFT-BG-수량.md", "rd": false, "sub": [1, 1], "v": "검증: 답례품 165개, 성장사진 전달 주체·시점 확정"}, {"id": "M-MAKEUP", "t": "헤어메이크업 파트 계획 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "MU-DIR-01(원장)", "tr": "MAKEUP", "af": ["BRIEF"], "s": "2026-08-31 11:45:14", "f": "2026-08-31 12:05:13", "dl": ["examples/wedding/deliverables/MAKEUP/plan.md"], "fi": "M-MAKEUP.md", "rd": false, "sub": [6, 6], "v": "검증: 재취합 — MC 실회신 반영"}, {"id": "MU-ASST-01-GROOM", "t": "신랑·혼주 시술 (부원장)", "st": "DONE", "pa": "M-MAKEUP", "so": "M-MAKEUP", "ow": "MU-ASST-01(부원장)", "tr": "MAKEUP", "af": ["BRIEF"], "s": "2026-08-31 11:46:06", "f": "2026-08-31 11:53:36", "dl": ["examples/wedding/deliverables/MAKEUP/groom-family-timeline.md"], "fi": "MU-ASST-01-GROOM.md", "rd": false, "sub": [1, 1], "v": "검증: 신랑·혼주 5인 85분 타임라인 확정, MC 회신 입력"}, {"id": "MU-ASST-01-HANDOFF", "t": "헬퍼 이모님 인계 사항 (부원장)", "st": "DONE", "pa": "M-MAKEUP", "so": "M-MAKEUP", "ow": "MU-ASST-01(부원장)", "tr": "MAKEUP", "af": ["BRIEF"], "s": "2026-08-31 11:46:06", "f": "2026-08-31 11:53:36", "dl": ["examples/wedding/deliverables/MAKEUP/helper-handoff.md"], "fi": "MU-ASST-01-HANDOFF.md", "rd": false, "sub": [1, 1], "v": "검증: 헬퍼 이모님 인계 시각 확정(11:15-11:40)"}, {"id": "MU-DIR-01", "t": "신부 시술 타임라인 (원장)", "st": "DONE", "pa": "M-MAKEUP", "so": "M-MAKEUP", "ow": "MU-DIR-01(원장)", "tr": "MAKEUP", "af": ["BRIEF"], "s": "2026-08-31 11:46:06", "f": "2026-08-31 11:53:36", "dl": ["examples/wedding/deliverables/MAKEUP/bride-timeline.md"], "fi": "MU-DIR-01.md", "rd": false, "sub": [1, 1], "v": "검증: 신부 시술 타임라인 확정, BG 회신 입력"}, {"id": "REQ-MAKEUP-BG-시안", "t": "신부 시안 확정·샵 출발 시각 합의 요청", "st": "DONE", "pa": "M-MAKEUP", "so": "MU-DIR-01", "ow": "BG-BRIDE(신부)", "tr": "BG", "af": [], "s": "2026-08-31 11:48:59", "f": "2026-08-31 11:49:47", "dl": ["examples/wedding/deliverables/BG/reply-makeup-시안.md"], "fi": "REQ-MAKEUP-BG-시안.md", "rd": false, "sub": [1, 1], "v": "검증: 시안·장소·이동시간·출발시각 확정"}, {"id": "REQ-MAKEUP-MC-식순", "t": "혼주 입장 시각 확인 요청 (혼주 시술 마감 기준)", "st": "DONE", "pa": "M-MAKEUP", "so": "MU-ASST-01-GROOM", "ow": "MC-01(사회자)", "tr": "MC", "af": [], "s": "2026-08-31 12:02:16", "f": "2026-08-31 12:03:12", "dl": ["examples/wedding/deliverables/MC/reply-makeup-혼주입장.md"], "fi": "REQ-MAKEUP-MC-식순.md", "rd": false, "sub": [1, 1], "v": "검증: 혼주 입장 12:25 확정, 시술 마감선(혼주 12:20/신랑 12:24) 역산 회신"}, {"id": "M-MC", "t": "사회 파트 계획 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "MC-01(사회자)", "tr": "MC", "af": ["BRIEF"], "s": "2026-08-31 11:42:43", "f": "2026-08-31 11:50:27", "dl": ["examples/wedding/deliverables/MC/plan.md"], "fi": "M-MC.md", "rd": false, "sub": [6, 6], "v": "검증: 회신 4건(REQ-MC-BG-식순취향/REQ-MC-VENUE-큐방식/REQ-MUSIC-BG-곡확정/REQ-MUSIC-VENUE-음향)을 입력으로 식순v1·큐대본·타임라인 확정, 인바운드 REQ 1건(DVD) 회신 완료"}, {"id": "MC-리허설항목", "t": "사회 리허설 점검 항목", "st": "DONE", "pa": "M-MC", "so": "M-MC", "ow": "MC-01(사회자)", "tr": "MC", "af": [], "s": "2026-08-31 11:44:16", "f": "2026-08-31 11:49:03", "dl": ["examples/wedding/deliverables/MC/rehearsal-checklist.md"], "fi": "MC-리허설항목.md", "rd": false, "sub": [1, 1], "v": "검증: 8개 점검 항목(마이크·수신호·낭독동선·호명순서·핸드오프·화동겹침 등) 확정"}, {"id": "MC-식순초안", "t": "식순 초안 작성", "st": "DONE", "pa": "M-MC", "so": "M-MC", "ow": "MC-01(사회자)", "tr": "MC", "af": [], "s": "2026-08-31 11:44:16", "f": "2026-08-31 11:49:03", "dl": ["examples/wedding/deliverables/MC/order-draft.md"], "fi": "MC-식순초안.md", "rd": false, "sub": [1, 1], "v": "검증: 혼주 호명 순서·성함, 유머 수위, 축가/입퇴장곡 반영해 12:15~13:33 초안 확정"}, {"id": "MC-큐대본", "t": "큐시트 멘트 대본", "st": "DONE", "pa": "M-MC", "so": "M-MC", "ow": "MC-01(사회자)", "tr": "MC", "af": [], "s": "2026-08-31 11:44:16", "f": "2026-08-31 11:49:03", "dl": ["examples/wedding/deliverables/MC/cue-script.md"], "fi": "MC-큐대본.md", "rd": false, "sub": [1, 1], "v": "검증: 수신호 3종·리드타임(음악3초/조명0초) 반영한 전 구간 멘트 대본 확정"}, {"id": "REQ-MC-BG-식순취향", "t": "식순 취향·호명 방식 확인 요청", "st": "DONE", "pa": "M-MC", "so": "M-MC", "ow": "BG-BRIDE(신부)·BG-GROOM(신랑)", "tr": "BG", "af": [], "s": "2026-08-31 11:44:28", "f": "2026-08-31 11:45:01", "dl": ["examples/wedding/deliverables/BG/reply-mc-식순취향.md"], "fi": "REQ-MC-BG-식순취향.md", "rd": false, "sub": [1, 1], "v": "검증: 낭독자 성함·위치, 유머 수위, 호명 방식·성함 확정"}, {"id": "REQ-MC-VENUE-큐방식", "t": "음향·조명 큐 전달 방식 확인 요청", "st": "DONE", "pa": "M-MC", "so": "M-MC", "ow": "VEN-SOUND-01(음향감독)", "tr": "VENUE", "af": [], "s": "2026-08-31 11:45:31", "f": "2026-08-31 11:46:03", "dl": ["examples/wedding/deliverables/VENUE/reply-mc-큐방식.md"], "fi": "REQ-MC-VENUE-큐방식.md", "rd": false, "sub": [1, 1], "v": "검증: 육성+수신호, 콘솔 무대좌측 4m, 음악리드타임 3초/조명 0초"}, {"id": "M-MUSIC", "t": "축가·연주 파트 계획 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "MUS-LEAD-01(음악 총괄)", "tr": "MUSIC", "af": ["BRIEF"], "s": "2026-08-31 11:42:43", "f": "2026-08-31 11:50:27", "dl": ["examples/wedding/deliverables/MUSIC/plan.md"], "fi": "M-MUSIC.md", "rd": false, "sub": [7, 7], "v": "검증: 회신 2건(REQ-MUSIC-BG-곡확정/REQ-MUSIC-VENUE-음향)을 입력으로 음악 타임라인·큐·리스크 확정"}, {"id": "MUS-듀엣확정", "t": "듀엣 연습·최종 곡 확정", "st": "DONE", "pa": "M-MUSIC", "so": "M-MUSIC", "ow": "MUS-DUET-01(듀엣 언니, 신부친구)·MUS-DUET-02(듀엣 동생, 신부친구)", "tr": "MUSIC", "af": [], "s": "2026-08-31 11:44:16", "f": "2026-08-31 11:49:06", "dl": ["examples/wedding/deliverables/MUSIC/duet-confirm.md"], "fi": "MUS-듀엣확정.md", "rd": false, "sub": [1, 1], "v": "검증: 이적-다행이다 3:30 편곡, 연습일정·마이크 배정 확정"}, {"id": "MUS-솔로MR", "t": "솔로 MR 제작·전달", "st": "DONE", "pa": "M-MUSIC", "so": "M-MUSIC", "ow": "MUS-SOLO-01(신랑 회사 동기)", "tr": "MUSIC", "af": [], "s": "2026-08-31 11:44:16", "f": "2026-08-31 11:49:06", "dl": ["examples/wedding/deliverables/MUSIC/solo-mr.md"], "fi": "MUS-솔로MR.md", "rd": false, "sub": [1, 1], "v": "검증: 규현-오늘부터 우리는, MR 포맷/전달경로/D-3 마감 확정"}, {"id": "MUS-음향합", "t": "음향 합 맞추기 계획", "st": "DONE", "pa": "M-MUSIC", "so": "M-MUSIC", "ow": "MUS-LEAD-01(음악 총괄)", "tr": "MUSIC", "af": [], "s": "2026-08-31 11:44:16", "f": "2026-08-31 11:49:07", "dl": ["examples/wedding/deliverables/MUSIC/sound-sync-plan.md"], "fi": "MUS-음향합.md", "rd": false, "sub": [1, 1], "v": "검증: 무선4채널 배정·핸드오프20초·MR전달·리허설슬롯 총괄 확정"}, {"id": "MUS-피아노편곡", "t": "피아니스트 입장곡 편곡", "st": "DONE", "pa": "M-MUSIC", "so": "M-MUSIC", "ow": "MUS-PIANO-01(피아니스트)", "tr": "MUSIC", "af": [], "s": "2026-08-31 11:44:16", "f": "2026-08-31 11:49:06", "dl": ["examples/wedding/deliverables/MUSIC/piano-arrangement.md"], "fi": "MUS-피아노편곡.md", "rd": false, "sub": [1, 1], "v": "검증: 입장곡 River Flows in You 편곡방향·피아노 위치·11:00-11:30 리허설 확정"}, {"id": "REQ-MUSIC-BG-곡확정", "t": "축가·입퇴장곡 최종 확정 요청", "st": "DONE", "pa": "M-MUSIC", "so": "M-MUSIC", "ow": "BG-BRIDE(신부)·BG-GROOM(신랑)", "tr": "BG", "af": [], "s": "2026-08-31 11:44:29", "f": "2026-08-31 11:45:01", "dl": ["examples/wedding/deliverables/BG/reply-music-곡확정.md"], "fi": "REQ-MUSIC-BG-곡확정.md", "rd": false, "sub": [1, 1], "v": "검증: 축가 2곡·입장곡·퇴장곡 곡명 및 러닝타임 확정"}, {"id": "REQ-MUSIC-VENUE-음향", "t": "음향 설비·리허설 슬롯 확인 요청", "st": "DONE", "pa": "M-MUSIC", "so": "M-MUSIC", "ow": "VEN-SOUND-01(음향감독)", "tr": "VENUE", "af": [], "s": "2026-08-31 11:45:31", "f": "2026-08-31 11:46:03", "dl": ["examples/wedding/deliverables/VENUE/reply-music-음향.md"], "fi": "REQ-MUSIC-VENUE-음향.md", "rd": false, "sub": [1, 1], "v": "검증: 무선4채널 전량배정, MR mp3/wav D-3(10/22), 피아노 좌측·리허설 11:00-11:30"}, {"id": "M-PHOTO", "t": "본식스냅·원판 파트 계획 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "PHO-MAIN-01(메인 스냅)", "tr": "PHOTO", "af": ["BRIEF"], "s": "2026-08-31 11:45:14", "f": "2026-08-31 12:05:13", "dl": ["examples/wedding/deliverables/PHOTO/plan.md"], "fi": "M-PHOTO.md", "rd": false, "sub": [8, 8], "v": "검증: 재취합 — MC 실회신 반영"}, {"id": "PHO-MAIN-01", "t": "준비실~본식 동선 (메인 스냅)", "st": "DONE", "pa": "M-PHOTO", "so": "M-PHOTO", "ow": "PHO-MAIN-01(메인 스냅)", "tr": "PHOTO", "af": ["BRIEF"], "s": "2026-08-31 11:46:06", "f": "2026-08-31 11:53:36", "dl": ["examples/wedding/deliverables/PHOTO/dongseon.md"], "fi": "PHO-MAIN-01.md", "rd": false, "sub": [1, 1], "v": "검증: 12:00 도착~13:40 다과까지 동선 확정, 회신 3건(MAKEUP·VENUE·BG) 입력"}, {"id": "PHO-SUB-01-CUE", "t": "원판 30분 진행표 (서브 스냅)", "st": "DONE", "pa": "M-PHOTO", "so": "M-PHOTO", "ow": "PHO-SUB-01(서브 스냅)", "tr": "PHOTO", "af": ["BRIEF"], "s": "2026-08-31 11:46:06", "f": "2026-08-31 11:53:36", "dl": ["examples/wedding/deliverables/PHOTO/wonpan-cue.md"], "fi": "PHO-SUB-01-CUE.md", "rd": false, "sub": [1, 1], "v": "검증: 8조합 30분 진행표 확정, 회신 2건(BG·VENUE) 입력"}, {"id": "PHO-SUB-01-GEAR", "t": "장비·백업 (서브 스냅)", "st": "DONE", "pa": "M-PHOTO", "so": "M-PHOTO", "ow": "PHO-SUB-01(서브 스냅)", "tr": "PHOTO", "af": [], "s": "2026-08-31 11:46:06", "f": "2026-08-31 11:53:36", "dl": ["examples/wedding/deliverables/PHOTO/gear.md"], "fi": "PHO-SUB-01-GEAR.md", "rd": false, "sub": [1, 1], "v": "검증: 장비 이중화·조명 계획 확정, VENUE 회신 반영"}, {"id": "REQ-PHOTO-BG-가족명단", "t": "원판 조합(가족·친척·친구) 명단·순서 요청", "st": "DONE", "pa": "M-PHOTO", "so": "PHO-SUB-01-CUE", "ow": "BG-GROOM(신랑)", "tr": "BG", "af": [], "s": "2026-08-31 11:48:59", "f": "2026-08-31 11:49:47", "dl": ["examples/wedding/deliverables/BG/reply-photo-가족명단.md"], "fi": "REQ-PHOTO-BG-가족명단.md", "rd": false, "sub": [1, 1], "v": "검증: 8개 조합 순서·인원 전달"}, {"id": "REQ-PHOTO-MAKEUP-완료시각", "t": "신부 헤어메이크업 완료 시각 확인 요청", "st": "DONE", "pa": "M-PHOTO", "so": "PHO-MAIN-01", "ow": "MU-DIR-01(원장)", "tr": "MAKEUP", "af": [], "s": "2026-08-31 11:52:02", "f": "2026-08-31 11:52:02", "dl": ["examples/wedding/deliverables/MAKEUP/reply-photo-완료시각.md"], "fi": "REQ-PHOTO-MAKEUP-완료시각.md", "rd": false, "sub": [1, 1], "v": "검증: 완료 11:00(샵)·도착 11:50·스냅가능 12:00 회신"}, {"id": "REQ-PHOTO-MC-식순", "t": "식순 확정본 요청 (스냅 동선·원판 유도 타이밍용)", "st": "DONE", "pa": "M-PHOTO", "so": "PHO-MAIN-01", "ow": "MC-01(사회자)", "tr": "MC", "af": [], "s": "2026-08-31 12:02:16", "f": "2026-08-31 12:03:12", "dl": ["examples/wedding/deliverables/MC/reply-photo-식순.md"], "fi": "REQ-PHOTO-MC-식순.md", "rd": false, "sub": [1, 1], "v": "검증: 시간대별 식순 확정본+스냅 포지션 메모, 원판 유도 시점(12:52) 명시"}, {"id": "REQ-PHOTO-VENUE-원판", "t": "원판 촬영 장소·조명·본식 직후 30분 슬롯 확인 요청", "st": "DONE", "pa": "M-PHOTO", "so": "PHO-SUB-01-CUE", "ow": "VEN-LIGHT-01(조명감독)", "tr": "VENUE", "af": [], "s": "2026-08-31 11:47:43", "f": "2026-08-31 11:48:25", "dl": ["examples/wedding/deliverables/VENUE/reply-photo-wonpan.md"], "fi": "REQ-PHOTO-VENUE-원판.md", "rd": false, "sub": [1, 1], "v": "검증: 단상 그대로, 보조조명 권장, 13:00-13:30 독점사용 가능 회신"}, {"id": "M-TRANS", "t": "전세버스 파트 계획 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "TRANS-01(전세버스 기사님 연락)", "tr": "TRANS", "af": ["BRIEF"], "s": "2026-08-31 11:44:48", "f": "2026-08-31 11:52:59", "dl": ["examples/wedding/deliverables/TRANS/plan.md"], "fi": "M-TRANS.md", "rd": false, "sub": [2, 2], "v": "검증: 회신 1건을 입력으로 확정, 왕복시각표(상행09:00/하행14:30) 확정, 예비좌석 리스크 명시"}, {"id": "REQ-TRANS-BG-버스", "t": "대전 출발지·탑승 인원·연락 총무 확인 요청", "st": "DONE", "pa": "M-TRANS", "so": "M-TRANS", "ow": "BG-STEWARD(양가 총무)", "tr": "BG", "af": [], "s": "2026-08-31 11:48:59", "f": "2026-08-31 11:49:47", "dl": ["examples/wedding/deliverables/BG/reply-trans-버스.md"], "fi": "REQ-TRANS-BG-버스.md", "rd": false, "sub": [1, 1], "v": "검증: 집결지·탑승인원 82명·연락총무 확정"}, {"id": "M-VENUE", "t": "식장 운영 파트 계획 인도 요청", "st": "DONE", "pa": "R00", "so": "R00", "ow": "VEN-MGR-01(식장 매니저)", "tr": "VENUE", "af": ["BRIEF"], "s": "2026-08-31 11:44:48", "f": "2026-08-31 11:51:34", "dl": ["examples/wedding/deliverables/VENUE/plan.md"], "fi": "M-VENUE.md", "rd": false, "sub": [6, 6], "v": "검증: 7건의 회신(수신6+발신1)을 입력으로 확정, 14:00 퇴실 전제 타임라인 확정, 미해결 리스크 2건 명시"}, {"id": "REQ-VENUE-BG-식순확정", "t": "식순·원판·다과 인사 시간 합의 요청", "st": "DONE", "pa": "M-VENUE", "so": "M-VENUE", "ow": "BG-BRIDE(신부)·BG-GROOM(신랑)", "tr": "BG", "af": [], "s": "2026-08-31 11:48:59", "f": "2026-08-31 11:49:47", "dl": ["examples/wedding/deliverables/BG/reply-venue-식순확정.md"], "fi": "REQ-VENUE-BG-식순확정.md", "rd": false, "sub": [1, 1], "v": "검증: 구간별 시각 잠정안 그대로 확정"}, {"id": "VEN-LIGHT-01", "t": "조명 큐", "st": "DONE", "pa": "M-VENUE", "so": "M-VENUE", "ow": "VEN-LIGHT-01(조명감독)", "tr": "VENUE", "af": ["BRIEF"], "s": "2026-08-31 11:47:13", "f": "2026-08-31 11:49:37", "dl": ["examples/wedding/deliverables/VENUE/light.md"], "fi": "VEN-LIGHT-01.md", "rd": false, "sub": [1, 1], "v": "검증: 구간별 조명큐 8구간 확정, 리드타임 반영"}, {"id": "VEN-SET-01", "t": "홀 세팅(원판 자리·좌석·포토테이블 반입 동선)", "st": "DONE", "pa": "M-VENUE", "so": "M-VENUE", "ow": "VEN-SET-01(세팅팀장)", "tr": "VENUE", "af": ["BRIEF"], "s": "2026-08-31 11:47:13", "f": "2026-08-31 11:49:37", "dl": ["examples/wedding/deliverables/VENUE/set.md"], "fi": "VEN-SET-01.md", "rd": false, "sub": [1, 1], "v": "검증: 11:00 화훼 동시반입, 세팅 12:20 마감, 원판 단상 그대로 확정"}, {"id": "VEN-SOUND-01", "t": "음향 운영 계획(마이크 수·MR 재생·큐 수신 방식)", "st": "DONE", "pa": "M-VENUE", "so": "M-VENUE", "ow": "VEN-SOUND-01(음향감독)", "tr": "VENUE", "af": ["BRIEF"], "s": "2026-08-31 11:47:13", "f": "2026-08-31 11:49:37", "dl": ["examples/wedding/deliverables/VENUE/sound.md"], "fi": "VEN-SOUND-01.md", "rd": false, "sub": [1, 1], "v": "검증: 무선4+유선1 채널배정표, MR재생순서, 큐수신방식 확정"}, {"id": "VEN-USH-01", "t": "안내·주차", "st": "DONE", "pa": "M-VENUE", "so": "M-VENUE", "ow": "VEN-USH-01(안내·주차팀장)", "tr": "VENUE", "af": ["BRIEF"], "s": "2026-08-31 11:47:13", "f": "2026-08-31 11:49:37", "dl": ["examples/wedding/deliverables/VENUE/ushering.md"], "fi": "VEN-USH-01.md", "rd": false, "sub": [1, 1], "v": "검증: 안내 6인+주차 배치, 축의대 위치, 버스 동선 확정"}, {"id": "REH", "t": "예식 리허설 (D-7)", "st": "DONE", "pa": "R00", "so": "R00", "ow": "PLAN-01", "tr": "PLAN", "af": ["M-VENUE", "M-FOOD", "M-GIFT", "M-TRANS", "M-MC", "M-MUSIC", "M-PHOTO", "M-DVD", "M-MAKEUP", "M-FLOWER", "M-BG"], "s": "2026-08-31 12:01:50", "f": "2026-08-31 12:03:59", "dl": ["examples/wedding/deliverables/PLAN/rehearsal.md"], "fi": "REH.md", "rd": false, "sub": [4, 4], "v": "검증: 실측 3건·발견 4건 전부 게시글 왕복으로 종결, 잔여 리스크 3건 런시트 승계"}, {"id": "FIX-BG-신랑입장곡", "t": "신랑 입장 음악 현장 확정 요청", "st": "DONE", "pa": "REH", "so": "REH", "ow": "BG-GROOM(신랑)", "tr": "BG", "af": [], "s": "2026-08-31 12:02:16", "f": "2026-08-31 12:02:29", "dl": ["examples/wedding/deliverables/BG/groom-entrance-song.md"], "fi": "FIX-BG-신랑입장곡.md", "rd": false, "sub": [1, 1], "v": "검증: 곡명·MR·20초 길이 확정"}, {"id": "FIX-MUSIC-입장곡루프", "t": "신부 입장곡 루프 지점 실측 확정", "st": "DONE", "pa": "REH", "so": "REH", "ow": "MUS-PIANO-01(피아니스트)", "tr": "MUSIC", "af": [], "s": "2026-08-31 12:02:16", "f": "2026-08-31 12:03:12", "dl": ["examples/wedding/deliverables/MUSIC/entrance-loop-final.md"], "fi": "FIX-MUSIC-입장곡루프.md", "rd": false, "sub": [1, 1], "v": "검증: 실측 55초 기준 인트로8초/1절37초/아웃트로10초 확정, 지연시 브릿지1회 루프 예비"}, {"id": "FIX-VENUE-배정확정", "t": "소회의실 정식 배정 + 반입 시간 분리 확정", "st": "DONE", "pa": "REH", "so": "REH", "ow": "VEN-MGR-01(식장 매니저)", "tr": "VENUE", "af": [], "s": "2026-08-31 12:02:17", "f": "2026-08-31 12:02:39", "dl": ["examples/wedding/deliverables/VENUE/reh-assignments.md"], "fi": "FIX-VENUE-배정확정.md", "rd": false, "sub": [1, 1], "v": "검증: 소회의실A(14:00-14:50) 정식배정, 반입시각표 FLOWER 11:00-11:20/GIFT 11:20-11:40 확정"}]}</script>
+<script>
+"use strict";
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const M = DATA.meta, POSTS = DATA.posts;
+const byId = new Map(); POSTS.forEach(p => p.id && byId.set(p.id, p));
+const kids = new Map();
+POSTS.forEach(p => { if (p.pa && byId.has(p.pa)) {
+  if (!kids.has(p.pa)) kids.set(p.pa, []); kids.get(p.pa).push(p); } });
+const spawn = new Map();
+POSTS.forEach(p => { if (p.so && byId.has(p.so)) {
+  if (!spawn.has(p.so)) spawn.set(p.so, []); spawn.get(p.so).push(p); } });
+const roots = POSTS.filter(p => !(p.pa && byId.has(p.pa)));
+const esc = s => String(s).replace(/[&<>"]/g,
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// 담당 → 칩. 신부/신랑은 색으로, 나머지는 track으로.
+function ownerTag(p) {
+  const o = p.ow;
+  if (/^BRIDE/i.test(o) || /지우/.test(o)) return '<span class="tag bride">지우</span>';
+  if (/^GROOM/i.test(o) || /민준/.test(o)) return '<span class="tag groom">민준</span>';
+  if (o) return `<span class="tag">${esc(o)}</span>`;
+  return '';
+}
+function reqTag(p) {
+  if (p.id.startsWith('REQ') || p.id.startsWith('FIX') || p.id.startsWith('CORR'))
+    return `<span class="tag req">요청 → ${esc(p.tr || '상대')}</span>`;
+  return p.tr && p.tr !== 'US' ? `<span class="tag">${esc(p.tr)}</span>` : '';
+}
+function stIcon(p) {
+  if (p.st === 'DONE') return '<span class="st done">✓</span>';
+  if (p.st === 'TAKEN') return '<span class="st taken">…</span>';
+  if (p.rd) return '<span class="st ready">!</span>';
+  return '<span class="st"></span>';
+}
+
+// 섹션 = 루트의 자식(위상 순). 자식이 없는 항목은 한 장짜리 섹션.
+const sections = [];
+roots.forEach(r => (kids.get(r.id) || []).forEach(ph => {
+  const flat = [];
+  (function walk(q) { flat.push(q); (kids.get(q.id) || []).forEach(walk); })(ph);
+  sections.push({ ph, cards: flat.slice(1).length ? flat.slice(1) : [ph],
+                  self: flat.slice(1).length > 0 });
+}));
+
+const S = { filter: 'all', remain: false, open: new Set() };
+sections.forEach((sec, i) => {
+  const done = sec.cards.every(c => c.st === 'DONE');
+  if (!done) S.open.add(i); // 끝난 단계는 접고, 진행 중인 단계는 펼친다
+});
+
+function matches(p) {
+  if (S.remain && p.st === 'DONE') return false;
+  if (S.filter === 'bride') return /^BRIDE|지우/i.test(p.ow);
+  if (S.filter === 'groom') return /^GROOM|민준/i.test(p.ow);
+  if (S.filter === 'other') return p.ow && !/^BRIDE|^GROOM|지우|민준/i.test(p.ow);
+  return true;
+}
+
+function render() {
+  const total = POSTS.length, done = POSTS.filter(p => p.st === 'DONE').length;
+  const pct = total ? done / total : 0;
+  const C = 2 * Math.PI * 22;
+  const fg = document.getElementById('ringFg');
+  fg.setAttribute('stroke-dasharray', `${(C * pct).toFixed(1)} ${C.toFixed(1)}`);
+  document.getElementById('ringTx').textContent = Math.round(pct * 100) + '%';
+  document.getElementById('ttl').textContent = M.title;
+  document.getElementById('sub').textContent =
+    `${done}/${total} 완료 · ${M.generated} 기준`;
+
+  const ready = POSTS.filter(p => p.rd);
+  const nb = document.getElementById('nowbox');
+  if (ready.length) {
+    nb.hidden = false;
+    document.getElementById('nowlist').innerHTML = ready.map(p =>
+      `<div class="card" data-id="${esc(p.id)}" style="border-color:var(--accent)">
+        ${stIcon(p)}<div class="c-main"><div class="c-title">${esc(p.t)}</div>
+        <div class="c-meta">${ownerTag(p)}${reqTag(p)}</div></div></div>`).join('');
+  } else {
+    nb.hidden = true;
+    const allDone = roots.every(r => r.st === 'DONE');
+    if (allDone && !document.getElementById('doneBanner')) {
+      const d = document.createElement('div');
+      d.id = 'doneBanner'; d.className = 'done-box';
+      d.textContent = '여정 완료 — 모든 일이 끝났어요';
+      nb.parentNode.insertBefore(d, nb);
+    }
+  }
+  if (M.warnings.length) {
+    const w = document.getElementById('warnbox');
+    w.hidden = false;
+    w.textContent = `규칙 검사 경고 ${M.warnings.length}건 — ` + M.warnings[0];
+  }
+
+  document.getElementById('phases').innerHTML = sections.map((sec, i) => {
+    const cs = sec.cards.filter(matches);
+    if (!cs.length && (S.filter !== 'all' || S.remain)) return '';
+    const dn = sec.cards.filter(c => c.st === 'DONE').length, n = sec.cards.length;
+    const closed = !S.open.has(i);
+    return `<section class="phase${closed ? ' closed' : ''}" data-i="${i}">
+      <div class="ph-head" data-ph="${i}">
+        <span class="ph-no${dn === n ? ' alldone' : ''}">${dn === n ? '✓' : i + 1}</span>
+        <span class="ph-title">${esc(sec.ph.t)}</span>
+        <span class="ph-prog">${dn}/${n}</span>
+      </div>
+      <div class="ph-bar"><div style="width:${n ? (dn / n * 100).toFixed(0) : 0}%"></div></div>
+      <div class="cards">${cs.map(p => `
+        <div class="card" data-id="${esc(p.id)}">
+          ${stIcon(p)}
+          <div class="c-main">
+            <div class="c-title${p.st === 'DONE' ? ' done-t' : ''}">${esc(p.t)}</div>
+            <div class="c-meta">${ownerTag(p)}${reqTag(p)}</div>
+          </div>
+        </div>`).join('')}</div>
+    </section>`;
+  }).join('');
+
+  const r0 = roots[0];
+  document.getElementById('foot').innerHTML = r0 ?
+    `<div class="fin">${r0.st === 'DONE' ? '“' + esc(r0.t) + '” — 완주' : esc(r0.t) + ' — 진행 중'}</div>
+     이 페이지는 보드(${esc(M.boardArg)})의 기록에서 만들어졌다 ·
+     <a href="${esc(M.rootRel)}/RULES.md">규칙</a>` : '';
+}
+
+// 필터 칩
+const FILTERS = [['all', '전체'], ['bride', '지우'], ['groom', '민준'], ['other', '상대방']];
+document.getElementById('filters').innerHTML =
+  FILTERS.map(([k, l]) => `<button class="chip${k === 'all' ? ' on' : ''}" data-f="${k}">${l}</button>`).join('')
+  + `<button class="chip" data-remain="1">남은 일만</button>`;
+document.getElementById('filters').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.f) {
+    S.filter = b.dataset.f;
+    document.querySelectorAll('[data-f]').forEach(x => x.classList.toggle('on', x === b));
+  } else { S.remain = !S.remain; b.classList.toggle('on', S.remain); }
+  render();
+});
+
+document.body.addEventListener('click', e => {
+  const ph = e.target.closest('[data-ph]');
+  if (ph) { const i = +ph.dataset.ph;
+    S.open.has(i) ? S.open.delete(i) : S.open.add(i); render(); return; }
+  const c = e.target.closest('[data-id]');
+  if (c) openSheet(c.dataset.id);
+});
+
+// 바텀시트
+function openSheet(id) {
+  const p = byId.get(id); if (!p) return;
+  const why = [];
+  for (let s = p.so, seen = new Set(); s && byId.has(s) && !seen.has(s); s = byId.get(s).so) {
+    seen.add(s); why.push(s);
+  }
+  const whyRow = why.length
+    ? why.map(a => `<button data-go="${esc(a)}">${esc(byId.get(a).t.slice(0, 16))}${byId.get(a).t.length > 16 ? '…' : ''}</button>`)
+        .join('<span class="arr">←</span>')
+    : '<span style="color:var(--muted)">여정의 출발점</span>';
+  const sp = (spawn.get(id) || []);
+  const dls = p.dl.map(d =>
+    `<a href="${esc(M.rootRel + '/' + d)}">${esc(d.split('/').pop())}</a>`).join('<br>') || '—';
+  const word = p.st === 'DONE' ? '완료' : p.st === 'TAKEN' ? '진행 중'
+    : p.rd ? '지금 할 수 있어요' : '앞의 일이 끝나면';
+  const when = p.f ? `완료: ${p.f}` : p.s ? `시작: ${p.s}` : '';
+  document.getElementById('sheetBody').innerHTML = `
+    <h3>${esc(p.t)}</h3>
+    <div class="s-id">${esc(p.id)}${p.ow ? ' · ' + esc(p.ow) : ''}${when ? ' · ' + esc(when) : ''}</div>
+    <div class="s-row"><div class="s-label">왜 이 일이 있나</div>
+      <div class="s-body why">${whyRow}</div></div>
+    <div class="s-row"><div class="s-label">상태</div><div class="s-body">${word}</div></div>
+    ${p.af.length ? `<div class="s-row"><div class="s-label">먼저 끝나야 하는 일</div>
+      <div class="s-body why">${p.af.filter(a => byId.has(a)).map(a =>
+        `<button data-go="${esc(a)}">${esc(byId.get(a).t.slice(0, 16))}</button>`).join('')}</div></div>` : ''}
+    ${sp.length ? `<div class="s-row"><div class="s-label">이 일이 만든 일</div>
+      <div class="s-body why">${sp.slice(0, 8).map(q =>
+        `<button data-go="${esc(q.id)}">${esc(q.t.slice(0, 16))}</button>`).join('')}</div></div>` : ''}
+    <div class="s-row"><div class="s-label">남긴 기록</div><div class="s-body">${dls}</div></div>
+    ${p.v ? `<div class="s-row"><div class="s-label">확인</div>
+      <div class="s-body">${esc(p.v.replace(/^검증:\s*/, ''))}</div></div>` : ''}
+    <div class="s-row"><div class="s-body">
+      <a href="${esc(M.boardRel + '/' + p.fi)}">게시글 원문 보기</a></div></div>`;
+  document.getElementById('sheet').hidden = false;
+  document.getElementById('scrim').hidden = false;
+}
+function closeSheet() {
+  document.getElementById('sheet').hidden = true;
+  document.getElementById('scrim').hidden = true;
+}
+document.getElementById('scrim').addEventListener('click', closeSheet);
+document.getElementById('sheet').addEventListener('click', e => {
+  const b = e.target.closest('[data-go]');
+  if (b) openSheet(b.dataset.go);
+});
+addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+
+render();
+</script>
+</body>
+</html>
