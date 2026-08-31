@@ -1,14 +1,14 @@
 ---
 id: M-FLOWER
 title: 부케·꽃장식 파트 계획 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: FLO-01(플로리스트)
 deliverable: -
 after: BRIEF
 track: FLOWER
-started: -
+started: 2026-08-31 11:45:15
 finished: -
 ---
 

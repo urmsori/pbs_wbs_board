@@ -1,14 +1,14 @@
 ---
 id: M-PHOTO
 title: 본식스냅·원판 파트 계획 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: PHO-MAIN-01(메인 스냅)
 deliverable: -
 after: BRIEF
 track: PHOTO
-started: -
+started: 2026-08-31 11:45:14
 finished: -
 ---
 

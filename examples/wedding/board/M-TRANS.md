@@ -1,14 +1,14 @@
 ---
 id: M-TRANS
 title: 전세버스 파트 계획 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: TRANS-01(전세버스 기사님 연락)
 deliverable: -
 after: BRIEF
 track: TRANS
-started: -
+started: 2026-08-31 11:44:48
 finished: -
 ---
 

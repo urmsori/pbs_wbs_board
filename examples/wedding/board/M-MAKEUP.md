@@ -1,14 +1,14 @@
 ---
 id: M-MAKEUP
 title: 헤어메이크업 파트 계획 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: MU-DIR-01(원장)
 deliverable: -
 after: BRIEF
 track: MAKEUP
-started: -
+started: 2026-08-31 11:45:14
 finished: -
 ---
 
