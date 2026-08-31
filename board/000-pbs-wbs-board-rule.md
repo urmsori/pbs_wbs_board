@@ -1,13 +1,13 @@
 ---
 id: 000
 title: PBS WBS Board 규칙 만들기
-status: TAKEN
+status: DONE
 parent: -
 owner: claude
 deliverable: RULES.md, VALIDATION.md
 after: -
 started: 2026-08-21 00:02
-finished: -
+finished: 2026-08-31 12:32:11
 ---
 
 Product: 에이전트와 사람이 Board로 Work를 주고받아 Product를 만들고, 산출물을
@@ -33,3 +33,4 @@ RULES.md다. 개정 게시글이 새로 생기면 이 게시글은 TAKEN으로 �
 검증: 031까지 자식 전량 DONE — 비위성 도메인 일반성 검증 완료
 
 재개(v3.3): 사용자 지적 — 부부 관점 전체 여정, 폰 우선 UI 백지 재설계, Gantt 강제 해제. 032가 끝나면 재취합한다.
+검증: v3.3까지 자식 전량 DONE — 뷰 다원화·부부 여정·단계당 상한 검증 완료
