@@ -1,15 +1,15 @@
 ---
 id: M-DVD
 title: 본식영상 파트 계획 인도 요청
-status: TAKEN
+status: DONE
 parent: R00
 source: -
 owner: DVD-MAIN-01(메인 캠)
-deliverable: -
+deliverable: examples/wedding/deliverables/DVD/plan.md
 after: BRIEF
 track: DVD
 started: 2026-08-31 11:45:14
-finished: -
+finished: 2026-08-31 11:58:50
 ---
 
 2캠 촬영·전원·자리.
@@ -17,3 +17,4 @@ finished: -
 **계획에 쓸 남의 정보는 반드시 먼저 요청 게시글로 올려라(v3.2)** — 회신 없이
 남의 파일을 읽으면 도구가 보이지 않는 종속으로 경고한다.
 산출물: examples/wedding/deliverables/DVD/plan.md (당일 자기 파트 타임라인 + 필요 큐)
+검증: 회신 2건(VENUE·MC) 확정 입력

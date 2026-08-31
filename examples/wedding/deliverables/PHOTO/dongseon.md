@@ -2,9 +2,12 @@
 입력: 자기 트랙(PHO-SUB-01-CUE, PHO-SUB-01-GEAR),
 MAKEUP 회신(examples/wedding/deliverables/MAKEUP/reply-photo-완료시각.md),
 VENUE 회신(examples/wedding/deliverables/VENUE/reply-photo-wonpan.md),
-MC 회신(examples/wedding/deliverables/MC/reply-dvd-식순.md — DVD 요청 회신이나
-동일 식순 정보를 취합 사슬 내에서 공용 참고),
-BG 회신(examples/wedding/deliverables/BG/reply-photo-가족명단.md)
+BG 회신(examples/wedding/deliverables/BG/reply-photo-가족명단.md),
+brief.md(신부 입장 라이브 피아노·성혼선언문 신랑아버지·축가 2팀·퇴장 밝은 MR)
+
+**잠정**: 12:15~12:52 구간 세부 컷 타이밍은 REQ-PHOTO-MC-식순 회신 대기
+중(8×15초 폴링 초과) — brief.md 순서만으로 자체 추정한 시각이다. 실회신
+도착 시 CORR로 정정한다.
 
 ## 타임라인
 | 시각 | 컷 | 비고 |
