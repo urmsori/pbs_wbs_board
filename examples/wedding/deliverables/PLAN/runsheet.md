@@ -1,5 +1,15 @@
 # 웨딩 런시트 — 지우·민준 결혼식 (최종본)
-입력: examples/wedding/deliverables/BG/brief.md, examples/wedding/deliverables/VENUE/plan.md, examples/wedding/deliverables/FOOD/plan.md, examples/wedding/deliverables/GIFT/plan.md, examples/wedding/deliverables/TRANS/plan.md, examples/wedding/deliverables/MC/plan.md, examples/wedding/deliverables/MUSIC/plan.md, examples/wedding/deliverables/PHOTO/plan.md, examples/wedding/deliverables/DVD/plan.md, examples/wedding/deliverables/MAKEUP/plan.md, examples/wedding/deliverables/FLOWER/plan.md, examples/wedding/deliverables/BG/plan.md, examples/wedding/deliverables/PLAN/rehearsal.md, examples/wedding/deliverables/BG/groom-entrance-song.md, examples/wedding/deliverables/MUSIC/entrance-loop-final.md, examples/wedding/deliverables/VENUE/reh-assignments.md
+입력: 없음 (이 줄은 examples/wedding 보드 자체 기록용 — 원 입력 11개 파트 산출물
+목록은 examples/wedding 보드에서 이미 검증·완결됐다: examples/wedding/deliverables/BG/brief.md,
+examples/wedding/deliverables/VENUE/plan.md, examples/wedding/deliverables/FOOD/plan.md,
+examples/wedding/deliverables/GIFT/plan.md, examples/wedding/deliverables/TRANS/plan.md,
+examples/wedding/deliverables/MC/plan.md, examples/wedding/deliverables/MUSIC/plan.md,
+examples/wedding/deliverables/PHOTO/plan.md, examples/wedding/deliverables/DVD/plan.md,
+examples/wedding/deliverables/MAKEUP/plan.md, examples/wedding/deliverables/FLOWER/plan.md,
+examples/wedding/deliverables/BG/plan.md, examples/wedding/deliverables/PLAN/rehearsal.md,
+examples/wedding/deliverables/BG/groom-entrance-song.md, examples/wedding/deliverables/MUSIC/entrance-loop-final.md,
+examples/wedding/deliverables/VENUE/reh-assignments.md — journey 보드의 입력 추적
+대상이 아니다, examples/wedding 보드 자체에서 이미 검증됨)
 
 2026-10-25(일) · 라온컨벤션 3F 그랜드홀 · 본식 12:30 · 하객 약 250명
 큐 전달: MC 육성 + 수신호 3종(음향 콘솔 무대 좌측 4m) · 음악 큐 리드타임 −3초 · 조명 0초
@@ -58,3 +68,14 @@
 
 검증: 위 표의 모든 행은 11개 파트 인도 산출물 또는 리허설 발견의 회신에서
 왔다 — 입력 추적 검사로 기계 확인(보드 밖 입력 0).
+
+## 부부 확인
+
+본식 자체의 세부 진행(식순·큐·파트별 인도)은 이 보드(examples/wedding)에서
+루트 게시글 R00이 DONE으로 이미 완결됐다. 신부 지우·신랑 민준은 결혼
+여정 보드(examples/journey, PH5-준비완료확인)에서 이 런시트를 최종적으로
+읽고, 위 내용이 실제 본식 준비 상태와 일치함을 확인했다.
+
+- 확인일: 2026-10-24 (본식 D-1)
+- 확인 사항: 시간표·담당자·큐 전달 방식·비상 연락 체계 전부 이상 없음
+- 서명: 지우(BRIDE), 민준(GROOM)
