@@ -1,14 +1,14 @@
 ---
 id: FIX-BG-신랑입장곡
 title: 신랑 입장 음악 현장 확정 요청
-status: OPEN
+status: TAKEN
 parent: REH
 source: REH
-owner: -
+owner: BG-GROOM(신랑)
 deliverable: -
 after: -
 track: BG
-started: -
+started: 2026-08-31 12:02:16
 finished: -
 ---
 

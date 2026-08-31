@@ -1,14 +1,14 @@
 ---
 id: REQ-MAKEUP-MC-식순
 title: 혼주 입장 시각 확인 요청 (혼주 시술 마감 기준)
-status: OPEN
+status: TAKEN
 parent: M-MAKEUP
 source: MU-ASST-01-GROOM
-owner: -
+owner: MC-01(사회자)
 deliverable: -
 after: -
 track: MC
-started: -
+started: 2026-08-31 12:02:16
 finished: -
 ---
 

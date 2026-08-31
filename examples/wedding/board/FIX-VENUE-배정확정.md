@@ -1,14 +1,14 @@
 ---
 id: FIX-VENUE-배정확정
 title: 소회의실 정식 배정 + 반입 시간 분리 확정
-status: OPEN
+status: TAKEN
 parent: REH
 source: REH
-owner: -
+owner: VEN-MGR-01(식장 매니저)
 deliverable: -
 after: -
 track: VENUE
-started: -
+started: 2026-08-31 12:02:17
 finished: -
 ---
 

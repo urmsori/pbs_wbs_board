@@ -1,14 +1,14 @@
 ---
 id: REQ-PHOTO-MC-식순
 title: 식순 확정본 요청 (스냅 동선·원판 유도 타이밍용)
-status: OPEN
+status: TAKEN
 parent: M-PHOTO
 source: PHO-MAIN-01
-owner: -
+owner: MC-01(사회자)
 deliverable: -
 after: -
 track: MC
-started: -
+started: 2026-08-31 12:02:16
 finished: -
 ---
 
