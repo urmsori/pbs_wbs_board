@@ -1,14 +1,14 @@
 ---
 id: M-MUSIC
 title: 축가·연주 파트 계획 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: MUS-LEAD-01(음악 총괄)
 deliverable: -
 after: BRIEF
 track: MUSIC
-started: -
+started: 2026-08-31 11:42:43
 finished: -
 ---
 

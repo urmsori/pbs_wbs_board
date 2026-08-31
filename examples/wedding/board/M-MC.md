@@ -1,14 +1,14 @@
 ---
 id: M-MC
 title: 사회 파트 계획 인도 요청
-status: OPEN
+status: TAKEN
 parent: R00
 source: -
-owner: -
+owner: MC-01(사회자)
 deliverable: -
 after: BRIEF
 track: MC
-started: -
+started: 2026-08-31 11:42:43
 finished: -
 ---
 
