@@ -9,7 +9,7 @@ deliverable: examples/wedding/deliverables/PHOTO/plan.md
 after: BRIEF
 track: PHOTO
 started: 2026-08-31 11:45:14
-finished: 2026-08-31 11:58:50
+finished: 2026-08-31 12:05:13
 ---
 
 준비~원판까지 촬영 동선. 원판은 시간 싸움.
@@ -18,3 +18,6 @@ finished: 2026-08-31 11:58:50
 남의 파일을 읽으면 도구가 보이지 않는 종속으로 경고한다.
 산출물: examples/wedding/deliverables/PHOTO/plan.md (당일 자기 파트 타임라인 + 필요 큐)
 검증: 회신 3건(VENUE·MAKEUP·BG) 확정 입력, MC식순 1건 잠정(폴링초과)
+
+재취합(규칙 4절): 늦게 닫힌 자식 REQ-PHOTO-MC-식순 회신 반영 — 잠정 표기가 실회신으로 대체됨.
+검증: 재취합 — MC 실회신 반영

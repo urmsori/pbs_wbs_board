@@ -1,15 +1,15 @@
 ---
 id: REQ-PHOTO-MC-식순
 title: 식순 확정본 요청 (스냅 동선·원판 유도 타이밍용)
-status: TAKEN
+status: DONE
 parent: M-PHOTO
 source: PHO-MAIN-01
 owner: MC-01(사회자)
-deliverable: -
+deliverable: examples/wedding/deliverables/MC/reply-photo-식순.md
 after: -
 track: MC
 started: 2026-08-31 12:02:16
-finished: -
+finished: 2026-08-31 12:03:12
 ---
 
 왜: 준비실~본식 동선(PHO-MAIN-01)은 스냅 기자가 예식 중 이동할 포지션과
@@ -17,3 +17,4 @@ finished: -
 
 요청: 시간대별 식순 확정본(입장~퇴장~예식종료 안내까지).
 회신 산출물 제안: examples/wedding/deliverables/MC/reply-photo-식순.md
+검증: 시간대별 식순 확정본+스냅 포지션 메모, 원판 유도 시점(12:52) 명시

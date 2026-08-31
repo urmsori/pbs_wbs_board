@@ -9,7 +9,7 @@ deliverable: examples/wedding/deliverables/MAKEUP/plan.md
 after: BRIEF
 track: MAKEUP
 started: 2026-08-31 11:45:14
-finished: 2026-08-31 11:58:50
+finished: 2026-08-31 12:05:13
 ---
 
 신부·신랑·혼주 준비 시각의 시작점.
@@ -18,3 +18,6 @@ finished: 2026-08-31 11:58:50
 남의 파일을 읽으면 도구가 보이지 않는 종속으로 경고한다.
 산출물: examples/wedding/deliverables/MAKEUP/plan.md (당일 자기 파트 타임라인 + 필요 큐)
 검증: 회신 1건(BG) 확정 입력, MC식순 1건 잠정(폴링초과)
+
+재취합(규칙 4절): 늦게 닫힌 자식 REQ-MAKEUP-MC-식순 회신 반영 — 잠정 표기가 실회신으로 대체됨.
+검증: 재취합 — MC 실회신 반영
